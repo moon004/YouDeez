@@ -23,12 +23,12 @@ describe('<MainWrapper/> Render The Right Component', () => {
     expect(shallowDumb.find('Search').length).toEqual(1)
   })
 
-  it('Should have <divTap/>', () => {
-    expect(shallowDumb.find('divTap').length).toEqual(1)
+  it('Should have <DivTap/>', () => {
+    expect(shallowDumb.find('DivTap').length).toEqual(1)
   })
 
-  it('Should have <myLibrary/>', () => {
-    expect(shallowDumb.find('myLibrary').length).toEqual(1)
+  it('Should have <MyLibrary/>', () => {
+    expect(shallowDumb.find('MyLibrary').length).toEqual(1)
   })
 
 });
@@ -65,7 +65,7 @@ describe('<ConnectedMainWrapper/>', () => {
 
   it('Should check action on dispatch', async () => {
     const action = updateMediaType('Youtube')
-    expect(action).toBe({
+    expect(action).toEqual({
       type:cnst.UPDATE_MEDIA,
       payload: {
         mediaType: 'Youtube'
@@ -73,47 +73,3 @@ describe('<ConnectedMainWrapper/>', () => {
     });
   });
 })
-
-
-
-
-/*
-test("mock implementation", () => {
-  const mock = jest.fn(() => "bar");
-
-  expect(mock("foo")).toBe("bar");
-  expect(mock).toHaveBeenCalledWith("foo");
-});
-
-test("also mock implementation", () => {
-  const mock = jest.fn().mockImplementation(() => "bar");
-
-  expect(mock("foo")).toBe("bar");
-  expect(mock).toHaveBeenCalledWith("foo");
-});
-
-test("mock implementation one time", () => {
-  const mock = jest.fn().mockImplementationOnce(() => "bar");
-
-  expect(mock("foo")).toBe("bar");
-  expect(mock).toHaveBeenCalledWith("foo");
-
-  expect(mock("baz")).toBe(undefined);
-  expect(mock).toHaveBeenCalledWith("baz");
-});
-
-test("mock return value", () => {
-  const mock = jest.fn();
-  mock.mockReturnValue("bar");
-
-  expect(mock("foo")).toBe("bar");
-  expect(mock).toHaveBeenCalledWith("foo");
-});
-
-test("mock promise resolution", () => {
-  const mock = jest.fn();
-  mock.mockResolvedValue("bar");
-
-  expect(mock("foo")).resolves.toBe("bar");
-  expect(mock).toHaveBeenCalledWith("foo");
-});*/

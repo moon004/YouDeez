@@ -1,26 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+
 import MainWrapper from './MainWrapper';
 import * as serviceWorker from './serviceWorker';
-import { applyMiddleware, compose, combineReducers, createStore } from 'redux';
+import { 
+    applyMiddleware, 
+    compose, 
+    combineReducers, 
+    createStore
+} from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import mediaTypeReducer from './reducers/mediaType-reducer';
-
-import 'bootstrap/dist/css/bootstrap.min.css';
-import $ from 'jquery';
-import Popper from 'popper.js';
-import 'bootstrap/dist/js/bootstrap.bundle.min';
-// whenever got action(dispatch), trigger this 
-
+import SearchReducer from './reducers/search-reducer';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// import $ from 'jquery';
+// import Popper from 'popper.js';
+// import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 
 
 const allReducers = combineReducers({
     whichMedia: mediaTypeReducer,
-    currentMediaTap: mediaTypeReducer
+    currentMediaTap: mediaTypeReducer,
+    apiReqState: SearchReducer
 });
 
 const allStoreEnchancer = compose(
@@ -36,7 +40,6 @@ const store = createStore(allReducers, {
 );
 
 
-ReactDOM.render(<App />, document.getElementById('root'));
 ReactDOM.render(<Provider store={store}><div><MainWrapper/></div></Provider>, document.getElementById('media player'));
 //ReactDOM.render(<App2 />, document.getElementById('root'));
 

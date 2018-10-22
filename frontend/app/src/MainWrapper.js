@@ -1,31 +1,21 @@
 import React from 'react';
 import './MainWrapper.css';
-import ResultObj from './Object';
-
 import { connect } from 'react-redux';
-import { updateMediaType, updateCurrentMedia } from './action/media-action';
-import Search from './Search';
-import DivTap from './DivTap';
-import MyLibrary from './MyLibrary';
+import { updateMediaType, updateCurrentMedia } 
+	from './action/media-action';
+import { fetchObjStart } from './action/search-action';
+
+import axios from 'axios';
+
+import ResultObj from './Object';
+import Search from './components/Search';
+import DivTap from './components/DivTap';
+import MyLibrary from './components/MyLibrary';
+import Media from './components/Media';
 import PropTypes from 'prop-types';
 
 
-class Media extends React.Component {
 
-	render() {
-			var returnMedia = null;
-			if (this.props.cMedia === "Youtube") {
-				returnMedia = <iframe title="Sadman" video="">
-						
-				</iframe>
-			}
-			return (
-				<div>
-					{returnMedia}
-				</div>
-			);
-	}
-}
 
 export class MainWrapper extends React.Component {
 	constructor() {
@@ -35,6 +25,7 @@ export class MainWrapper extends React.Component {
 		};
 		this.onUpdateMediaType = this.onUpdateMediaType.bind(this);
 		this.ObjTap = this.ObjTap.bind(this);
+		this.onSubmitSearch = this.onSubmitSearch.bind(this);
 		//Dummy Data
 		for (let i = 1; i < 4; i++) {
 			this.state.MediaObject = this.state.MediaObject.concat([{
@@ -52,42 +43,28 @@ onUpdateMediaType(e) {
 	this.props.onUpdateMediaType(e.target.value)
 }
 
-/*
-componentDidMount() {
-	setTimeout(() => {
-		this.props.onApiRequest();
-	}, 2000);
-}*/
+onSubmitSearch(e) {
+	this.props.onSubmit(e.target.value)
+}
+
 
 	render() {
-
-		var ObjectList = this.state.MediaObject.map((currentObj, index) => {
-			return (
-				<ResultObj 
-				key={index}
-				name={currentObj.name}
-				rType={this.props.currentMediaTap}
-				className="mainMediaObject"
-				handleMClick={this.onUpdateMediaType}/>
-			)
-		});
 		return (
 				<div>
-					<Search/>
-					<DivTap/>
 					<div>
-						{ObjectList}
+					<Search handleSubmit={this.onSubmitSearch}/>
+					<DivTap/>
 					</div>
 					<div>
 						<Media cMedia={this.props.whichMedia}/>
 					</div>
-				<MyLibrary/>
+					<MyLibrary/>
 				</div>
 		);
 	}
 }
 
-const mapStateToProps = (state, props) => {
+const mapStateToProps = (state) => {
 	//TAKE STATE FROM STORE TO PUT ON THIS COMPONENT PUNYA PROPS
 	//BELOW ARE ALL THIS COMPONENT PUNYA PROPS
 	return {
@@ -98,7 +75,8 @@ const mapStateToProps = (state, props) => {
 
 const mapActionsToProps = {
 		onUpdateMediaType: updateMediaType,
-		onUpdateCurrentMedia: updateCurrentMedia
+		onUpdateCurrentMedia: updateCurrentMedia,
+		onSubmitSearch: fetchObjStart
 };
 
 export default connect(mapStateToProps, mapActionsToProps)(MainWrapper);
