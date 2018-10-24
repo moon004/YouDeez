@@ -1,42 +1,40 @@
 import React from 'react';
 import {
-	YOUTUBE_TYPE,
-	DEEZER_TYPE
+  YOUTUBE_TYPE,
+  DEEZER_TYPE,
 } from './constants/constant';
 
 
+const RetObject = (props) => {
+  const Title = props.name;
+  const RenderType = props.rType;
+  const MClick = props.handleMClick;
+  switch (RenderType) {
+    case YOUTUBE_TYPE:
+      return (
+        <div>
+          <button
+            id={RenderType}
+            key={props.key}
+            value="Youtube"
+            onClick={MClick}
+          >
+            {Title}
+          </button>
+        </div>
 
-
-
-const RetObject = props => {
-	
-	const Title = props.name;
-	const RenderType = props.rType;
-	const MClick = props.handleMClick;
-	switch (RenderType) {
-		case YOUTUBE_TYPE:
-		return (
-			<div>
-				<button
-				id={RenderType} 
-				key={props.key}
-				value='Youtube' 
-				onClick={MClick}>
-					{Title}
-				</button>
-			</div>
-		
-		)
-		case DEEZER_TYPE:
-			return (
-				<button key={props.key} value='Deezer' onClick={props.handleMClick}>
+      );
+    case DEEZER_TYPE:
+      return (
+        <button key={props.key} value="Deezer" onClick={props.handleMClick}>
 					Deezer
-				</button>
-			)
-		default:
-			return null
-	}
-}
+
+        </button>
+      );
+    default:
+      return null;
+  }
+};
 
 export default RetObject;
 
