@@ -13,15 +13,14 @@ import thunk from 'redux-thunk';
 import * as serviceWorker from './serviceWorker';
 import MainWrapper from './MainWrapper';
 import mediaTypeReducer from './reducers/mediaType-reducer';
-import SearchReducer from './reducers/search-reducer';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { SearchReducer, SACReducer } from './reducers/search-reducer';
 
 
 const allReducers = combineReducers({
   whichMedia: mediaTypeReducer,
   currentMediaTap: mediaTypeReducer,
   apiReqState: SearchReducer,
-  autoComplete: SearchReducer,
+  autoComplete: SACReducer, // SAC is Search Auto Complete
 });
 
 const allStoreEnchancer = compose(

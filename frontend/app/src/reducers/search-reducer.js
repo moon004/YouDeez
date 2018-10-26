@@ -8,12 +8,17 @@ import {
 } from '../constants/constant';
 
 const initialState = {
-  fetchState: '',
+  fetchState: 'Search',
   error: null,
   data: [],
 };
 
-export default function SearchReducer(
+const initialAC = {
+  currentState: '',
+  autoCompData: [],
+};
+
+export function SearchReducer(
   state = initialState, { type, payload },
 ) {
   switch (type) {
@@ -23,10 +28,21 @@ export default function SearchReducer(
       return { ...state, fetchState: 'There you go', data: payload };
     case FETCH_ERROR:
       return { ...state, fetchState: 'Error', error: payload };
+    default:
+      return state;
+  }
+}
+
+// SAC = Search Auto Complete
+export function SACReducer(
+  state = initialAC, { type, payload },
+) {
+  switch (type) {
     case ACOMPLETE_SUC:
-      return { currentState: 'Success', data: payload };
+      console.log('reducer', payload);
+      return { ...state, currentState: 'Success', autoCompData: payload };
     case ACOMPLETE_ERR:
-      return { currentState: 'Fail', data: payload };
+      return { ...state, currentState: 'Fail', autoCompData: payload };
     default:
       return state;
   }

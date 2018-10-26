@@ -10,6 +10,7 @@ import Search from './components/Search';
 import DivTap from './components/DivTap';
 import MyLibrary from './components/MyLibrary';
 import Media from './components/Media';
+import Div from './styling/MainWrapper.style';
 
 
 export class MainWrapper extends Component {
@@ -51,7 +52,7 @@ export class MainWrapper extends Component {
 
   render() {
     return (
-      <div>
+      <Div>
         <div>
           <Search
             handleSubmit={this.onSubmitSearch}
@@ -65,7 +66,7 @@ export class MainWrapper extends Component {
           <Media cMedia={this.props.whichMedia} />
         </div>
         <MyLibrary />
-      </div>
+      </Div>
     );
   }
 }
