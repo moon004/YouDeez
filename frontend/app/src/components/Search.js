@@ -10,50 +10,43 @@ class Search extends Component {
     super();
     this.state = {
       value: '',
-      clear: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.inputRef = React.createRef();
   }
 
   componentDidUpdate() {
-    console.log('Component Did Update')
+    console.log('Component Did Update');
   }
 
-  handleChange = (value) => (e) => {
+  handleChange = value => (e) => {
     const { getAutoComp } = this.props;
     console.log('before setState', e.target.value);
     this.setState({
       value: e.target.value,
     }, () => {
-      console.log('callback', value);
       if (value && value.length > 1) {
         getAutoComp(value);
       }
     });
   }
 
-  handleClick = (value) => (e) => {
+  handleClick = (value) => {
     const { getAutoComp } = this.props;
-    console.log(value)
+    console.log(value);
     this.setState({
-      value: value,
+      value,
     }, () => {
       getAutoComp(value);
       this.state.value = '';
     });
   }
 
-
-
-
-
   render() {
-    console.log('Render()')
+    console.log('Render()');
     const {
       searchState: {
         fetchState,
-        data,
       },
       autoComplete: {
         currentState,
@@ -61,12 +54,12 @@ class Search extends Component {
       },
       handleSubmit,
     } = this.props;
-    const { value, clear } = this.state;
+    const { value } = this.state;
     let autoList;
     if (currentState === 'Success') {
-      autoList = autoCompData[1].map((val, index) => (
+      autoList = autoCompData[1].map(val => (
         <List
-          key={index}
+          key={val[0]}
           onClick={this.handleClick(val)}
           value={val}
         >

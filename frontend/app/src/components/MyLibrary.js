@@ -1,14 +1,10 @@
 import React from 'react';
 
+const MyLibrary = () => (
+  <div>
+    <h1>My Library</h1>
+  </div>
+);
 
-class MyLibrary extends React.Component {
-  render() {
-    return (
-      <div>
-        <h1>MyLibrary</h1>
-      </div>
-    );
-  }
-}
 
 export default MyLibrary;

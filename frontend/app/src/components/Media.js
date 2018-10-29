@@ -1,17 +1,10 @@
 import React from 'react';
 
-class Media extends React.Component {
-  render() {
-    const returnMedia = null;
-
-    return (
-      <div>
-        <iframe title={this.props.cMedia} video="" />
-        {returnMedia}
-      </div>
-    );
-  }
-}
+const Media = () => (
+  <div>
+    <h1>Media</h1>
+  </div>
+);
 
 
 export default Media;

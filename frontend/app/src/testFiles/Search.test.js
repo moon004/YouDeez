@@ -1,17 +1,12 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import axios from 'axios';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 import Search from '../components/Search';
 import { fetchObjStart } from '../action/search-action';
-import ConnectedMainWrapper, { MainWrapper } from '../MainWrapper';
+import ConnectedMainWrapper from '../MainWrapper';
 
-import {
-  FETCH_SUCCESS,
-  FETCH_ERROR,
-} from '../constants/constant';
 
 describe('<Search/>', () => {
   const jspySearchFire = jest.fn();

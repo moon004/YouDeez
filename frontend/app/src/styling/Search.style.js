@@ -1,4 +1,4 @@
-import { Search } from 'styled-icons/fa-solid/Search';
+import { Search } from 'styled-icons/material/Search';
 import styled from 'styled-components';
 
 export const Input = styled.input`
