@@ -16,15 +16,24 @@ import Div from './styling/MainWrapper.style';
 export class MainWrapper extends Component {
   constructor() {
     super();
-    this.state = {
-      // MediaObject: [],
-    };
+    this.state = { width: 0 };
     this.onUpdateMediaType = this.onUpdateMediaType.bind(this);
-    this.ObjTap = this.ObjTap.bind(this);
+    this.onObjTap = this.onObjTap.bind(this);
     this.onSubmitSearch = this.onSubmitSearch.bind(this);
     this.onGetAutoComp = this.onGetAutoComp.bind(this);
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
 
+  componentDidMount() {
+    console.log('Event listener added');
+    this.updateWindowDimensions();
+    window.addEventListener('resize', this.updateWindowDimensions);
+  }
+
+  componentWillUnmount() {
+    console.log('Event Listener Remove');
+    window.removeEventListener('resize', this.updateWindowDimensions);
+  }
 
   onUpdateMediaType(event) {
     const { onUpdateMediaType } = this.props;
@@ -42,9 +51,13 @@ export class MainWrapper extends Component {
     onGetAutoComp(value);
   }
 
-  ObjTap(e) {
+  onObjTap = (value) => {
     const { onUpdateCurrentMedia } = this.props;
-    onUpdateCurrentMedia(e.target.value);
+    onUpdateCurrentMedia(value);
+  }
+
+  updateWindowDimensions() {
+    this.setState({ width: window.innerWidth });
   }
 
   render() {
@@ -54,17 +67,19 @@ export class MainWrapper extends Component {
       apiReqState,
       autoComplete,
     } = this.props;
+    const { width } = this.state;
     return (
-      <Div>
+      <Div width={width}>
         <div>
           <Search
             handleSubmit={this.onSubmitSearch}
             searchState={apiReqState}
-            getAutoComp={this.onGetAutoComp}
+            onGetAutoComp={this.onGetAutoComp}
             autoComplete={autoComplete}
           />
           <DivTap
             searchState={apiReqState}
+            onObjTap={this.onObjTap}
             tapState={currentMediaTap}
           />
         </div>

@@ -1,20 +1,35 @@
-import { Search } from 'styled-icons/material/Search';
-import styled from 'styled-components';
+import { Search } from 'styled-icons/fa-solid/Search';
+import styled, { keyframes } from 'styled-components';
+import '../index.css';
 
 export const Input = styled.input`
-  @import url('https://fonts.googleapis.com/css?family=Ubuntu:400,500,500i');
   padding: 0.5em;
   font-family: Ubuntu;
-  font-weight: 300;
+  font-weight: 600;
   font-size: 1em;
   color: rgb(20,20,20);
   background: white;
   border: 0.1em solid gray;
-  border-radius: 10px;
+  border-radius: 20px;
   width: 100%;
   &:focus {
-     outline: none
+     outline: none;
    }
+`;
+
+const blink = keyframes`
+   0% {
+     color: black;
+   }
+
+   50% {
+     color: white;
+   }
+
+   100% {
+     color: black;
+   }
+
 `;
 
 export const SearchIcon = styled(Search)`
@@ -23,6 +38,7 @@ export const SearchIcon = styled(Search)`
   position: absolute;
   right: -0.2em;
   top: 0.55em;
+  animation: ${blink} 0.25s ${props => (props.blink ? 'infinite' : 'linear')};
   `;
 
 export const Div = styled.div`

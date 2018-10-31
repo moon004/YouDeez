@@ -8,7 +8,7 @@ import {
 } from '../constants/constant';
 
 const initialState = {
-  fetchState: 'Search',
+  fetchState: 'Search', // initial state will take the value here.
   error: null,
   data: [],
 };
@@ -23,9 +23,9 @@ export function SearchReducer(
 ) {
   switch (type) {
     case FETCH_OBJ_START:
-      return { ...state };
+      return { ...state, fetchState: 'Searching' };
     case FETCH_SUCCESS: // F = FETCH
-      return { ...state, fetchState: 'There you go', data: payload };
+      return { ...state, fetchState: 'There you go...', data: payload };
     case FETCH_ERROR:
       return { ...state, fetchState: 'Error', error: payload };
     default:

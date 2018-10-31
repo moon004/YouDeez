@@ -4,7 +4,6 @@ import {
   Input, SearchIcon, Div, List,
 } from '../styling/Search.style';
 
-
 class Search extends Component {
   constructor() {
     super();
@@ -15,35 +14,26 @@ class Search extends Component {
     this.inputRef = React.createRef();
   }
 
-  componentDidUpdate() {
-    console.log('Component Did Update');
-  }
-
   handleChange = value => (e) => {
-    const { getAutoComp } = this.props;
-    console.log('before setState', e.target.value);
+    const { onGetAutoComp } = this.props;
     this.setState({
       value: e.target.value,
     }, () => {
       if (value && value.length > 1) {
-        getAutoComp(value);
+        onGetAutoComp(value);
       }
     });
   }
 
-  handleClick = (value) => {
-    const { getAutoComp } = this.props;
-    console.log(value);
-    this.setState({
-      value,
-    }, () => {
-      getAutoComp(value);
-      this.state.value = '';
+  handleClick = value => () => {
+    const { onGetAutoComp } = this.props;
+    this.setState({}, () => {
+      onGetAutoComp(value);
+      this.state.value = value;
     });
   }
 
   render() {
-    console.log('Render()');
     const {
       searchState: {
         fetchState,
@@ -58,10 +48,10 @@ class Search extends Component {
     let autoList;
     if (currentState === 'Success') {
       autoList = autoCompData[1].map(val => (
+
         <List
-          key={val[0]}
+          key={val}
           onClick={this.handleClick(val)}
-          value={val}
         >
           {val}
         </List>
@@ -72,7 +62,11 @@ class Search extends Component {
     }
     return (
       <Div position="relative">
-        <SearchIcon onClick={handleSubmit} type="button" />
+        <SearchIcon
+          onClick={handleSubmit}
+          type="button"
+          blink={fetchState === 'Searching'}
+        />
         <Input
           id="searchInput"
           type="text"
@@ -103,12 +97,12 @@ Search.propTypes = {
     },
   ),
   handleSubmit: PropTypes.func,
-  getAutoComp: PropTypes.func,
+  onGetAutoComp: PropTypes.func,
 };
 
 Search.defaultProps = {
   searchState: {
-    fetchState: 'Search',
+    fetchState: 'Search', // Initial state will take value from reducer initialState
     data: [],
   },
   autoComplete: {
@@ -116,6 +110,6 @@ Search.defaultProps = {
     autoCompData: [],
   },
   handleSubmit: () => {},
-  getAutoComp: () => {},
+  onGetAutoComp: () => {},
 };
 export default Search;

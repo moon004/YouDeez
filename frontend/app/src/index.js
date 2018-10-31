@@ -11,12 +11,12 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import * as serviceWorker from './serviceWorker';
 import ConnMainWrapper from './MainWrapper';
-import mediaTypeReducer from './reducers/mediaType-reducer';
+import { mediaTypeReducer, mediaObjectReducer } from './reducers/mediaType-reducer';
 import { SearchReducer, SACReducer } from './reducers/search-reducer';
 
 
 const allReducers = combineReducers({
-  MediaObject: mediaTypeReducer,
+  MediaObject: mediaObjectReducer,
   currentMediaTap: mediaTypeReducer,
   apiReqState: SearchReducer,
   autoComplete: SACReducer, // SAC is Search Auto Complete
