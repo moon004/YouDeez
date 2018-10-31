@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
-  DivT, Button, ButDeez, StyledScrollbar, EqDivider,
+  DivT, ButYou, ButDeez, StyledScrollbar, EqDivider,
 } from '../styling/DivTap.style';
 
 class DivTap extends Component {
@@ -37,13 +37,13 @@ class DivTap extends Component {
     return (
       <DivT currentap={tapState}>
         <EqDivider>
-          <Button
+          <ButYou
             type="button"
             onClick={this.handleTapClick('Youtube')}
             currentap={tapState}
           >
             {''}
-          </Button>
+          </ButYou>
           <ButDeez
             type="button"
             onClick={this.handleTapClick('Deezer')}
@@ -59,8 +59,8 @@ class DivTap extends Component {
           thumbMinSize={50}
           currentap={tapState}
         >
-          <img alt="" src={data} />
           {tapState}
+          {data}
         </StyledScrollbar>
 
       </DivT>

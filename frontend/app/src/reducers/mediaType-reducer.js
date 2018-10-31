@@ -11,7 +11,7 @@ const initialMediaObject = {
 
 export function mediaTypeReducer(
 // currentMediaTap = 'Youtube' on start
-  state = 'Youtube', { type, payload },
+  state = 'Deezer', { type, payload },
 ) {
   switch (type) {
     case UPDATE_CMEDIA:

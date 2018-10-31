@@ -1,11 +1,15 @@
+import 'jsdom-global/register';
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-import configureStore from 'redux-mock-store';
+import {
+  combineReducers,
+  createStore,
+  applyMiddleware,
+} from 'redux';
 import Search from '../components/Search';
-import { fetchObjStart } from '../action/search-action';
-import ConnectedMainWrapper from '../MainWrapper';
+import { SearchReducer, SACReducer } from '../reducers/search-reducer';
 
 
 describe('<Search/>', () => {
@@ -14,61 +18,56 @@ describe('<Search/>', () => {
   const testState = {
     handleSubmit: jspySearchFire,
     searchState: {
-      fetchState: null,
-      data: {},
+      fetchState: 'Search',
+      data: [],
     },
-    getAutoComp: jspyAutoComp,
+    onGetAutoComp: jspyAutoComp,
   };
-  const initialState = {
-    whichMedia: null,
-    currentMediaTap: 'YOUTUBE',
-  };
-  const middleware = [thunk];
-  const mockStore = configureStore(middleware);
-  const store = mockStore(initialState);
-  let shallowDumb;
+  const allReducers = combineReducers({
+    apiReqState: SearchReducer,
+    autoComplete: SACReducer, // SAC is Search Auto Complete
+  });
+  const store = createStore(allReducers, applyMiddleware(thunk));
+
   let mountAutoComp;
   let mountStore;
 
   beforeEach(() => {
-    shallowDumb = shallow(<Search />);
     mountAutoComp = mount(<Search {...testState} />);
     mountStore = mount(
       <Provider store={store}>
-        <ConnectedMainWrapper />
+        <Search {...testState} />
       </Provider>,
     );
-  });
-
-  it('Should render properly', () => {
-    expect(shallowDumb.find('input').prop('placeholder')).toEqual('Search');
   });
 
   it('Should work for autoComplete as well', () => {
     const expected = 'coldplay';
     const searchInput = mountAutoComp.find('input');
     mountAutoComp.update();
+    expect(searchInput.length).toEqual(1);
     searchInput.simulate('change', {
       target: { value: expected },
     });
     expect(mountAutoComp.state().value).toEqual(expected);
-    expect(testState.getAutoComp).toHaveBeenCalled();
+    searchInput.simulate('change', {
+      target: { value: ' ' },
+    });
+    expect.assertions(3);
+    setTimeout(() => {
+      expect(testState.onGetAutoComp).toHaveBeenCalled();
+    }, 500);
+    expect(testState.searchState.fetchState).toEqual('Search');
   });
+
   it('Should work properly', () => {
     const expected = 'goose house';
-    const sInput = mountStore.find('Input');
-    const sIcon = mountStore.find('searchIcon');
+    const sInput = mountStore.find('input');
+    const sIcon = mountStore.find('svg');
     sInput.simulate('change', {
       target: { value: expected },
     });
     sIcon.simulate('click');
     expect(testState.handleSubmit).toHaveBeenCalled();
-    expect.assertions(1);
-    fetchObjStart();
-    jest.useFakeTimers();
-    setTimeout(() => {
-      expect(testState.searchState.data).toBeInstanceOf(Object);
-    }, 1000);
-    jest.runAllTimers();
   });
 });

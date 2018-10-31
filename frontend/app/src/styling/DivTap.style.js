@@ -17,7 +17,7 @@ export const EqDivider = styled.div`
   flex-direction: row;
 `;
 
-export const Button = styled.button`
+export const ButYou = styled.button`
   font-size: 1em;
   background-image: url(${ytLogo});
   background-size: cover;
@@ -27,7 +27,7 @@ export const Button = styled.button`
   height: 4em;
   border: none;
   flex: 1;
-  opacity: ${props => (props.currentap === 'Youtube' ? 1 : 0.90)};
+  opacity: ${props => (props.currentap === 'Youtube' ? 1 : 0.80)};
   &:focus {
     outline: none;
   }
@@ -36,12 +36,12 @@ export const Button = styled.button`
   }
 `;
 
-export const ButDeez = styled(Button)`
+export const ButDeez = styled(ButYou)`
   background-image: url(${deezLogo});
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  opacity: ${props => (props.currentap === 'Deezer' ? 1 : 0.7)};
+  opacity: ${props => (props.currentap === 'Deezer' ? 1 : 0.6)};
   &:hover {
     background: 1;
   }

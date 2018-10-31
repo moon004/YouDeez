@@ -5,7 +5,7 @@ import '../index.css';
 export const Input = styled.input`
   padding: 0.5em;
   font-family: Ubuntu;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 1em;
   color: rgb(20,20,20);
   background: white;
