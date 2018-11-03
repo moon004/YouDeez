@@ -1,0 +1,118 @@
+-------------
+[req_id]:DESKTOP-IBNU8OB/kE0y4QolP8-000001  [http_method]:GET  [uri]:http://localhost:8888/doggo  [ts]:Wed, 31 Oct 2018 11:16:56 UTC  
+-------------
+[uri]:http://localhost:8888/doggo  [ts]:Wed, 31 Oct 2018 14:11:02 UTC  [req_id]:DESKTOP-IBNU8OB/kE0y4QolP8-000003  [http_method]:GET  
+-------------
+[ts]:Wed, 31 Oct 2018 16:11:05 UTC  [req_id]:DESKTOP-IBNU8OB/kE0y4QolP8-000005  [http_method]:GET  [uri]:http://localhost:8888/doggo  
+-------------
+[ts]:Wed, 31 Oct 2018 16:58:56 UTC  [req_id]:DESKTOP-IBNU8OB/kE0y4QolP8-000007  [http_method]:GET  [uri]:http://localhost:8888/  
+-------------
+[ts]:Wed, 31 Oct 2018 16:58:56 UTC  [req_id]:DESKTOP-IBNU8OB/kE0y4QolP8-000008  [http_method]:GET  [uri]:http://localhost:8888/favicon.ico  
+-------------
+[ts]:Wed, 31 Oct 2018 16:59:02 UTC  [req_id]:DESKTOP-IBNU8OB/kE0y4QolP8-000009  [http_method]:GET  [uri]:http://localhost:8888/doggo  
+-------------
+[uri]:http://localhost:8888/  [ts]:Wed, 31 Oct 2018 16:59:21 UTC  [req_id]:DESKTOP-IBNU8OB/kE0y4QolP8-000011  [http_method]:GET  
+-------------
+[http_method]:GET  [uri]:http://localhost:8888/  [ts]:Fri, 02 Nov 2018 03:55:29 UTC  [req_id]:DESKTOP-IBNU8OB/GS3nVG9A8Z-000001  
+-------------
+[ts]:Fri, 02 Nov 2018 03:55:34 UTC  [req_id]:DESKTOP-IBNU8OB/GS3nVG9A8Z-000002  [http_method]:GET  [uri]:http://localhost:8888/doggo  
+-------------
+[ts]:Fri, 02 Nov 2018 03:56:04 UTC  [req_id]:DESKTOP-IBNU8OB/GS3nVG9A8Z-000004  [http_method]:GET  [uri]:http://localhost:8888/youtube  
+-------------
+[req_id]:DESKTOP-IBNU8OB/GS3nVG9A8Z-000006  [http_method]:GET  [uri]:http://localhost:8888/youtube?q=sad  [ts]:Fri, 02 Nov 2018 03:56:17 UTC  
+-------------
+[ts]:Fri, 02 Nov 2018 03:57:14 UTC  [req_id]:DESKTOP-IBNU8OB/GS3nVG9A8Z-000008  [http_method]:GET  [uri]:http://localhost:8888/youtube?q=sad  
+-------------
+[ts]:Fri, 02 Nov 2018 03:58:02 UTC  [req_id]:DESKTOP-IBNU8OB/GS3nVG9A8Z-000010  [http_method]:GET  [uri]:http://localhost:8888/youtube?q=sad  
+-------------
+[ts]:Fri, 02 Nov 2018 04:20:10 UTC  [req_id]:DESKTOP-IBNU8OB/TkLlk5FSim-000001  [http_method]:GET  [uri]:http://localhost:8888/doggo  
+-------------
+[ts]:Fri, 02 Nov 2018 04:20:16 UTC  [req_id]:DESKTOP-IBNU8OB/TkLlk5FSim-000003  [http_method]:GET  [uri]:http://localhost:8888/doggo  
+-------------
+[ts]:Fri, 02 Nov 2018 04:58:43 UTC  [req_id]:DESKTOP-IBNU8OB/UJGAbORd45-000001  [http_method]:GET  [uri]:http://localhost:8888/youtube?q=sad  
+-------------
+[uri]:http://localhost:8888/youtube  [ts]:Fri, 02 Nov 2018 05:35:33 UTC  [req_id]:DESKTOP-IBNU8OB/HJJ9h3V6m7-000001  [http_method]:GET  
+-------------
+[http_method]:GET  [uri]:http://localhost:8888/youtube  [ts]:Fri, 02 Nov 2018 05:37:16 UTC  [req_id]:DESKTOP-IBNU8OB/HJJ9h3V6m7-000003  
+-------------
+[ts]:Fri, 02 Nov 2018 06:22:02 UTC  [req_id]:DESKTOP-IBNU8OB/pVez2XQTtK-000001  [http_method]:GET  [uri]:http://localhost:8888/youtube  
+-------------
+[uri]:http://localhost:8888/youtube?q=sad&mr=5  [ts]:Fri, 02 Nov 2018 06:23:13 UTC  [req_id]:DESKTOP-IBNU8OB/lLhEJYoHUw-000001  [http_method]:GET  
+-------------
+[http_method]:GET  [uri]:http://localhost:8888/youtube?q=undertale&mr=5  [ts]:Fri, 02 Nov 2018 06:45:23 UTC  [req_id]:DESKTOP-IBNU8OB/lLhEJYoHUw-000003  
+-------------
+[ts]:Fri, 02 Nov 2018 06:47:56 UTC  [req_id]:DESKTOP-IBNU8OB/lLhEJYoHUw-000005  [http_method]:GET  [uri]:http://localhost:8888/youtube?q=undertale  
+-------------
+[ts]:Fri, 02 Nov 2018 06:54:32 UTC  [req_id]:DESKTOP-IBNU8OB/iEhXtYPTOn-000001  [http_method]:GET  [uri]:http://localhost:8888/youtube?q=undertale%20soundtrack&mr=5  
+-------------
+[uri]:http://localhost:8888/youtube?q=undertalesoundtrack&mr=5  [ts]:Fri, 02 Nov 2018 06:55:15 UTC  [req_id]:DESKTOP-IBNU8OB/iEhXtYPTOn-000003  [http_method]:GET  
+-------------
+[http_method]:GET  [uri]:http://localhost:8888/youtube?q=undertale+soundtrack&mr=5  [ts]:Fri, 02 Nov 2018 06:55:31 UTC  [req_id]:DESKTOP-IBNU8OB/iEhXtYPTOn-000005  
+-------------
+[uri]:http://localhost:8888/youtube?q=undertale%20soundtrack&mr=5  [ts]:Fri, 02 Nov 2018 06:55:53 UTC  [req_id]:DESKTOP-IBNU8OB/iEhXtYPTOn-000007  [http_method]:GET  
+-------------
+[req_id]:DESKTOP-IBNU8OB/iEhXtYPTOn-000009  [http_method]:GET  [uri]:http://localhost:8888/youtube?q=undertale%20soundtrack&mr=5  [ts]:Fri, 02 Nov 2018 06:56:37 UTC  
+-------------
+[http_method]:POST  [uri]:http://localhost:8888/youtube  [ts]:Fri, 02 Nov 2018 07:00:54 UTC  [req_id]:DESKTOP-IBNU8OB/iEhXtYPTOn-000011  
+-------------
+[ts]:Fri, 02 Nov 2018 07:01:52 UTC  [req_id]:DESKTOP-IBNU8OB/iEhXtYPTOn-000013  [http_method]:GET  [uri]:http://localhost:8888/youtube?q=undertale%20soundtrack&mr=10  
+-------------
+[req_id]:DESKTOP-IBNU8OB/iEhXtYPTOn-000015  [http_method]:GET  [uri]:http://localhost:8888/youtube?q=undertale%20soundtrack&mr=10  [ts]:Fri, 02 Nov 2018 07:02:15 UTC  
+-------------
+[ts]:Fri, 02 Nov 2018 07:02:21 UTC  [req_id]:DESKTOP-IBNU8OB/iEhXtYPTOn-000017  [http_method]:GET  [uri]:http://localhost:8888/youtube?q=undertale%20soundtrack&mr=10  
+-------------
+[ts]:Fri, 02 Nov 2018 07:04:32 UTC  [req_id]:DESKTOP-IBNU8OB/F3lPVVVDLe-000001  [http_method]:GET  [uri]:http://localhost:8888/youtube?q=undertale%20soundtrack&mr=10  
+-------------
+[uri]:http://localhost:8888/youtube?q=undertale&mr=10  [ts]:Fri, 02 Nov 2018 07:04:50 UTC  [req_id]:DESKTOP-IBNU8OB/F3lPVVVDLe-000003  [http_method]:GET  
+-------------
+[ts]:Fri, 02 Nov 2018 07:12:28 UTC  [req_id]:DESKTOP-IBNU8OB/F3lPVVVDLe-000005  [http_method]:GET  [uri]:http://localhost:8888/youtube?q=undertale%20song&mr=10  
+-------------
+[ts]:Fri, 02 Nov 2018 07:12:47 UTC  [req_id]:DESKTOP-IBNU8OB/F3lPVVVDLe-000007  [http_method]:GET  [uri]:http://localhost:8888/youtube?q=undertale%20song&mr=10  
+-------------
+[http_method]:GET  [uri]:http://localhost:8888/youtube?q=undertale%2Bsong&mr=10  [ts]:Fri, 02 Nov 2018 07:13:39 UTC  [req_id]:DESKTOP-IBNU8OB/F3lPVVVDLe-000009  
+-------------
+[ts]:Fri, 02 Nov 2018 07:16:55 UTC  [req_id]:DESKTOP-IBNU8OB/0xhBlw6gMw-000001  [http_method]:GET  [uri]:http://localhost:8888/youtube?q=undertale%20song&mr=10  
+-------------
+[ts]:Fri, 02 Nov 2018 09:15:39 UTC  [req_id]:DESKTOP-IBNU8OB/ZaWtsegxWC-000001  [http_method]:GET  [uri]:http://localhost:8888/youtube?q=undertale%20song&mr=10  
+-------------
+[ts]:Fri, 02 Nov 2018 09:16:56 UTC  [req_id]:DESKTOP-IBNU8OB/ZaWtsegxWC-000003  [http_method]:GET  [uri]:http://localhost:8888/youtube?q=undertale%20song&mr=1  
+-------------
+[ts]:Fri, 02 Nov 2018 09:49:57 UTC  [req_id]:DESKTOP-IBNU8OB/6tu6oXU7m0-000001  [http_method]:GET  [uri]:http://localhost:8888/youtube?q=undertale%20song&mr=1  
+-------------
+[ts]:Fri, 02 Nov 2018 09:58:51 UTC  [req_id]:DESKTOP-IBNU8OB/pYBo9FepFx-000001  [http_method]:GET  [uri]:http://localhost:8888/youtube?q=undertale%20song&mr=1  
+-------------
+[req_id]:DESKTOP-IBNU8OB/gFsOj2hUEP-000001  [http_method]:GET  [uri]:http://localhost:8888/youtube?q=undertale%20song&mr=2  [ts]:Fri, 02 Nov 2018 13:18:30 UTC  
+-------------
+[req_id]:DESKTOP-IBNU8OB/sSEsaoj8tS-000001  [http_method]:GET  [uri]:http://localhost:8888/youtube?q=undertale%20song&mr=2  [ts]:Fri, 02 Nov 2018 15:06:07 UTC  
+-------------
+[ts]:Fri, 02 Nov 2018 15:06:33 UTC  [req_id]:DESKTOP-IBNU8OB/sSEsaoj8tS-000003  [http_method]:GET  [uri]:http://localhost:8888/youtube?q=undertale%20song&mr=1  
+-------------
+[ts]:Fri, 02 Nov 2018 15:39:09 UTC  [req_id]:DESKTOP-IBNU8OB/K7Rsf6Sst6-000001  [http_method]:GET  [uri]:http://localhost:8888/youtube?q=undertale%20song&mr=1  
+-------------
+[ts]:Fri, 02 Nov 2018 15:46:55 UTC  [req_id]:DESKTOP-IBNU8OB/cNZ4MDTfMI-000001  [http_method]:GET  [uri]:http://localhost:8888/youtube?q=undertale%20song&mr=1  
+-------------
+[req_id]:DESKTOP-IBNU8OB/DFOYt9tMl1-000001  [http_method]:GET  [uri]:http://localhost:8888/youtube?q=undertale%20song&mr=1  [ts]:Fri, 02 Nov 2018 15:53:58 UTC  
+-------------
+[ts]:Fri, 02 Nov 2018 15:56:19 UTC  [req_id]:DESKTOP-IBNU8OB/ayJVV0GIto-000001  [http_method]:GET  [uri]:http://localhost:8888/youtube?q=undertale%20song&mr=1  
+-------------
+[req_id]:DESKTOP-IBNU8OB/ayJVV0GIto-000003  [http_method]:GET  [uri]:http://localhost:8888/youtube?q=undertale%20song&mr=2  [ts]:Fri, 02 Nov 2018 15:56:37 UTC  
+-------------
+[http_method]:GET  [uri]:http://localhost:8888/youtube?q=undertale%20song&mr=1  [ts]:Fri, 02 Nov 2018 16:05:27 UTC  [req_id]:DESKTOP-IBNU8OB/bsxIQOyqHp-000001  
+-------------
+[http_method]:GET  [uri]:http://localhost:8888/youtube?q=undertale%20song&mr=2  [ts]:Fri, 02 Nov 2018 16:05:34 UTC  [req_id]:DESKTOP-IBNU8OB/bsxIQOyqHp-000003  
+-------------
+[uri]:http://localhost:8888/youtube?q=undertale%20song&mr=1  [ts]:Fri, 02 Nov 2018 16:05:58 UTC  [req_id]:DESKTOP-IBNU8OB/bsxIQOyqHp-000005  [http_method]:GET  
+-------------
+[ts]:Fri, 02 Nov 2018 16:07:44 UTC  [req_id]:DESKTOP-IBNU8OB/P2PPPmXzoQ-000001  [http_method]:GET  [uri]:http://localhost:8888/youtube?q=undertale%20song&mr=2  
+-------------
+[ts]:Fri, 02 Nov 2018 16:08:04 UTC  [req_id]:DESKTOP-IBNU8OB/P2PPPmXzoQ-000003  [http_method]:GET  [uri]:http://localhost:8888/youtube?q=undertale%20song&mr=5  
+-------------
+[uri]:http://localhost:8888/youtube?q=undertale%20song&mr=2  [ts]:Fri, 02 Nov 2018 16:21:18 UTC  [req_id]:DESKTOP-IBNU8OB/qtspnCOFaf-000001  [http_method]:GET  
+-------------
+[ts]:Fri, 02 Nov 2018 16:27:54 UTC  [req_id]:DESKTOP-IBNU8OB/9wOazDGbln-000001  [http_method]:GET  [uri]:http://localhost:8888/youtube?q=undertale%20song&mr=1  
+-------------
+[ts]:Fri, 02 Nov 2018 16:28:43 UTC  [req_id]:DESKTOP-IBNU8OB/nVfqSzmWwD-000001  [http_method]:GET  [uri]:http://localhost:8888/youtube?q=undertale%20song&mr=1  
+-------------
+[http_method]:GET  [uri]:http://localhost:8888/youtube?q=undertale%20song&mr=2  [ts]:Fri, 02 Nov 2018 16:28:56 UTC  [req_id]:DESKTOP-IBNU8OB/nVfqSzmWwD-000003  
+-------------
+[http_method]:GET  [uri]:http://localhost:8888/youtube?q=undertale%20song&mr=2  [ts]:Fri, 02 Nov 2018 16:30:31 UTC  [req_id]:DESKTOP-IBNU8OB/nVfqSzmWwD-000005  

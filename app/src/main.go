@@ -10,6 +10,8 @@ import (
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
 	"github.com/sirupsen/logrus"
+
+	. "github.com/HopesAndDreams/app/src/handler"
 )
 
 // Y - Related to Youtube

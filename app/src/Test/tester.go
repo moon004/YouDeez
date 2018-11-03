@@ -32,5 +32,5 @@ func Sadder(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "not a number: "+text, http.StatusBadRequest)
 		return
 	}
-	fmt.Fprintln(w, v*2)
+	fmt.Fprintln(w, v*3)
 }

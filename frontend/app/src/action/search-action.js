@@ -16,7 +16,7 @@ export function fetchObjStart() {
     dispatch({ type: FETCH_OBJ_START, payload: 'FETCHING' });
     axios({
       method: 'get',
-      url: 'https://dog.ceo/api/breeds/image/random',
+      url: 'localhost:8888/doggo',
     })
       .then((response) => {
         console.log(response.data);
