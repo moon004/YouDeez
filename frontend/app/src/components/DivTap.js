@@ -1,7 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import convertString, { addDot, timePassed } from '../tools/converter';
 import {
-  DivT, ButYou, ButDeez, StyledScrollbar, EqDivider,
+  DivT,
+  ButYou,
+  ButDeez,
+  StyledScrollbar,
+  EqDivider,
+  RetObjStyled,
+  DivInfo,
+  DivTitle,
+  DivStats,
+  DivImg,
+  Img,
+  DivDuration,
 } from '../styling/DivTap.style';
 
 class DivTap extends Component {
@@ -25,6 +37,12 @@ class DivTap extends Component {
     onObjTap(value);
   }
 
+  handleObjClick = value => () => {
+    const { onObjClick } = this.props;
+    console.log('handleObjClick', value);
+    onObjClick(value);
+  }
+
   render() {
     const {
       searchState: {
@@ -33,6 +51,51 @@ class DivTap extends Component {
       tapState,
     } = this.props;
 
+    // id: "lGaneyDfyls"
+    // contentDetails:
+    //    duration: "PT15M31S"
+    // snippet:
+    //    channelTitle: "Elu Tran"
+    //    description: "Determination!↵↵↵↵(Doesn't have the cleanest )
+    //    publishedAt: "2015-09-17T23:43:56.000Z"
+    //    thumbnails: {default: {…}, medium: {…}, high: {…}}
+    //    title: "Undertale OST - Hopes And Dreams (Intro) & Save The World Extended"
+    // statistics:
+    //    viewCount: "19684560"
+    const RetObject = data.map(item => (
+      <RetObjStyled
+        key={item.id}
+        onClick={this.handleObjClick(item.id)}
+      >
+        <DivInfo>
+          <DivTitle>
+            {addDot(item.snippet.title, 115)}
+          </DivTitle>
+          <DivStats>
+            <a href={`https://www.youtube.com/Channel/${item.snippet.channelId}`} target="_blank" rel="noopener noreferrer">
+              {addDot(item.snippet.channelTitle, 50)}
+            </a>
+          </DivStats>
+          <DivStats>
+            <div style={{ width: '10em' }}>
+              {convertString(item.statistics.viewCount)}
+            </div>
+            <div>
+              {timePassed(`${item.snippet.publishedAt.slice(0, 10)}`)}
+            </div>
+          </DivStats>
+        </DivInfo>
+        <DivImg>
+          <Img
+            src={item.snippet.thumbnails.medium.url}
+            alt=""
+          />
+          <DivDuration>
+            {convertString(item.contentDetails.duration)}
+          </DivDuration>
+        </DivImg>
+      </RetObjStyled>
+    ));
 
     return (
       <DivT currentap={tapState}>
@@ -59,8 +122,7 @@ class DivTap extends Component {
           thumbMinSize={50}
           currentap={tapState}
         >
-          {tapState}
-          {data}
+          {RetObject}
         </StyledScrollbar>
 
       </DivT>

@@ -11,26 +11,26 @@ import {
 } from '../constants/constant';
 
 // Action Creator
-export function fetchObjStart() {
+export function fetchObjStartAct(value) {
   return (dispatch) => {
     dispatch({ type: FETCH_OBJ_START, payload: 'FETCHING' });
+    console.log('axios log:', value);
     axios({
       method: 'get',
-      url: 'localhost:8888/doggo',
+      url: `http://localhost:8888/api/youtube?mr=3&q=${value}`,
     })
       .then((response) => {
-        console.log(response.data);
-        dispatch({ type: FETCH_SUCCESS, payload: response.data.message });
+        console.log(response.data.items);
+        dispatch({ type: FETCH_SUCCESS, payload: response.data.items });
       })
       .catch((err) => {
-        console.log('axios Get FAILED');
         dispatch({ type: FETCH_ERROR, payload: err });
       });
   };
 }
 
 
-export function getAutoComp(value) {
+export function getAutoCompAct(value) {
   return (dispatch) => {
     axios({
       method: 'get',

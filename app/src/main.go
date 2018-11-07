@@ -31,8 +31,10 @@ func Routes() *chi.Mux {
 	Route.Get("/", func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("Hopes And Dreams, Home"))
 	})
-	Route.Mount("/youtube", YResources{}.Routes())
-	Route.Mount("/doggo", DogResources{}.Routes())
+	Route.Route("/api", func(r chi.Router) {
+		r.Mount("/youtube", YResources{}.Routes())
+		r.Mount("/deez", DeezResource{}.Routes())
+	})
 
 	return Route
 }

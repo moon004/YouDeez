@@ -116,3 +116,413 @@
 [http_method]:GET  [uri]:http://localhost:8888/youtube?q=undertale%20song&mr=2  [ts]:Fri, 02 Nov 2018 16:28:56 UTC  [req_id]:DESKTOP-IBNU8OB/nVfqSzmWwD-000003  
 -------------
 [http_method]:GET  [uri]:http://localhost:8888/youtube?q=undertale%20song&mr=2  [ts]:Fri, 02 Nov 2018 16:30:31 UTC  [req_id]:DESKTOP-IBNU8OB/nVfqSzmWwD-000005  
+-------------
+[ts]:Sat, 03 Nov 2018 08:15:18 UTC  [req_id]:DESKTOP-IBNU8OB/fzsrVoloov-000001  [http_method]:GET  [uri]:http://localhost:8888/api/doggo  
+-------------
+[uri]:http://localhost:8888/doggo  [ts]:Sat, 03 Nov 2018 11:29:53 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000001  [http_method]:GET  
+-------------
+[ts]:Sat, 03 Nov 2018 11:30:05 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000002  [http_method]:GET  [uri]:http://localhost:8888/api/doggo  
+-------------
+[http_method]:GET  [uri]:http://localhost:8888/  [ts]:Sat, 03 Nov 2018 12:13:30 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000004  
+-------------
+[ts]:Sat, 03 Nov 2018 12:13:32 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000005  [http_method]:GET  [uri]:http://localhost:8888/  
+-------------
+[ts]:Sat, 03 Nov 2018 12:13:33 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000006  [http_method]:GET  [uri]:http://localhost:8888/  
+-------------
+[ts]:Sat, 03 Nov 2018 12:13:52 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000007  [http_method]:GET  [uri]:http://localhost:8888/api/doggo  
+-------------
+[req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000009  [http_method]:GET  [uri]:http://localhost:8888/api/youtube  [ts]:Sat, 03 Nov 2018 12:14:02 UTC  
+-------------
+[ts]:Sat, 03 Nov 2018 12:35:02 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000011  [http_method]:GET  [uri]:http://localhost:8888/  
+-------------
+[ts]:Sat, 03 Nov 2018 12:42:10 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000012  [http_method]:GET  [uri]:http://localhost:8888/  
+-------------
+[ts]:Sat, 03 Nov 2018 12:50:19 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000013  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=5&q=undefined  
+-------------
+[ts]:Sat, 03 Nov 2018 12:50:56 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000015  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=1&q=undefined  
+-------------
+[ts]:Sat, 03 Nov 2018 12:51:28 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000017  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=1&q=undefined  
+-------------
+[http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=1&q=undefined  [ts]:Sat, 03 Nov 2018 13:22:01 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000019  
+-------------
+[req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000021  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=1&q=undefined  [ts]:Sat, 03 Nov 2018 13:22:26 UTC  
+-------------
+[ts]:Sat, 03 Nov 2018 13:23:23 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000023  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[ts]:Sat, 03 Nov 2018 13:26:49 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000025  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000027  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:26:49 UTC  
+-------------
+[req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000029  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:26:50 UTC  
+-------------
+[ts]:Sat, 03 Nov 2018 13:26:50 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000031  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000033  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:26:50 UTC  
+-------------
+[ts]:Sat, 03 Nov 2018 13:26:50 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000035  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[ts]:Sat, 03 Nov 2018 13:26:51 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000037  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[ts]:Sat, 03 Nov 2018 13:26:51 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000039  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000041  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:26:51 UTC  
+-------------
+[ts]:Sat, 03 Nov 2018 13:26:51 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000043  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:26:52 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000045  [http_method]:GET  
+-------------
+[ts]:Sat, 03 Nov 2018 13:26:52 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000047  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[http_method]:GET  [uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:26:52 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000049  
+-------------
+[http_method]:GET  [uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:26:52 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000051  
+-------------
+[ts]:Sat, 03 Nov 2018 13:26:53 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000053  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:26:53 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000055  [http_method]:GET  
+-------------
+[http_method]:GET  [uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:26:53 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000057  
+-------------
+[req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000059  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:26:53 UTC  
+-------------
+[ts]:Sat, 03 Nov 2018 13:26:54 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000061  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[ts]:Sat, 03 Nov 2018 13:26:54 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000063  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[ts]:Sat, 03 Nov 2018 13:26:54 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000065  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:26:54 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000067  [http_method]:GET  
+-------------
+[uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:26:54 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000069  [http_method]:GET  
+-------------
+[ts]:Sat, 03 Nov 2018 13:26:55 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000071  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[ts]:Sat, 03 Nov 2018 13:26:55 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000073  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[ts]:Sat, 03 Nov 2018 13:26:55 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000075  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[ts]:Sat, 03 Nov 2018 13:26:55 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000077  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000079  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:26:56 UTC  
+-------------
+[ts]:Sat, 03 Nov 2018 13:26:56 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000081  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[ts]:Sat, 03 Nov 2018 13:26:56 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000083  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:26:56 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000085  [http_method]:GET  
+-------------
+[ts]:Sat, 03 Nov 2018 13:26:57 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000087  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[ts]:Sat, 03 Nov 2018 13:26:57 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000089  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[ts]:Sat, 03 Nov 2018 13:26:57 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000091  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000093  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:26:57 UTC  
+-------------
+[ts]:Sat, 03 Nov 2018 13:26:57 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000095  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[ts]:Sat, 03 Nov 2018 13:26:58 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000097  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[ts]:Sat, 03 Nov 2018 13:26:58 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000099  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[ts]:Sat, 03 Nov 2018 13:26:58 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000101  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:26:58 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000103  [http_method]:GET  
+-------------
+[ts]:Sat, 03 Nov 2018 13:26:59 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000105  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[ts]:Sat, 03 Nov 2018 13:26:59 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000107  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[ts]:Sat, 03 Nov 2018 13:26:59 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000109  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[http_method]:GET  [uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:26:59 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000111  
+-------------
+[ts]:Sat, 03 Nov 2018 13:26:59 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000113  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[ts]:Sat, 03 Nov 2018 13:27:00 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000115  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000117  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:27:00 UTC  
+-------------
+[req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000119  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:27:00 UTC  
+-------------
+[req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000121  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:27:00 UTC  
+-------------
+[req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000123  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:27:01 UTC  
+-------------
+[ts]:Sat, 03 Nov 2018 13:27:01 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000125  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[ts]:Sat, 03 Nov 2018 13:27:01 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000127  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[ts]:Sat, 03 Nov 2018 13:27:01 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000129  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[ts]:Sat, 03 Nov 2018 13:27:02 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000131  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[ts]:Sat, 03 Nov 2018 13:27:02 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000133  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[ts]:Sat, 03 Nov 2018 13:27:02 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000135  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:27:02 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000137  [http_method]:GET  
+-------------
+[ts]:Sat, 03 Nov 2018 13:27:02 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000139  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[ts]:Sat, 03 Nov 2018 13:27:03 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000141  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000143  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:27:03 UTC  
+-------------
+[ts]:Sat, 03 Nov 2018 13:27:03 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000145  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[http_method]:GET  [uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:27:04 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000147  
+-------------
+[req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000149  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:27:04 UTC  
+-------------
+[ts]:Sat, 03 Nov 2018 13:27:04 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000151  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[ts]:Sat, 03 Nov 2018 13:27:04 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000153  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:27:04 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000155  [http_method]:GET  
+-------------
+[ts]:Sat, 03 Nov 2018 13:27:05 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000157  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[ts]:Sat, 03 Nov 2018 13:27:05 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000159  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000161  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:27:05 UTC  
+-------------
+[http_method]:GET  [uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:27:05 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000163  
+-------------
+[ts]:Sat, 03 Nov 2018 13:27:06 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000165  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[http_method]:GET  [uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:27:06 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000167  
+-------------
+[ts]:Sat, 03 Nov 2018 13:27:06 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000169  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:27:06 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000171  [http_method]:GET  
+-------------
+[uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:27:07 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000173  [http_method]:GET  
+-------------
+[ts]:Sat, 03 Nov 2018 13:27:07 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000175  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:27:07 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000177  [http_method]:GET  
+-------------
+[req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000179  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:27:07 UTC  
+-------------
+[ts]:Sat, 03 Nov 2018 13:27:07 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000181  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[ts]:Sat, 03 Nov 2018 13:27:08 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000183  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:27:08 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000185  [http_method]:GET  
+-------------
+[uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:27:08 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000187  [http_method]:GET  
+-------------
+[ts]:Sat, 03 Nov 2018 13:27:08 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000189  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[http_method]:GET  [uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:27:09 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000191  
+-------------
+[ts]:Sat, 03 Nov 2018 13:27:09 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000193  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[ts]:Sat, 03 Nov 2018 13:27:09 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000195  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:27:09 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000197  [http_method]:GET  
+-------------
+[uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:27:09 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000199  [http_method]:GET  
+-------------
+[req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000200  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:27:09 UTC  
+-------------
+-------------
+[ts]:Sat, 03 Nov 2018 13:27:09 UTC  [http_method]:GET  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000202  [uri]:http://localhost:8888/api/youtube?  [http_method]:GET  -------------
+[ts]:Sat, 03 Nov 2018 13:27:09 UTC  [uri]:http://localhost:8888/api/youtube?  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000204  [uri]:http://localhost:8888/api/youtube?  
+
+[ts]:Sat, 03 Nov 2018 13:27:09 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000201  [http_method]:GET  
+-------------
+[ts]:Sat, 03 Nov 2018 13:27:10 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000209  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[http_method]:GET  [uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:27:10 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000211  
+-------------
+[ts]:Sat, 03 Nov 2018 13:27:10 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000212  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:27:10 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000215  [http_method]:GET  
+-------------
+[ts]:Sat, 03 Nov 2018 13:27:10 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000217  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000219  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:27:10 UTC  
+-------------
+[ts]:Sat, 03 Nov 2018 13:27:10 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000221  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[ts]:Sat, 03 Nov 2018 13:27:10 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000223  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[ts]:Sat, 03 Nov 2018 13:27:10 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000225  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[ts]:Sat, 03 Nov 2018 13:27:10 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000226  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[ts]:Sat, 03 Nov 2018 13:27:10 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000229  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[ts]:Sat, 03 Nov 2018 13:27:10 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000231  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[ts]:Sat, 03 Nov 2018 13:27:10 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000233  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000235  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:27:10 UTC  
+-------------
+[req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000237  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:27:38 UTC  
+-------------
+[ts]:Sat, 03 Nov 2018 13:29:05 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000239  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[ts]:Sat, 03 Nov 2018 13:50:25 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000241  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[uri]:http://localhost:8888/api/youtube?  [ts]:Sat, 03 Nov 2018 13:51:37 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000243  [http_method]:GET  
+-------------
+[ts]:Sat, 03 Nov 2018 13:58:03 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000245  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?  
+-------------
+[ts]:Sat, 03 Nov 2018 13:59:24 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000247  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=1&q=hopes%20and%20dreams  
+-------------
+[ts]:Sat, 03 Nov 2018 15:23:35 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000249  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=1&q=sads  
+-------------
+[ts]:Sat, 03 Nov 2018 15:24:38 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000251  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=1&q=Sadd  
+-------------
+[ts]:Sat, 03 Nov 2018 15:26:40 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000253  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=1&q=  
+-------------
+[ts]:Sat, 03 Nov 2018 15:26:46 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000255  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=1&q=gggg  
+-------------
+[http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=1&q=  [ts]:Sat, 03 Nov 2018 15:30:08 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000257  
+-------------
+[uri]:http://localhost:8888/api/youtube?mr=1&q=hopes%20and%20dreams  [ts]:Sat, 03 Nov 2018 15:31:14 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000259  [http_method]:GET  
+-------------
+[ts]:Sat, 03 Nov 2018 15:32:36 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000261  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=1&q=hopes%20and%20dreams  
+-------------
+[ts]:Sat, 03 Nov 2018 15:33:48 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000263  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=1&q=goose%20house  
+-------------
+[req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000265  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=1&q=undertale  [ts]:Sat, 03 Nov 2018 15:37:37 UTC  
+-------------
+[ts]:Sat, 03 Nov 2018 15:50:44 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000267  [http_method]:POST  [uri]:http://localhost:8888/api/youtube  
+-------------
+[ts]:Sat, 03 Nov 2018 15:51:09 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000269  [http_method]:POST  [uri]:http://localhost:8888/api/youtube  
+-------------
+[ts]:Sat, 03 Nov 2018 15:52:27 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000271  [http_method]:POST  [uri]:http://localhost:8888/api/youtube  
+-------------
+[http_method]:POST  [uri]:http://localhost:8888/api/youtube  [ts]:Sat, 03 Nov 2018 15:53:21 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000273  
+-------------
+[ts]:Sat, 03 Nov 2018 15:53:30 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000275  [http_method]:GET  [uri]:http://localhost:8888/api/youtube  
+-------------
+[ts]:Sat, 03 Nov 2018 15:53:50 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000277  [http_method]:POST  [uri]:http://localhost:8888/api/youtube  
+-------------
+[uri]:http://localhost:8888/api/youtube  [ts]:Sat, 03 Nov 2018 15:54:52 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000279  [http_method]:GET  
+-------------
+[ts]:Sat, 03 Nov 2018 15:55:34 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000281  [http_method]:GET  [uri]:http://localhost:8888/api/youtube  
+-------------
+[ts]:Sat, 03 Nov 2018 15:56:44 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000283  [http_method]:GET  [uri]:http://localhost:8888/api/youtube  
+-------------
+[uri]:http://localhost:8888/api/youtube  [ts]:Sat, 03 Nov 2018 15:57:01 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000285  [http_method]:GET  
+-------------
+[ts]:Sat, 03 Nov 2018 15:57:13 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000287  [http_method]:GET  [uri]:http://localhost:8888/api/youtube  
+-------------
+[ts]:Sat, 03 Nov 2018 15:58:17 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000289  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=1&q=goose%20house  
+-------------
+[ts]:Sat, 03 Nov 2018 15:58:49 UTC  [req_id]:DESKTOP-IBNU8OB/eUYfkgut70-000291  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=1&q=goose%20house  
+-------------
+[http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=1&q=undertale  [ts]:Sat, 03 Nov 2018 16:01:10 UTC  [req_id]:DESKTOP-IBNU8OB/grppmYXzBt-000001  
+-------------
+[http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=1&q=kyary%20pamyu%20pamyu%20live  [ts]:Sat, 03 Nov 2018 16:01:58 UTC  [req_id]:DESKTOP-IBNU8OB/grppmYXzBt-000003  
+-------------
+[ts]:Sat, 03 Nov 2018 16:37:49 UTC  [req_id]:DESKTOP-IBNU8OB/grppmYXzBt-000005  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=1&q=goose  
+-------------
+[ts]:Sat, 03 Nov 2018 16:38:29 UTC  [req_id]:DESKTOP-IBNU8OB/grppmYXzBt-000007  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=1&q=goose%20house  
+-------------
+[ts]:Sat, 03 Nov 2018 16:39:49 UTC  [req_id]:DESKTOP-IBNU8OB/grppmYXzBt-000009  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=1&q=Undertale  
+-------------
+[uri]:http://localhost:8888/api/youtube?mr=1&q=undertale  [ts]:Sat, 03 Nov 2018 16:40:31 UTC  [req_id]:DESKTOP-IBNU8OB/grppmYXzBt-000011  [http_method]:GET  
+-------------
+[ts]:Sat, 03 Nov 2018 16:40:54 UTC  [req_id]:DESKTOP-IBNU8OB/grppmYXzBt-000013  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=1&q=sad  
+-------------
+[ts]:Sat, 03 Nov 2018 16:41:35 UTC  [req_id]:DESKTOP-IBNU8OB/grppmYXzBt-000015  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=1&q=Sad  
+-------------
+[http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=1&q=Sad  [ts]:Sat, 03 Nov 2018 16:42:09 UTC  [req_id]:DESKTOP-IBNU8OB/grppmYXzBt-000017  
+-------------
+[http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=1&q=Sad  [ts]:Sat, 03 Nov 2018 16:42:28 UTC  [req_id]:DESKTOP-IBNU8OB/grppmYXzBt-000019  
+-------------
+[ts]:Sat, 03 Nov 2018 16:42:45 UTC  [req_id]:DESKTOP-IBNU8OB/grppmYXzBt-000021  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=1&q=Sad  
+-------------
+[ts]:Sat, 03 Nov 2018 16:43:07 UTC  [req_id]:DESKTOP-IBNU8OB/grppmYXzBt-000023  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=1&q=Sad  
+-------------
+[ts]:Sat, 03 Nov 2018 16:50:07 UTC  [req_id]:DESKTOP-IBNU8OB/grppmYXzBt-000025  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=hopes  
+-------------
+[uri]:http://localhost:8888/api/youtube?mr=3&q=hopes  [ts]:Sat, 03 Nov 2018 16:50:22 UTC  [req_id]:DESKTOP-IBNU8OB/grppmYXzBt-000027  [http_method]:GET  
+-------------
+[ts]:Sat, 03 Nov 2018 17:10:49 UTC  [req_id]:DESKTOP-IBNU8OB/rtdsvngZNB-000001  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=Goose  
+-------------
+[ts]:Sat, 03 Nov 2018 17:13:42 UTC  [req_id]:DESKTOP-IBNU8OB/rtdsvngZNB-000003  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=goose%20house  
+-------------
+[ts]:Sat, 03 Nov 2018 17:14:14 UTC  [req_id]:DESKTOP-IBNU8OB/rtdsvngZNB-000005  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=goose%20house  
+-------------
+[ts]:Sat, 03 Nov 2018 17:15:00 UTC  [req_id]:DESKTOP-IBNU8OB/rtdsvngZNB-000007  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=hopes%20and%20dreams  
+-------------
+[ts]:Sun, 04 Nov 2018 03:27:24 UTC  [req_id]:DESKTOP-IBNU8OB/rtdsvngZNB-000009  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=hope  
+-------------
+[ts]:Sun, 04 Nov 2018 03:28:01 UTC  [req_id]:DESKTOP-IBNU8OB/rtdsvngZNB-000011  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=hopes%20and%20dreams  
+-------------
+[ts]:Sun, 04 Nov 2018 05:29:41 UTC  [req_id]:DESKTOP-IBNU8OB/rtdsvngZNB-000013  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=goose%20house  
+-------------
+[uri]:http://localhost:8888/api/youtube?mr=3&q=undertale%20ost  [ts]:Sun, 04 Nov 2018 11:58:53 UTC  [req_id]:DESKTOP-IBNU8OB/rtdsvngZNB-000015  [http_method]:GET  
+-------------
+[ts]:Sun, 04 Nov 2018 11:59:14 UTC  [req_id]:DESKTOP-IBNU8OB/rtdsvngZNB-000017  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=undertale  
+-------------
+[http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=hopes%20and%20dreams  [ts]:Sun, 04 Nov 2018 11:59:26 UTC  [req_id]:DESKTOP-IBNU8OB/rtdsvngZNB-000019  
+-------------
+[http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=Hopes%20and%20dreams  [ts]:Sun, 04 Nov 2018 14:39:18 UTC  [req_id]:DESKTOP-IBNU8OB/9CbrOGaOVF-000001  
+-------------
+[ts]:Sun, 04 Nov 2018 15:02:08 UTC  [req_id]:DESKTOP-IBNU8OB/9CbrOGaOVF-000003  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=Hopes%20and%20dreams  
+-------------
+[uri]:http://localhost:8888/api/youtube?mr=3&q=goose%20house  [ts]:Sun, 04 Nov 2018 16:05:04 UTC  [req_id]:DESKTOP-IBNU8OB/9CbrOGaOVF-000005  [http_method]:GET  
+-------------
+[req_id]:DESKTOP-IBNU8OB/rOMqhYbfU6-000001  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=goose%20house  [ts]:Sun, 04 Nov 2018 17:12:26 UTC  
+-------------
+[ts]:Mon, 05 Nov 2018 08:37:20 UTC  [req_id]:DESKTOP-IBNU8OB/0lGDrU4wlV-000001  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=Goose%20house  
+-------------
+[ts]:Mon, 05 Nov 2018 08:41:38 UTC  [req_id]:DESKTOP-IBNU8OB/0lGDrU4wlV-000003  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=hopes%20and%20dreams  
+-------------
+[ts]:Mon, 05 Nov 2018 08:45:32 UTC  [req_id]:DESKTOP-IBNU8OB/0lGDrU4wlV-000005  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=goose%20house  
+-------------
+[ts]:Mon, 05 Nov 2018 08:46:51 UTC  [req_id]:DESKTOP-IBNU8OB/0lGDrU4wlV-000007  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=goose%20house  
+-------------
+[http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=hopes%20and%20dreams  [ts]:Mon, 05 Nov 2018 08:49:46 UTC  [req_id]:DESKTOP-IBNU8OB/0lGDrU4wlV-000009  
+-------------
+[ts]:Mon, 05 Nov 2018 08:53:34 UTC  [req_id]:DESKTOP-IBNU8OB/0lGDrU4wlV-000011  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=hopes%20and%20dreams  
+-------------
+[ts]:Mon, 05 Nov 2018 08:54:38 UTC  [req_id]:DESKTOP-IBNU8OB/0lGDrU4wlV-000013  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=nogizaka46  
+-------------
+[ts]:Mon, 05 Nov 2018 08:58:38 UTC  [req_id]:DESKTOP-IBNU8OB/0lGDrU4wlV-000015  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=nogizaka46  
+-------------
+[ts]:Mon, 05 Nov 2018 08:59:44 UTC  [req_id]:DESKTOP-IBNU8OB/0lGDrU4wlV-000017  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=nogizaka46  
+-------------
+[uri]:http://localhost:8888/api/youtube?mr=3&q=nogizaka46  [ts]:Mon, 05 Nov 2018 09:01:13 UTC  [req_id]:DESKTOP-IBNU8OB/0lGDrU4wlV-000019  [http_method]:GET  
+-------------
+[req_id]:DESKTOP-IBNU8OB/0lGDrU4wlV-000021  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=goose%20house  [ts]:Mon, 05 Nov 2018 14:35:18 UTC  
+-------------
+[ts]:Tue, 06 Nov 2018 15:50:47 UTC  [req_id]:DESKTOP-IBNU8OB/IQ7R6FY3Gq-000001  [http_method]:POST  [uri]:http://localhost:8888/api/deez  
+-------------
+[ts]:Tue, 06 Nov 2018 15:52:09 UTC  [req_id]:DESKTOP-IBNU8OB/IQ7R6FY3Gq-000003  [http_method]:GET  [uri]:http://localhost:8888/api/deez  
+-------------
+[ts]:Tue, 06 Nov 2018 15:52:58 UTC  [req_id]:DESKTOP-IBNU8OB/IQ7R6FY3Gq-000005  [http_method]:GET  [uri]:http://localhost:8888/api/deez?q=goose%20house  
+-------------
+[ts]:Tue, 06 Nov 2018 15:55:58 UTC  [req_id]:DESKTOP-IBNU8OB/IQ7R6FY3Gq-000007  [http_method]:GET  [uri]:http://localhost:8888/api/deez?q=goose  
+-------------
+[uri]:http://localhost:8888/api/deez?q=goose  [ts]:Tue, 06 Nov 2018 15:58:12 UTC  [req_id]:DESKTOP-IBNU8OB/IQ7R6FY3Gq-000009  [http_method]:GET  
+-------------
+[ts]:Tue, 06 Nov 2018 16:00:01 UTC  [req_id]:DESKTOP-IBNU8OB/bw9MSP3kA2-000001  [http_method]:GET  [uri]:http://localhost:8888/api/deez?q=goose%20house  
+-------------
+[ts]:Tue, 06 Nov 2018 16:00:11 UTC  [req_id]:DESKTOP-IBNU8OB/bw9MSP3kA2-000003  [http_method]:GET  [uri]:http://localhost:8888/api/deez?q=goosehouse  
+-------------
+[ts]:Tue, 06 Nov 2018 16:19:13 UTC  [req_id]:DESKTOP-IBNU8OB/e1jIGA3WrQ-000001  [http_method]:GET  [uri]:http://localhost:8888/api/deez?q=goosehouse  
+-------------
+[req_id]:DESKTOP-IBNU8OB/8uXVKUrOjm-000001  [http_method]:GET  [uri]:http://localhost:8888/api/deez?q=goosehouse  [ts]:Tue, 06 Nov 2018 16:21:38 UTC  
+-------------
+[ts]:Tue, 06 Nov 2018 16:35:02 UTC  [req_id]:DESKTOP-IBNU8OB/8uXVKUrOjm-000003  [http_method]:GET  [uri]:http://localhost:8888/api/deez?q=goose%20house  
+-------------
+[uri]:http://localhost:8888/api/deez?q=goose%20house  [ts]:Tue, 06 Nov 2018 16:36:08 UTC  [req_id]:DESKTOP-IBNU8OB/8uXVKUrOjm-000005  [http_method]:GET  
+-------------
+[req_id]:DESKTOP-IBNU8OB/ueqnRQJlll-000001  [http_method]:GET  [uri]:http://localhost:8888/api/deez?q=goose%20house  [ts]:Tue, 06 Nov 2018 16:36:27 UTC  
+-------------
+[ts]:Tue, 06 Nov 2018 16:36:39 UTC  [req_id]:DESKTOP-IBNU8OB/ueqnRQJlll-000003  [http_method]:GET  [uri]:http://localhost:8888/api/deez?q=goosehouse  
+-------------
+[ts]:Tue, 06 Nov 2018 16:36:44 UTC  [req_id]:DESKTOP-IBNU8OB/ueqnRQJlll-000005  [http_method]:GET  [uri]:http://localhost:8888/api/deez?q=goose%20house  
+-------------
+[ts]:Tue, 06 Nov 2018 16:38:01 UTC  [req_id]:DESKTOP-IBNU8OB/idJ5paIRz2-000001  [http_method]:GET  [uri]:http://localhost:8888/api/deez?q=goose%20house  
+-------------
+[req_id]:DESKTOP-IBNU8OB/BDJrfcpSUp-000001  [http_method]:GET  [uri]:http://localhost:8888/api/deez?q=goose%20house  [ts]:Tue, 06 Nov 2018 17:01:32 UTC  

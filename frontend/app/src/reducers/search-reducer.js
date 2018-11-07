@@ -1,16 +1,47 @@
 import {
   FETCH_OBJ_START,
-  FETCH_SUCCESS,
+  FETCH_SUCCESS_YOU,
+  FETCH_SUCCESS_DEEZ,
   FETCH_ERROR,
   ACOMPLETE_SUC,
   ACOMPLETE_ERR,
-
+  SEARCH,
+  SEARCHING,
+  SEARCHDONE,
+  ERROR_STATE,
 } from '../constants/constant';
 
 const initialState = {
-  fetchState: 'Search', // initial state will take the value here.
+  fetchState: SEARCH, // initial state will take the value here.
   error: null,
-  data: [],
+  dataYou: [{
+    contentDetails: {
+      duration: 'PT31M31S',
+    },
+    id: 'lGaneyDfyls',
+    snippet: {
+      channelId: 'UCfWQfOBi6zDLiKhR79xXxmg',
+      channelTitle: 'Elu Tran',
+      description: "Determination!↵↵↵↵(Doesn't have the cleanest",
+      publishedAt: '2015-09-17T23:43:56.000Z',
+      thumbnails: {
+        medium: {
+          url: 'https://i.ytimg.com/vi/lGaneyDfyls/mqdefault.jpg',
+          height: 180,
+          width: 320,
+        },
+      },
+      title: 'Undertale OST - Hopes And Dreams (Intro) & Save The World Extended ',
+    },
+    statistics: {
+      viewCount: '19684560',
+    },
+  }],
+  dataDeez: null,
+};
+
+const initialStateDeez = {
+
 };
 
 const initialAC = {
@@ -23,11 +54,13 @@ export function SearchReducer(
 ) {
   switch (type) {
     case FETCH_OBJ_START:
-      return { ...state, fetchState: 'Searching' };
-    case FETCH_SUCCESS: // F = FETCH
-      return { ...state, fetchState: 'There you go...', data: payload };
+      return { ...state, fetchState: SEARCHING };
+    case FETCH_SUCCESS_YOU: // F = FETCH
+      return { ...state, fetchState: SEARCHDONE, dataYou: payload };
+    case FETCH_SUCCESS_DEEZ:
+      return { ...state, fetchState: SEARCHDONE, dataDeez: payload };
     case FETCH_ERROR:
-      return { ...state, fetchState: 'Error', error: payload };
+      return { ...state, fetchState: ERROR_STATE, error: payload };
     default:
       return state;
   }
@@ -39,7 +72,6 @@ export function SACReducer(
 ) {
   switch (type) {
     case ACOMPLETE_SUC:
-      console.log('reducer', payload);
       return { ...state, currentState: 'Success', autoCompData: payload };
     case ACOMPLETE_ERR:
       return { ...state, currentState: 'Fail', autoCompData: payload };

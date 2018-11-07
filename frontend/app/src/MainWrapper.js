@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { updateMediaType, updateCurrentMedia }
+import {
+  updateMediaObjAct,
+  updateCurrentMediaAct,
+}
   from './action/media-action';
-import { fetchObjStart, getAutoComp } from './action/search-action';
+import { fetchObjStartAct, getAutoCompAct } from './action/search-action';
 
 // import ResultObj from './Object';
 import Search from './components/Search';
@@ -16,34 +19,20 @@ import Div from './styling/MainWrapper.style';
 export class MainWrapper extends Component {
   constructor() {
     super();
-    this.state = { width: 0 };
-    this.onUpdateMediaType = this.onUpdateMediaType.bind(this);
+    this.onUpdateMediaType = this.onUpdateMediaObj.bind(this);
     this.onObjTap = this.onObjTap.bind(this);
     this.onSubmitSearch = this.onSubmitSearch.bind(this);
     this.onGetAutoComp = this.onGetAutoComp.bind(this);
-    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
 
-  componentDidMount() {
-    console.log('Event listener added');
-    this.updateWindowDimensions();
-    window.addEventListener('resize', this.updateWindowDimensions);
+  onUpdateMediaObj = (value) => {
+    const { onUpdateMediaObj } = this.props;
+    onUpdateMediaObj(value);
   }
 
-  componentWillUnmount() {
-    console.log('Event Listener Remove');
-    window.removeEventListener('resize', this.updateWindowDimensions);
-  }
-
-  onUpdateMediaType(event) {
-    const { onUpdateMediaType } = this.props;
-    onUpdateMediaType(event.target.value);
-  }
-
-  onSubmitSearch(event) {
-    console.log('Search Fire!');
+  onSubmitSearch = (value) => {
     const { onSubmitSearch } = this.props;
-    onSubmitSearch(event.target.value);
+    onSubmitSearch(value);
   }
 
   onGetAutoComp = (value) => {
@@ -56,9 +45,6 @@ export class MainWrapper extends Component {
     onUpdateCurrentMedia(value);
   }
 
-  updateWindowDimensions() {
-    this.setState({ width: window.innerWidth });
-  }
 
   render() {
     const {
@@ -67,25 +53,23 @@ export class MainWrapper extends Component {
       apiReqState,
       autoComplete,
     } = this.props;
-    const { width } = this.state;
     return (
-      <Div width={width}>
-        <div>
-          <Search
-            handleSubmit={this.onSubmitSearch}
-            searchState={apiReqState}
-            onGetAutoComp={this.onGetAutoComp}
-            autoComplete={autoComplete}
-          />
-          <DivTap
-            searchState={apiReqState}
-            onObjTap={this.onObjTap}
-            tapState={currentMediaTap}
-          />
-        </div>
-        <div>
-          <Media cMedia={MediaObject} />
-        </div>
+      <Div>
+        <Search
+          handleSubmit={this.onSubmitSearch}
+          searchState={apiReqState}
+          onGetAutoComp={this.onGetAutoComp}
+          autoComplete={autoComplete}
+        />
+        <DivTap
+          onObjClick={this.onUpdateMediaObj}
+          searchState={apiReqState}
+          onObjTap={this.onObjTap}
+          tapState={currentMediaTap}
+        />
+        <Media
+          mediaObj={MediaObject}
+        />
         <MyLibrary />
       </Div>
     );
@@ -98,7 +82,11 @@ MainWrapper.propTypes = {
     {
       title: PropTypes.string,
       MediaType: PropTypes.string,
-      MediaData: PropTypes.array,
+      MediaData: PropTypes.shape(
+        {
+          Url: PropTypes.string,
+        },
+      ),
     },
   ),
   currentMediaTap: PropTypes.string,
@@ -114,7 +102,7 @@ MainWrapper.propTypes = {
       autoCompData: PropTypes.array,
     },
   ),
-  onUpdateMediaType: PropTypes.func,
+  onUpdateMediaObj: PropTypes.func,
   onUpdateCurrentMedia: PropTypes.func,
   onSubmitSearch: PropTypes.func,
   onGetAutoComp: PropTypes.func,
@@ -123,9 +111,10 @@ MainWrapper.propTypes = {
 MainWrapper.defaultProps = {
   MediaObject: PropTypes.shape(
     {
-      title: '',
       MediaType: '',
-      MediaData: [],
+      MediaData: {
+        Url: '',
+      },
     },
   ),
   currentMediaTap: '',
@@ -141,11 +130,10 @@ MainWrapper.defaultProps = {
       autoCompData: [],
     },
   ),
-  onUpdateMediaType: () => {},
+  onUpdateMediaObj: () => {},
   onUpdateCurrentMedia: () => {},
   onSubmitSearch: () => {},
   onGetAutoComp: () => {},
-
 };
 
 const mapStateToProps = state => ({
@@ -160,10 +148,10 @@ const mapStateToProps = state => ({
   // data: []
 
 const mapActionsToProps = {
-  onUpdateMediaType: updateMediaType,
-  onUpdateCurrentMedia: updateCurrentMedia,
-  onSubmitSearch: fetchObjStart,
-  onGetAutoComp: getAutoComp,
+  onUpdateMediaObj: updateMediaObjAct,
+  onUpdateCurrentMedia: updateCurrentMediaAct,
+  onSubmitSearch: fetchObjStartAct,
+  onGetAutoComp: getAutoCompAct,
 };
 
 const ConnMainWrapper = connect(mapStateToProps, mapActionsToProps)(MainWrapper);

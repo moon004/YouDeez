@@ -12,3 +12,20 @@ code {
   font-family: Consolas, "Courier New", Ubuntu,
     monospace;
 }
+
+a:link {
+  color: #eaeaea;
+}
+
+a:visited {
+  color: #eaeaea;
+}
+
+a {
+  text-decoration: none;
+  border-bottom: 0.06em solid white;
+}
+
+body {
+  background-color: #141414;
+}

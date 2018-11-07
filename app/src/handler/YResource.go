@@ -47,7 +47,7 @@ func (Yres *YResources) GetYtube(w http.ResponseWriter, r *http.Request) {
 
 	payload := YPayload(URL, w, r)
 	for _, item := range payload.Items {
-		youtubeId = append(youtubeId, item.Id.VideoId)
+		youtubeId = append(youtubeId, item.ID.VideoId)
 	}
 	IDList := url.QueryEscape(strings.Join(youtubeId, ", "))
 	urlStr := "https://www.googleapis.com/youtube/v3/videos?part=contentDetails,statistics,snippet&id=%s&key=%v"
@@ -94,7 +94,6 @@ func YPayload(url string, w http.ResponseWriter, r *http.Request) *YRespond {
 	defer res.Body.Close()
 
 	body, _ := ioutil.ReadAll(res.Body)
-	w.Write(body)
 	err = json.Unmarshal(body, &Yres)
 	if err != nil {
 		render.JSON(w, r, ErrH.ErrReadingJson(err))

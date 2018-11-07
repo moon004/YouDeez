@@ -11,7 +11,10 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import * as serviceWorker from './serviceWorker';
 import ConnMainWrapper from './MainWrapper';
-import { mediaTypeReducer, mediaObjectReducer } from './reducers/mediaType-reducer';
+import {
+  mediaTypeReducer,
+  mediaObjectReducer,
+} from './reducers/mediaType-reducer';
 import { SearchReducer, SACReducer } from './reducers/search-reducer';
 
 

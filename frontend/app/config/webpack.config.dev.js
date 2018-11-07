@@ -160,6 +160,15 @@ module.exports = {
       PnpWebpackPlugin.moduleLoader(module),
     ],
   },
+  devServer: {
+    historyApiFallBack: true,
+    hot: true,
+    port: 3000,
+    contentBase: paths.appPublic,
+    proxy: {
+      '/api': 'http://localhost:8888',
+    },
+  },
   module: {
     strictExportPresence: true,
     rules: [
