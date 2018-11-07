@@ -6,7 +6,7 @@ type ArtistResources struct {
 	ID      int    `json:"id,omitempty"`
 	Name    string `json:"name,omitempty"`
 	Link    string `json:"link,omitempty"`
-	Picture string `json:"picture,omitempty"`
+	Picture string `json:"picture_small,omitempty"`
 }
 
 type AlbumResources struct {

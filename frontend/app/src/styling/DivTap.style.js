@@ -52,28 +52,44 @@ export const StyledScrollbar = styled(Scrollbars)`
   :last-child {
     padding-bottom: 1em;
   }
-  background: ${props => (props.currentap === 'Youtube' ? '#282828' : '#f7f7f7')};
+  background: ${props => (props.currentap === 'Youtube'
+    ? '#282828' : '#f7f7f7')};
 `;
 
 export const RetObjStyled = styled.li`
   list-style-type: none;
   display: flex;
+  font-family: ${props => (props.tapState ? 'Ubuntu' : 'Helvetica')};
   flex-direction: row;
-  margin: 0.8em 0.8em 0.8em 0.8em;
-  padding: 0.5em 0.5em 0 0.5em;
-  border: 0.1em solid #f3f3f3;
+  margin: ${props => (props.tapState
+    ? '0.8em' : '2em 2.5em 2em 2.5em')};
+  padding: ${props => (props.tapState
+    ? '0.5em 0.5em 0 0.5em' : '0.5em')};
+  justify-content: space-between;
+  border: 0.05em solid ${props => (props.tapState
+    ? '#f7f7f7' : 'black')};
   &:active {
-    background-color: rgba(255,255,255, 0.2);
+    background-color: ${props => (props.tapState
+    ? 'rgba(200,200,200,0.3)' : 'rgba(100,100,100,0.1)'
+  )};
+`;
+
+export const DeezDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #232323;
+  a:hover {
+    border-bottom: 0.06em solid black;
   }
 `;
 
-
 /* parents of DivState DivTitle */
 export const DivInfo = styled.div`
-  font-weight: 600;
+  font-weight: 400;
   flex-direction: column;
   margin-right: 0.5em;
-  padding-bottom: 0.2em;
 `;
 
 export const DivTitle = styled.div`
@@ -85,7 +101,7 @@ export const DivTitle = styled.div`
 export const DivStats = styled(DivInfo)`
   font-size: 0.8em;
   display: flex;
-  font-weight: 450;
+  font-weight: 400;
   flex-direction: row;
   margin: 0.2em 0 0 0;
   color: #d5d5d5;
@@ -99,9 +115,11 @@ export const DivImg = styled.div`
 
 export const DivDuration = styled.div`
   background-color: rgba(0,0,0, 0.6);
-  padding: 0 0.3em 0.2em 0.2em;
+  padding: 0.3em 0.4em 0.3em 0.3em;
+  font-size: 0.9em;
+
   color: white;
-  top: 0.4em;
+  top: 0.6em;
   position: absolute;
   opacity: 1;
 `;

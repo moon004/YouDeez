@@ -526,3 +526,135 @@
 [ts]:Tue, 06 Nov 2018 16:38:01 UTC  [req_id]:DESKTOP-IBNU8OB/idJ5paIRz2-000001  [http_method]:GET  [uri]:http://localhost:8888/api/deez?q=goose%20house  
 -------------
 [req_id]:DESKTOP-IBNU8OB/BDJrfcpSUp-000001  [http_method]:GET  [uri]:http://localhost:8888/api/deez?q=goose%20house  [ts]:Tue, 06 Nov 2018 17:01:32 UTC  
+-------------
+[ts]:Wed, 07 Nov 2018 03:27:53 UTC  [req_id]:DESKTOP-IBNU8OB/NFNGWh2RUf-000001  [http_method]:GET  [uri]:http://localhost:8888/api/deez?q=goose%20house  
+-------------
+[ts]:Wed, 07 Nov 2018 08:13:46 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000001  [http_method]:GET  [uri]:http://localhost:8888/api/deez?q=goose%20house  
+-------------
+-------------
+[http_method]:GET  [ts]:Wed, 07 Nov 2018 14:24:33 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000004  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=goose%20house  [uri]:http://localhost:8888/api/deezer?q=goose%20house  [ts]:Wed, 07 Nov 2018 14:24:33 UTC  
+[req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000003  
+-------------
+[req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000006  [http_method]:GET  [uri]:http://localhost:8888/api/deez?q=goose%20house  [ts]:Wed, 07 Nov 2018 14:27:17 UTC  
+-------------
+[ts]:Wed, 07 Nov 2018 14:28:02 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000008  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=goose%20house  
+-------------
+[ts]:Wed, 07 Nov 2018 14:28:02 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000009  [http_method]:GET  [uri]:http://localhost:8888/api/deezer?q=goose%20house  
+-------------
+[req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000011  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=  [ts]:Wed, 07 Nov 2018 14:28:27 UTC  
+-------------
+[ts]:Wed, 07 Nov 2018 14:28:27 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000012  [http_method]:GET  [uri]:http://localhost:8888/api/deezer?q=  
+-------------
+[ts]:Wed, 07 Nov 2018 14:29:08 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000014  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=sad  
+-------------
+[ts]:Wed, 07 Nov 2018 14:29:08 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000015  [http_method]:GET  [uri]:http://localhost:8888/api/deezer?q=sad  
+-------------
+[ts]:Wed, 07 Nov 2018 14:35:10 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000017  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=goose%20house  
+-------------
+[http_method]:GET  [uri]:http://localhost:8888/api/deezer?q=goose%20house  [ts]:Wed, 07 Nov 2018 14:35:10 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000018  
+-------------
+[ts]:Wed, 07 Nov 2018 14:36:46 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000020  [http_method]:GET  [uri]:http://localhost:8888/api/deez?q=goose%20house  
+-------------
+[ts]:Wed, 07 Nov 2018 14:37:08 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000022  [http_method]:GET  [uri]:http://localhost:8888/api/deez  
+-------------
+[http_method]:GET  [uri]:http://localhost:8888/api/deez?q=goose%20house  [ts]:Wed, 07 Nov 2018 14:37:27 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000024  
+-------------
+[req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000026  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=goose%20house  [ts]:Wed, 07 Nov 2018 14:42:53 UTC  
+-------------
+[ts]:Wed, 07 Nov 2018 14:42:53 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000028  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=goose%20house  
+-------------
+[ts]:Wed, 07 Nov 2018 15:22:38 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000030  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=undefined  
+-------------
+[ts]:Wed, 07 Nov 2018 15:22:38 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000031  [http_method]:GET  [uri]:http://localhost:8888/api/deezer?q=undefined  
+-------------
+[req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000033  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=goose%20house  [ts]:Wed, 07 Nov 2018 15:23:57 UTC  
+-------------
+[req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000034  [http_method]:GET  [uri]:http://localhost:8888/api/deezer?q=goose%20house  [ts]:Wed, 07 Nov 2018 15:23:57 UTC  
+-------------
+[uri]:http://localhost:8888/api/youtube?mr=3  [ts]:Wed, 07 Nov 2018 15:25:32 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000036  [http_method]:GET  
+-------------
+[uri]:http://localhost:8888/api/youtube?mr=3  [ts]:Wed, 07 Nov 2018 15:26:26 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000038  [http_method]:GET  
+-------------
+[ts]:Wed, 07 Nov 2018 15:26:38 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000040  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=sad  
+-------------
+[ts]:Wed, 07 Nov 2018 15:30:30 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000042  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=goose  
+-------------
+[ts]:Wed, 07 Nov 2018 15:30:30 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000043  [http_method]:GET  [uri]:http://localhost:8888/api/deezer?q=goose  
+-------------
+[ts]:Wed, 07 Nov 2018 15:31:45 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000045  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=goose  
+-------------
+[ts]:Wed, 07 Nov 2018 15:31:45 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000046  [http_method]:GET  [uri]:http://localhost:8888/api/deezer?q=goose  
+-------------
+[ts]:Wed, 07 Nov 2018 15:40:24 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000048  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=goose%20house  
+-------------
+[http_method]:GET  [uri]:http://localhost:8888/api/deezer?q=goose%20house  [ts]:Wed, 07 Nov 2018 15:40:56 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000050  
+-------------
+[http_method]:GET  [uri]:http://localhost:8888/api/deezer?q=goose%20house  [ts]:Wed, 07 Nov 2018 15:41:24 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000051  
+-------------
+[ts]:Wed, 07 Nov 2018 15:43:41 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000052  [http_method]:GET  [uri]:http://localhost:8888/api/deezer?q=sad  
+-------------
+[ts]:Wed, 07 Nov 2018 15:43:47 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000053  [http_method]:GET  [uri]:http://localhost:8888/api/deezer?q=sad  
+-------------
+[ts]:Wed, 07 Nov 2018 15:50:42 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000054  [http_method]:GET  [uri]:http://localhost:8888/api/deez?q=goose%20house  
+-------------
+[ts]:Wed, 07 Nov 2018 15:51:02 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000056  [http_method]:GET  [uri]:http://localhost:8888/api/deez?q=goose%20house  
+-------------
+[ts]:Wed, 07 Nov 2018 15:54:28 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000058  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=goose%20house  
+-------------
+[ts]:Wed, 07 Nov 2018 15:54:28 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000059  [http_method]:GET  [uri]:http://localhost:8888/api/deezer?q=goose%20house  
+-------------
+[http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=goose%20house  [ts]:Wed, 07 Nov 2018 15:54:40 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000061  
+-------------
+[ts]:Wed, 07 Nov 2018 15:54:40 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000062  [http_method]:GET  [uri]:http://localhost:8888/api/deez?q=goose%20house  
+-------------
+[req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000065  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=goose%20house  [ts]:Wed, 07 Nov 2018 15:58:06 UTC  
+-------------
+[req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000066  [http_method]:GET  [uri]:http://localhost:8888/api/deez?q=goose%20house  [ts]:Wed, 07 Nov 2018 15:58:06 UTC  
+-------------
+[ts]:Wed, 07 Nov 2018 16:01:29 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000069  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=hopes%20and%20dreams  
+-------------
+[http_method]:GET  [uri]:http://localhost:8888/api/deez?q=hopes%20and%20dreams  [ts]:Wed, 07 Nov 2018 16:01:29 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000070  
+-------------
+[ts]:Wed, 07 Nov 2018 16:01:52 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000073  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=undertale  
+-------------
+[ts]:Wed, 07 Nov 2018 16:01:52 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000074  [http_method]:GET  [uri]:http://localhost:8888/api/deez?q=undertale  
+-------------
+[http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=undertale  [ts]:Wed, 07 Nov 2018 16:05:21 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000077  
+-------------
+[http_method]:GET  [uri]:http://localhost:8888/api/deez?q=undertale  [ts]:Wed, 07 Nov 2018 16:05:21 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000078  
+-------------
+[ts]:Wed, 07 Nov 2018 16:05:49 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000081  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=undertale  
+-------------
+[ts]:Wed, 07 Nov 2018 16:05:49 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000082  [http_method]:GET  [uri]:http://localhost:8888/api/deez?q=undertale  
+-------------
+[ts]:Wed, 07 Nov 2018 16:11:18 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000085  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=undertale  
+-------------
+[ts]:Wed, 07 Nov 2018 16:11:18 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000086  [http_method]:GET  [uri]:http://localhost:8888/api/deez?q=undertale  
+-------------
+[ts]:Wed, 07 Nov 2018 16:12:45 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000089  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=undertale  
+-------------
+[ts]:Wed, 07 Nov 2018 16:12:45 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000090  [http_method]:GET  [uri]:http://localhost:8888/api/deez?q=undertale  
+-------------
+[ts]:Wed, 07 Nov 2018 16:13:21 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000093  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=ed%20sheeran  
+-------------
+[ts]:Wed, 07 Nov 2018 16:13:21 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000094  [http_method]:GET  [uri]:http://localhost:8888/api/deez?q=ed%20sheeran  
+-------------
+[http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=taylor%20swift  [ts]:Wed, 07 Nov 2018 16:13:34 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000097  
+-------------
+[ts]:Wed, 07 Nov 2018 16:13:34 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000098  [http_method]:GET  [uri]:http://localhost:8888/api/deez?q=taylor%20swift  
+-------------
+[req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000101  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=kyary%20pamyu%20pamyu  [ts]:Wed, 07 Nov 2018 16:13:51 UTC  
+-------------
+[uri]:http://localhost:8888/api/deez?q=kyary%20pamyu%20pamyu  [ts]:Wed, 07 Nov 2018 16:13:51 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000102  [http_method]:GET  
+-------------
+[ts]:Wed, 07 Nov 2018 16:16:10 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000105  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=kyary%20pamyu%20pamyu  
+-------------
+[ts]:Wed, 07 Nov 2018 16:16:10 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000106  [http_method]:GET  [uri]:http://localhost:8888/api/deez?q=kyary%20pamyu%20pamyu  
+-------------
+[ts]:Wed, 07 Nov 2018 16:27:03 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000109  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=kyary%20pamyu%20pamyu  
+-------------
+[ts]:Wed, 07 Nov 2018 16:27:03 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000110  [http_method]:GET  [uri]:http://localhost:8888/api/deez?q=kyary%20pamyu%20pamyu  
+-------------
+[ts]:Wed, 07 Nov 2018 17:29:58 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000113  [http_method]:GET  [uri]:http://localhost:8888/api/youtube?mr=3&q=kyary%20pamyu  
+-------------
+[ts]:Wed, 07 Nov 2018 17:29:58 UTC  [req_id]:DESKTOP-IBNU8OB/FYS2amcTec-000114  [http_method]:GET  [uri]:http://localhost:8888/api/deez?q=kyary%20pamyu  

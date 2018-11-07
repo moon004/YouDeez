@@ -28,33 +28,17 @@ const LogoComponent = () => (
   />
 );
 
-const DPlayer = () => (
-  <iframe
-    title="deezer"
-    scrolling="no"
-    frameBorder="0"
-    allowTransparency="true"
-    src="https://www.deezer.com/plugins/player?format=classic&autoplay=false&playlist=true&width=700&height=350&color=007FEB&layout=dark&size=medium&type=tracks&id=3135556&app_id=1"
-    width="auto"
-    height="auto"
-  />
-);
+const withEither = (NullComponent, YouOrDeez) => ({ ...props }) => {
+  const { Rurl } = props;
+  return (
+    Rurl.length > 0
+      ? <YouOrDeez {...props} />
+      : <NullComponent {...props} />
+  );
+};
 
-const withLogicComponent = (ReactPlay, DeezerPlayer) => ({ MediaType, props }) => (
-  MediaType === 'Youtube'
-    ? <ReactPlay {...props} />
-    : <DeezerPlayer {...props} />
-);
 
-const withEither = (NullComponent, YouOrDeez) => ({ Rurl, ...props }) => (
-  Rurl.length > 0
-    ? <YouOrDeez {...props} />
-    : <NullComponent {...props} />
-);
-
-const WithYouOrDeez = withLogicComponent(RPlayer, DPlayer);
-
-const WithDeezerOrYoutube = withEither(LogoComponent, WithYouOrDeez);
+const WithDeezerOrYoutube = withEither(LogoComponent, RPlayer);
 
 class Media extends Component {
   constructor() {
@@ -75,6 +59,7 @@ class Media extends Component {
         },
       },
     } = this.props;
+    console.log('URL?', Url);
     return (
       <div>
         <div style={{

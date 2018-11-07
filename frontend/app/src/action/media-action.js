@@ -16,10 +16,10 @@ export function updateMediaObjAct(MediaObj) {
   return {
     type: UPDATE_MEDIA,
     payload: {
-      mediaType: {
-        MediaType: '',
+      mediaObj: {
+        MediaType: MediaObj.MType,
         MediaData: {
-          Url: `https://www.youtube.com/watch?v=${MediaObj}`,
+          Url: MediaObj.Url,
         },
       },
     },
