@@ -4,8 +4,6 @@ import {
   FETCH_ERROR,
   FETCH_SUCCESS_YOU,
   FETCH_SUCCESS_DEEZ,
-  API_KEY1,
-  GOOGLE_SUGGEST,
   ACOMPLETE_ERR,
   ACOMPLETE_SUC,
 } from '../constants/constant';
@@ -17,7 +15,8 @@ const getYoutube = value => (
 const getDeezer = value => (
   axios.get(`http://localhost:8888/api/deez?q=${value}`)
 );
-
+// Set all request headers to have Access-Control-Allow-Origin
+axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 // Action Creator
 export function fetchObjStartAct(value) {
   return (dispatch) => {
@@ -40,10 +39,7 @@ export function fetchObjStartAct(value) {
 
 export function getAutoCompAct(value) {
   return (dispatch) => {
-    axios({
-      method: 'get',
-      url: `${GOOGLE_SUGGEST}&key=${API_KEY1}&q=${value}`,
-    })
+    axios.get(`http://localhost:8888/api/youtube/autoComplete?q=${value}`)
       .then((response) => {
         console.log('Success!', response.data[1]);
         dispatch({ type: ACOMPLETE_SUC, payload: response.data });

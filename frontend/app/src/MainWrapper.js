@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import { propTypes, defaultProps } from './props';
 import {
   updateMediaObjAct,
   updateCurrentMediaAct,
@@ -17,6 +17,10 @@ import Div from './styling/MainWrapper.style';
 
 
 export class MainWrapper extends Component {
+  static propTypes = propTypes
+
+  static defaultProps = defaultProps
+
   constructor() {
     super();
     this.onUpdateMediaType = this.onUpdateMediaObj.bind(this);
@@ -76,76 +80,12 @@ export class MainWrapper extends Component {
   }
 }
 
-
-MainWrapper.propTypes = {
-  MediaObject: PropTypes.shape(
-    {
-      title: PropTypes.string,
-      MediaType: PropTypes.string,
-      MediaData: PropTypes.shape(
-        {
-          Url: PropTypes.string,
-        },
-      ),
-    },
-  ),
-  currentMediaTap: PropTypes.string,
-  apiReqState: PropTypes.shape(
-    {
-      fetchState: PropTypes.string,
-      data: PropTypes.array,
-    },
-  ),
-  autoComplete: PropTypes.shape(
-    {
-      currentState: PropTypes.string,
-      autoCompData: PropTypes.array,
-    },
-  ),
-  onUpdateMediaObj: PropTypes.func,
-  onUpdateCurrentMedia: PropTypes.func,
-  onSubmitSearch: PropTypes.func,
-  onGetAutoComp: PropTypes.func,
-};
-
-MainWrapper.defaultProps = {
-  MediaObject: PropTypes.shape(
-    {
-      MediaType: '',
-      MediaData: {
-        Url: '',
-      },
-    },
-  ),
-  currentMediaTap: '',
-  apiReqState: PropTypes.shape(
-    {
-      fetchState: 'Search',
-      data: [],
-    },
-  ),
-  autoComplete: PropTypes.shape(
-    {
-      currentState: 'Youtube',
-      autoCompData: [],
-    },
-  ),
-  onUpdateMediaObj: () => {},
-  onUpdateCurrentMedia: () => {},
-  onSubmitSearch: () => {},
-  onGetAutoComp: () => {},
-};
-
 const mapStateToProps = state => ({
   MediaObject: state.MediaObject,
   currentMediaTap: state.currentMediaTap,
   apiReqState: state.apiReqState,
   autoComplete: state.autoComplete,
 });
-  // apiReqState
-  // fetchState: '',
-  // error: null,
-  // data: []
 
 const mapActionsToProps = {
   onUpdateMediaObj: updateMediaObjAct,

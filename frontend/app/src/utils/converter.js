@@ -36,8 +36,9 @@ export const addDot = (value, limit) => {
 };
 
 export const timePassed = (value) => {
-  const published = value.split('-').map(Number);
-  return `${moment().to(published, true)} old`;
+  const pub = value.split('-').map(Number);
+  //                     Due to month start with 0
+  return `${moment().to([pub[0], pub[1] - 1, pub[2]], true)} old`;
 };
 
 const convertString = (value) => {

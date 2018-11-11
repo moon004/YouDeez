@@ -19,7 +19,7 @@ export function updateMediaObjAct(MediaObj) {
       mediaObj: {
         MediaType: MediaObj.MType,
         MediaData: {
-          Url: MediaObj.Url,
+          ID: MediaObj.ID,
         },
       },
     },

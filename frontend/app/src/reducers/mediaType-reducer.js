@@ -6,7 +6,7 @@ import {
 const initialMediaObject = {
   MediaType: '',
   MediaData: {
-    Url: '', // So far just url
+    ID: '', // ID of video or track
   },
 };
 

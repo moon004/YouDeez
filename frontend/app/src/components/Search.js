@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { searchPropTypes, searchDefaultProps } from '../props';
 import {
   Input, SearchIcon, Div, List,
 } from '../styling/Search.style';
@@ -13,7 +13,19 @@ const ulStyle = {
   padding: 0,
 };
 
+const divStyle = {
+  color: '#e40303',
+  fontSize: '0.8em',
+  marginLeft: '0.9em',
+  top: '-1.6em',
+  position: 'absolute',
+};
+
 class Search extends Component {
+  static propTypes = searchPropTypes;
+
+  static defaultProps = searchDefaultProps;
+
   constructor() {
     super();
     this.state = {
@@ -55,7 +67,6 @@ class Search extends Component {
     const { handleSubmit } = this.props;
     const { value } = this.state;
     if (event.key === 'Enter' && value.length > 0) {
-      console.log('enter pressed');
       handleSubmit(value);
     }
   }
@@ -99,14 +110,7 @@ class Search extends Component {
     }
     return (
       <Div position="relative">
-        <div style={{
-          color: '#e40303',
-          fontSize: '0.8em',
-          marginLeft: '0.9em',
-          top: '-1.6em',
-          position: 'absolute',
-        }}
-        >
+        <div style={divStyle}>
           {errorCode}
         </div>
         <SearchIcon
@@ -135,33 +139,4 @@ class Search extends Component {
   }
 }
 
-Search.propTypes = {
-  searchState: PropTypes.shape(
-    {
-      fetchState: PropTypes.string,
-      data: PropTypes.array,
-    },
-  ),
-  autoComplete: PropTypes.shape(
-    {
-      currentState: PropTypes.string,
-      autoCompData: PropTypes.array,
-    },
-  ),
-  handleSubmit: PropTypes.func,
-  onGetAutoComp: PropTypes.func,
-};
-
-Search.defaultProps = {
-  searchState: {
-    fetchState: 'Search', // Initial state will take value from reducer initialState
-    data: [],
-  },
-  autoComplete: {
-    currentState: '',
-    autoCompData: [],
-  },
-  handleSubmit: () => {},
-  onGetAutoComp: () => {},
-};
 export default Search;

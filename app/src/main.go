@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"os"
 	"time"
 
 	"github.com/go-chi/chi"
@@ -65,6 +64,7 @@ type StructuredLogger struct {
 func (l *StructuredLogger) NewLogEntry(r *http.Request) middleware.LogEntry {
 	entry := &StructuredLoggerEntry{Logger: logrus.NewEntry(l.Logger)}
 	logFields := logrus.Fields{}
+	headerList := ""
 
 	logFields["ts"] = time.Now().UTC().Format(time.RFC1123)
 
@@ -75,6 +75,10 @@ func (l *StructuredLogger) NewLogEntry(r *http.Request) middleware.LogEntry {
 	if r.TLS != nil {
 		scheme = "https"
 	}
+	for k, v := range r.Header {
+		headerList += fmt.Sprintf("H: %q, V: %q ", k, v)
+	}
+	logFields["req_headers"] = headerList
 	logFields["http_method"] = r.Method
 	logFields["uri"] = fmt.Sprintf("%s://%s%s", scheme, r.Host, r.RequestURI)
 
@@ -82,16 +86,16 @@ func (l *StructuredLogger) NewLogEntry(r *http.Request) middleware.LogEntry {
 
 	entry.Logger.Infoln("request started")
 
-	f, err := os.OpenFile("testlogfile", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
-	if err != nil {
-		log.Fatalf("error opening file: %v", err)
-	}
-	defer f.Close()
-	fmt.Fprintf(f, "-------------\n")
-	for tag, v := range logFields {
-		fmt.Fprintf(f, "[%s]:%s  ", tag, v)
-	}
-	fmt.Fprintf(f, "\n")
+	// f, err := os.OpenFile("testlogfile", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
+	// if err != nil {
+	// 	log.Fatalf("error opening file: %v", err)
+	// }
+	// defer f.Close()
+	// fmt.Fprintf(f, "-------------\n")
+	// for tag, v := range logFields {
+	// 	fmt.Fprintf(f, "[%s]:%s  ", tag, v)
+	// }
+	// fmt.Fprintf(f, "\n")
 
 	return entry
 }

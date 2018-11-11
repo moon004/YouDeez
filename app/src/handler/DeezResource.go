@@ -24,11 +24,14 @@ func (d DeezResource) Routes() chi.Router {
 	r.Use(middleware.Recoverer)
 
 	r.Get("/", d.GetDeezTrack)
+	r.Options("/", d.GetDeezTrack)
 
 	return r
 }
 
 func (d *DeezResource) GetDeezTrack(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Headers", "access-control-allow-origin")
 	DeezAPI := &GetDeezItem{}
 	queryValues := r.URL.Query()
 	query := queryValues.Get("q")

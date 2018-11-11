@@ -27,20 +27,25 @@ func (Yres YResources) Routes() chi.Router {
 	r.Use(middleware.Logger)
 	r.Use(middleware.Recoverer)
 
+	r.Get("/autoComplete", Yres.GetAutoComplete)
+	r.Options("/autoComplete", Yres.GetAutoComplete)
 	r.Get("/", Yres.GetYtube)
+	r.Options("/", Yres.GetYtube)
 
 	return r
 }
 
 // GetYtube API respond
 func (Yres *YResources) GetYtube(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Headers", "access-control-allow-origin")
 	var wg sync.WaitGroup
 	var youtubeId []string
 	queryValues := r.URL.Query()
 	query := queryValues.Get("q")
 	mr := queryValues.Get("mr")
 	q := url.QueryEscape(query)
-	DevKey := LoadEnv()
+	DevKey := LoadEnv("DeveloperKey")
 	URL := fmt.Sprintf(
 		"https://www.googleapis.com/youtube/v3/search?part=id&maxResults=%v&q=%s&type=video&key=%v",
 		mr, q, DevKey)
@@ -60,6 +65,31 @@ func (Yres *YResources) GetYtube(w http.ResponseWriter, r *http.Request) {
 
 	render.JSON(w, r, RetObject)
 
+}
+
+func (Yres *YResources) GetAutoComplete(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Headers", "access-control-allow-origin")
+	queryValue := r.URL.Query()
+	query := queryValue.Get("q")
+	q := url.QueryEscape(query)
+	ApiKey1 := LoadEnv("API_KEY1")
+	URL := "https://suggestqueries.google.com/complete/search?client=firefox&ds=yt"
+	reqURL := fmt.Sprintf("%s&key=%s&q=%s", URL, ApiKey1, q)
+	fmt.Println(reqURL)
+
+	res, err := http.Get(reqURL)
+	if err != nil {
+		render.JSON(w, r, ErrH.ErrDuringReq(err))
+	}
+	defer res.Body.Close()
+
+	body, _ := ioutil.ReadAll(res.Body)
+	if err != nil {
+		render.JSON(w, r, ErrH.ErrReadingJson(err))
+	}
+
+	w.Write(body)
 }
 
 func GoGrab(url string, wg *sync.WaitGroup) <-chan *YConStatsItems {
@@ -103,12 +133,12 @@ func YPayload(url string, w http.ResponseWriter, r *http.Request) *YRespond {
 }
 
 // LoadEnv just loads Devkey from env
-func LoadEnv() (DevKey string) {
+func LoadEnv(str string) (DevKey string) {
 	err := godotenv.Load()
 	if err != nil {
 		log.Fatal("Error loading .env file")
 	}
-	DevKey = os.Getenv("DeveloperKey")
+	DevKey = os.Getenv(str)
 	return
 }
 
