@@ -174,11 +174,11 @@ module.exports = {
     rules: [
       // Disable require.ensure as it's not a standard language feature.
       { parser: { requireEnsure: false } },
-
       // First, run the linter.
       // It's important to do this before Babel processes the JS.
       {
         test: /\.(js|mjs|jsx)$/,
+        exclude: /node_modules/,
         enforce: 'pre',
         use: [
           {
@@ -186,6 +186,9 @@ module.exports = {
               formatter: require.resolve('react-dev-utils/eslintFormatter'),
               eslintPath: require.resolve('eslint'),
               extends: 'airbnb',
+              rules: {
+                camelcase: 'off',
+              },
               parserOptions: {
                 ecmaFeatures: {
                   experimentalObjectRestSpread: true,

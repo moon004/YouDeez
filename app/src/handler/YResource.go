@@ -8,10 +8,12 @@ import (
 	"net/http"
 	"net/url"
 	"os"
+	"os/exec"
 	"strings"
 	"sync"
 
-	"github.com/Errhandler"
+	"Errhandler"
+
 	"github.com/joho/godotenv"
 
 	"github.com/go-chi/chi"
@@ -29,6 +31,8 @@ func (Yres YResources) Routes() chi.Router {
 
 	r.Get("/autoComplete", Yres.GetAutoComplete)
 	r.Options("/autoComplete", Yres.GetAutoComplete)
+	r.Get("/download", Yres.GetAudio)
+	r.Options("/download", Yres.GetAudio)
 	r.Get("/", Yres.GetYtube)
 	r.Options("/", Yres.GetYtube)
 
@@ -65,6 +69,25 @@ func (Yres *YResources) GetYtube(w http.ResponseWriter, r *http.Request) {
 
 	render.JSON(w, r, RetObject)
 
+}
+
+func (Yres *YResources) GetAudio(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Headers", "access-control-allow-origin")
+	queryValue := r.URL.Query()
+	query := queryValue.Get("q")
+	q := url.QueryEscape(query)
+	cmd := exec.Command("go-youtube-dl.exe", "--audio-only", q)
+	cmd.Stdout = w
+	err := cmd.Start()
+	if err != nil {
+		render.JSON(w, r, ErrH.ErrDuringStream(err))
+	}
+	err = cmd.Wait()
+	if err != nil {
+		render.JSON(w, r, ErrH.ErrDuringWait(err))
+	}
+	fmt.Fprintf(w, "Done")
 }
 
 func (Yres *YResources) GetAutoComplete(w http.ResponseWriter, r *http.Request) {

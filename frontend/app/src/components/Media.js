@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactPlayer from 'react-player';
+// import { download } from '../utils/DL';
 import YouDeezLogo from '../assets/youdeez_small.svg';
 import {
   mediaPropTypes,
@@ -93,7 +94,9 @@ class Media extends Component {
   }
 
   handleClickDownload = (event) => {
-    console.log('play Clicked', event);
+    const ytID = 'iwyXbD1Rn7g';
+    console.log('play Clicked', event, ytID);
+    // len(data) to get file size
   }
 
   render() {

@@ -8,7 +8,8 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/Errhandler"
+	"Errhandler"
+
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
 	"github.com/go-chi/render"
