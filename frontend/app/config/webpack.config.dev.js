@@ -188,6 +188,11 @@ module.exports = {
               extends: 'airbnb',
               rules: {
                 camelcase: 'off',
+                'no-var': 'off',
+                'default-case': 'off',
+                'no-fallthrough': 'off',
+                'react/prop-types': 'off',
+                'react/destructuring-assignment': 'off',
               },
               parserOptions: {
                 ecmaFeatures: {

@@ -8,20 +8,23 @@ describe('<Media/>', () => {
   let MountYou;
   let MountDeez;
   let MountLogo;
-
+  const spy = jest.fn();
+  const dlSpy = jest.fn();
   const testPropsYou = {
     mediaObj: {
       MediaType: 'Youtube',
       MediaData: {
-        Url: 'https://www.youtube.com/watch?v=lGaneyDfyls',
+        ID: 'lGaneyDfyls',
       },
     },
+    onDownload: spy,
+    downloadObject: dlSpy,
   };
   const testPropsDeez = {
     mediaObj: {
       MediaType: 'Deezer',
       MediaData: {
-        Url: 'https://www.deezer.com/track/125953573',
+        ID: '125953573',
       },
     },
   };
@@ -29,11 +32,14 @@ describe('<Media/>', () => {
     mediaObj: {
       MediaType: '',
       MediaData: {
-        Url: '',
+        ID: '',
       },
     },
   };
 
+  const base = 'https://www.deezer.com/plugins/player?';
+  const attr = '&autoplay=true&playlist=false&layout=dark&size=medium&type=tracks&format=square&width=300pxheight=300px';
+  const id = '&id=125953573';
   beforeEach(() => {
     MountLogo = mount(<Media {...testEmptyUrl} />);
     MountYou = mount(<Media {...testPropsYou} />);
@@ -52,7 +58,14 @@ describe('<Media/>', () => {
   });
 
   it('Should Work For Deezer', () => {
-    expect(MountDeez.find('ReactPlayer').prop('url'))
-      .toBe('https://www.deezer.com/track/125953573');
+    expect(MountDeez.find('iframe').prop('src'))
+      .toBe(`${base}${attr}${id}`);
+  });
+
+  it('Should work for Media Download', () => {
+    const Click = MountYou.find('button');
+    Click.simulate('click');
+    expect(testPropsYou.onDownload).toHaveBeenCalled();
+    expect(testPropsYou.downloadObject).toHaveBeenCalled();
   });
 });

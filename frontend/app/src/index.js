@@ -9,18 +9,30 @@ import {
 } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
+import {
+  initDB,
+} from './utils/indexdb';
 import * as serviceWorker from './serviceWorker';
 import ConnMainWrapper from './MainWrapper';
 import {
   mediaTypeReducer,
   mediaObjectReducer,
+  mediaDownloadReducer,
 } from './reducers/mediaType-reducer';
 import { SearchReducer, SACReducer } from './reducers/search-reducer';
+// initiailize IndexedDb, check if it's supported.
 
+if (!(window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB)) {
+  window.alert(
+    'this browser doesnt support indexed DB, therefore download is not supported',
+  );
+}
+initDB();
 
 const allReducers = combineReducers({
   MediaObject: mediaObjectReducer,
   currentMediaTap: mediaTypeReducer,
+  downloadObject: mediaDownloadReducer,
   apiReqState: SearchReducer,
   autoComplete: SACReducer, // SAC is Search Auto Complete
 });

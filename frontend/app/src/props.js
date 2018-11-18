@@ -1,7 +1,7 @@
 import Proptypes from 'prop-types';
 
 const {
-  string, shape, func, array,
+  string, shape, func, array, any,
 } = Proptypes;
 
 export const propTypes = {
@@ -92,6 +92,20 @@ export const PlayerdefaultProps = {
   mediaID: '',
 };
 
+export const libObj = {
+  songTitle: string,
+  img: string,
+  dur: string,
+  bit: any,
+};
+
+export const libObjDefault = {
+  songTitle: '',
+  img: '',
+  dur: '',
+  bit: '',
+};
+
 export const defaultConfig = {
   deez: {
     autoplay: '&autoplay=true',
@@ -133,4 +147,12 @@ export const searchDefaultProps = {
   },
   handleSubmit: () => {},
   onGetAutoComp: () => {},
+};
+
+export const myLibPropTypes = {
+  dbItem: any,
+};
+
+export const myLibDefaultProps = {
+  dbItem: {},
 };

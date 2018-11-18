@@ -4,9 +4,13 @@ import { propTypes, defaultProps } from './props';
 import {
   updateMediaObjAct,
   updateCurrentMediaAct,
+  updateDownloadAct,
 }
   from './action/media-action';
-import { fetchObjStartAct, getAutoCompAct } from './action/search-action';
+import {
+  fetchObjStartAct,
+  getAutoCompAct,
+} from './action/search-action';
 
 // import ResultObj from './Object';
 import Search from './components/Search';
@@ -27,6 +31,7 @@ export class MainWrapper extends Component {
     this.onObjTap = this.onObjTap.bind(this);
     this.onSubmitSearch = this.onSubmitSearch.bind(this);
     this.onGetAutoComp = this.onGetAutoComp.bind(this);
+    this.clickDownload = this.clickDownload.bind(this);
   }
 
   onUpdateMediaObj = (value) => {
@@ -49,6 +54,10 @@ export class MainWrapper extends Component {
     onUpdateCurrentMedia(value);
   }
 
+  clickDownload = (value) => {
+    const { onDownloadMedia } = this.props;
+    onDownloadMedia(value);
+  }
 
   render() {
     const {
@@ -56,6 +65,7 @@ export class MainWrapper extends Component {
       currentMediaTap,
       apiReqState,
       autoComplete,
+      downloadObject,
     } = this.props;
     return (
       <Div>
@@ -73,8 +83,12 @@ export class MainWrapper extends Component {
         />
         <Media
           mediaObj={MediaObject}
+          onDownload={this.clickDownload}
+          downloadObject={downloadObject}
         />
-        <MyLibrary />
+        <MyLibrary
+          downloadObject={downloadObject}
+        />
       </Div>
     );
   }
@@ -85,11 +99,13 @@ const mapStateToProps = state => ({
   currentMediaTap: state.currentMediaTap,
   apiReqState: state.apiReqState,
   autoComplete: state.autoComplete,
+  downloadObject: state.downloadObject,
 });
 
 const mapActionsToProps = {
   onUpdateMediaObj: updateMediaObjAct,
   onUpdateCurrentMedia: updateCurrentMediaAct,
+  onDownloadMedia: updateDownloadAct,
   onSubmitSearch: fetchObjStartAct,
   onGetAutoComp: getAutoCompAct,
 };

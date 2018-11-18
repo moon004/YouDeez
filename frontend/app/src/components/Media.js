@@ -93,10 +93,23 @@ class Media extends Component {
     this.handleClickDownload = this.handleClickDownload.bind(this);
   }
 
-  handleClickDownload = (event) => {
+  handleClickDownload = () => (event) => {
+    const {
+      onDownload,
+      mediaObj: {
+        MediaData: {
+          songObject,
+        },
+      },
+    } = this.props;
     const ytID = 'iwyXbD1Rn7g';
-    console.log('play Clicked', event, ytID);
-    // len(data) to get file size
+    console.log('play Clicked', event.value, ytID, songObject);
+    const downloadObject = {
+      state: 'progress',
+      ID: ytID,
+      songObj: songObject,
+    };
+    onDownload(downloadObject);
   }
 
   render() {
@@ -107,7 +120,12 @@ class Media extends Component {
           ID,
         },
       },
+      downloadObject: {
+        state,
+        songObject,
+      },
     } = this.props;
+    console.log(state, songObject);
     return (
       <div>
         <div style={{
@@ -123,7 +141,7 @@ class Media extends Component {
         </div>
         <button
           type="button"
-          onClick={this.handleClickDownload}
+          onClick={this.handleClickDownload(MediaType)}
         >
         Download
         </button>

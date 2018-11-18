@@ -42,11 +42,12 @@ class DivTap extends Component {
     onObjTap(value);
   }
 
-  handleObjClick = (id, mediaType) => () => {
+  handleObjClick = (id, mediaType, songObj) => () => {
     const { onObjClick } = this.props;
     const mediaObj = {
       MType: mediaType,
       ID: id.toString(),
+      songObject: songObj,
     };
     console.log('handleObjClick', mediaObj);
     onObjClick(mediaObj);
@@ -60,7 +61,6 @@ class DivTap extends Component {
       },
       tapState,
     } = this.props;
-    console.log(dataYou);
     return (
       <DivT currentap={tapState}>
         <EqDivider>

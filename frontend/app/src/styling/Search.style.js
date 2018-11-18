@@ -54,16 +54,17 @@ export const List = styled.li`
   font-family: Ubuntu;
   width: 100%;
   padding: 0.2em 0em 0.2em 0.5em;
-  
+  background: ${props => (props.cursor ? '#dbdbdb' : 'white')};
+
   :first-child {
     border-radius: 0.5em 0.5em 0 0;
-    padding-top: 1.2em;
+    padding-top: 1.5em;
   }
   :last-child {
     border-radius: 0 0 0.5em 0.5em;
   }
   &:hover {
-    background: #bcbcbc;
+    background: #dbdbdb;
   }
 `;
 

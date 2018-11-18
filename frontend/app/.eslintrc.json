@@ -3,7 +3,12 @@
     "rules": {
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         "consistent-return": "off",
-        "camelcase": "off"
+        "camelcase": "off",
+        "no-var": "off",
+        "default-case": "off",
+        "no-fallthrough": "off",
+        "react/prop-types": "off",
+        "react/destructuring-assignment": "off"
       },
       "env": {
         "browser": true,

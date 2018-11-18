@@ -29,6 +29,7 @@ class Search extends Component {
   constructor() {
     super();
     this.state = {
+      cursor: 0,
       value: '',
     };
     this.handleChange = this.handleChange.bind(this);
@@ -45,6 +46,7 @@ class Search extends Component {
       onGetAutoComp(event.target.value);
     }
   }
+
 
   handleClick = value => () => {
     const { onGetAutoComp, handleSubmit } = this.props;
@@ -71,6 +73,21 @@ class Search extends Component {
     }
   }
 
+  handleKeyDown = (event) => {
+    const { cursor } = this.state;
+    const { autoComplete: { autoCompData } } = this.props;
+    console.log('keydown', event.keyCode, cursor, autoCompData.length[1]);
+    if (event.keyCode === 38 && cursor > 0) {
+      this.setState(prevState => ({
+        cursor: prevState.cursor - 1,
+      }));
+    } else if (event.keyCode === 40 && cursor < autoCompData[1].length - 1) {
+      this.setState(prevState => ({
+        cursor: prevState.cursor + 1,
+      }));
+    }
+  }
+
   render() {
     const {
       searchState: {
@@ -85,14 +102,15 @@ class Search extends Component {
         autoCompData,
       },
     } = this.props;
-    const { value } = this.state;
+    const { value, cursor } = this.state;
     let autoList;
     let errorCode = '';
     if (currentState === 'Success') {
-      autoList = autoCompData[1].map(val => (
+      autoList = autoCompData[1].map((val, i) => (
 
         <List
           key={val}
+          cursor={cursor === i}
           onClick={this.handleClick(val)}
         >
           {val}
@@ -102,7 +120,9 @@ class Search extends Component {
         errorCode = 'Make sure you have internet access';
       }
       // empty the autocomplete list
-      if (value === '' || fetchState === SEARCHING || fetchState === SEARCHDONE) {
+      if (value === ''
+        || fetchState === SEARCHING
+          || fetchState === SEARCHDONE) {
         autoList = <div />;
         autoCompData = [];
         errorCode = '';
@@ -123,6 +143,7 @@ class Search extends Component {
           id="searchInput"
           type="text"
           onChange={this.handleChange(value)}
+          onKeyDown={this.handleKeyDown}
           onKeyPress={this.handleKeyPress}
           placeholder={fetchState}
           value={value}

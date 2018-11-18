@@ -43,7 +43,10 @@ export const timePassed = (value) => {
 
 const convertString = (value) => {
   switch (true) {
-    case (value[0] === 'P'):
+    case (/^PT\w*/.test(value)):
+      if (/^PT\d*S$/.test(value)) {
+        return `0:${moment.duration(value).format('hh:mm:ss')}`;
+      }
       return moment.duration(value).format('hh:mm:ss');
     case (typeof value === 'number'):
       if (value < 60) {

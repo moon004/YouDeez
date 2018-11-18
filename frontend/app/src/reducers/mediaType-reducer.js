@@ -1,6 +1,9 @@
 import {
   UPDATE_MEDIA,
   UPDATE_CMEDIA,
+  UPDATE_DOWNLOAD,
+  UPDATE_DOWNLOAD_FINISH,
+  UPDATE_DOWNLOAD_ERR,
 } from '../constants/constant';
 
 const initialMediaObject = {
@@ -10,9 +13,14 @@ const initialMediaObject = {
   },
 };
 
+const initialDownloadState = {
+  state: 'idle',
+  buffer: null,
+};
+
 export function mediaTypeReducer(
 // currentMediaTap = 'Youtube' on start
-  state = 'Deezer', { type, payload },
+  state = 'Youtube', { type, payload },
 ) {
   switch (type) {
     case UPDATE_CMEDIA:
@@ -29,6 +37,21 @@ export function mediaObjectReducer(
   switch (type) {
     case UPDATE_MEDIA:
       return payload.mediaObj;
+    default:
+      return state;
+  }
+}
+
+export function mediaDownloadReducer(
+  state = initialDownloadState, { type, payload },
+) {
+  switch (type) {
+    case UPDATE_DOWNLOAD:
+      return payload;
+    case UPDATE_DOWNLOAD_FINISH:
+      return payload;
+    case UPDATE_DOWNLOAD_ERR:
+      return payload;
     default:
       return state;
   }

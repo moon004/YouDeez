@@ -4,6 +4,9 @@ export const UPDATE_USER = 'updateUser';
 export const UPDATE_MEDIA = 'updateMedia';
 export const UPDATE_CMEDIA = 'updateCMedia'; // C = current
 export const UPDATE_FETCHSTATE = 'UPDATE_FETCHSTATE'; // C = current
+export const UPDATE_DOWNLOAD = 'UPDATE_DOWNLOAD';
+export const UPDATE_DOWNLOAD_FINISH = 'UPDATE_DOWNLOAD_FINISH';
+export const UPDATE_DOWNLOAD_ERR = 'UPDATE_DOWNLOAD_ERR';
 export const SHOW_ERROR = 'showerror';
 export const FETCH_OBJ_START = 'FETCH_OBJ_START';
 export const FETCH_SUCCESS_YOU = 'FETCH_SUCCESS_YOU';
@@ -22,3 +25,6 @@ export const SEARCHDONE = 'There you go...';
 export const ERROR_STATE = 'Error';
 export const ERROR_STATE_YOU = 'Error';
 export const ERROR_STATE_DEEZ = 'Error';
+export const DB_STORE_NAME = 'audiostore';
+export const DB_NAME = 'mylib';
+export const GET_DB = 'GET_DB';

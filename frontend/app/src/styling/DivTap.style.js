@@ -18,8 +18,6 @@ export const EqDivider = styled.div`
 `;
 
 export const ButYou = styled.button`
-  font-size: 1em;
-  background-image: ;
   background: #282828 url(${ytLogo});
   background-size: 60%;
   background-repeat: no-repeat;
