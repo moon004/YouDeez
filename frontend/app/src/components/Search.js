@@ -76,15 +76,17 @@ class Search extends Component {
   handleKeyDown = (event) => {
     const { cursor } = this.state;
     const { autoComplete: { autoCompData } } = this.props;
-    console.log('keydown', event.keyCode, cursor, autoCompData.length[1]);
-    if (event.keyCode === 38 && cursor > 0) {
-      this.setState(prevState => ({
-        cursor: prevState.cursor - 1,
-      }));
-    } else if (event.keyCode === 40 && cursor < autoCompData[1].length - 1) {
-      this.setState(prevState => ({
-        cursor: prevState.cursor + 1,
-      }));
+    console.log('autocomeplete', autoCompData.length);
+    if (autoCompData.length > 0) {
+      if (event.keyCode === 38 && cursor > 0) {
+        this.setState(prevState => ({
+          cursor: prevState.cursor - 1,
+        }));
+      } else if (event.keyCode === 40 && cursor < autoCompData[1].length - 1) {
+        this.setState(prevState => ({
+          cursor: prevState.cursor + 1,
+        }));
+      }
     }
   }
 

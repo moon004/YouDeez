@@ -3,12 +3,15 @@ import { myLibPropTypes, myLibDefaultProps } from '../props';
 import { getDB } from '../utils/indexdb';
 import { DB_STORE_NAME } from '../constants/constant';
 import MediaPlayer from './Mediaplayer';
-
+import convertString, { addDot } from '../utils/converter';
+import '../index.css';
 
 import {
   DivLib,
   DivObj,
   StyledScrollbarLib,
+  DivObjTitle,
+  DivObjArtist,
 } from '../styling/MyLibrary.style';
 
 
@@ -23,6 +26,7 @@ class MyLibrary extends Component {
     this.state = {
       blobUrl: '',
       dbItem: [],
+      songObject: {},
     };
     this.callUpdateDB();
   }
@@ -44,9 +48,20 @@ class MyLibrary extends Component {
 
   handlePlaySong = value => () => {
     console.log('handlePlaysong', value);
-    const url = URL.createObjectURL(value);
+    const url = URL.createObjectURL(value.bit);
     this.setState({
       blobUrl: url,
+      songObject: value,
+    });
+    console.log('BLOB URL IN handler', this.state.blobUrl);
+  };
+
+  handleThisSong = (value) => {
+    console.log('handleThisSong', value);
+    const url = URL.createObjectURL(value.bit);
+    this.setState({
+      blobUrl: url,
+      songObject: value,
     });
     console.log('BLOB URL IN handler', this.state.blobUrl);
   };
@@ -75,39 +90,73 @@ class MyLibrary extends Component {
 
   render() {
     const {
-      blobUrl,
-      dbItem,
+      blobUrl, // For Playing the audio
+      dbItem, // For Loading the List
+      songObject, // Object for MediaPlayer
     } = this.state;
     console.log('component rendered', blobUrl);
     let itemList = [];
     if (typeof dbItem[0] !== 'undefined') {
       itemList = dbItem.map((item) => {
         const {
-          songTitle, img, dur, bit,
-        } = item;
+          dur, id,
+        } = item; // make sure pass in obj
         return (
           <DivObj
             key={item.id}
-            onClick={this.handlePlaySong(bit)}
+            onClick={this.handlePlaySong(item)}
           >
-            {songTitle}
-            {img}
-            {dur}
+            <div>
+              {`${id} .`}
+            </div>
+            <DivObjTitle>
+              <div style={{
+                textOverflow: 'ellipsis',
+                overflow: 'hidden',
+                whiteSpace: 'nowrap',
+              }}
+              >
+                {item.songTitle}
+              </div>
+              <DivObjArtist>
+                {addDot(item.artist, 30)}
+                <div style={{
+                  margin: '-0.45em 0.3em -0.5em 0.3em',
+                  fontSize: '2.5em',
+                }}
+                >
+                  {item.album ? '·' : ' '}
+                </div>
+                {item.album ? addDot(item.album, 30) : ' '}
+              </DivObjArtist>
+            </DivObjTitle>
+            <div style={{
+              fontWeight: 100,
+              fontSize: '0.8em',
+              letterSpacing: '0.1em',
+              marginTop: '0.1em',
+            }}
+            >
+              {convertString(dur)}
+            </div>
           </DivObj>
         );
       });
     }
     return (
       <DivLib>
+        <MediaPlayer
+          url={blobUrl}
+          PassedObj={songObject}
+          wholeDB={dbItem}
+          playThis={this.handleThisSong}
+        />
         <StyledScrollbarLib
           renderThumbVertical={this.renderThumb}
           autoHide
           style={{ height: 300 }}
           thumbMinSize={50}
         >
-          <MediaPlayer
-            url={blobUrl}
-          />
           {itemList}
         </StyledScrollbarLib>
       </DivLib>

@@ -47,15 +47,17 @@ export function updateDownloadAct(downloadObject) {
     console.log('In updateDownloadAct, payload:', downloadObject);
     axios.request({
       responseType: 'blob',
-      url: `http://localhost:8888/api/youtube/download?q=${downloadObject.ID}`,
+      url: `http://localhost:8888/api/youtube/download?q=${downloadObject.Id}`,
       method: 'get',
       headers: {
         'Content-Type': 'audio/m4a',
         Accept: 'audio/m4a',
       },
     }).then((response) => {
-      const { songName, songImg, songDur } = downloadObject.songObj;
-      addToDB(songName, songImg, songDur, response.data);
+      const {
+        songName, songImg, songDur, songArtist, songAlbum,
+      } = downloadObject.songObj;
+      addToDB(songName, songImg, songDur, songArtist, songAlbum, response.data);
       dispatch({
         type: UPDATE_DOWNLOAD_FINISH,
         payload: {

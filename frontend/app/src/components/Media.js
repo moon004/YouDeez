@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ReactPlayer from 'react-player';
-// import { download } from '../utils/DL';
+import RPlayer from './RPlayer';
+
 import YouDeezLogo from '../assets/youdeez_small.svg';
 import {
   mediaPropTypes,
@@ -10,15 +10,6 @@ import {
   defaultConfig,
 } from '../props';
 
-
-const RPlayer = ({ mediaID }) => (
-  <ReactPlayer
-    url={`https://www.youtube.com/watch?v=${mediaID}`}
-    playing
-    width="auto"
-    height="17.5em"
-  />
-);
 
 const DPlayer = ({ mediaID, config }) => {
   const deezFront = 'https://www.deezer.com/plugins/player?';
@@ -98,15 +89,15 @@ class Media extends Component {
       onDownload,
       mediaObj: {
         MediaData: {
+          ID,
           songObject,
         },
       },
     } = this.props;
-    const ytID = 'iwyXbD1Rn7g';
-    console.log('play Clicked', event.value, ytID, songObject);
+    console.log('play Clicked', event.target, songObject);
     const downloadObject = {
       state: 'progress',
-      ID: ytID,
+      Id: ID,
       songObj: songObject,
     };
     onDownload(downloadObject);
@@ -131,7 +122,7 @@ class Media extends Component {
         <div style={{
           height: 'auto',
           width: 'auto',
-          margin: '2em',
+          marginTop: '3em',
         }}
         >
           <DeezerOrYoutube

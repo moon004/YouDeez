@@ -20,6 +20,8 @@ export const RetObjectYou = (props) => {
           songName: item.snippet.title,
           songImg: item.snippet.thumbnails.medium.url,
           songDur: item.contentDetails.duration,
+          songArtist: item.snippet.channelTitle,
+          songAlbum: null,
         };
         return (
           <RetObjStyled
@@ -90,6 +92,8 @@ export const RetObjectDeez = (props) => {
           songName: item.title,
           songImg: item.album.cover,
           songDur: item.duration,
+          songArtist: item.artist.name,
+          songAlbum: item.album.title,
         };
         return (
           <RetObjStyled

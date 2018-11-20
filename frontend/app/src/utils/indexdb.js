@@ -13,15 +13,17 @@ export const initDB = () => {
   console.log('db started!');
 };
 
-export const addToDB = (songName, songImg, duration, stream) => {
+export const addToDB = (songName, songImg, duration, artistName, albumName, stream) => {
   const indb = idb.open(DB_NAME, 1);
-  console.log('indb', songName, songImg, duration);
+  console.log('indb', songName, songImg, duration, artistName, albumName);
   indb.then((db) => {
     const tx = db.transaction(DB_STORE_NAME, 'readwrite');
     tx.objectStore(DB_STORE_NAME).put({
       songTitle: songName,
       img: songImg,
       dur: duration,
+      artist: artistName,
+      album: albumName,
       bit: stream,
     });
     return tx.complete;
