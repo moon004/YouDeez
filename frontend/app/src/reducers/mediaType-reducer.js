@@ -14,8 +14,10 @@ const initialMediaObject = {
 };
 
 const initialDownloadState = {
-  state: 'idle',
-  buffer: null,
+  state: '',
+  songObject: {
+    songName: '',
+  },
 };
 
 export function mediaTypeReducer(

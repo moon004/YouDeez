@@ -30,6 +30,31 @@ export const addToDB = (songName, songImg, duration, artistName, albumName, stre
   });
 };
 
+export const getDB = () => idb.open(DB_NAME, 1);
+
+export const callDeleteDB = (key) => {
+  const indb = getDB();
+  indb.then((db) => {
+    const tx = db.transaction(DB_STORE_NAME, 'readwrite');
+    const store = tx.objectStore(DB_STORE_NAME);
+    store.delete(key);
+    return tx.complete;
+  }).then((deleted) => { console.log('Item delete', deleted); });
+};
+
+export const callUpdateDB = (caller) => {
+  const indb = getDB();
+  indb.then(db => db.transaction(DB_STORE_NAME)
+    .objectStore(DB_STORE_NAME)
+    .getAll()).then((obj) => {
+    console.log('current db item', obj);
+    caller.setState({
+      dbItem: obj,
+    });
+  });
+};
+
+
 // const indb = getDB();
 // indb.then(db => db.transaction(DB_STORE_NAME)
 //   .objectStore(DB_STORE_NAME)
@@ -37,5 +62,3 @@ export const addToDB = (songName, songImg, duration, artistName, albumName, stre
 //   console.log('obj', obj);
 //   this.state.dbItem = obj;
 // });
-
-export const getDB = () => idb.open(DB_NAME, 1);

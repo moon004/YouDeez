@@ -4,6 +4,7 @@ import { SkipNext } from 'styled-icons/material/SkipNext';
 import { SkipPrevious } from 'styled-icons/material/SkipPrevious';
 import { Repeat } from 'styled-icons/feather/Repeat';
 import { Pause } from 'styled-icons/material/Pause';
+import { TrashAlt } from 'styled-icons/fa-solid/TrashAlt';
 
 import '../index.css';
 import { StyledScrollbar } from './DivTap.style';
@@ -99,6 +100,17 @@ export const RepeatIcon = styled(Repeat)`
   }
 `;
 
+export const DeleteIcon = styled(TrashAlt)`
+  color: white;
+  opacity: 0.6;
+  width: 1.5em;
+  height: 1.5em;
+  margin: 0.4em auto 0 auto;
+  &:hover {
+    opacity: 1;
+  }
+`;
+
 export const StyledScrollbarLib = styled(StyledScrollbar)`
   background: #282828;
 `;
@@ -113,6 +125,7 @@ export const DivMediaMiddle = styled.div`
 
 export const DivMediaImg = styled.div`
   display: flex;
+  margin-left: auto;
   position: relative;
   width: 7em;
   height: 4em;

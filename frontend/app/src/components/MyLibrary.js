@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { myLibPropTypes, myLibDefaultProps } from '../props';
-import { getDB } from '../utils/indexdb';
-import { DB_STORE_NAME } from '../constants/constant';
 import MediaPlayer from './Mediaplayer';
 import convertString, { addDot } from '../utils/converter';
+import { callUpdateDB, callDeleteDB } from '../utils/indexdb';
 import '../index.css';
 
 import {
@@ -12,6 +11,7 @@ import {
   StyledScrollbarLib,
   DivObjTitle,
   DivObjArtist,
+  DeleteIcon,
 } from '../styling/MyLibrary.style';
 
 
@@ -28,13 +28,13 @@ class MyLibrary extends Component {
       dbItem: [],
       songObject: {},
     };
-    this.callUpdateDB();
+    callUpdateDB(this);
   }
 
   shouldComponentUpdate(nextprops, nextstate) {
     const { downloadObject } = this.props;
     if (nextprops.downloadObject.state !== downloadObject.state) {
-      this.callUpdateDB();
+      callUpdateDB(this);
     }
     const { dbItem, blobUrl } = this.state;
     if (nextstate.dbItem !== dbItem) {
@@ -46,37 +46,54 @@ class MyLibrary extends Component {
     return false;
   }
 
-  handlePlaySong = value => () => {
+  handlePlaySong = (value, index) => () => {
     console.log('handlePlaysong', value);
     const url = URL.createObjectURL(value.bit);
+    const {
+      album, artist, bit, dur, img, songTitle,
+    } = value;
     this.setState({
       blobUrl: url,
-      songObject: value,
+      songObject: {
+        passedID: index,
+        passedAlbum: album,
+        passedArtist: artist,
+        passedBit: bit,
+        passsedDur: dur,
+        passedImg: img,
+        passedSongTitle: songTitle,
+
+      },
     });
     console.log('BLOB URL IN handler', this.state.blobUrl);
   };
 
-  handleThisSong = (value) => {
+  handleThisSong = (value, PassedID) => {
     console.log('handleThisSong', value);
     const url = URL.createObjectURL(value.bit);
+    const {
+      album, artist, bit, dur, img, songTitle,
+    } = value;
     this.setState({
       blobUrl: url,
-      songObject: value,
+      songObject: {
+        passedID: PassedID,
+        passedAlbum: album,
+        passedArtist: artist,
+        passedBit: bit,
+        passsedDur: dur,
+        passedImg: img,
+        passedSongTitle: songTitle,
+
+      },
     });
     console.log('BLOB URL IN handler', this.state.blobUrl);
   };
 
-
-  callUpdateDB() {
-    const indb = getDB();
-    indb.then(db => db.transaction(DB_STORE_NAME)
-      .objectStore(DB_STORE_NAME)
-      .getAll()).then((obj) => {
-      console.log('current db item', obj);
-      this.setState({
-        dbItem: obj,
-      });
-    });
+  handleDeleteSong = item => () => {
+    console.log('DELETE!!!', item);
+    callDeleteDB(item.id);
+    callUpdateDB(this);
   }
 
   renderThumb = (props) => {
@@ -94,22 +111,19 @@ class MyLibrary extends Component {
       dbItem, // For Loading the List
       songObject, // Object for MediaPlayer
     } = this.state;
-    console.log('component rendered', blobUrl);
     let itemList = [];
+    console.log('component rendered', dbItem, itemList[0]);
     if (typeof dbItem[0] !== 'undefined') {
-      itemList = dbItem.map((item) => {
-        const {
-          dur, id,
-        } = item; // make sure pass in obj
+      itemList = dbItem.map((item, index) => {
+        const { dur } = item; // make sure pass in obj
         return (
           <DivObj
             key={item.id}
-            onClick={this.handlePlaySong(item)}
           >
-            <div>
-              {`${id} .`}
-            </div>
-            <DivObjTitle>
+            {`${index + 1} .`}
+            <DivObjTitle
+              onClick={this.handlePlaySong(item, index)}
+            >
               <div style={{
                 textOverflow: 'ellipsis',
                 overflow: 'hidden',
@@ -135,9 +149,14 @@ class MyLibrary extends Component {
               fontSize: '0.8em',
               letterSpacing: '0.1em',
               marginTop: '0.1em',
+              display: 'flex',
+              flexDirection: 'column',
             }}
             >
               {convertString(dur)}
+              <DeleteIcon
+                onClick={this.handleDeleteSong(item)}
+              />
             </div>
           </DivObj>
         );
@@ -157,7 +176,14 @@ class MyLibrary extends Component {
           style={{ height: 300 }}
           thumbMinSize={50}
         >
-          {itemList}
+          {itemList[0] === undefined ? (
+            <div style={{ margin: '8em' }}>
+              <div>
+                {'Begin Searching and Download songs . . .'}
+              </div>
+            </div>
+          )
+            : (itemList)}
         </StyledScrollbarLib>
       </DivLib>
     );

@@ -77,8 +77,8 @@ func (Yres *YResources) GetAudio(w http.ResponseWriter, r *http.Request) {
 	queryValue := r.URL.Query()
 	query := queryValue.Get("q")
 	q := url.QueryEscape(query)
-	cmd := exec.Command("go-youtube-dl.exe", "--audio-only", q)
-	cmd.Stdout = w
+	cmd := exec.Command("go-youtube-dl.exe", "--audio-only", "https://www.youtube.com/watch?v="+q)
+	cmd.Stdout = w // streaming occurs here
 	err := cmd.Start()
 	if err != nil {
 		render.JSON(w, r, ErrH.ErrDuringStream(err))

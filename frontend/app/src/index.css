@@ -75,3 +75,65 @@ input[type=range]::-webkit-slider-runnable-track {
   cursor: pointer;
   background: -webkit-linear-gradient(left, rgb(219, 219, 219) var(--percent),#646464 var(--percent));
 }
+
+#yodaQuote {
+  font-style: italic;
+  font-size: 0.8em;
+  opacity: 0.7;
+  font-weight: 100;
+}
+#myQuote {
+  font-style: italic;
+  font-size: 0.8em;
+  opacity: 0.7;
+  font-weight: 100;
+}
+#IdleQuote {
+  font-style: italic;
+  font-size: 0.8em;
+  opacity: 0.7;
+  font-weight: 100;
+}
+
+
+
+#downloadText {
+  width: 21em;
+  margin: 0.4em 0 0.2em 0;
+  font-size: 0.8em;
+  white-space: nowrap;
+}
+#noInfoDownloadText {
+  width: 21em;
+  margin: 0.4em 0 0.2em 0;
+  font-size: 0.8em;
+  white-space: nowrap;
+}
+#IdledownloadText {
+  width: 21em;
+  margin: 0.4em 0 0.2em 0;
+  font-size: 0.8em;
+  white-space: nowrap;
+}
+
+#downloadText:after {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  -webkit-animation: ellipsis steps(4,end) 900ms infinite;      
+  animation: ellipsis steps(4,end) 900ms infinite;
+  content: "..."; /* ascii code for the ellipsis character */
+  width: 0px;
+}
+
+@keyframes ellipsis {
+  to {
+    width: 1.25em;    
+  }
+}
+
+@-webkit-keyframes ellipsis {
+  to {
+    width: 1.25em;    
+  }
+}

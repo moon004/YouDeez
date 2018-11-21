@@ -8,7 +8,10 @@ const Div = styled.div`
   margin-left: auto;
   margin-right: auto;
   position: relative;
-
+  -webkit-user-select: none;   
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   /* @media screen and ( max-width: 768px ) {
     left: 15vw;
   }

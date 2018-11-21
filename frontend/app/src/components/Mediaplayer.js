@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactPlayer from 'react-player';
 import '../index.css';
 import convertString from '../utils/converter';
+import HNDLogo from '../assets/hnd.svg';
 
 import {
   DivMediaPlayer,
@@ -43,7 +44,6 @@ export default class MediaPlayer extends Component {
   }
 
   onProgress = (state) => {
-    console.log('onProgress', state);
     // We only want to update time slider if we are not currently seeking
     if (!this.state.seeking) {
       this.setState({
@@ -56,6 +56,7 @@ export default class MediaPlayer extends Component {
   onEnded = () => {
     const { loop } = this.state;
     this.setState({ playing: loop });
+    this.nextSong();
   }
 
   onPause = () => {
@@ -63,8 +64,6 @@ export default class MediaPlayer extends Component {
   }
 
   onReady = () => {
-    console.log('onReady');
-
     this.setState({ playing: true });
   }
 
@@ -82,16 +81,16 @@ export default class MediaPlayer extends Component {
     const {
       wholeDB,
       PassedObj: {
-        id,
+        passedID,
       },
       playThis,
     } = this.props;
-    console.log('Next Song', id);
-    if (id !== undefined) {
-      if (id < wholeDB.length) {
-        playThis(wholeDB[id]);// on normal condition
+    console.log('Next Song', passedID);
+    if (passedID !== undefined) {
+      if (passedID < wholeDB.length - 1) {
+        playThis(wholeDB[passedID + 1], passedID + 1);// on normal condition
       } else {
-        playThis(wholeDB[0]); // if on last song, return back to 0
+        playThis(wholeDB[0], 0); // if on last song, return back to 0
       }
     }
   }
@@ -101,15 +100,16 @@ export default class MediaPlayer extends Component {
     const {
       wholeDB,
       PassedObj: {
-        id,
+        passedID,
       },
       playThis,
     } = this.props;
-    if (id !== undefined) {
-      if (id === 1) {
-        playThis(wholeDB[wholeDB.length - 1]); // if at first song, jump to last song
+    if (passedID !== undefined) {
+      if (passedID === 0) {
+        // if at first song, jump to last song
+        playThis(wholeDB[wholeDB.length - 1], wholeDB.length - 1);
       } else {
-        playThis(wholeDB[id - 2]);
+        playThis(wholeDB[passedID - 1], passedID - 1);
       }
     }
   }
@@ -122,14 +122,14 @@ export default class MediaPlayer extends Component {
     const {
       url,
       PassedObj: {
-        id,
-        songTitle,
-        img,
-        dur,
+        passedID,
+        passedSongTitle,
+        passedImg,
+        passsedDur,
       },
       wholeDB,
     } = this.props;
-    console.log('bit', songTitle, id, wholeDB);
+    console.log('bit', passedSongTitle, passedID, wholeDB);
     const {
       playing, loop, played, playedSec,
     } = this.state;
@@ -149,16 +149,16 @@ export default class MediaPlayer extends Component {
               loopOn={loop}
             />
             <DivTitle id="MediaDivTitle">
-              {id === undefined ? (' ') : (songTitle)}
+              {passedID === undefined ? (' ') : (passedSongTitle)}
             </DivTitle>
             <DivDur>
-              {id === undefined ? (' ') : (
+              {passedID === undefined ? (' ') : (
                 <div style={{ display: 'flex', flexDirection: 'row' }}>
                   <div style={{ width: '2em' }}>
                     {`${convertString(playedSec)}`}
                   </div>
                   <div>
-                    {` / ${convertString(dur)}`}
+                    {` / ${convertString(passsedDur)}`}
                   </div>
                 </div>)}
             </DivDur>
@@ -178,7 +178,10 @@ export default class MediaPlayer extends Component {
             />
           </DivMediaMiddle>
           <DivMediaImg>
-            <Img src={img} alt="" />
+            <Img
+              src={passedID === undefined ? HNDLogo : passedImg}
+              alt=""
+            />
           </DivMediaImg>
         </DivMediaPlayer>
         <ReactPlayer

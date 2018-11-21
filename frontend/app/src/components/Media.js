@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import RPlayer from './RPlayer';
+import { DPlayer, RPlayer } from './Players';
+import DownloadButton from './download';
 
-import YouDeezLogo from '../assets/youdeez_small.svg';
+// import YouDeezLogo from '../assets/youdeez_small.svg';
+import YouDeezLogo from '../assets/youdeez.svg';
 import {
   mediaPropTypes,
   mediaDefaultProps,
@@ -9,33 +11,6 @@ import {
   PlayerdefaultProps,
   defaultConfig,
 } from '../props';
-
-
-const DPlayer = ({ mediaID, config }) => {
-  const deezFront = 'https://www.deezer.com/plugins/player?';
-  let attribute = '';
-  Object.keys(config).forEach((key) => {
-    attribute += config[key];
-  });
-
-  return (
-    <iframe
-      title="dz-root"
-      scrolling="no"
-      frameBorder="0"
-      src={
-        `${deezFront}${attribute}&id=${mediaID}`
-      }
-      width="300px"
-      height="300px"
-      style={{
-        margin: 'auto',
-        display: 'block',
-      }}
-    />
-  );
-};
-
 
 const LogoComponent = () => (
 
@@ -84,7 +59,7 @@ class Media extends Component {
     this.handleClickDownload = this.handleClickDownload.bind(this);
   }
 
-  handleClickDownload = () => (event) => {
+  handleClickDownload = () => {
     const {
       onDownload,
       mediaObj: {
@@ -93,14 +68,18 @@ class Media extends Component {
           songObject,
         },
       },
+      downloadObject: {
+        state,
+      },
     } = this.props;
-    console.log('play Clicked', event.target, songObject);
     const downloadObject = {
       state: 'progress',
       Id: ID,
       songObj: songObject,
     };
-    onDownload(downloadObject);
+    if (songObject !== undefined && state === 'idle') {
+      onDownload(downloadObject);
+    }
   }
 
   render() {
@@ -116,7 +95,7 @@ class Media extends Component {
         songObject,
       },
     } = this.props;
-    console.log(state, songObject);
+    console.log('Download Object', state, songObject);
     return (
       <div>
         <div style={{
@@ -130,12 +109,9 @@ class Media extends Component {
             mediaType={MediaType}
           />
         </div>
-        <button
-          type="button"
-          onClick={this.handleClickDownload(MediaType)}
-        >
-        Download
-        </button>
+        <div>
+          {DownloadButton(this, songObject, state)}
+        </div>
       </div>
     );
   }

@@ -19,17 +19,29 @@ export function updateCurrentMediaAct(currentMediaType) {
 }
 
 export function updateMediaObjAct(MediaObj) {
-  return {
-    type: UPDATE_MEDIA,
-    payload: {
-      mediaObj: {
-        MediaType: MediaObj.MType,
-        MediaData: {
-          ID: MediaObj.ID,
-          songObject: MediaObj.songObject,
+  return (dispatch) => {
+    dispatch({
+      type: UPDATE_DOWNLOAD,
+      payload: {
+        state: 'idle',
+        buffer: null,
+        songObject: {
+          songName: MediaObj.songObject.songName,
         },
       },
-    },
+    });
+    dispatch({
+      type: UPDATE_MEDIA,
+      payload: {
+        mediaObj: {
+          MediaType: MediaObj.MType,
+          MediaData: {
+            ID: MediaObj.ID,
+            songObject: MediaObj.songObject,
+          },
+        },
+      },
+    });
   };
 }
 
@@ -39,12 +51,13 @@ export function updateDownloadAct(downloadObject) {
     dispatch({
       type: UPDATE_DOWNLOAD,
       payload: {
-        state: downloadObject.state, // Get the state from download button
+        state: 'progress', // Change state when download button is clicked
         buffer: null,
-        songObject: null,
+        songObject: {
+          songName: downloadObject.songObj.songName,
+        },
       },
     });
-    console.log('In updateDownloadAct, payload:', downloadObject);
     axios.request({
       responseType: 'blob',
       url: `http://localhost:8888/api/youtube/download?q=${downloadObject.Id}`,
@@ -61,7 +74,7 @@ export function updateDownloadAct(downloadObject) {
       dispatch({
         type: UPDATE_DOWNLOAD_FINISH,
         payload: {
-          state: 'finish',
+          state: 'idle',
           buffer: response.data,
           songObject: downloadObject.songObj,
         },
