@@ -37,6 +37,7 @@ class Search extends Component {
     this.inputRef = React.createRef();
   }
 
+
   handleChange = () => (event) => {
     const { onGetAutoComp } = this.props;
     console.log('handle change', event.target.value);
@@ -78,7 +79,6 @@ class Search extends Component {
       }, () => {
         handleSubmit(autoCompData[1][cursor]);
       });
-      console.log('SUBMMITED @', autoCompData[1][cursor]);
     }
   }
 
@@ -93,7 +93,9 @@ class Search extends Component {
         this.setState(prevState => ({
           cursor: prevState.cursor - 1,
           value: autoCompData[1][cursor - 1],
-        }));//          key down
+        }));
+        event.preventDefault();
+        //          key down
       } else if (event.keyCode === 40 && cursor < autoCompData[1].length - 1) {
         this.setState(prevState => ({
           cursor: prevState.cursor + 1,
@@ -155,6 +157,7 @@ class Search extends Component {
           blink={fetchState === 'Searching'}
         />
         <Input
+          autoFocus
           id="searchInput"
           type="text"
           onChange={this.handleChange(value)}

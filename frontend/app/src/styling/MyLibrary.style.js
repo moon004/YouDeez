@@ -11,7 +11,7 @@ import { StyledScrollbar } from './DivTap.style';
 
 export const DivLib = styled.div`
   width: 100%;
-  background: #282828;
+  background: none;
   height: 20em;
   margin-bottom: 12em;
   position: relative;
@@ -112,7 +112,7 @@ export const DeleteIcon = styled(TrashAlt)`
 `;
 
 export const StyledScrollbarLib = styled(StyledScrollbar)`
-  background: #282828;
+  background: none;
 `;
 
 
@@ -125,9 +125,8 @@ export const DivMediaMiddle = styled.div`
 
 export const DivMediaImg = styled.div`
   display: flex;
-  margin-left: auto;
   position: relative;
-  width: 7em;
+  width: 6em;
   height: 4em;
 `;
 

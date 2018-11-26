@@ -127,9 +127,7 @@ export default class MediaPlayer extends Component {
         passedImg,
         passsedDur,
       },
-      wholeDB,
     } = this.props;
-    console.log('bit', passedSongTitle, passedID, wholeDB);
     const {
       playing, loop, played, playedSec,
     } = this.state;

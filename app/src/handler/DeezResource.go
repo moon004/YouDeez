@@ -8,8 +8,6 @@ import (
 	"net/http"
 	"net/url"
 
-	"Errhandler"
-
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
 	"github.com/go-chi/render"
@@ -39,16 +37,16 @@ func (d *DeezResource) GetDeezTrack(w http.ResponseWriter, r *http.Request) {
 	q := url.QueryEscape(query)
 	res, err := http.Get(fmt.Sprintf("https://api.deezer.com/search/track?q=%s", q))
 	if err != nil {
-		render.Render(w, r, ErrH.ErrDuringReq(err))
+		render.Render(w, r, ErrDuringReq(err))
 	}
 	defer res.Body.Close()
 	body, err := ioutil.ReadAll(res.Body)
 	if err != nil {
-		render.Render(w, r, ErrH.ErrDuringReq(err))
+		render.Render(w, r, ErrDuringReq(err))
 	}
 	err = json.Unmarshal(body, DeezAPI)
 	if err != nil {
-		render.Render(w, r, ErrH.ErrReadingJson(err))
+		render.Render(w, r, ErrReadingJson(err))
 	}
 	render.JSON(w, r, DeezAPI)
 }

@@ -15,7 +15,7 @@ const DownloadButton = (classMedia, songObject, state) => {
               <DlButton // Progress dl button
                 type="button"
                 onClick={classMedia.handleClickDownload}
-                downloadState
+                downloadState={state === 'progress'}
               />
             </div>
             {state === 'progress' ? (
@@ -41,7 +41,7 @@ const DownloadButton = (classMedia, songObject, state) => {
                   {truncate(songObject.songName, 40)}
                 </div>
                 <div id="IdleQuote">
-                  {'There are always hopes and dreams'}
+                  {'Click on the icon to download the song'}
                 </div>
               </div>
             ) }
@@ -52,7 +52,6 @@ const DownloadButton = (classMedia, songObject, state) => {
             <DlButton
               type="button"
               onClick={classMedia.handleClickDownload}
-              downloadState
             />
             <div style={{
               display: 'flex',

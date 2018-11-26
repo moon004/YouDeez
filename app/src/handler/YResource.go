@@ -8,11 +8,8 @@ import (
 	"net/http"
 	"net/url"
 	"os"
-	"os/exec"
 	"strings"
 	"sync"
-
-	"Errhandler"
 
 	"github.com/joho/godotenv"
 
@@ -31,8 +28,6 @@ func (Yres YResources) Routes() chi.Router {
 
 	r.Get("/autoComplete", Yres.GetAutoComplete)
 	r.Options("/autoComplete", Yres.GetAutoComplete)
-	r.Get("/download", Yres.GetAudio)
-	r.Options("/download", Yres.GetAudio)
 	r.Get("/", Yres.GetYtube)
 	r.Options("/", Yres.GetYtube)
 
@@ -71,25 +66,6 @@ func (Yres *YResources) GetYtube(w http.ResponseWriter, r *http.Request) {
 
 }
 
-func (Yres *YResources) GetAudio(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Access-Control-Allow-Origin", "*")
-	w.Header().Set("Access-Control-Allow-Headers", "access-control-allow-origin")
-	queryValue := r.URL.Query()
-	query := queryValue.Get("q")
-	q := url.QueryEscape(query)
-	cmd := exec.Command("go-youtube-dl.exe", "--audio-only", "https://www.youtube.com/watch?v="+q)
-	cmd.Stdout = w // streaming occurs here
-	err := cmd.Start()
-	if err != nil {
-		render.JSON(w, r, ErrH.ErrDuringStream(err))
-	}
-	err = cmd.Wait()
-	if err != nil {
-		render.JSON(w, r, ErrH.ErrDuringWait(err))
-	}
-	fmt.Fprintf(w, "Done")
-}
-
 func (Yres *YResources) GetAutoComplete(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Headers", "access-control-allow-origin")
@@ -103,13 +79,13 @@ func (Yres *YResources) GetAutoComplete(w http.ResponseWriter, r *http.Request) 
 
 	res, err := http.Get(reqURL)
 	if err != nil {
-		render.JSON(w, r, ErrH.ErrDuringReq(err))
+		render.JSON(w, r, ErrDuringReq(err))
 	}
 	defer res.Body.Close()
 
 	body, _ := ioutil.ReadAll(res.Body)
 	if err != nil {
-		render.JSON(w, r, ErrH.ErrReadingJson(err))
+		render.JSON(w, r, ErrReadingJson(err))
 	}
 
 	w.Write(body)
@@ -142,26 +118,26 @@ func YPayload(url string, w http.ResponseWriter, r *http.Request) *YRespond {
 	Yres := &YRespond{}
 	res, err := http.Get(url)
 	if err != nil {
-		render.JSON(w, r, ErrH.ErrDuringReq(err))
+		render.JSON(w, r, ErrDuringReq(err))
 	}
 	defer res.Body.Close()
 
 	body, _ := ioutil.ReadAll(res.Body)
 	err = json.Unmarshal(body, &Yres)
 	if err != nil {
-		render.JSON(w, r, ErrH.ErrReadingJson(err))
+		render.JSON(w, r, ErrReadingJson(err))
 	}
 
 	return Yres
 }
 
 // LoadEnv just loads Devkey from env
-func LoadEnv(str string) (DevKey string) {
+func LoadEnv(str string) (value string) {
 	err := godotenv.Load()
 	if err != nil {
 		log.Fatal("Error loading .env file")
 	}
-	DevKey = os.Getenv(str)
+	value = os.Getenv(str)
 	return
 }
 

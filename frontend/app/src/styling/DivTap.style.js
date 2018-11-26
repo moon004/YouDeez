@@ -66,9 +66,13 @@ export const RetObjStyled = styled.li`
   justify-content: space-between;
   border: 0.05em solid ${props => (props.tapState
     ? '#f7f7f7' : 'black')};
+  &:hover{
+    background-color: ${props => (props.tapState
+    ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)')}
+  }
   &:active {
     background-color: ${props => (props.tapState
-    ? 'rgba(200,200,200,0.3)' : 'rgba(100,100,100,0.1)'
+    ? 'rgba(255,255,255,0.3)' : 'rgba(0,0,0,0.2)'
   )};
 `;
 

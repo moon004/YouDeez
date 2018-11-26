@@ -33,6 +33,7 @@ func Routes() *chi.Mux {
 	Route.Route("/api", func(r chi.Router) {
 		r.Mount("/youtube", YResources{}.Routes())
 		r.Mount("/deez", DeezResource{}.Routes())
+		r.Mount("/download", DownloadRoute())
 	})
 
 	return Route

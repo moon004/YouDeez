@@ -43,7 +43,6 @@ export class RPlayer extends Component {
   }
 
   onProgress = (e) => {
-    console.log('progress', e);
     this.setState({ played: e.played });
   }
 

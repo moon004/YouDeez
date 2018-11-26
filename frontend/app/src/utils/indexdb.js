@@ -53,12 +53,3 @@ export const callUpdateDB = (caller) => {
     });
   });
 };
-
-
-// const indb = getDB();
-// indb.then(db => db.transaction(DB_STORE_NAME)
-//   .objectStore(DB_STORE_NAME)
-//   .getAll()).then((obj) => {
-//   console.log('obj', obj);
-//   this.state.dbItem = obj;
-// });

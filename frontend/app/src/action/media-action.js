@@ -60,11 +60,11 @@ export function updateDownloadAct(downloadObject) {
     });
     axios.request({
       responseType: 'blob',
-      url: `http://localhost:8888/api/youtube/download?q=${downloadObject.Id}`,
+      url: `http://localhost:8888/api/download?q=${downloadObject.Id}`,
       method: 'get',
       headers: {
-        'Content-Type': 'audio/m4a',
-        Accept: 'audio/m4a',
+        'Content-Type': 'audio/mp4',
+        Accept: 'audio/mp4',
       },
     }).then((response) => {
       const {
