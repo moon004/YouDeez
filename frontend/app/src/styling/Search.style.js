@@ -45,6 +45,7 @@ export const SearchIcon = styled(Search)`
 export const Div = styled.div`
   width: 100%;
   position: relative;
+  margin-bottom: 2.3em;
 `;
 
 export const List = styled.li`

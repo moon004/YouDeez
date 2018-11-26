@@ -29,9 +29,10 @@ class Search extends Component {
   constructor() {
     super();
     this.state = {
-      cursor: 0,
+      cursor: -1,
       value: '',
       searchDone: true,
+      autoList: null,
     };
     this.handleChange = this.handleChange.bind(this);
     this.inputRef = React.createRef();
@@ -70,14 +71,13 @@ class Search extends Component {
 
   // Enter pressed
   handleKeyPress = (event) => {
-    const { handleSubmit, autoComplete: { autoCompData } } = this.props;
-    const { value, cursor } = this.state;
+    const { handleSubmit } = this.props;
+    const { value } = this.state;
     if (event.key === 'Enter' && value.length > 0) {
       this.setState({
         searchDone: true,
-        value: autoCompData[1][cursor],
       }, () => {
-        handleSubmit(autoCompData[1][cursor]);
+        handleSubmit(value);
       });
     }
   }
@@ -85,11 +85,17 @@ class Search extends Component {
   // On ArrowKey Pressed
   handleKeyDown = (event) => {
     const { cursor } = this.state;
-    const { autoComplete: { autoCompData } } = this.props;
+    const { onGetAutoComp } = this.props;
+    const {
+      autoComplete: {
+        autoCompData,
+      },
+
+    } = this.props;
     console.log('autocomeplete', autoCompData, cursor);
     if (autoCompData.length > 0) {
       //    key Up
-      if (event.keyCode === 38 && cursor > 0) {
+      if (event.keyCode === 38 && cursor > -1) {
         this.setState(prevState => ({
           cursor: prevState.cursor - 1,
           value: autoCompData[1][cursor - 1],
@@ -101,6 +107,12 @@ class Search extends Component {
           cursor: prevState.cursor + 1,
           value: autoCompData[1][cursor + 1],
         }));
+      } else if (event.keyCode === 8) {
+        this.setState({
+          cursor: -1,
+        });
+      } else if (event.keyCode === 27) {
+        onGetAutoComp('');
       }
     }
   }
@@ -119,10 +131,12 @@ class Search extends Component {
         autoCompData,
       },
     } = this.props;
-    const { value, cursor, searchDone } = this.state;
-    let autoList;
+    const { value, searchDone, cursor } = this.state;
+    let { autoList } = this.state;
+    console.log('cursor', cursor);
     let errorCode = '';
-    if (currentState === 'Success') {
+    console.log('autocompData', autoCompData);
+    if (currentState === 'Success' && Array.isArray(autoCompData[1])) {
       autoList = autoCompData[1].map((val, i) => (
 
         <List
@@ -167,7 +181,7 @@ class Search extends Component {
           value={value}
           ref={this.inputRef}
           onMouseEnter={() => { this.inputRef.current.focus(); }}
-          popList={autoCompData.length > 0}
+          popList={Array.isArray(autoCompData[1]) && autoCompData[1].length}
         />
         <ul style={ulStyle}>
           {autoList}

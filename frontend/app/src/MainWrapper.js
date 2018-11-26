@@ -17,7 +17,7 @@ import Search from './components/Search';
 import DivTap from './components/DivTap';
 import MyLibrary from './components/MyLibrary';
 import Media from './components/Media';
-import Div from './styling/MainWrapper.style';
+import Div, { GithubIcon } from './styling/MainWrapper.style';
 
 
 export class MainWrapper extends Component {
@@ -89,6 +89,12 @@ export class MainWrapper extends Component {
         <MyLibrary
           downloadObject={downloadObject}
         />
+
+        <a href="https://github.com/moon004/YouDeez" id="footer-a">
+          <GithubIcon />
+          <text id="footer-text">Visit The GitHub Repository</text>
+        </a>
+
       </Div>
     );
   }

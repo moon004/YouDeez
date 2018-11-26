@@ -183,3 +183,5 @@ export const RetObjectDeez = (props) => {
     </div>
   );
 };
+
+export const EmptyComponent = () => <div />;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { divTapPropTypes, divTapDefaultProps } from '../props';
-import { RetObjectYou, RetObjectDeez } from './RetObject';
+import { RetObjectYou, RetObjectDeez, EmptyComponent } from './RetObject';
 import {
   DivT,
   ButYou,
@@ -15,7 +15,18 @@ const withYouOrDeez = (YouComponent, DeezComponent) => ({ TapState, ...props }) 
     : <DeezComponent TapState={TapState} {...props} />
 );
 
+const withRenderOrEmpty = (YDComponent, EmpComponent) => ({ ...props }) => {
+  console.log('Render Empty or not', props.DataYou);
+  return (
+    props.DataYou !== undefined
+      ? <YDComponent {...props} />
+      : <EmpComponent {...props} />
+  );
+};
+
 const RenderYouOrDeez = withYouOrDeez(RetObjectYou, RetObjectDeez);
+
+const RenderOrEmpty = withRenderOrEmpty(RenderYouOrDeez, EmptyComponent);
 
 class DivTap extends Component {
   static propTypes = divTapPropTypes;
@@ -61,6 +72,7 @@ class DivTap extends Component {
       },
       tapState,
     } = this.props;
+    console.log('dataYou n dataDeez', dataYou, dataDeez);
     return (
       <DivT currentap={tapState}>
         <EqDivider>
@@ -86,7 +98,7 @@ class DivTap extends Component {
           thumbMinSize={50}
           currentap={tapState}
         >
-          <RenderYouOrDeez
+          <RenderOrEmpty
             TapState={tapState === 'Youtube'}
             DataYou={dataYou}
             DataDeez={dataDeez}

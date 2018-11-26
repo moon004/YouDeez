@@ -6,6 +6,7 @@ import { Repeat } from 'styled-icons/feather/Repeat';
 import { Pause } from 'styled-icons/material/Pause';
 import { TrashAlt } from 'styled-icons/fa-solid/TrashAlt';
 
+
 import '../index.css';
 import { StyledScrollbar } from './DivTap.style';
 
@@ -13,7 +14,7 @@ export const DivLib = styled.div`
   width: 100%;
   background: none;
   height: 20em;
-  margin-bottom: 12em;
+  margin-bottom: 9em;
   position: relative;
   color: white;
 
@@ -114,7 +115,6 @@ export const DeleteIcon = styled(TrashAlt)`
 export const StyledScrollbarLib = styled(StyledScrollbar)`
   background: none;
 `;
-
 
 export const DivMediaMiddle = styled.div`
   flex-direction: column;

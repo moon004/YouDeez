@@ -137,3 +137,21 @@ input[type=range]::-webkit-slider-runnable-track {
     width: 1.25em;    
   }
 }
+
+#footer-text {
+  font-size: 0.8em;
+  padding: 0 0 0 1em;
+}
+
+#footer-a {
+  display: flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  align-items: center;
+  justify-content: center;
+}
+#footer-a:hover {
+  opacity: 0.8;
+  border-bottom: none;
+}

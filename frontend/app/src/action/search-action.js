@@ -9,7 +9,7 @@ import {
 } from '../constants/constant';
 
 const getYoutube = value => (
-  axios.get(`http://localhost:8888/api/youtube?mr=3&q=${value}`)
+  axios.get(`http://localhost:8888/api/youtube?mr=15&q=${value}`)
 );
 
 const getDeezer = value => (
@@ -37,12 +37,16 @@ export function fetchObjStartAct(value) {
 
 export function getAutoCompAct(value) {
   return (dispatch) => {
-    axios.get(`http://localhost:8888/api/youtube/autoComplete?q=${value}`)
-      .then((response) => {
-        dispatch({ type: ACOMPLETE_SUC, payload: response.data });
-      })
-      .catch((err) => {
-        dispatch({ type: ACOMPLETE_ERR, payload: err });
-      });
+    if (value !== '') {
+      axios.get(`http://localhost:8888/api/youtube/autoComplete?q=${value}`)
+        .then((response) => {
+          dispatch({ type: ACOMPLETE_SUC, payload: response.data });
+        })
+        .catch((err) => {
+          dispatch({ type: ACOMPLETE_ERR, payload: err });
+        });
+    } else {
+      dispatch({ type: ACOMPLETE_SUC, payload: [] });
+    }
   };
 }
