@@ -47,7 +47,6 @@ class MyLibrary extends Component {
   }
 
   handlePlaySong = (value, index) => () => {
-    console.log('handlePlaysong', value);
     const url = URL.createObjectURL(value.bit);
     const {
       album, artist, bit, dur, img, songTitle,
@@ -65,11 +64,9 @@ class MyLibrary extends Component {
 
       },
     });
-    console.log('BLOB URL IN handler', this.state.blobUrl);
   };
 
   handleThisSong = (value, PassedID) => {
-    console.log('handleThisSong', value);
     const url = URL.createObjectURL(value.bit);
     const {
       album, artist, bit, dur, img, songTitle,
@@ -87,11 +84,9 @@ class MyLibrary extends Component {
 
       },
     });
-    console.log('BLOB URL IN handler', this.state.blobUrl);
   };
 
   handleDeleteSong = item => () => {
-    console.log('DELETE!!!', item);
     callDeleteDB(item.id);
     callUpdateDB(this);
   }
@@ -112,7 +107,6 @@ class MyLibrary extends Component {
       songObject, // Object for MediaPlayer
     } = this.state;
     let itemList = [];
-    console.log('component rendered', dbItem, itemList[0]);
     if (typeof dbItem[0] !== 'undefined') {
       itemList = dbItem.map((item, index) => {
         const { dur } = item; // make sure pass in obj

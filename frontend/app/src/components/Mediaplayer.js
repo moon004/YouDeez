@@ -85,7 +85,6 @@ export default class MediaPlayer extends Component {
       },
       playThis,
     } = this.props;
-    console.log('Next Song', passedID);
     if (passedID !== undefined) {
       if (passedID < wholeDB.length - 1) {
         playThis(wholeDB[passedID + 1], passedID + 1);// on normal condition
@@ -96,7 +95,6 @@ export default class MediaPlayer extends Component {
   }
 
   prevSong = () => {
-    console.log('Prev Song');
     const {
       wholeDB,
       PassedObj: {

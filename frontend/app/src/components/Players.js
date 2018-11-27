@@ -53,7 +53,6 @@ export class RPlayer extends Component {
   render() {
     const { mediaID } = this.props;
     const { played } = this.state;
-    console.log('played', played);
     return (
       <div>
         <input // Seeker

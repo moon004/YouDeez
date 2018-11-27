@@ -47,6 +47,7 @@ export const ButDeez = styled(ButYou)`
 `;
 
 export const StyledScrollbar = styled(Scrollbars)`
+  height:10em;
   :last-child {
     padding-bottom: 1em;
   }

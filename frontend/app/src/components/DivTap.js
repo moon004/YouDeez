@@ -15,14 +15,11 @@ const withYouOrDeez = (YouComponent, DeezComponent) => ({ TapState, ...props }) 
     : <DeezComponent TapState={TapState} {...props} />
 );
 
-const withRenderOrEmpty = (YDComponent, EmpComponent) => ({ ...props }) => {
-  console.log('Render Empty or not', props.DataYou);
-  return (
-    props.DataYou !== undefined
-      ? <YDComponent {...props} />
-      : <EmpComponent {...props} />
-  );
-};
+const withRenderOrEmpty = (YDComponent, EmpComponent) => ({ ...props }) => (
+  props.DataYou !== undefined
+    ? <YDComponent {...props} />
+    : <EmpComponent {...props} />
+);
 
 const RenderYouOrDeez = withYouOrDeez(RetObjectYou, RetObjectDeez);
 
@@ -60,7 +57,6 @@ class DivTap extends Component {
       ID: id.toString(),
       songObject: songObj,
     };
-    console.log('handleObjClick', mediaObj);
     onObjClick(mediaObj);
   }
 
@@ -72,7 +68,6 @@ class DivTap extends Component {
       },
       tapState,
     } = this.props;
-    console.log('dataYou n dataDeez', dataYou, dataDeez);
     return (
       <DivT currentap={tapState}>
         <EqDivider>
@@ -94,7 +89,7 @@ class DivTap extends Component {
         <StyledScrollbar
           renderThumbVertical={this.renderThumb}
           autoHide
-          style={{ height: 300 }}
+          style={{ height: 400 }}
           thumbMinSize={50}
           currentap={tapState}
         >

@@ -27,7 +27,6 @@ const LogoComponent = () => (
 
 const withEither = (NullComponent, YouOrDeez) => ({ ...props }) => {
   const { mediaID } = props;
-  console.log('withEither', mediaID.length);
   return (
     mediaID.length > 0
       ? <YouOrDeez {...props} />
@@ -95,7 +94,6 @@ class Media extends Component {
         songObject,
       },
     } = this.props;
-    console.log('Download Object', state, songObject);
     return (
       <div>
         <div style={{

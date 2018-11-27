@@ -41,7 +41,6 @@ class Search extends Component {
 
   handleChange = () => (event) => {
     const { onGetAutoComp } = this.props;
-    console.log('handle change', event.target.value);
     this.setState({
       value: event.target.value,
       searchDone: false,
@@ -92,7 +91,6 @@ class Search extends Component {
       },
 
     } = this.props;
-    console.log('autocomeplete', autoCompData, cursor);
     if (autoCompData.length > 0) {
       //    key Up
       if (event.keyCode === 38 && cursor > -1) {
@@ -133,9 +131,7 @@ class Search extends Component {
     } = this.props;
     const { value, searchDone, cursor } = this.state;
     let { autoList } = this.state;
-    console.log('cursor', cursor);
     let errorCode = '';
-    console.log('autocompData', autoCompData);
     if (currentState === 'Success' && Array.isArray(autoCompData[1])) {
       autoList = autoCompData[1].map((val, i) => (
 

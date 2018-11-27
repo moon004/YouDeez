@@ -120,8 +120,8 @@ module.exports = {
     publicPath,
     // Point sourcemap entries to original disk location (format as URL on Windows)
     devtoolModuleFilenameTemplate: info => path
-        .relative(paths.appSrc, info.absoluteResourcePath)
-        .replace(/\\/g, '/'),
+      .relative(paths.appSrc, info.absoluteResourcePath)
+      .replace(/\\/g, '/'),
   },
   optimization: {
     minimizer: [
@@ -250,6 +250,22 @@ module.exports = {
             options: {
               formatter: require.resolve('react-dev-utils/eslintFormatter'),
               eslintPath: require.resolve('eslint'),
+              extends: 'airbnb',
+              rules: {
+                camelcase: 'off',
+                'no-var': 'off',
+                'default-case': 'off',
+                'no-fallthrough': 'off',
+                'react/prop-types': 'off',
+                'react/destructuring-assignment': 'off',
+                'jsx-a11y/click-events-have-key-events': 'off',
+                'jsx-a11y/no-static-element-interactions': 'off',
+              },
+              parserOptions: {
+                ecmaFeatures: {
+                  experimentalObjectRestSpread: true,
+                },
+              },
 
             },
             loader: require.resolve('eslint-loader'),
