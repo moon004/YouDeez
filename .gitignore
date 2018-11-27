@@ -1,2 +1,5 @@
 reference.js
 .env
+node_modules
+scripts
+build
