@@ -37,11 +37,7 @@ const allReducers = combineReducers({
   autoComplete: SACReducer, // SAC is Search Auto Complete
 });
 
-const allStoreEnchancer = compose(
-  applyMiddleware(thunk),
-);
-
-const store = createStore(allReducers, allStoreEnchancer);
+const store = createStore(allReducers, applyMiddleware(thunk));
 
 
 ReactDOM.render(<Provider store={store}><div><ConnMainWrapper /></div></Provider>, document.getElementById('media player'));
