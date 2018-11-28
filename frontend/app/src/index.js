@@ -39,7 +39,6 @@ const allReducers = combineReducers({
 
 const allStoreEnchancer = compose(
   applyMiddleware(thunk),
-  window.devToolsExtension && window.devToolsExtension(),
 );
 
 const store = createStore(allReducers, allStoreEnchancer);
@@ -52,3 +51,4 @@ ReactDOM.render(<Provider store={store}><div><ConnMainWrapper /></div></Provider
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.register();
+// serviceWorker.registerSWRegardless();

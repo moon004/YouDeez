@@ -92,7 +92,7 @@ export class MainWrapper extends Component {
 
         <a href="https://github.com/moon004/YouDeez" id="footer-a">
           <GithubIcon />
-          <text id="footer-text">Visit The GitHub Repository</text>
+          <div id="footer-text">Visit The GitHub Repository</div>
         </a>
 
       </Div>

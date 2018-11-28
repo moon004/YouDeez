@@ -77,7 +77,7 @@
   },
   "scripts": {
     "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
+    "build": "node scripts/build.js && sw-precache --config=sw-precache-config.js",
     "test": "node scripts/test.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
@@ -116,6 +116,7 @@
     "redux-devtools": "^3.4.1",
     "redux-mock-store": "^1.5.3",
     "regenerator-runtime": "^0.12.1",
-    "sass-loader": "^7.1.0"
+    "sass-loader": "^7.1.0",
+    "sw-precache": "^5.2.1"
   }
 }
