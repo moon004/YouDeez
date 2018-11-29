@@ -2,12 +2,6 @@
 
 > YouDeez is an offline-first PWA that enables you to enjoy premium music for free without ads.
 
-## Table of Contents
--[Overview](#overview)
--[More About YouDeez](#more-about-YouDeez)
-
-
-
 ## Overview
 YouDeez (Youtube + Deezer) allows you to download music/songs from both Youtube and Deezer (320kbps) library and cache it locally, and enjoy it even without internet connection.
 
@@ -17,4 +11,5 @@ Now you dont have to use Youtube converter to get the audio file anymore! Youdee
 YouDeez is separated into backend and the frontend. The backend was built using Golang with ([Go-chi](https://github.com/go-chi/chi)). The frontend is powered by Javascript with React library, redux library is used for state management.
 
 A picture worth a thousand words.
-[(img/architecture.png)]
+
+![(img/architecture.png)]
