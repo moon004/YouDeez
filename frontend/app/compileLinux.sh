@@ -1,6 +1,6 @@
 #!/bin/bash
 echo Starting to compile.
 
-./bin/main.exe
+../../app/src/bin/main.exe
 npm install && npm run build
-serve -s build
+serve -l 5050 -s build

@@ -1,7 +1,7 @@
 @echo off
 echo Starting to build
 
-start bin/main.exe
+start ../../app/src/bin/main.exe
 npm install && npm run build
-serve -s build
+serve -l 5050 -s build
 pause
