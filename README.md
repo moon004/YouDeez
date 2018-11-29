@@ -16,7 +16,7 @@ Clone it to your local repo.
 ```sh
 git clone https://github.com/moon004/YouDeez.git
 ```
-then run the build script depending on your operating system which is located at frontend/app file. After the build, the PWA will be served on port 5050 in production mode.
+then run the build script depending on your operating system which is located at frontend/app file. After the build finished, the PWA will be served on port 5050 in production mode.
 
 If you wanted to run it in development mode just run:
 ```sh
