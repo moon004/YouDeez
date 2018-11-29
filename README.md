@@ -16,7 +16,14 @@ Clone it to your local repo.
 ```sh
 git clone https://github.com/moon004/YouDeez.git
 ```
-then run the build script depending on your operating system which is located at frontend/app file. After the build, the PWA will be served on port 5050, and finally, Happy tinkering!
+then run the build script depending on your operating system which is located at frontend/app file. After the build, the PWA will be served on port 5050 in production mode.
+
+If you wanted to run it in development mode just run:
+```sh
+npm start
+```
+
+That's it,  happy tinkering!
 
 
 ## More About YouDeez
@@ -29,4 +36,4 @@ A picture worth a thousand words.
 All the Downloaded audio will be cached into [Indexed db](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
 
 ## Contribute to YouDeez
-Any issues are welcome, if you are sending pull request, make sure to include test files, this project obeys the ([Airbnb coding style](https://github.com/airbnb/javascript)), well not entrirely. Please do not hesitate to drop me a mail at herodotus94@gmail.com
+Any issues are welcome, if you are sending pull request, make sure to include test files, this project obeys the ([Airbnb coding style](https://github.com/airbnb/javascript)), well not entirely. Please do not hesitate to drop me a mail at herodotus94@gmail.com
