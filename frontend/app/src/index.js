@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 
 import {
   applyMiddleware,
-  compose,
   combineReducers,
   createStore,
 } from 'redux';
