@@ -51,7 +51,7 @@ func DownloadYou(w http.ResponseWriter, r *http.Request) {
 	queryValue := r.URL.Query()
 	query := queryValue.Get("q")
 	q := url.QueryEscape(query)
-	cmd := exec.Command("go-youtube-dl.exe", "--audio-only", "https://www.youtube.com/watch?v="+q)
+	cmd := exec.Command("./go-youtube-dl.exe", "--audio-only", "https://www.youtube.com/watch?v="+q)
 	cmd.Stdout = w // streaming occurs here
 	err := cmd.Start()
 	if err != nil {
@@ -72,9 +72,8 @@ func DownloadDeez(w http.ResponseWriter, r *http.Request) {
 	q := url.QueryEscape(query)
 	username := LoadEnv("username")
 	password := LoadEnv("password")
-	fmt.Println("user pass", username, password)
 	cmd := exec.Command(
-		"go-decrypt-deezer.exe",
+		"./go-decrypt-deezer.exe",
 		"--id", q,
 		"--username", username,
 		"--password", password)

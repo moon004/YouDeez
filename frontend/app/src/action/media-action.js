@@ -6,6 +6,7 @@ import {
   UPDATE_DOWNLOAD,
   UPDATE_DOWNLOAD_FINISH,
   UPDATE_DOWNLOAD_ERR,
+  dynamicDNS,
 } from '../constants/constant';
 
 
@@ -60,7 +61,7 @@ export function updateDownloadAct(downloadObject) {
     });
     axios.request({
       responseType: 'blob',
-      url: `http://localhost:8888/api/download?q=${downloadObject.Id}`,
+      url: `${dynamicDNS}/api/download?q=${downloadObject.Id}`,
       method: 'get',
       headers: {
         'Content-Type': 'audio/mp4',

@@ -6,17 +6,16 @@ import {
   FETCH_SUCCESS_DEEZ,
   ACOMPLETE_ERR,
   ACOMPLETE_SUC,
+  dynamicDNS,
 } from '../constants/constant';
 
 const getYoutube = value => (
-  axios.get(`http://localhost:8888/api/youtube?mr=15&q=${value}`)
+  axios.get(`${dynamicDNS}/api/youtube?mr=15&q=${value}`)
 );
 
 const getDeezer = value => (
-  axios.get(`http://localhost:8888/api/deez?q=${value}`)
+  axios.get(`${dynamicDNS}/api/deez?q=${value}`)
 );
-// Set all request headers to have Access-Control-Allow-Origin
-// axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 // Action Creator
 export function fetchObjStartAct(value) {
   return (dispatch) => {
@@ -38,7 +37,7 @@ export function fetchObjStartAct(value) {
 export function getAutoCompAct(value) {
   return (dispatch) => {
     if (value !== '') {
-      axios.get(`http://localhost:8888/api/youtube/autoComplete?q=${value}`)
+      axios.get(`${dynamicDNS}/api/youtube/autoComplete?q=${value}`)
         .then((response) => {
           dispatch({ type: ACOMPLETE_SUC, payload: response.data });
         })

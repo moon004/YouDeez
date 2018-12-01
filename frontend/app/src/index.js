@@ -28,6 +28,7 @@ if (!(window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB)) {
 }
 initDB();
 
+
 const allReducers = combineReducers({
   MediaObject: mediaObjectReducer,
   currentMediaTap: mediaTypeReducer,

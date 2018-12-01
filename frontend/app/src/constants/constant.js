@@ -28,3 +28,8 @@ export const ERROR_STATE_DEEZ = 'Error';
 export const DB_STORE_NAME = 'audiostore';
 export const DB_NAME = 'mylib';
 export const GET_DB = 'GET_DB';
+export var dynamicDNS = 'http://localhost:8888';
+
+if (process.env.NODE_ENV !== 'development') {
+  dynamicDNS = process.env.REACT_APP_amazonDNS;
+}
