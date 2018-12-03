@@ -68,6 +68,7 @@ export function updateDownloadAct(downloadObject) {
         Accept: 'audio/mp4',
       },
     }).then((response) => {
+      console.log('RESPONSE', response.data);
       const {
         songName, songImg, songDur, songArtist, songAlbum,
       } = downloadObject.songObj;

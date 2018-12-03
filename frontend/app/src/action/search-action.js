@@ -33,12 +33,13 @@ export function fetchObjStartAct(value) {
   };
 }
 
-
 export function getAutoCompAct(value) {
+  console.log(`${dynamicDNS}/api/youtube/autoComplete?q=${value}`);
   return (dispatch) => {
     if (value !== '') {
       axios.get(`${dynamicDNS}/api/youtube/autoComplete?q=${value}`)
         .then((response) => {
+          console.log('Reponse get', response);
           dispatch({ type: ACOMPLETE_SUC, payload: response.data });
         })
         .catch((err) => {
