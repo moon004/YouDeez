@@ -6,4 +6,5 @@ COPY . /src
 WORKDIR /src
 RUN npm install
 RUN npm build
-RUN serve -l 5050 -s build
+# Serve package included in package.json
+RUN serve -l 5050 -s build 
