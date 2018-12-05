@@ -17,10 +17,12 @@ Clone it to your local repo.
 ```sh
 git clone https://github.com/moon004/YouDeez.git
 ```
-Before anything else, make sure you have .env file at github.com/YouDeez/ , and it is filled with your youtube [Developer keys](https://developers.google.com/youtube/v3/getting-started) and [register your deezer account](https://www.deezer.com/register) details (inspect the code inside the handler/ files to get the key-value pair or u can change it), and also theres another .env file at fontend/app, that store the dns value (REACT_APP_*value).
+Before anything else, make sure you have .env file at github.com/YouDeez/ , and it is filled with your youtube [Developer keys](https://developers.google.com/youtube/v3/getting-started) and [register your deezer account](https://www.deezer.com/register) details (inspect the code inside the handler/ files to get the key-value pair or u can change it), and in order for production build to work, u must create another .env file at fontend/app, that store the dns value (REACT_APP_*value).
 
 ### Backend (server) Setup
 The backend depends on two CLIs to operate, [go-youtube-dl.exe](https://github.com/moon004/youtube-dl), [go-decrypt-dl.exe](https://github.com/moon004/Go-deezer-downloader), make sure u git clone and build the file with the correct name (Ex: **go build -o *go-youtube-dl.exe***). Put the built file into github.com/app/src/, and build the file, and execute the .exe file to spin up the backend.
+
+Be careful, you might need to tweak the main.go in go-decrypt-dl(Go-deezer-downloader) so that the downloaded media is stream to os.Stdout instead of into a file.
 
 >Note: Always inspect the code, to get the idea of how it works
 
