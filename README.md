@@ -2,7 +2,7 @@
 
 > YouDeez is an offline-first PWA that enables you to enjoy premium music for free without ads.
 
-Visit the PWA on [HERE](http://hopesndreams.s3-website.ap-northeast-1.amazonaws.com/).
+Visit the PWA on [this link](http://hopesndreams.s3-website.ap-northeast-1.amazonaws.com/).
 
 ## Overview
 YouDeez (Youtube + Deezer) allows you to download music/songs from both Youtube and Deezer (320kbps) library and cache it locally, and enjoy it even without internet connection.
