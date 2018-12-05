@@ -39,7 +39,7 @@ const DownloadButton = (classMedia, songObject, state) => (
                 {truncate(songObject.songName, 40)}
               </div>
               <div id="IdleQuote">
-                {'Click on the icon to download the song'}
+                {'We need to reinvent current music streaming system - Anonymous'}
               </div>
             </div>
           ) }
@@ -60,7 +60,7 @@ const DownloadButton = (classMedia, songObject, state) => (
               {'Click the icon to download selected music'}
             </div>
             <div id="myQuote">
-              {'Everyone deserves music for free - Anonymous'}
+              {'Musicians deserve to get paid more - Anonymous'}
             </div>
           </div>
         </DivDownload>

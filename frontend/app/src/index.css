@@ -155,3 +155,27 @@ input[type=range]::-webkit-slider-runnable-track {
   opacity: 0.8;
   border-bottom: none;
 }
+
+#big_title {
+  color: #e8e8e8;
+  font-size: 2em;
+  margin: 0;
+  display: flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  align-items: center;
+  justify-content: center;
+}
+#small_title {
+  color: #bababa;
+  font-size:0.9em;
+  font-weight: 200;
+  margin: 0.5em 0 1em 0;
+  display: flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  align-items: center;
+  justify-content: center;
+}

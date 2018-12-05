@@ -13,6 +13,7 @@ import {
 } from './action/search-action';
 
 // import ResultObj from './Object';
+import './index.css';
 import Search from './components/Search';
 import DivTap from './components/DivTap';
 import MyLibrary from './components/MyLibrary';
@@ -69,6 +70,8 @@ export class MainWrapper extends Component {
     } = this.props;
     return (
       <Div>
+        <h1 id="big_title">YouDEEZ</h1>
+        <h4 id="small_title">Ultimate free music streaming progressive web app</h4>
         <Search
           handleSubmit={this.onSubmitSearch}
           searchState={apiReqState}
