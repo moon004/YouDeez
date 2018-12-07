@@ -1,0 +1,6 @@
+[submodule "go-youtube-dl"]
+	path = go-youtube-dl
+	url = https://github.com/moon004/youtube-dl.git
+[submodule "go-decrypt-deezer"]
+	path = go-decrypt-deezer
+	url = https://github.com/moon004/Go-deezer-downloader.git
