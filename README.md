@@ -1,3 +1,5 @@
+![YouDeez](img/youdeez_192.png)
+
 # YouDeez, the ultimate music streaming PWA
 
 > YouDeez is an offline-first PWA that enables you to enjoy premium music for free without ads.
@@ -50,7 +52,7 @@ The backend was written in Golang with ([Go-chi](https://github.com/go-chi/chi))
 
 A picture worth a thousand words.
 
-![](img/architecture.png)
+![My Design](img/architecture.png)
 
 All the Downloaded audio will be cached into [Indexed db](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API). The backend has been dockerized and hosted on [Amazon AWS EC2](https://aws.amazon.com/free/) and the frontend is hosted on [Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html), I only have a free tier account, so please go easy on the app :sweat_smile: ...
 
