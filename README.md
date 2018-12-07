@@ -56,7 +56,11 @@ All the Downloaded audio will be cached into [Indexed db](https://developer.mozi
 
 ## Contribute to YouDeez
 <<<<<<< HEAD
+<<<<<<< HEAD
 Any issues are welcome, if you are sending pull request, make sure to include test files, this project obeys the ([Airbnb coding style](https://github.com/airbnb/javascript)), well not entirely. Please do not hesitate to drop me a mail at herodotus94@gmail.com.
+=======
+Any issues are welcome, if you are sending pull request, make sure to include test files :blush:, this project obeys the ([Airbnb coding style](https://github.com/airbnb/javascript)), well not entirely, standard style is accepted. Please do not hesitate to drop me a mail at herodotus94@gmail.com.
+>>>>>>> Update Documentation
 =======
 Any issues are welcome, if you are sending pull request, make sure to include test files :blush:, this project obeys the ([Airbnb coding style](https://github.com/airbnb/javascript)), well not entirely, standard style is accepted. Please do not hesitate to drop me a mail at herodotus94@gmail.com.
 >>>>>>> Update Documentation
