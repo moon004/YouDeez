@@ -2,7 +2,7 @@
 
 > YouDeez is an offline-first PWA that enables you to enjoy premium music for free without ads.
 
-Visit the PWA on [HERE](http://hopesndreams.s3-website.ap-northeast-1.amazonaws.com/).
+Visit the PWA on [this link](http://hopesndreams.s3-website.ap-northeast-1.amazonaws.com/).
 
 ## Overview
 YouDeez (Youtube + Deezer) allows you to download music/songs from both Youtube and Deezer (320kbps) library and cache it locally, and enjoy it even without internet connection.
@@ -55,4 +55,8 @@ A picture worth a thousand words.
 All the Downloaded audio will be cached into [Indexed db](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API). The backend has been dockerized and hosted on [Amazon AWS EC2](https://aws.amazon.com/free/) and the frontend is hosted on [Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html), I only have a free tier account, so please go easy on the app :sweat_smile: ...
 
 ## Contribute to YouDeez
+<<<<<<< HEAD
 Any issues are welcome, if you are sending pull request, make sure to include test files :blush:, this project obeys the ([Airbnb coding style](https://github.com/airbnb/javascript)), well not entirely, standard style is accepted. Please do not hesitate to drop me a mail at herodotus94@gmail.com.
+=======
+Any issues are welcome, if you are sending pull request, make sure to include test files, this project obeys the ([Airbnb coding style](https://github.com/airbnb/javascript)), well not entirely. Please do not hesitate to drop me a mail at herodotus94@gmail.com.
+>>>>>>> 7dd81286453dadf5e5328ec553721c6d691e75f8
