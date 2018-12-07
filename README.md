@@ -56,7 +56,18 @@ All the Downloaded audio will be cached into [Indexed db](https://developer.mozi
 
 ## Contribute to YouDeez
 <<<<<<< HEAD
+<<<<<<< HEAD
 Any issues are welcome, if you are sending pull request, make sure to include test files :blush:, this project obeys the ([Airbnb coding style](https://github.com/airbnb/javascript)), well not entirely, standard style is accepted. Please do not hesitate to drop me a mail at herodotus94@gmail.com.
 =======
 Any issues are welcome, if you are sending pull request, make sure to include test files, this project obeys the ([Airbnb coding style](https://github.com/airbnb/javascript)), well not entirely. Please do not hesitate to drop me a mail at herodotus94@gmail.com.
 >>>>>>> 7dd81286453dadf5e5328ec553721c6d691e75f8
+=======
+<<<<<<< HEAD
+Any issues are welcome, if you are sending pull request, make sure to include test files, this project obeys the ([Airbnb coding style](https://github.com/airbnb/javascript)), well not entirely. Please do not hesitate to drop me a mail at herodotus94@gmail.com.
+=======
+Any issues are welcome, if you are sending pull request, make sure to include test files :blush:, this project obeys the ([Airbnb coding style](https://github.com/airbnb/javascript)), well not entirely, standard style is accepted. Please do not hesitate to drop me a mail at herodotus94@gmail.com.
+>>>>>>> Update Documentation
+=======
+Any issues are welcome, if you are sending pull request, make sure to include test files :blush:, this project obeys the ([Airbnb coding style](https://github.com/airbnb/javascript)), well not entirely, standard style is accepted. Please do not hesitate to drop me a mail at herodotus94@gmail.com.
+>>>>>>> Update Documentation
+>>>>>>> 6f78c517db172a33132fbc959c87ec95b00144d4
