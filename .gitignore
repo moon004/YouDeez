@@ -3,3 +3,4 @@ reference.js
 node_modules
 scripts
 build
+.vscode
