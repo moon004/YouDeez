@@ -6,6 +6,5 @@ jobs:
     steps:
       - checkout # check out the code in the project directory
       - run: ls -a
-      - run: npm install
-      - run: npm test
+      - run: cd /frontend/app && npm install && npm test
       - run: go test ./...
