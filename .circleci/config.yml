@@ -5,5 +5,7 @@ jobs:
       - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
     steps:
       - checkout # check out the code in the project directory
-      - run: cd frontend/app && npm install && npm test
+      - run: ls -a
+      - run: cd frontend/app && npm install
+      - run: cd frontend/app && npm test
       - run: go test ./...
