@@ -26,6 +26,7 @@ module.exports = {
   moduleDirectories: ['node_modules'],
   transformIgnorePatterns: [
     'node_modules/(?!styled-icons)',
+    'scripts',
   ],
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
@@ -150,9 +151,10 @@ module.exports = {
   // ],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
-  // testPathIgnorePatterns: [
-  //   "\\\\node_modules\\\\"
-  // ],
+  testPathIgnorePatterns: [
+    '/node_modules/',
+    '/scripts/',
+  ],
 
   // The regexp pattern Jest uses to detect test files
   // testRegex: "",
