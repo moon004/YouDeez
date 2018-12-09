@@ -12,6 +12,7 @@ const DownloadButton = (classMedia, songObject, state) => (
           <div>
             <DlButton // Progress dl button
               type="button"
+              id="dlbuttonReal"
               onClick={classMedia.handleClickDownload}
               downloadState={state === 'progress'}
             />

@@ -1,11 +1,10 @@
+import 'jsdom-global/register';
 import React from 'react';
-import { shallow, mount, render } from 'enzyme';
-import { Provider } from 'react-redux';
+import { shallow } from 'enzyme';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
-import ConnectedMainWrapper, { MainWrapper } from '../MainWrapper';
-import { updateMediaType, updateCurrentMedia } from '../action/media-action';
-import * as cnst from '../constants/constant';
+import ConnMainWrapper, { MainWrapper } from '../MainWrapper';
+// import * as cnst from '../constants/constant';
 
 describe('<MainWrapper/> Render The Right Component', () => {
   let shallowDumb;
@@ -30,45 +29,37 @@ describe('<MainWrapper/> Render The Right Component', () => {
   it('Should have <MyLibrary/>', () => {
     expect(shallowDumb.find('MyLibrary').length).toEqual(1);
   });
+
+  it('Should have the Footer render', () => {
+    expect(shallowDumb.find('#footer-a').length).toEqual(1);
+  });
 });
 
-describe('<ConnectedMainWrapper/>', () => {
-  let shallows; let store;
+describe('<ConnMainWrapper/>', () => {
+  let shallows;
 
   const initialState = {
-    whichMedia: null,
-    currentMediaTap: 'YOUTUBE',
+    MediaObject: {
+      MediaData: {
+        ID: 'lGaneyDfyls',
+      },
+    },
+    currentMediaTap: 'Youtube',
   };
   const middleware = [thunk];
   const mockStore = configureStore(middleware);
-  store = mockStore(initialState);
+  const store = mockStore(initialState);
 
   beforeEach(() => {
-    shallows = mount(
-      <Provider store={store}>
-        <ConnectedMainWrapper />
-      </Provider>,
+    shallows = shallow(
+      <ConnMainWrapper store={store} />,
     );
   });
 
-  it('Should render the connected Component', () => {
-    expect(shallows
-      .find(ConnectedMainWrapper)
-      .length).toEqual(1);
-  });
-
-  it('Should show initialState', () => {
-    expect(shallows.find(MainWrapper).prop('currentMediaTap'))
+  it('Should dispatch store state correctly', () => {
+    expect(shallows.props().currentMediaTap)
       .toEqual(initialState.currentMediaTap);
-  });
-
-  it('Should check action on dispatch', async () => {
-    const action = updateMediaType('Youtube');
-    expect(action).toEqual({
-      type: cnst.UPDATE_MEDIA,
-      payload: {
-        mediaType: 'Youtube',
-      },
-    });
+    expect(shallows.props().MediaObject)
+      .toEqual(initialState.MediaObject);
   });
 });

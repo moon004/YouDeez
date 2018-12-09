@@ -48,7 +48,6 @@ export function updateMediaObjAct(MediaObj) {
 
 export function updateDownloadAct(downloadObject) {
   return (dispatch) => {
-    console.log('dlObject', downloadObject);
     dispatch({
       type: UPDATE_DOWNLOAD,
       payload: {
@@ -68,7 +67,6 @@ export function updateDownloadAct(downloadObject) {
         Accept: 'audio/mp4',
       },
     }).then((response) => {
-      console.log('RESPONSE', response.data);
       const {
         songName, songImg, songDur, songArtist, songAlbum,
       } = downloadObject.songObj;
