@@ -3,9 +3,14 @@ jobs:
   build:
     docker: # use the docker executor type; machine and macos executors are also supported
       - image: circleci/node:8.12.0 # the primary container, where your job's commands are run
-      - image: circleci/golang:latest
+      
     steps:
       - checkout # check out the code in the project directory
       - run: cd frontend/app && npm install
       - run: cd frontend/app && npm test
-      - run: go test ./...
+    docker:
+      - image: circleci/golang:latest
+
+    steps:
+      -checkout
+      -run: go test ./...
