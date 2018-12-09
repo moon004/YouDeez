@@ -1,4 +1,4 @@
-<img src="img/youdeez_192.png" alt="logo" width="80" height="80">
+<div align="center"><img src="img/youdeez_192.png" alt="logo" width="110" height="110"></div>
 
 # YouDeez, the ultimate music streaming PWA
 
