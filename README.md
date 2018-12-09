@@ -48,7 +48,7 @@ That's it,  happy tinkering!
 
 ***
 ## More About YouDeez
-The backend was written in Golang with ([Go-chi](https://github.com/go-chi/chi)) router package. The frontend is powered by Javascript with React library, and redux library is used as state management.
+The Restful backend was written in Golang with ([Go-chi](https://github.com/go-chi/chi)) router package. The frontend is powered by Javascript with React library, and redux library is used as state management.
 
 A picture worth a thousand words.
 
