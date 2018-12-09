@@ -1,4 +1,5 @@
 <img src="img/youdeez_192.png" alt="logo" width="80" height="80">
+
 # YouDeez, the ultimate music streaming PWA
 
 > YouDeez is an offline-first PWA that enables you to enjoy premium music for free without ads.
