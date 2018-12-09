@@ -12,5 +12,5 @@ jobs:
       - image: circleci/golang:latest
 
     steps:
-      -checkout
-      -run: go test ./...
+      - checkout
+      - run: go test ./...
