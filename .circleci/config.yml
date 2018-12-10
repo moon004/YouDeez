@@ -14,8 +14,8 @@ jobs:
 
     steps:
       - checkout
-      - run: go get -u github.com/golang/dep/cmd/dep
-      - run: dep init && dep ensure
+      - run: ls -a
+      - run: cp -r vendor/ $GOPATH/src/
       - run: cd $GOPATH/src && go test ./...
     
 workflows:
