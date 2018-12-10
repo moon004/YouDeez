@@ -131,6 +131,7 @@ func YPayload(url string, w http.ResponseWriter, r *http.Request) *YRespond {
 
 // LoadEnv just loads Devkey from env
 func LoadEnv(str string) (value string) {
+	// Comment out the godotenv for CI to work.
 	// err := godotenv.Load()
 	// if err != nil {
 	// 	log.Fatal("Error loading .env file")
