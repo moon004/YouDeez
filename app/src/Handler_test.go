@@ -1,4 +1,4 @@
-package handler_test
+package main_test
 
 import (
 	"encoding/json"
@@ -7,7 +7,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	. "github.com/hopesanddreams/app/src/handler"
+	. "github.com/handler"
 )
 
 const (
@@ -85,7 +85,7 @@ func TestGetYResource(t *testing.T) {
 		{name: "test /youtube",
 			value:  "api/youtube?mr=15&q=hopes and dreams",
 			status: 200,
-			output: "Undertale Ost: 087 - Hopes and Dreams"},
+			output: "Undertale OST - Hopes And Dreams (Intro) & Save The World Extended"},
 		{name: "Empty Response", value: "api/youtube?mr=15&q=f439904f3f213", err: "{}\n"}, //Empty cuz no result
 	}
 	for _, tc := range tt {
