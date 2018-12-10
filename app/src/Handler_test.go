@@ -22,7 +22,7 @@ func ErrChecker(t *testing.T, ErrMsg string, err error) {
 
 func Equals(t *testing.T, myanswer, expected string) {
 	if myanswer != expected {
-		t.Errorf("Expected %s but I fcking get %s", myanswer, expected)
+		t.Errorf("Expected %s but I get %s", expected, myanswer)
 	}
 }
 
@@ -67,6 +67,7 @@ func TestGetDeezer(t *testing.T) {
 			}
 			// Error test
 			Equals(t, string(body), tc.err)
+			return
 		},
 		)
 	}
