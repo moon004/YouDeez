@@ -1,6 +1,5 @@
-<div align="center"><img src="img/youdeez_192.png" alt="logo" width="110" height="110"></div>
+<div align="center"><img src="img/youdeez_192.png" alt="logo" width="110" height="110">![Build Status](https://circleci.com/gh/moon004/YouDeez.png?circle-token=:442ff0bc6279be8a168d231139f1d45fee3a7282)</div>
 
-![Build Status](https://circleci.com/gh/moon004/YouDeez.png?circle-token=:442ff0bc6279be8a168d231139f1d45fee3a7282)
 
 # YouDeez, the ultimate music streaming PWA
 
