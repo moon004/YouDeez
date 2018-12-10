@@ -16,7 +16,7 @@ jobs:
       - checkout
       - run: ls -a
       - run: cp -r vendor/ $GOPATH/src/
-      - run: cd $GOPATH/src && go test ./...
+      - run: go test ./...
     
 workflows:
   version: 2
