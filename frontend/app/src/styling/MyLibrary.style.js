@@ -127,7 +127,6 @@ export const DivMediaImg = styled.div`
   display: flex;
   position: relative;
   width: 6em;
-  height: 4em;
 `;
 
 export const DivDur = styled.div`
