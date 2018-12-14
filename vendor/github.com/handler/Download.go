@@ -6,6 +6,7 @@ import (
 	"net/url"
 	"os/exec"
 	"regexp"
+	"sync"
 
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
@@ -51,18 +52,26 @@ func DownloadYou(w http.ResponseWriter, r *http.Request) {
 	queryValue := r.URL.Query()
 	query := queryValue.Get("q")
 	q := url.QueryEscape(query)
-	cmd := exec.Command("./go-youtube-dl.exe", "--audio-only", "https://www.youtube.com/watch?v="+q)
-	cmd.Stdout = w // streaming occurs here
-	err := cmd.Start()
-	if err != nil {
-		render.JSON(w, r, ErrDuringStream(err))
-	}
-	err = cmd.Wait()
-	if err != nil {
-		render.JSON(w, r, ErrDuringWait(err))
-	}
-	fmt.Fprintf(w, "Done")
+	var wg sync.WaitGroup
 
+	wg.Add(1)
+	go func(q string) {
+		defer wg.Done()
+		fmt.Printf("Fetching %s \n", q)
+		cmd := exec.Command("./go-youtube-dl.exe", "--audio-only", "https://www.youtube.com/watch?v="+q)
+		cmd.Stdout = w // streaming occurs here
+		err := cmd.Start()
+		if err != nil {
+			render.JSON(w, r, ErrDuringStream(err))
+		}
+		err = cmd.Wait()
+		if err != nil {
+			render.JSON(w, r, ErrDuringWait(err))
+		}
+	}(q)
+
+	wg.Wait()
+	fmt.Fprintf(w, "Done %s", q)
 }
 
 func DownloadDeez(w http.ResponseWriter, r *http.Request) {
@@ -72,19 +81,26 @@ func DownloadDeez(w http.ResponseWriter, r *http.Request) {
 	q := url.QueryEscape(query)
 	username := LoadEnv("username")
 	password := LoadEnv("password")
-	cmd := exec.Command(
-		"./go-decrypt-deezer.exe",
-		"--id", q,
-		"--username", username,
-		"--password", password)
-	cmd.Stdout = w
-	err := cmd.Start()
-	if err != nil {
-		render.JSON(w, r, ErrDuringStream(err))
-	}
-	err = cmd.Wait()
-	if err != nil {
-		render.JSON(w, r, ErrDuringWait(err))
-	}
+	var wg sync.WaitGroup
+
+	wg.Add(1)
+	go func(q, username, password string) {
+		defer wg.Done()
+		cmd := exec.Command(
+			"./go-decrypt-deezer.exe",
+			"--id", q,
+			"--username", username,
+			"--password", password)
+		cmd.Stdout = w
+		err := cmd.Start()
+		if err != nil {
+			render.JSON(w, r, ErrDuringStream(err))
+		}
+		err = cmd.Wait()
+		if err != nil {
+			render.JSON(w, r, ErrDuringWait(err))
+		}
+	}(q, username, password)
+	wg.Wait()
 	fmt.Fprintf(w, "Done")
 }
