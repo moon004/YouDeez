@@ -1,7 +1,7 @@
 <div align="center"><img src="img/youdeez_192.png" alt="logo" width="110" height="110"></div>
 
 <div align="center">
-  <a href="https://github.com/moon004/YouDeez/deployments">
+  <a href="https://circleci.com/gh/moon004/YouDeez">
     <img src="https://circleci.com/gh/moon004/YouDeez.png" alt="CI">
   </a>
 </div>
