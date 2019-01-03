@@ -54,17 +54,20 @@ const convertString = (value) => {
       if (/^PT\d*S$/.test(value)) {
         return `0:${moment.duration(value).format('hh:mm:ss')}`;
       }
-      if (/^PT\dH\d*M\d*S$|^PT\dM\d*S$/) {
+      if (/^PT\dH\d*M\d*S$|^PT\dM\d*S$/.test(value)) {
         return moment.duration(value).format('hh:mm:ss').substring(1);
       }
       return moment.duration(value).format('hh:mm:ss');
-    case (typeof value === 'number'):
+    case (typeof value === 'number'): // for deezer
       if (value < 60) {
         return `0:${moment.duration(value, 'seconds').format('hh:mm:ss')}`;
       }
       return moment.duration(value, 'seconds').format('h:m:ss');
     default:
-      return unitizer(value);
+      if (value !== undefined) {
+        return unitizer(value);
+      }
+      return '0:00';
   }
 };
 

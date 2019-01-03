@@ -1,0 +1,42 @@
+#mediaplayerImg {
+  max-width: 6em;
+  min-height: 4.5em;
+  height: auto;
+  margin-bottom: auto;
+}
+
+#shuffleIcon {
+  color: white;
+  position: absolute;
+  width: 2em;
+  height: 1.4em;
+  top: 1.6em;
+  left: 11em;
+  &:hover {
+    opacity: 1;
+  }
+}
+$bgColor: rgb(56, 56, 56);
+%basic-shared {
+  border-radius: 1em;
+  color: white;
+  padding: 0.4em;
+  background: $bgColor;
+  font-family: Ubuntu;
+  &:hover {
+    background: rgb(94, 94, 94);
+  }
+  &:focus {
+    outline: none;
+  }
+}
+.playList {
+  @extend %basic-shared;
+  font-size: 1.1em;
+}
+
+.playListNumber {
+  @extend %basic-shared;
+  padding: 0.5em;
+  display: inline-block;
+}

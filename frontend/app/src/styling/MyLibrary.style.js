@@ -3,6 +3,7 @@ import { PlayArrow } from 'styled-icons/material/PlayArrow';
 import { SkipNext } from 'styled-icons/material/SkipNext';
 import { SkipPrevious } from 'styled-icons/material/SkipPrevious';
 import { Repeat } from 'styled-icons/feather/Repeat';
+import { Shuffle } from 'styled-icons/material/Shuffle';
 import { Pause } from 'styled-icons/material/Pause';
 import { TrashAlt } from 'styled-icons/fa-solid/TrashAlt';
 
@@ -17,7 +18,6 @@ export const DivLib = styled.div`
   margin-bottom: 9em;
   position: relative;
   color: white;
-
 `;
 
 export const DivObj = styled.div`
@@ -30,6 +30,9 @@ export const DivObj = styled.div`
   justify-content: space-between;
   &:hover {
     background: #3b3b3b;
+  }
+  &:active {
+    background: #515151;
   }
 `;
 
@@ -50,12 +53,12 @@ export const DivObjArtist = styled.div`
 
 export const DivMediaPlayer = styled.div`
   width: 100%;
+  height: 10em;
   position: relative;
   flex-grow: 1;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom: 2em;
 `;
 
 const sizePlay = '5.1em';
@@ -91,14 +94,19 @@ export const PrevIcon = styled(SkipPrevious)`
 
 export const RepeatIcon = styled(Repeat)`
   color: white;
-  width: 1.4em;
-  height: 1.4em;
+  width: 1.3em;
+  height: 1.3em;
   position: absolute;
-  left: 25.6em;
+  top: 1.7em;
+  left: 9.8em;
   opacity: ${props => (props.loopOn ? '1' : '0.6')};
   &:hover {
     opacity: 1;
   }
+`;
+
+export const ShuffleIcon = styled(Shuffle)`
+  opacity: ${props => (props.ShuffleOn ? '1' : '0.6')};
 `;
 
 export const DeleteIcon = styled(TrashAlt)`
@@ -118,31 +126,32 @@ export const StyledScrollbarLib = styled(StyledScrollbar)`
 
 export const DivMediaMiddle = styled.div`
   flex-direction: column;
+  width: 19em;
   display:flex;
   flex-grow: 2;
-  padding-right: 1em;
 `;
 
 export const DivMediaImg = styled.div`
   display: flex;
   position: relative;
-  width: 6em;
+
 `;
 
 export const DivDur = styled.div`
   position: absolute;
-  left: 31.1em;
-  top: 2.2em;
+  left: 23em;
+  top: 1.8em;
+  opacity: 0.7;
   font-weight: 200;
-  font-size: 0.75em;
+  font-size: 1em;
 `;
 
 export const DivTitle = styled.div`
-  height: 2.9em;
-  width: 13.9em;
-  display: -webkit-box;
+  height: 1.9em;
+  width: 17.7em;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 `;

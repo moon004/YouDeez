@@ -15,8 +15,8 @@ import {
   PrevIcon,
   DivDur,
   DivTitle,
+  ShuffleIcon,
 } from '../styling/MyLibrary.style';
-import { Img } from '../styling/DivTap.style';
 
 export default class MediaPlayer extends Component {
   constructor() {
@@ -24,6 +24,7 @@ export default class MediaPlayer extends Component {
     this.state = {
       playing: false,
       loop: false,
+      shuffle: false,
       played: 0,
       seeking: false,
       playedSec: 0,
@@ -54,9 +55,26 @@ export default class MediaPlayer extends Component {
   }
 
   onEnded = () => {
-    const { loop } = this.state;
+    // if loop true, then It wont come to onEnded
+    // Loop is the biggest priority
+    const { loop, shuffle } = this.state;
     this.setState({ playing: loop });
-    this.nextSong();
+    if (shuffle) {
+      this.shuffleSong();
+    } else {
+      this.nextSong();
+    }
+  }
+
+  shuffleSong = () => {
+    // passedID is the Index of the song
+    // passedID is NOT the Primary key
+    const {
+      wholeDB,
+      playThis,
+    } = this.props;
+    const random = Math.floor(Math.random() * wholeDB.length);
+    playThis(wholeDB[random], random);
   }
 
   onPause = () => {
@@ -72,12 +90,19 @@ export default class MediaPlayer extends Component {
     this.setState({ loop: !loop });
   }
 
+  toggleShuffle = () => {
+    const { shuffle } = this.state;
+    this.setState({ shuffle: !shuffle });
+  }
+
   playPause = () => {
     const { playing } = this.state;
     this.setState({ playing: !playing });
   }
 
   nextSong = () => {
+    // passedID is the Index of the song
+    // passedID is NOT the Primary key
     const {
       wholeDB,
       PassedObj: {
@@ -127,7 +152,7 @@ export default class MediaPlayer extends Component {
       },
     } = this.props;
     const {
-      playing, loop, played, playedSec,
+      playing, loop, played, playedSec, shuffle,
     } = this.state;
     return (
       <div>
@@ -141,8 +166,13 @@ export default class MediaPlayer extends Component {
 
           <DivMediaMiddle>
             <RepeatIcon
-              onClick={this.toggleLoop}
               loopOn={loop}
+              onClick={this.toggleLoop}
+            />
+            <ShuffleIcon
+              id="shuffleIcon"
+              ShuffleOn={shuffle}
+              onClick={this.toggleShuffle}
             />
             <DivTitle id="MediaDivTitle">
               {passedID === undefined ? (' ') : (passedSongTitle)}
@@ -161,7 +191,8 @@ export default class MediaPlayer extends Component {
             <input // Seeker
               style={{
                 '--percent': `${played * 100}%`,
-                marginTop: '0.3em',
+                marginTop: '2em',
+                width: '21em',
               }}
               type="range"
               min={0}
@@ -174,7 +205,8 @@ export default class MediaPlayer extends Component {
             />
           </DivMediaMiddle>
           <DivMediaImg>
-            <Img
+            <img
+              id="mediaplayerImg"
               src={passedID === undefined ? HNDLogo : passedImg}
               alt=""
             />

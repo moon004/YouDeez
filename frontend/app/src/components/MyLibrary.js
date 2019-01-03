@@ -20,8 +20,8 @@ class MyLibrary extends Component {
 
   static defaultProps = myLibDefaultProps
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.handlePlaySong = this.handlePlaySong.bind(this);
     this.state = {
       blobUrl: '',
@@ -61,7 +61,6 @@ class MyLibrary extends Component {
         passsedDur: dur,
         passedImg: img,
         passedSongTitle: songTitle,
-
       },
     });
   };
@@ -91,9 +90,14 @@ class MyLibrary extends Component {
     callUpdateDB(this);
   }
 
+  addPlaylist = () => {
+
+  }
+
   renderThumb = (props) => {
     const thumbStyle = {
-      backgroundColor: 'black',
+      backgroundColor: 'rgba(140, 140, 140, 0.6)',
+      borderRadius: '1em',
     };
     return (
       <div {...props} style={{ ...thumbStyle }} className="vertical-thumb" />
@@ -111,6 +115,7 @@ class MyLibrary extends Component {
       itemList = dbItem.map((item, index) => {
         const { dur } = item; // make sure pass in obj
         return (
+          // The Song Library List
           <DivObj
             key={item.id}
           >
@@ -164,11 +169,21 @@ class MyLibrary extends Component {
           wholeDB={dbItem}
           playThis={this.handleThisSong}
         />
+        <button type="button" className="playList">
+          {'New Playlist'}
+        </button>
+        <button
+          type="button"
+          className="playListNumber"
+          onClick={this.addPlaylist}
+        >
+          {'Sad List'}
+        </button>
         <StyledScrollbarLib
           renderThumbVertical={this.renderThumb}
           autoHide
           style={{ height: 300 }}
-          thumbMinSize={50}
+          thumbMinSize={30}
         >
           {itemList[0] === undefined ? (
             <div style={{ margin: '8em' }}>
