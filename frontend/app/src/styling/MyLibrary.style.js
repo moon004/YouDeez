@@ -27,9 +27,11 @@ export const DivObj = styled.div`
   flex-direction: row;
   font-size: 1.1em;
   padding: 0.3em 0 0.3em 0;
+  opacity: ${props => (props.PLAddSong ? 0.6 : 1)};
   justify-content: space-between;
   &:hover {
     background: #3b3b3b;
+    opacity: 1;
   }
   &:active {
     background: #515151;

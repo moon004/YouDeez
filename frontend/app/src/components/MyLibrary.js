@@ -3,6 +3,7 @@ import { myLibPropTypes, myLibDefaultProps } from '../props';
 import MediaPlayer from './Mediaplayer';
 import convertString, { addDot } from '../utils/converter';
 import { callUpdateDB, callDeleteDB } from '../utils/indexdb';
+import NewPlaylist from './NewPlaylist';
 import '../index.css';
 
 import {
@@ -16,23 +17,25 @@ import {
 
 
 class MyLibrary extends Component {
+  // IMPORTANT!! PL === Playlist
   static propTypes = myLibPropTypes
 
   static defaultProps = myLibDefaultProps
 
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.handlePlaySong = this.handlePlaySong.bind(this);
     this.state = {
       blobUrl: '',
       dbItem: [],
       songObject: {},
+      PLAddSong: false,
     };
     callUpdateDB(this);
   }
 
   shouldComponentUpdate(nextprops, nextstate) {
-    const { downloadObject } = this.props;
+    const { downloadObject, PLAddSong } = this.props;
     if (nextprops.downloadObject.state !== downloadObject.state) {
       callUpdateDB(this);
     }
@@ -41,6 +44,9 @@ class MyLibrary extends Component {
       return true;
     }
     if (nextstate.blobUrl !== blobUrl) {
+      return true;
+    }
+    if (nextstate.PLAddSong !== PLAddSong) {
       return true;
     }
     return false;
@@ -90,10 +96,6 @@ class MyLibrary extends Component {
     callUpdateDB(this);
   }
 
-  addPlaylist = () => {
-
-  }
-
   renderThumb = (props) => {
     const thumbStyle = {
       backgroundColor: 'rgba(140, 140, 140, 0.6)',
@@ -104,11 +106,18 @@ class MyLibrary extends Component {
     );
   }
 
+  PLhandler = (bool) => {
+    this.setState({
+      PLAddSong: bool,
+    });
+  }
+
   render() {
     const {
       blobUrl, // For Playing the audio
       dbItem, // For Loading the List
       songObject, // Object for MediaPlayer
+      PLAddSong, // Change to adding PL style
     } = this.state;
     let itemList = [];
     if (typeof dbItem[0] !== 'undefined') {
@@ -117,7 +126,9 @@ class MyLibrary extends Component {
         return (
           // The Song Library List
           <DivObj
+            id="divObj"
             key={item.id}
+            PLAddSong={PLAddSong}
           >
             {`${index + 1} .`}
             <DivObjTitle
@@ -161,6 +172,7 @@ class MyLibrary extends Component {
         );
       });
     }
+
     return (
       <DivLib>
         <MediaPlayer
@@ -169,16 +181,16 @@ class MyLibrary extends Component {
           wholeDB={dbItem}
           playThis={this.handleThisSong}
         />
-        <button type="button" className="playList">
-          {'New Playlist'}
-        </button>
         <button
           type="button"
-          className="playListNumber"
+          className="playList"
           onClick={this.addPlaylist}
         >
-          {'Sad List'}
+          {'New Playlist'}
         </button>
+        <NewPlaylist
+          PLAddSonghandler={this.PLhandler}
+        />
         <StyledScrollbarLib
           renderThumbVertical={this.renderThumb}
           autoHide

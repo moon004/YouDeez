@@ -40,3 +40,7 @@ $bgColor: rgb(56, 56, 56);
   padding: 0.5em;
   display: inline-block;
 }
+
+.playListInput {
+  @extend %basic-shared;
+}
