@@ -10,8 +10,8 @@ import (
 	. "github.com/handler"
 )
 
-const (
-	ServerURL = "http://ec2-18-222-70-139.us-east-2.compute.amazonaws.com:8888"
+var (
+	ServerURL = LoadEnv("amazonDNS")
 )
 
 func ErrChecker(t *testing.T, ErrMsg string, err error) {
@@ -40,7 +40,7 @@ func TestGetDeezer(t *testing.T) {
 		{name: "test with space",
 			value:  "api/deez?q=goose house",
 			status: 200,
-			output: "Sing",
+			output: "Sky",
 		}, //		unknown ID
 		{name: "Empty Response", value: "api/deez?q=f439904f3f213", err: "{}\n"}, //Empty cuz no result
 	}

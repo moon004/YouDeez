@@ -48,6 +48,8 @@ docker build -t image-name -f Dockerfile .
 docker run --rm -p 5050:5050 image-name
 ```
 
+and it will be serve on **localhost:5050**
+
 normal npm method is suggested over Docker...
 
 That's it,  happy tinkering!
