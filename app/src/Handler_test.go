@@ -40,7 +40,7 @@ func TestGetDeezer(t *testing.T) {
 		{name: "test with space",
 			value:  "api/deez?q=goose house",
 			status: 200,
-			output: "Sky",
+			output: "Haru No Namida Wo",
 		}, //		unknown ID
 		{name: "Empty Response", value: "api/deez?q=f439904f3f213", err: "{}\n"}, //Empty cuz no result
 	}
@@ -105,7 +105,7 @@ func TestGetYResource(t *testing.T) {
 			ErrChecker(t, "Error Reading Response Body", err)
 			err = json.Unmarshal(body, YConStatsItemsRes)
 			ErrChecker(t, "Error Unmarshalling", err)
-			//if tc is an error test
+			//if tc is NOT an error test
 			if tc.err == "" {
 				Equals(t, YConStatsItemsRes.Items[0].Snippet.Title, tc.output)
 				return
