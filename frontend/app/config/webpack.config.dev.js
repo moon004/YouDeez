@@ -197,6 +197,8 @@ module.exports = {
                 'jsx-a11y/no-static-element-interactions': 'off',
                 'no-restricted-globals': 'off',
                 'import/no-mutable-exports': 'off',
+                'react/no-unused-state': 'off',
+                'react/no-did-update-set-state': 'off',
               },
               parserOptions: {
                 ecmaFeatures: {

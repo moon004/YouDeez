@@ -21,16 +21,19 @@ $bgColor: rgb(56, 56, 56);
   border-radius: 1em;
   color: white;
   padding: 0.4em;
+  border: 1px solid white;
   background: $bgColor;
   font-family: Ubuntu;
+  transition: 0.3s;
   &:hover {
-    background: rgb(94, 94, 94);
+    transition: 0.3s;
+    border: 2px outset white;
   }
   &:focus {
     outline: none;
   }
 }
-.playList {
+.buttonPlayList {
   @extend %basic-shared;
   font-size: 1.1em;
 }
@@ -38,9 +41,73 @@ $bgColor: rgb(56, 56, 56);
 .playListNumber {
   @extend %basic-shared;
   padding: 0.5em;
-  display: inline-block;
 }
 
 .playListInput {
   @extend %basic-shared;
+}
+
+.playlistDiv {
+  margin: 1.2em 0;
+}
+
+.playlistDiv .playlistName:nth-child(2) {
+  font-size: 1.2em;
+  padding: 0.4em;
+  background: rgb(22, 22, 22);
+  border: 1px outset white;
+  transition: 0.2s;
+  margin: 0 1em;
+  &:hover {
+    border: 2px outset white;
+    font-size: 1.3em;
+    transition: 0.2s;
+    background: rgb(31, 31, 31);
+  }
+}
+
+.playlistName:first-child {
+  display: none;
+}
+
+.playlistName {
+  @extend %basic-shared;
+  padding: 0.2em;
+  font-size: 1em;
+  transition: 0.1s;
+}
+
+.divObj {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  font-size: 1.1em;
+  padding: 0.3em 0 0.3em 0;
+  transition: 0.3s;
+  justify-content: space-between;
+  &:hover {
+    background: #3b3b3b;
+    opacity: 1;
+  }
+  &:active {
+    background: #515151;
+  }
+}
+
+.divObj {
+  opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 0.3s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }

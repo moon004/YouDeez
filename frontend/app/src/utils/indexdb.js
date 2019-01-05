@@ -47,8 +47,24 @@ export const callUpdateDB = (caller) => {
     .objectStore(DB_STORE_NAME)
     .getAll()).then((obj) => {
     console.log('current db item', obj);
+    const tmpArray = [];
+    obj.forEach((elem) => {
+      const { id } = elem;
+      tmpArray.push(id);
+    });
     caller.setState({
       dbItem: obj,
+      PLArrayParent: [{
+        name: 'Void',
+        items: [],
+      }, {
+        name: 'Main',
+        items: tmpArray,
+      }, {
+        name: 'Sad Playlist',
+        items: [10, 24, 44],
+      }],
     });
+    console.log('tmpArray', tmpArray);
   });
 };

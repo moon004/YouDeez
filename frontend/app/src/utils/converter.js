@@ -48,7 +48,7 @@ export const timePassed = (value) => {
   return `${moment().to([pub[0], pub[1] - 1, pub[2]], true)} old`;
 };
 
-const convertString = (value) => {
+export const convertString = (value) => {
   switch (true) {
     case (/^PT\w*/.test(value)):
       if (/^PT\d*S$/.test(value)) {
@@ -70,5 +70,3 @@ const convertString = (value) => {
       return '0:00';
   }
 };
-
-export default convertString;

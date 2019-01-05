@@ -3,7 +3,7 @@ import { PlayArrow } from 'styled-icons/material/PlayArrow';
 import { SkipNext } from 'styled-icons/material/SkipNext';
 import { SkipPrevious } from 'styled-icons/material/SkipPrevious';
 import { Repeat } from 'styled-icons/feather/Repeat';
-import { Shuffle } from 'styled-icons/material/Shuffle';
+import { Shuffle } from 'styled-icons/feather/Shuffle';
 import { Pause } from 'styled-icons/material/Pause';
 import { TrashAlt } from 'styled-icons/fa-solid/TrashAlt';
 
@@ -21,21 +21,7 @@ export const DivLib = styled.div`
 `;
 
 export const DivObj = styled.div`
-  width: 100%;
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  font-size: 1.1em;
-  padding: 0.3em 0 0.3em 0;
   opacity: ${props => (props.PLAddSong ? 0.6 : 1)};
-  justify-content: space-between;
-  &:hover {
-    background: #3b3b3b;
-    opacity: 1;
-  }
-  &:active {
-    background: #515151;
-  }
 `;
 
 export const DivObjTitle = styled.div`

@@ -18,11 +18,7 @@ export default class NewPlaylist extends Component {
     this.setState({
       value: event.target.value,
     });
-    if (event.target.value.length === 0) {
-      PLAddSonghandler(false);
-    } else {
-      PLAddSonghandler(true);
-    }
+    PLAddSonghandler(event.target.value.length !== 0);
   }
 
   // addPlaylist = () => {
@@ -32,15 +28,25 @@ export default class NewPlaylist extends Component {
 
   render() {
     const { value, PLarray } = this.state;
+    const { addPlaylisthandler } = this.props;
     console.log(PLarray);
     return (
-      <input
-        type="text"
-        placeholder="Enter playlist name"
-        className="playListInput"
-        onChange={this.handlePLInput()}
-        value={value}
-      />
+      <div>
+        <button
+          type="button"
+          className="buttonPlayList"
+          onClick={addPlaylisthandler(value)}
+        >
+          {'Add Playlist'}
+        </button>
+        <input
+          type="text"
+          placeholder="Enter playlist name"
+          className="playListInput"
+          onChange={this.handlePLInput()}
+          value={value}
+        />
+      </div>
     );
   }
 }
