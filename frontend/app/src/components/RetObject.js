@@ -1,5 +1,5 @@
 import React from 'react';
-import { convertString, addDot, timePassed } from '../utils/converter';
+import { convertString, addDot, timePassed } from '../utils/tools';
 import {
   DivInfo,
   DivTitle,

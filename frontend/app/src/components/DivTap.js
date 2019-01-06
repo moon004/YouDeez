@@ -32,11 +32,12 @@ class DivTap extends Component {
 
   constructor() {
     super();
-    this.renderThumb = this.renderThumb.bind(this);
+    this.renderThumbVert = this.renderThumbVert.bind(this);
     this.handleTapClick = this.handleTapClick.bind(this);
+    this.renderThumbHor = this.renderThumbHor.bind(this);
   }
 
-  renderThumb = (props) => {
+  renderThumbVert = (props) => {
     const thumbStyle = {
       backgroundColor: 'black',
     };
@@ -44,6 +45,10 @@ class DivTap extends Component {
       <div {...props} style={{ ...thumbStyle }} className="vertical-thumb" />
     );
   }
+
+  renderThumbHor = () => (
+    <div style={{ display: 'none' }} />
+  )
 
   handleTapClick = value => () => {
     const { onObjTap } = this.props;
@@ -68,6 +73,8 @@ class DivTap extends Component {
       },
       tapState,
     } = this.props;
+    const divheight = dataYou === undefined ? 0 : 400;
+    console.log('divheight', divheight);
     return (
       <DivT currentap={tapState}>
         <EqDivider>
@@ -87,9 +94,13 @@ class DivTap extends Component {
           </ButDeez>
         </EqDivider>
         <StyledScrollbar
-          renderThumbVertical={this.renderThumb}
+          className="divscrollbar"
+          renderThumbVertical={this.renderThumbVert}
+          renderThumbHorizontal={this.renderThumbHor}
           autoHide
-          style={{ height: 400 }}
+          style={{
+            height: divheight,
+          }}
           thumbMinSize={50}
           currentap={tapState}
         >

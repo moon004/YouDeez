@@ -26,6 +26,7 @@ export const ERROR_STATE = 'Error';
 export const ERROR_STATE_YOU = 'Error';
 export const ERROR_STATE_DEEZ = 'Error';
 export const DB_STORE_NAME = 'audiostore';
+export const DB_STORE_PL = 'PlaylistStore';
 export const DB_NAME = 'mylib';
 export const GET_DB = 'GET_DB';
 export var dynamicDNS = 'http://localhost:8888';

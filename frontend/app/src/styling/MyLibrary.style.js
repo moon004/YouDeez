@@ -21,7 +21,28 @@ export const DivLib = styled.div`
 `;
 
 export const DivObj = styled.div`
-  opacity: ${props => (props.PLAddSong ? 0.6 : 1)};
+  opacity: ${props => (props.PLAddSong ? 1 : 0.6)};
+`;
+
+export const PLbutton = styled.div`
+  border: ${props => (props.selected ? '2.5px outset white' : '1px outset #a5a5a5')};
+  &:hover {
+    border: ${props => (props.selected
+    ? '2.5px outset white' : '2px outset white')};
+  }
+`;
+
+export const PLbuttonDiv = styled.div`
+  & .playlistName:nth-child(2) {
+      border: ${props => (props.selected
+    ? '2.8px outset white' : '1px outset #a5a5a5')};
+    background: ${props => (props.selected
+    ? 'rgb(35, 35, 35)' : 'rgb(22, 22, 22)')};
+    &:hover {
+    border: ${props => (props.selected
+    ? '2.8px outset white' : '2px outset white')};
+  }
+    }
 `;
 
 export const DivObjTitle = styled.div`
@@ -38,7 +59,7 @@ export const DivObjArtist = styled.div`
   opacity: 0.7;
 `;
 
-
+// ---------- Mediaplayer Style --------------//
 export const DivMediaPlayer = styled.div`
   width: 100%;
   height: 10em;

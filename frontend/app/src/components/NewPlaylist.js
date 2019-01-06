@@ -8,6 +8,7 @@ export default class NewPlaylist extends Component {
     this.state = {
       value: '',
       PLarray: [],
+      error: [],
     };
     this.handlePLInput = this.handlePLInput.bind(this);
   }
@@ -17,25 +18,41 @@ export default class NewPlaylist extends Component {
     const { PLAddSonghandler } = this.props;
     this.setState({
       value: event.target.value,
+      error: [''],
     });
-    PLAddSonghandler(event.target.value.length !== 0);
+    PLAddSonghandler(event.target.value.length === 0);
   }
 
-  // addPlaylist = () => {
-  //   const { PLarray } = this.state;
-  //   PLarray =
-  // }
+  addPlaylist = () => {
+    const { addPlaylisthandler, stateFromParent } = this.props;
+    const { value } = this.state;
+    if (value.length !== 0) {
+      if (stateFromParent.tmpPLArray.length !== 0) {
+        this.setState({
+          value: '',
+          error: [],
+        });
+        addPlaylisthandler(value);
+      } else {
+        this.setState({
+          error: ['You must select a song !'],
+        });
+      }
+    } else {
+      this.setState({
+        error: ['You must enter a name !'],
+      });
+    }
+  }
 
   render() {
-    const { value, PLarray } = this.state;
-    const { addPlaylisthandler } = this.props;
-    console.log(PLarray);
+    const { value, error } = this.state;
     return (
       <div>
         <button
           type="button"
           className="buttonPlayList"
-          onClick={addPlaylisthandler(value)}
+          onClick={this.addPlaylist}
         >
           {'Add Playlist'}
         </button>
@@ -46,6 +63,9 @@ export default class NewPlaylist extends Component {
           onChange={this.handlePLInput()}
           value={value}
         />
+        <h6 className="errorMessage">
+          {error}
+        </h6>
       </div>
     );
   }

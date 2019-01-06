@@ -70,3 +70,15 @@ export const convertString = (value) => {
       return '0:00';
   }
 };
+
+
+export const dupChecker = (array, itemToCheck) => {
+  const duplicated = array.some(function (elem) {
+    return elem === this;
+  }, itemToCheck);
+  if (duplicated) {
+    return array;
+  }
+  array.push(itemToCheck);
+  return array;
+};

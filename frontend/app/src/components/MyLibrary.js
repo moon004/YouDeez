@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import { myLibPropTypes, myLibDefaultProps } from '../props';
 import MediaPlayer from './Mediaplayer';
-import { convertString, addDot } from '../utils/converter';
-import { callUpdateDB, callDeleteDB } from '../utils/indexdb';
+import { convertString, addDot } from '../utils/tools';
+import {
+  callUpdateDB,
+  callDeleteDB,
+  callInitDB,
+  addToDBPL,
+} from '../utils/indexdb';
 import NewPlaylistInput from './NewPlaylist';
 import '../index.css';
 
@@ -13,17 +18,18 @@ import {
   DivObjTitle,
   DivObjArtist,
   DeleteIcon,
+  PLbutton,
+  PLbuttonDiv,
 } from '../styling/MyLibrary.style';
 
 
 const itemList = (parent) => {
   const {
     dbItem,
-    PLAddSong,
+    PLAddSongArr,
     PLArrayParent,
     currentPL,
   } = parent.state;
-  console.log('PLArrayParent', PLArrayParent, currentPL, dbItem);
   if (currentPL !== 0) {
     const songLists = dbItem.filter((obj) => {
       const match = PLArrayParent[currentPL].items.some(id => id === obj.id);
@@ -37,7 +43,7 @@ const itemList = (parent) => {
         <DivObj
           className="divObj"
           key={id}
-          PLAddSong={PLAddSong[index]}
+          PLAddSong={PLAddSongArr[index]}
         >
           <div style={{
             width: '4em',
@@ -49,7 +55,7 @@ const itemList = (parent) => {
             {`${index + 1} .`}
           </div>
           <DivObjTitle
-            onClick={parent.handlePlaySong(item, id)}
+            onClick={parent.handlePlaySong(item, id, index)}
           >
             <div style={{
               textOverflow: 'ellipsis',
@@ -106,14 +112,15 @@ class MyLibrary extends Component {
       blobUrl: '',
       dbItem: [],
       songObject: {},
-      PLAddSong: [],
+      PLAddSong: true, // For swtiching to add song
+      PLAddSongArr: [true], // for setting boolean array
       // Always start with main PL, 0=Void=As a reset for fade in to work
       currentPL: 1,
       tmpCurrentPL: 1,
       tmpPLArray: [],
       PLArrayParent: [],
     };
-    callUpdateDB(this);
+    callInitDB(this);
   }
 
   shouldComponentUpdate(nextprops, nextstate) {
@@ -146,13 +153,13 @@ class MyLibrary extends Component {
     }
   }
 
-  handlePlaySong = (value, id) => () => {
-    const { PLAddSong, tmpPLArray } = this.state;
+  handlePlaySong = (value, id, index) => () => {
+    const { PLAddSong, tmpPLArray, PLAddSongArr } = this.state;
     const {
       album, artist, bit, dur, img, songTitle,
     } = value;
     const url = URL.createObjectURL(value.bit);
-    if (!PLAddSong) {
+    if (PLAddSong) {
       this.setState({
         blobUrl: url,
         songObject: {
@@ -167,6 +174,7 @@ class MyLibrary extends Component {
       });
     } else {
       tmpPLArray.push(id);
+      PLAddSongArr[index] = true;
       this.setState({
         tmpPLArray,
       });
@@ -207,29 +215,54 @@ class MyLibrary extends Component {
     );
   }
 
+  // Called when PL input !== 0
   PLAddhandler = (bool) => {
-    console.log('PLAddSong', bool);
+    const { PLAddSongArr } = this.state;
     this.setState({
       PLAddSong: bool,
     });
+    if (!bool) {
+      PLAddSongArr.fill(false);
+      this.setState({
+        currentPL: 1,
+        PLAddSongArr,
+      });
+    } else {
+      PLAddSongArr.fill(true);
+      this.setState({
+        PLAddSongArr,
+      });
+    }
   }
 
-  addPlaylisthandler = PLname => () => {
-    const { tmpPLArray, PLArrayParent } = this.state;
+  addPlaylisthandler = (PLname) => {
+    const {
+      tmpPLArray,
+      PLArrayParent,
+      PLAddSongArr,
+    } = this.state;
     PLArrayParent.push({
       name: PLname,
       items: tmpPLArray,
     });
+    PLAddSongArr.fill(true);
     this.setState({
       PLArrayParent,
+      tmpPLArray: [],
+      PLAddSongArr,
+      PLAddSong: true,
     });
+    addToDBPL(PLArrayParent);
   }
 
   handlePLChange = value => () => {
-    this.setState({
-      currentPL: 0,
-      tmpCurrentPL: value,
-    });
+    const { PLAddSong } = this.state;
+    if (PLAddSong) {
+      this.setState({
+        currentPL: 0,
+        tmpCurrentPL: value,
+      });
+    }
   };
 
   render() {
@@ -238,19 +271,22 @@ class MyLibrary extends Component {
       dbItem, // For Loading the List
       songObject, // Object for MediaPlayer
       PLArrayParent, // Consists of id {name: '', items:[]}
+      currentPL,
     } = this.state;
     let songList = [];
     if (typeof dbItem[0] !== 'undefined') {
       songList = itemList(this);
     }
+    console.log('currentPL', currentPL, PLArrayParent);
     const playlistName = PLArrayParent.map((item, index) => (
-      <button
+      <PLbutton
         type="button"
         className="playlistName"
+        selected={index === currentPL} // is current PL button is clicked?
         onClick={this.handlePLChange(index)}
       >
         {item.name}
-      </button>
+      </PLbutton>
     ));
     return (
       <DivLib>
@@ -263,14 +299,17 @@ class MyLibrary extends Component {
 
         <NewPlaylistInput
           PLAddSonghandler={this.PLAddhandler}
+          stateFromParent={this.state}
           addPlaylisthandler={this.addPlaylisthandler}
         />
         <br />
-        <div className="playlistDiv">
+        <PLbuttonDiv
+          className="playlistDiv"
+          selected={currentPL === 1}
+        >
           {playlistName}
-        </div>
+        </PLbuttonDiv>
         <StyledScrollbarLib
-
           renderThumbVertical={this.renderThumb}
           autoHide
           style={{ height: 300 }}

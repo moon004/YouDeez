@@ -16,11 +16,12 @@
     opacity: 1;
   }
 }
-$bgColor: rgb(56, 56, 56);
+$bgColor: rgb(43, 43, 43);
 %basic-shared {
   border-radius: 1em;
   color: white;
-  padding: 0.4em;
+  padding: 0.4em 0.6em;
+  margin: 0 0.5em;
   border: 1px solid white;
   background: $bgColor;
   font-family: Ubuntu;
@@ -45,24 +46,24 @@ $bgColor: rgb(56, 56, 56);
 
 .playListInput {
   @extend %basic-shared;
+  &:focus {
+    border: 2px outset white;
+  }
 }
 
 .playlistDiv {
-  margin: 1.2em 0;
+  margin-bottom: 1.2em;
 }
 
 .playlistDiv .playlistName:nth-child(2) {
   font-size: 1.2em;
-  padding: 0.4em;
+  padding: 0.5em;
   background: rgb(22, 22, 22);
-  border: 1px outset white;
   transition: 0.2s;
   margin: 0 1em;
   &:hover {
     border: 2px outset white;
-    font-size: 1.3em;
     transition: 0.2s;
-    background: rgb(31, 31, 31);
   }
 }
 
@@ -72,9 +73,10 @@ $bgColor: rgb(56, 56, 56);
 
 .playlistName {
   @extend %basic-shared;
-  padding: 0.2em;
+  padding: 0.2em 0.4em;
   font-size: 1em;
   transition: 0.1s;
+  display: inline-block;
 }
 
 .divObj {
@@ -110,4 +112,12 @@ $bgColor: rgb(56, 56, 56);
 	100% {
 		opacity: 1;
 	}
+}
+
+.errorMessage {
+  font-size: 0.9em;
+  color: rgb(243, 10, 10);
+  display: inline-block;
+  margin: 0;
+  font-weight: 300;
 }

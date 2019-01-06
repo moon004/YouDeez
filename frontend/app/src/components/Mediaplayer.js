@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactPlayer from 'react-player';
 import '../index.css';
-import { convertString } from '../utils/converter';
+import { convertString } from '../utils/tools';
 import HNDLogo from '../assets/hnd.svg';
 
 import {

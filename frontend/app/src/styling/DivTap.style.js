@@ -47,9 +47,6 @@ export const ButDeez = styled(ButYou)`
 `;
 
 export const StyledScrollbar = styled(Scrollbars)`
-  :last-child {
-    padding-bottom: 1em;
-  }
   background: ${props => (props.currentap === 'Youtube'
     ? '#282828' : '#f7f7f7')};
 `;
