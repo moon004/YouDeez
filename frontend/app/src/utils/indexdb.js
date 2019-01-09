@@ -151,12 +151,14 @@ export const callInitDB = (caller) => {
 export const callUpdateDB = (caller) => {
   const indb = getDB();
   const tmpIDArray = [];
+  const tmpPLAddSongArr = [];
   // Just to get the last added song id
   indb.then(db => db.transaction(DB_STORE_NAME)
     .objectStore(DB_STORE_NAME)
     .getAll()).then((obj) => {
     obj.forEach((elem) => {
       tmpIDArray.push(elem.id);
+      tmpPLAddSongArr.push(true);
     });
     caller.setState({
       dbItem: obj,
@@ -176,6 +178,7 @@ export const callUpdateDB = (caller) => {
       });
       caller.setState({
         PLArrayParent: elem[0].PlaylistArray,
+        PLAddSongArr: tmpPLAddSongArr, // make newly added song opacity: 1
       });
     });
     return tx.complete;

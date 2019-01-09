@@ -114,8 +114,6 @@ export default class MediaPlayer extends Component {
     } = this.props;
     if (passedID !== undefined) {
       const currentIndex = CurrentPL.indexOf(passedID);
-      console.log('passedID, CurrentPL, CI, wholeDB',
-        passedID, CurrentPL, currentIndex, wholeDB);
       if (currentIndex < CurrentPL.length - 1) {
         playThis(indOfObjDB(wholeDB, CurrentPL[currentIndex + 1]));// on normal condition
       } else {
