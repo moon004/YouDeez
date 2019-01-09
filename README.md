@@ -19,7 +19,7 @@ Now you dont have to use Youtube converter to get the audio file anymore! Youdee
 
 ***
 ## Build (For devs)
-Before you proceed, make sure u have ([npm installed](https://www.npmjs.com/get-npm)).
+Before you proceed, make sure u have ([npm installed](https://www.npmjs.com/get-npm)), also make sure u have [Go](https://golang.org/dl/) installed
 
 Clone it to your local repo.
 ```sh
@@ -39,6 +39,8 @@ npm install
 ```
 
 When it's done, run **npm start** to start the development mode.
+
+>View the code on Mainwrapper.js to get started on the codebase.
 
 ### Docker
 Or You could build the docker image and run the container with the following:
