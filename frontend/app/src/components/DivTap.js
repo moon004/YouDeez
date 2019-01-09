@@ -74,7 +74,6 @@ class DivTap extends Component {
       tapState,
     } = this.props;
     const divheight = dataYou === undefined ? 0 : 400;
-    console.log('divheight', divheight);
     return (
       <DivT currentap={tapState}>
         <EqDivider>

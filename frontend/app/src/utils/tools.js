@@ -82,3 +82,14 @@ export const dupChecker = (array, itemToCheck) => {
   array.push(itemToCheck);
   return array;
 };
+
+
+export const indOfObjDB = (wholeDB, id) => {
+  const index = wholeDB.findIndex(elem => (elem.id === id));
+  return wholeDB[index];
+};
+
+export const indOfArr = (array, id) => {
+  const index = array.findIndex(elem => (elem === id));
+  return index;
+};

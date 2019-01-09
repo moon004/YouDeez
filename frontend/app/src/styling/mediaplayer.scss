@@ -1,6 +1,6 @@
 #mediaplayerImg {
   max-width: 6em;
-  min-height: 4.5em;
+  min-height: 4em;
   height: auto;
   margin-bottom: auto;
 }
@@ -21,7 +21,7 @@ $bgColor: rgb(43, 43, 43);
   border-radius: 1em;
   color: white;
   padding: 0.4em 0.6em;
-  margin: 0 0.5em;
+  margin: 1em 0.5em;
   border: 1px solid white;
   background: $bgColor;
   font-family: Ubuntu;
@@ -53,8 +53,9 @@ $bgColor: rgb(43, 43, 43);
 
 .playlistDiv {
   margin-bottom: 1.2em;
+  margin-right: 3em;
 }
-
+// Main PL button
 .playlistDiv .playlistName:nth-child(2) {
   font-size: 1.2em;
   padding: 0.5em;
@@ -66,16 +67,15 @@ $bgColor: rgb(43, 43, 43);
     transition: 0.2s;
   }
 }
-
+// Void PL button
 .playlistName:first-child {
   display: none;
 }
-
+// Normal PL button
 .playlistName {
   @extend %basic-shared;
   padding: 0.2em 0.4em;
   font-size: 1em;
-  transition: 0.1s;
   display: inline-block;
 }
 
@@ -120,4 +120,50 @@ $bgColor: rgb(43, 43, 43);
   display: inline-block;
   margin: 0;
   font-weight: 300;
+}
+
+%trashcss {
+  height: 2.2em;
+  width: 2em;
+  position: absolute;
+  right: 0.25em;
+  bottom: 1.5em;
+  opacity: 0.75;
+}
+%trashbefcss {
+  font-family: 'Font Awesome\ 5 Free';
+  color: white;
+  font-size: 2em;
+}
+.droppableClass { 
+  @extend %trashcss;
+}
+
+.droppableClass:before {
+  @extend %trashbefcss;
+  content: '\f2ed'; // Rubbish Icon
+}
+
+.droppableClassHov {
+  @extend %trashcss;
+  opacity: 0.9;
+}
+
+.droppableClassHov:before {
+  @extend %trashbefcss;
+  content: '\f2ed'; // Rubbish Icon
+  color: red;
+}
+
+.trashInfo {
+  width: 8em;
+  position: absolute;
+  right: 0.5em;
+  bottom: 5em;
+  font-weight: 100;
+  opacity: 0.6;
+  text-align: right;
+  font-size: 0.9em;
+  transition: 0.2s;
+  display: inline-block;
 }

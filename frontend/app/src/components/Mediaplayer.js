@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactPlayer from 'react-player';
 import '../index.css';
-import { convertString } from '../utils/tools';
+import { convertString, indOfObjDB } from '../utils/tools';
 import HNDLogo from '../assets/hnd.svg';
 
 import {
@@ -72,9 +72,10 @@ export default class MediaPlayer extends Component {
     const {
       wholeDB,
       playThis,
+      CurrentPL,
     } = this.props;
-    const random = Math.floor(Math.random() * wholeDB.length);
-    playThis(wholeDB[random], random);
+    const random = Math.floor(Math.random() * CurrentPL.length);
+    playThis(indOfObjDB(wholeDB, CurrentPL[random]), random);
   }
 
   onPause = () => {
@@ -109,12 +110,16 @@ export default class MediaPlayer extends Component {
         passedID,
       },
       playThis,
+      CurrentPL,
     } = this.props;
     if (passedID !== undefined) {
-      if (passedID < wholeDB.length - 1) {
-        playThis(wholeDB[passedID + 1], passedID + 1);// on normal condition
+      const currentIndex = CurrentPL.indexOf(passedID);
+      console.log('passedID, CurrentPL, CI, wholeDB',
+        passedID, CurrentPL, currentIndex, wholeDB);
+      if (currentIndex < CurrentPL.length - 1) {
+        playThis(indOfObjDB(wholeDB, CurrentPL[currentIndex + 1]));// on normal condition
       } else {
-        playThis(wholeDB[0], 0); // if on last song, return back to 0
+        playThis(indOfObjDB(wholeDB, CurrentPL[0])); // if on last song, return back to 0
       }
     }
   }
@@ -126,13 +131,15 @@ export default class MediaPlayer extends Component {
         passedID,
       },
       playThis,
+      CurrentPL,
     } = this.props;
     if (passedID !== undefined) {
-      if (passedID === 0) {
+      const currentIndex = CurrentPL.indexOf(passedID);
+      if (currentIndex === 0) {
         // if at first song, jump to last song
-        playThis(wholeDB[wholeDB.length - 1], wholeDB.length - 1);
+        playThis(indOfObjDB(wholeDB, CurrentPL[CurrentPL.length - 1]));
       } else {
-        playThis(wholeDB[passedID - 1], passedID - 1);
+        playThis(indOfObjDB(wholeDB, CurrentPL[currentIndex - 1]));
       }
     }
   }

@@ -15,7 +15,7 @@ export const DivLib = styled.div`
   width: 100%;
   background: none;
   height: 20em;
-  margin-bottom: 9em;
+  margin-bottom: 21em;
   position: relative;
   color: white;
 `;
@@ -26,6 +26,7 @@ export const DivObj = styled.div`
 
 export const PLbutton = styled.div`
   border: ${props => (props.selected ? '2.5px outset white' : '1px outset #a5a5a5')};
+  opacity: ${props => (props.hidePLBut ? 0 : 1)};
   &:hover {
     border: ${props => (props.selected
     ? '2.5px outset white' : '2px outset white')};
@@ -35,12 +36,12 @@ export const PLbutton = styled.div`
 export const PLbuttonDiv = styled.div`
   & .playlistName:nth-child(2) {
       border: ${props => (props.selected
-    ? '2.8px outset white' : '1px outset #a5a5a5')};
+    ? '3px outset white' : '1px outset #a5a5a5')};
     background: ${props => (props.selected
     ? 'rgb(35, 35, 35)' : 'rgb(22, 22, 22)')};
     &:hover {
     border: ${props => (props.selected
-    ? '2.8px outset white' : '2px outset white')};
+    ? '3px outset white' : '2px outset white')};
   }
     }
 `;
@@ -56,7 +57,14 @@ export const DivObjArtist = styled.div`
   flex-direction: row;
   font-size: 0.8em;
   padding-top: 0.4em;
+  min-width: 0;
   opacity: 0.7;
+`;
+
+export const Div = styled.div`
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 `;
 
 // ---------- Mediaplayer Style --------------//
@@ -150,8 +158,8 @@ export const DivDur = styled.div`
   position: absolute;
   left: 23em;
   top: 1.8em;
-  opacity: 0.7;
-  font-weight: 200;
+  opacity: 0.6;
+  font-weight: 100;
   font-size: 1em;
 `;
 
