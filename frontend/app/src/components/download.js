@@ -1,6 +1,6 @@
 import React from 'react';
 import { DlButton, DivDownload } from '../styling/Media.style';
-import { truncate } from '../utils/converter';
+import { truncate } from '../utils/tools';
 import '../index.css';
 
 const DownloadButton = (classMedia, songObject, state) => (

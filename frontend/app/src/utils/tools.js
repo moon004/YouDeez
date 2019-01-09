@@ -48,7 +48,7 @@ export const timePassed = (value) => {
   return `${moment().to([pub[0], pub[1] - 1, pub[2]], true)} old`;
 };
 
-const convertString = (value) => {
+export const convertString = (value) => {
   switch (true) {
     case (/^PT\w*/.test(value)):
       if (/^PT\d*S$/.test(value)) {
@@ -71,4 +71,25 @@ const convertString = (value) => {
   }
 };
 
-export default convertString;
+
+export const dupChecker = (array, itemToCheck) => {
+  const duplicated = array.some(function (elem) {
+    return elem === this;
+  }, itemToCheck);
+  if (duplicated) {
+    return array;
+  }
+  array.push(itemToCheck);
+  return array;
+};
+
+
+export const indOfObjDB = (wholeDB, id) => {
+  const index = wholeDB.findIndex(elem => (elem.id === id));
+  return wholeDB[index];
+};
+
+export const indOfArr = (array, id) => {
+  const index = array.findIndex(elem => (elem === id));
+  return index;
+};

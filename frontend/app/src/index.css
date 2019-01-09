@@ -144,7 +144,6 @@ input[type=range]::-webkit-slider-runnable-track {
 }
 
 #footer-a {
-  padding-top: 5em;
   display: flex;
   display: -moz-box;
   display: -ms-flexbox;

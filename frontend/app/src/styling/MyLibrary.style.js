@@ -3,7 +3,7 @@ import { PlayArrow } from 'styled-icons/material/PlayArrow';
 import { SkipNext } from 'styled-icons/material/SkipNext';
 import { SkipPrevious } from 'styled-icons/material/SkipPrevious';
 import { Repeat } from 'styled-icons/feather/Repeat';
-import { Shuffle } from 'styled-icons/material/Shuffle';
+import { Shuffle } from 'styled-icons/feather/Shuffle';
 import { Pause } from 'styled-icons/material/Pause';
 import { TrashAlt } from 'styled-icons/fa-solid/TrashAlt';
 
@@ -15,27 +15,35 @@ export const DivLib = styled.div`
   width: 100%;
   background: none;
   height: 20em;
-  margin-bottom: 9em;
+  margin-bottom: 21em;
   position: relative;
   color: white;
 `;
 
 export const DivObj = styled.div`
-  width: 100%;
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  font-size: 1.1em;
-  padding: 0.3em 0 0.3em 0;
-  opacity: ${props => (props.PLAddSong ? 0.6 : 1)};
-  justify-content: space-between;
+  opacity: ${props => (props.PLAddSong ? 1 : 0.6)};
+`;
+
+export const PLbutton = styled.div`
+  border: ${props => (props.selected ? '2.5px outset white' : '1px outset #a5a5a5')};
+  opacity: ${props => (props.hidePLBut ? 0 : 1)};
   &:hover {
-    background: #3b3b3b;
-    opacity: 1;
+    border: ${props => (props.selected
+    ? '2.5px outset white' : '2px outset white')};
   }
-  &:active {
-    background: #515151;
+`;
+
+export const PLbuttonDiv = styled.div`
+  & .playlistName:nth-child(2) {
+      border: ${props => (props.selected
+    ? '3px outset white' : '1px outset #a5a5a5')};
+    background: ${props => (props.selected
+    ? 'rgb(35, 35, 35)' : 'rgb(22, 22, 22)')};
+    &:hover {
+    border: ${props => (props.selected
+    ? '3px outset white' : '2px outset white')};
   }
+    }
 `;
 
 export const DivObjTitle = styled.div`
@@ -49,10 +57,17 @@ export const DivObjArtist = styled.div`
   flex-direction: row;
   font-size: 0.8em;
   padding-top: 0.4em;
+  min-width: 0;
   opacity: 0.7;
 `;
 
+export const Div = styled.div`
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+`;
 
+// ---------- Mediaplayer Style --------------//
 export const DivMediaPlayer = styled.div`
   width: 100%;
   height: 10em;
@@ -143,8 +158,8 @@ export const DivDur = styled.div`
   position: absolute;
   left: 23em;
   top: 1.8em;
-  opacity: 0.7;
-  font-weight: 200;
+  opacity: 0.6;
+  font-weight: 100;
   font-size: 1em;
 `;
 
