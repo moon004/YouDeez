@@ -10,7 +10,7 @@ import {
 } from '../constants/constant';
 
 const getYoutube = value => (
-  axios.get(`${dynamicDNS}/api/youtube?mr=21&q=${value}`)
+  axios.get(`${dynamicDNS}/api/youtube?mr=35&q=${value}`)
 );
 
 const getDeezer = value => (

@@ -22,6 +22,9 @@ export const DivLib = styled.div`
 
 export const DivObj = styled.div`
   opacity: ${props => (props.PLAddSong ? 1 : 0.6)};
+  background: ${props => (props.playingThis ? '#3d3d3d' : 'none')};
+  color: ${props => (props.playingThis ? 'white' : '#c6c6c6')};
+  font-weight: ${props => (props.playingThis ? '600' : '400')};
 `;
 
 export const PLbutton = styled.div`
@@ -61,6 +64,15 @@ export const DivObjArtist = styled.div`
   opacity: 0.7;
 `;
 
+export const DivSongDur = styled.div`
+  font-weight: ${props => (props.playingThis ? '600' : '200')};
+  font-size: 0.8em;
+  letter-spacing: 0.1em;
+  margin-top: 0.1em;
+  display: flex;
+  flex-direction: column;
+`;
+
 export const Div = styled.div`
   text-overflow: ellipsis;
   overflow: hidden;
@@ -70,7 +82,7 @@ export const Div = styled.div`
 // ---------- Mediaplayer Style --------------//
 export const DivMediaPlayer = styled.div`
   width: 100%;
-  height: 10em;
+  height: 6em;
   position: relative;
   flex-grow: 1;
   display: flex;

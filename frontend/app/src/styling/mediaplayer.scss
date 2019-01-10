@@ -85,6 +85,7 @@ $bgColor: rgb(43, 43, 43);
   display: flex;
   flex-direction: row;
   font-size: 1.1em;
+  border-radius: 3px;
   padding: 0.3em 0 0.3em 0;
   transition: 0.3s;
   justify-content: space-between;
@@ -126,8 +127,8 @@ $bgColor: rgb(43, 43, 43);
   height: 2.2em;
   width: 2em;
   position: absolute;
-  right: 0.25em;
-  bottom: 1.5em;
+  right: 0em;
+  bottom: 5.2em;
   opacity: 0.75;
 }
 %trashbefcss {
@@ -159,11 +160,18 @@ $bgColor: rgb(43, 43, 43);
   width: 8em;
   position: absolute;
   right: 0.5em;
-  bottom: 5em;
+  bottom: 8.5em;
   font-weight: 100;
   opacity: 0.6;
   text-align: right;
   font-size: 0.9em;
   transition: 0.2s;
   display: inline-block;
+}
+
+.songIndex {
+  width: 2.5em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

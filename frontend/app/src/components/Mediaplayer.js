@@ -30,6 +30,15 @@ export default class MediaPlayer extends Component {
       playedSec: 0,
     };
   }
+  // Add 'Global' listener for keyPress
+
+  componentDidMount() {
+    document.addEventListener('keydown', this.handleKeyDown, false);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleKeyDown, false);
+  }
 
   onSeekMouseDown = () => {
     this.setState({ seeking: true });
@@ -142,6 +151,17 @@ export default class MediaPlayer extends Component {
     }
   }
 
+  handleKeyDown = (e) => {
+    console.log('Keycode pressed: ', e.key);
+    if (e.key === 'MediaTrackNext') {
+      this.nextSong();
+    } else if (e.key === 'MediaTrackPrevious') {
+      this.prevSong();
+    } else if (e.key === 'MediaPlayPause') {
+      this.playPause();
+    }
+  }
+
   ref = (player) => {
     this.player = player;
   }
@@ -224,6 +244,7 @@ export default class MediaPlayer extends Component {
           loop={loop}
           height="0em"
           width="0em"
+          onKeyDown={this.handleKeyDown}
           onPause={this.onPause}
           onEnded={this.onEnded}
           onError={() => console.log('error loading audio')}

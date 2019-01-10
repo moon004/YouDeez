@@ -91,6 +91,7 @@ class Search extends Component {
       },
 
     } = this.props;
+    console.log('From search', event.keyCode);
     if (autoCompData.length > 0) {
       //    key Up
       if (event.keyCode === 38 && cursor > -1) {
@@ -172,7 +173,6 @@ class Search extends Component {
           type="text"
           onChange={this.handleChange(value)}
           onKeyDown={this.handleKeyDown}
-          onKeyPress={this.handleKeyPress}
           placeholder={fetchState}
           value={value}
           ref={this.inputRef}

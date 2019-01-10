@@ -27,6 +27,7 @@ import {
   DeleteIcon,
   PLbutton,
   PLbuttonDiv,
+  DivSongDur,
   Div,
 } from '../styling/MyLibrary.style';
 
@@ -37,6 +38,7 @@ const itemList = (parent) => {
     PLAddSongArr,
     PLArrayParent,
     currentPL,
+    songObject: { passedID },
   } = parent.state;
   if (currentPL !== 0) {
     const sList = [];
@@ -47,15 +49,10 @@ const itemList = (parent) => {
         <DivObj
           className="divObj"
           key={id}
+          playingThis={id === passedID}
           PLAddSong={PLAddSongArr[index]}
         >
-          <div style={{
-            width: '4em',
-            whiteSpace: 'nowrap',
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-          }}
-          >
+          <div className="songIndex">
             {`${index + 1} .`}
           </div>
           <DivObjTitle
@@ -81,20 +78,12 @@ const itemList = (parent) => {
               <Div>{album || ''}</Div>
             </DivObjArtist>
           </DivObjTitle>
-          <div style={{
-            fontWeight: 100,
-            fontSize: '0.8em',
-            letterSpacing: '0.1em',
-            marginTop: '0.1em',
-            display: 'flex',
-            flexDirection: 'column',
-          }}
-          >
+          <DivSongDur playingThis={id === passedID}>
             {convertString(dur)}
             <DeleteIcon
               onClick={parent.handleDeleteSong(item, currentPL)}
             />
-          </div>
+          </DivSongDur>
         </DivObj>,
       );
     });
@@ -116,7 +105,7 @@ class MyLibrary extends Component {
       blobUrl: '',
       dbItem: [],
       songObject: {},
-      PLAddSong: true, // For swtiching to add song
+      PLAddSong: true, // For switching to add song
       PLAddSongArr: [true], // for setting boolean array
       // Always start with main PL, 0=Void=As a reset for fade in to work
       currentPL: 1,
@@ -328,9 +317,7 @@ class MyLibrary extends Component {
 
   onDrop = (e) => {
     const ind = e.dataTransfer.getData('index');
-    if (ind !== '1') {
-      callDeletePL(ind, this);
-    }
+    callDeletePL(ind, this);
     callUpdateDB(this);
   }
 
