@@ -91,26 +91,28 @@ class Search extends Component {
       },
 
     } = this.props;
-    console.log('From search', event.keyCode);
+    if (event.key === 'Enter') {
+      this.handleKeyPress(event);
+    }
     if (autoCompData.length > 0) {
       //    key Up
-      if (event.keyCode === 38 && cursor > -1) {
+      if (event.key === 'ArrowUp' && cursor > -1) {
         this.setState(prevState => ({
           cursor: prevState.cursor - 1,
           value: autoCompData[1][cursor - 1],
         }));
         event.preventDefault();
         //          key down
-      } else if (event.keyCode === 40 && cursor < autoCompData[1].length - 1) {
+      } else if (event.key === 'ArrowDown' && cursor < autoCompData[1].length - 1) {
         this.setState(prevState => ({
           cursor: prevState.cursor + 1,
           value: autoCompData[1][cursor + 1],
         }));
-      } else if (event.keyCode === 8) {
+      } else if (event.key === 'Backspace') {
         this.setState({
           cursor: -1,
         });
-      } else if (event.keyCode === 27) {
+      } else if (event.key === 'Escape') {
         onGetAutoComp('');
       }
     }
