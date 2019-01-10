@@ -152,7 +152,6 @@ export default class MediaPlayer extends Component {
   }
 
   handleKeyDown = (e) => {
-    console.log('Keycode pressed: ', e.key);
     if (e.key === 'MediaTrackNext') {
       this.nextSong();
     } else if (e.key === 'MediaTrackPrevious') {
