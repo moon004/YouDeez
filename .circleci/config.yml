@@ -15,6 +15,7 @@ jobs:
     steps:
       - checkout
       - run: cp -r vendor/* $GOPATH/src/
+      - run: ls -a
       - run: go test ./...
     
 workflows:
