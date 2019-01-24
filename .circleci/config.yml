@@ -15,7 +15,8 @@ jobs:
     steps:
       - checkout
       - run: cp -r vendor/* $GOPATH/src/
-      - run: cd app/src && ls -a
+      - run: cd go-decrypt-deezer && ls -a
+      - run: cd go-youtube-dl && ls -a
       - run: go test ./...
     
 workflows:
