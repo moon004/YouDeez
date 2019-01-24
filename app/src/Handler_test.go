@@ -36,11 +36,11 @@ func TestGetDeezer(t *testing.T) {
 		status int
 		err    string
 	}{
-		{name: "test /deezer", value: "api/deez?q=sad", status: 200, output: "SAD!"},
+		{name: "test /deezer", value: "api/deez?q=sad", status: 200, output: "Too Sad"},
 		{name: "test with space",
 			value:  "api/deez?q=goose house",
 			status: 200,
-			output: "Egao No Hana",
+			output: "This Is The House That Jack Built",
 		}, //		unknown ID
 		{name: "Empty Response", value: "api/deez?q=f439904f3f213", err: "{}\n"}, //Empty cuz no result
 	}
@@ -86,7 +86,7 @@ func TestGetYResource(t *testing.T) {
 		{name: "test /youtube",
 			value:  "api/youtube?mr=15&q=hopes and dreams",
 			status: 200,
-			output: "Undertale OST - Hopes And Dreams (Intro) & Save The World Extended"},
+			output: "Undertale Ost: 087 - Hopes and Dreams"},
 		{name: "Empty Response", value: "api/youtube?mr=15&q=f439904f3f213", err: "{}\n"}, //Empty cuz no result
 	}
 	for _, tc := range tt {
