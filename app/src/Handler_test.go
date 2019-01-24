@@ -37,11 +37,11 @@ func TestGetDeezer(t *testing.T) {
 		status int
 		err    string
 	}{
-		{name: "test /deezer", value: "api/deez?q=sad", status: 200, output: "Too Sad"},
+		{name: "test /deezer", value: "api/deez?q=sad", status: 200, output: "SAD!"},
 		{name: "test with space",
 			value:  "api/deez?q=goose house",
 			status: 200,
-			output: "This Is The House That Jack Built",
+			output: "Oto No Naru Houe (Goose house Live House Tour 2017 Tokyo)",
 		}, //		unknown ID
 		{name: "Empty Response", value: "api/deez?q=f439904f3f213", err: "{}\n"}, //Empty cuz no result
 	}
