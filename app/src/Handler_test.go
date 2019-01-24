@@ -5,13 +5,14 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/http/httptest"
+	"os"
 	"testing"
 
 	. "github.com/handler"
 )
 
 var (
-	ServerURL = LoadEnv("amazonDNS")
+	ServerURL = os.Getenv("amazonDNS")
 )
 
 func ErrChecker(t *testing.T, ErrMsg string, err error) {
