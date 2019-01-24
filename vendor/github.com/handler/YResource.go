@@ -14,6 +14,7 @@ import (
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
 	"github.com/go-chi/render"
+	"github.com/joho/godotenv"
 )
 
 type YResources struct{}
@@ -32,10 +33,15 @@ func (Yres YResources) Routes() chi.Router {
 	return r
 }
 
-// GetYtube API respond
-func (Yres *YResources) GetYtube(w http.ResponseWriter, r *http.Request) {
+func CorsHandler(w http.ResponseWriter) {
+	// Handle CORS, RMB wildcard needs to change in production
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Headers", "access-control-allow-origin")
+}
+
+// GetYtube API respond
+func (Yres *YResources) GetYtube(w http.ResponseWriter, r *http.Request) {
+	CorsHandler(w)
 	var wg sync.WaitGroup
 	var youtubeId []string
 	queryValues := r.URL.Query()
@@ -65,8 +71,7 @@ func (Yres *YResources) GetYtube(w http.ResponseWriter, r *http.Request) {
 }
 
 func (Yres *YResources) GetAutoComplete(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Access-Control-Allow-Origin", "*")
-	w.Header().Set("Access-Control-Allow-Headers", "access-control-allow-origin")
+	CorsHandler(w)
 	queryValue := r.URL.Query()
 	query := queryValue.Get("q")
 	q := url.QueryEscape(query)
@@ -89,6 +94,7 @@ func (Yres *YResources) GetAutoComplete(w http.ResponseWriter, r *http.Request) 
 	w.Write(body)
 }
 
+// GoGrab deploys a asynch worker to grab the youtube search payloads
 func GoGrab(url string, wg *sync.WaitGroup) <-chan *YConStatsItems {
 	defer wg.Done()
 	YConStatsItemsRes := &YConStatsItems{}
@@ -132,10 +138,10 @@ func YPayload(url string, w http.ResponseWriter, r *http.Request) *YRespond {
 // LoadEnv just loads Devkey from env
 func LoadEnv(str string) (value string) {
 	// Comment out the godotenv for CI to work
-	// err := godotenv.Load()
-	// if err != nil {
-	// 	log.Fatal("Error loading .env file")
-	// }
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
 	value = os.Getenv(str)
 	return
 }

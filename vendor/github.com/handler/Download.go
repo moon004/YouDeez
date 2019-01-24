@@ -42,11 +42,12 @@ func route(w http.ResponseWriter, r *http.Request) {
 	case YouReg.MatchString(q):
 		DownloadYou(w, r)
 	default:
-		w.Write([]byte("Unknown ID"))
+		w.Write([]byte("Unknown Media ID"))
 	}
 
 }
 
+// DownloadYou handles the youtube audio downloader.
 func DownloadYou(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("DownLoad You")
 	queryValue := r.URL.Query()
@@ -55,25 +56,27 @@ func DownloadYou(w http.ResponseWriter, r *http.Request) {
 	var wg sync.WaitGroup
 
 	wg.Add(1)
-	go func(q string) {
-		defer wg.Done()
-		fmt.Printf("Fetching %s \n", q)
-		cmd := exec.Command("./go-youtube-dl.exe", "--audio-only", "https://www.youtube.com/watch?v="+q)
-		cmd.Stdout = w // streaming occurs here
-		err := cmd.Start()
-		if err != nil {
-			render.JSON(w, r, ErrDuringStream(err))
-		}
-		err = cmd.Wait()
-		if err != nil {
-			render.JSON(w, r, ErrDuringWait(err))
-		}
-	}(q)
-
+	go YouExe(q, w, r)
 	wg.Wait()
 	fmt.Fprintf(w, "Done %s", q)
 }
 
+// YouExe go routine for youtube-dl execution
+func YouExe(q string, w http.ResponseWriter, r *http.Request) {
+	fmt.Printf("Fetching %s \n", q)
+	cmd := exec.Command("./go-youtube-dl.exe", "--audio-only", "https://www.youtube.com/watch?v="+q)
+	cmd.Stdout = w // streaming occurs here
+	err := cmd.Start()
+	if err != nil {
+		render.JSON(w, r, ErrDuringStream(err))
+	}
+	err = cmd.Wait()
+	if err != nil {
+		render.JSON(w, r, ErrDuringWait(err))
+	}
+}
+
+// DownloadDeez handle the deezer audio download
 func DownloadDeez(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("DownLoad Deez")
 	queryValues := r.URL.Query()
@@ -84,23 +87,25 @@ func DownloadDeez(w http.ResponseWriter, r *http.Request) {
 	var wg sync.WaitGroup
 
 	wg.Add(1)
-	go func(q, username, password string) {
-		defer wg.Done()
-		cmd := exec.Command(
-			"./go-decrypt-deezer.exe",
-			"--id", q,
-			"--username", username,
-			"--password", password)
-		cmd.Stdout = w
-		err := cmd.Start()
-		if err != nil {
-			render.JSON(w, r, ErrDuringStream(err))
-		}
-		err = cmd.Wait()
-		if err != nil {
-			render.JSON(w, r, ErrDuringWait(err))
-		}
-	}(q, username, password)
+	go DeezExe(q, username, password, w, r)
 	wg.Wait()
 	fmt.Fprintf(w, "Done")
+}
+
+// DeezExe go routine for Deezer decrypt execution
+func DeezExe(q, username, password string, w http.ResponseWriter, r *http.Request) {
+	cmd := exec.Command(
+		"./go-decrypt-deezer.exe",
+		"--id", q,
+		"--username", username,
+		"--password", password)
+	cmd.Stdout = w
+	err := cmd.Start()
+	if err != nil {
+		render.JSON(w, r, ErrDuringStream(err))
+	}
+	err = cmd.Wait()
+	if err != nil {
+		render.JSON(w, r, ErrDuringWait(err))
+	}
 }
