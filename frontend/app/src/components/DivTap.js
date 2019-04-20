@@ -1,29 +1,10 @@
 import React, { Component } from 'react';
+import { Scrollbars } from 'react-custom-scrollbars';
 import { divTapPropTypes, divTapDefaultProps } from '../props';
-import { RetObjectYou, RetObjectDeez, EmptyComponent } from './RetObject';
+import { RetObjectYou, RetObjectDeez } from './RetObject';
 import {
   DivT,
-  ButYou,
-  ButDeez,
-  StyledScrollbar,
-  EqDivider,
 } from '../styling/DivTap.style';
-
-const withYouOrDeez = (YouComponent, DeezComponent) => ({ TapState, ...props }) => (
-  TapState
-    ? <YouComponent TapState={TapState} {...props} />
-    : <DeezComponent TapState={TapState} {...props} />
-);
-
-const withRenderOrEmpty = (YDComponent, EmpComponent) => ({ ...props }) => (
-  props.DataYou !== undefined
-    ? <YDComponent {...props} />
-    : <EmpComponent {...props} />
-);
-
-const RenderYouOrDeez = withYouOrDeez(RetObjectYou, RetObjectDeez);
-
-const RenderOrEmpty = withRenderOrEmpty(RenderYouOrDeez, EmptyComponent);
 
 class DivTap extends Component {
   static propTypes = divTapPropTypes;
@@ -71,45 +52,28 @@ class DivTap extends Component {
         dataYou,
         dataDeez,
       },
-      tapState,
     } = this.props;
-    const divheight = dataYou === undefined ? 0 : 400;
     return (
-      <DivT currentap={tapState}>
-        <EqDivider>
-          <ButYou
-            type="button"
-            onClick={this.handleTapClick('Youtube')}
-            currentap={tapState}
-          >
-            {''}
-          </ButYou>
-          <ButDeez
-            type="button"
-            onClick={this.handleTapClick('Deezer')}
-            currentap={tapState}
-          >
-            {''}
-          </ButDeez>
-        </EqDivider>
-        <StyledScrollbar
+      <DivT>
+        <Scrollbars
           className="divscrollbar"
           renderThumbVertical={this.renderThumbVert}
           renderThumbHorizontal={this.renderThumbHor}
           autoHide
           style={{
-            height: divheight,
+            height: 400,
           }}
           thumbMinSize={50}
-          currentap={tapState}
         >
-          <RenderOrEmpty
-            TapState={tapState === 'Youtube'}
+          <RetObjectYou
             DataYou={dataYou}
+            handleClick={this.handleObjClick}
+          />
+          <RetObjectDeez
             DataDeez={dataDeez}
             handleClick={this.handleObjClick}
           />
-        </StyledScrollbar>
+        </Scrollbars>
       </DivT>
     );
   }

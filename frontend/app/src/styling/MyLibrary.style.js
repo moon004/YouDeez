@@ -6,10 +6,8 @@ import { Repeat } from 'styled-icons/feather/Repeat';
 import { Shuffle } from 'styled-icons/feather/Shuffle';
 import { Pause } from 'styled-icons/material/Pause';
 import { TrashAlt } from 'styled-icons/fa-solid/TrashAlt';
-
-
+import { Scrollbars } from 'react-custom-scrollbars';
 import '../index.css';
-import { StyledScrollbar } from './DivTap.style';
 
 export const DivLib = styled.div`
   width: 100%;
@@ -153,7 +151,7 @@ export const DeleteIcon = styled(TrashAlt)`
   }
 `;
 
-export const StyledScrollbarLib = styled(StyledScrollbar)`
+export const StyledScrollbarLib = styled(Scrollbars)`
   background: none;
 `;
 

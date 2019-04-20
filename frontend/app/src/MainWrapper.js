@@ -15,6 +15,7 @@ import {
 // import ResultObj from './Object';
 import './index.css';
 import './styling/mediaplayer.scss';
+import './styling/maindiv.scss';
 import Search from './components/Search';
 import DivTap from './components/DivTap';
 import MyLibrary from './components/MyLibrary';

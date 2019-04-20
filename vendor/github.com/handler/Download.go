@@ -81,24 +81,23 @@ func DownloadDeez(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("DownLoad Deez")
 	queryValues := r.URL.Query()
 	query := queryValues.Get("q")
+	usrToken := queryValues.Get("token")
 	q := url.QueryEscape(query)
-	username := LoadEnv("username")
-	password := LoadEnv("password")
+	usertoken := url.QueryEscape(usrToken)
 	var wg sync.WaitGroup
 
 	wg.Add(1)
-	go DeezExe(q, username, password, w, r)
+	go DeezExe(q, usertoken, w, r)
 	wg.Wait()
 	fmt.Fprintf(w, "Done")
 }
 
 // DeezExe go routine for Deezer decrypt execution
-func DeezExe(q, username, password string, w http.ResponseWriter, r *http.Request) {
+func DeezExe(q, usertoken string, w http.ResponseWriter, r *http.Request) {
 	cmd := exec.Command(
 		"./go-decrypt-deezer.exe",
 		"--id", q,
-		"--username", username,
-		"--password", password)
+		"--usertoken", usertoken)
 	cmd.Stdout = w
 	err := cmd.Start()
 	if err != nil {

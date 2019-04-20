@@ -25,9 +25,10 @@ export const RetObjectYou = (props) => {
         };
         return (
           <RetObjStyled
+            className="RetObjStyled"
             key={item.id}
             onClick={props.handleClick(item.id, 'Youtube', songObject)}
-            tapState={props.TapState}
+            tapState="Youtube"
           >
             <DivInfo>
               <DivTitle>
@@ -44,7 +45,7 @@ export const RetObjectYou = (props) => {
               </DivStats>
               <DivStats>
                 <div style={{ width: '10em' }}>
-                  {convertString(item.statistics.viewCount)}
+                  {`${convertString(item.statistics.viewCount)} views`}
                 </div>
                 <div>
                   {timePassed(`${item.snippet.publishedAt.slice(0, 10)}`)}
@@ -64,13 +65,17 @@ export const RetObjectYou = (props) => {
         );
       }));
   }
+  return (
+    <div>
+      {'No such thing on youtube server'}
+    </div>
+  );
 };
 
 const durationStyle = {
   width: '3em',
   display: 'flex',
   justifyContent: 'flex-end',
-  color: '#5d5d5d',
   fontSize: '0.7em',
   fontWeight: '100',
   marginTop: '0.5em',
@@ -97,6 +102,7 @@ export const RetObjectDeez = (props) => {
         };
         return (
           <RetObjStyled
+            className="RetObjStyled"
             key={item.id}
             onClick={props.handleClick(item.id, 'Deezer', songObject)}
             tapState={props.TapState}
@@ -111,20 +117,20 @@ export const RetObjectDeez = (props) => {
                 }}
               >
                 <div
-                  style={{
-                    width: '16em',
-                  }}
+                  className="deezerTitle"
                 >
                   {addDot(item.title, 25)}
                 </div>
                 <div
                   style={durationStyle}
+                  className="deezerDuration"
                 >
                   {convertString(item.duration)}
                 </div>
               </div>
               <div
                 style={artistAlbumStyle}
+                className="deezerAlbumDiv"
               >
                 <img
                   src={item.artist.picture_small}
@@ -141,9 +147,6 @@ export const RetObjectDeez = (props) => {
                   }}
                 >
                   <a
-                    style={{
-                      color: '#282828',
-                    }}
                     href={item.artist.link}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -159,9 +162,6 @@ export const RetObjectDeez = (props) => {
                   }}
                 >
                   <a
-                    style={{
-                      color: '#282828',
-                    }}
                     href={`https://www.deezer.com/en/album/${item.album.id}`}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -183,5 +183,3 @@ export const RetObjectDeez = (props) => {
     </div>
   );
 };
-
-export const EmptyComponent = () => <div />;

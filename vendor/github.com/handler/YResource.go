@@ -39,7 +39,8 @@ func CorsHandler(w http.ResponseWriter) {
 	w.Header().Set("Access-Control-Allow-Headers", "access-control-allow-origin")
 }
 
-// GetYtube API respond
+// GetYtube API respond, beware of the DevKey, os.Getenv is for CI,
+// LoadEnv is for developing stage
 func (Yres *YResources) GetYtube(w http.ResponseWriter, r *http.Request) {
 	CorsHandler(w)
 	var wg sync.WaitGroup
@@ -48,7 +49,7 @@ func (Yres *YResources) GetYtube(w http.ResponseWriter, r *http.Request) {
 	query := queryValues.Get("q")
 	mr := queryValues.Get("mr")
 	q := url.QueryEscape(query)
-	DevKey := os.Getenv("DeveloperKey")
+	DevKey := LoadEnv("DeveloperKey")
 	URL := fmt.Sprintf(
 		"https://www.googleapis.com/youtube/v3/search?part=id&maxResults=%v&q=%s&type=video&key=%v",
 		mr, q, DevKey)
@@ -65,17 +66,17 @@ func (Yres *YResources) GetYtube(w http.ResponseWriter, r *http.Request) {
 	RetObject := <-RetObjects
 
 	wg.Wait()
-
 	render.JSON(w, r, RetObject)
 
 }
 
+// GetAutoComplete is the suggestion array of items for the searchbar
 func (Yres *YResources) GetAutoComplete(w http.ResponseWriter, r *http.Request) {
 	CorsHandler(w)
 	queryValue := r.URL.Query()
 	query := queryValue.Get("q")
 	q := url.QueryEscape(query)
-	ApiKey1 := os.Getenv("API_KEY1")
+	ApiKey1 := LoadEnv("API_KEY1")
 	URL := "https://suggestqueries.google.com/complete/search?client=firefox&ds=yt"
 	reqURL := fmt.Sprintf("%s&key=%s&q=%s", URL, ApiKey1, q)
 	fmt.Println(reqURL)
