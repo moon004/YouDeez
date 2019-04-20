@@ -22,9 +22,13 @@ export const DivLib = styled.div`
 
 export const DivObj = styled.div`
   opacity: ${props => (props.PLAddSong ? 1 : 0.6)};
-  background: ${props => (props.playingThis ? '#3d3d3d' : 'none')};
-  color: ${props => (props.playingThis ? 'white' : '#c6c6c6')};
+  background: ${props => (props.playingThis ? '#c1c1c1' : 'none')};
+  color: ${props => (props.playingThis ? 'black' : 'white')};
+  font-size: ${props => (props.playingThis ? '1.15em' : '1.1em')};
   font-weight: ${props => (props.playingThis ? '600' : '400')};
+  &:hover {
+    background: ${props => (props.playingThis ? '#919191' : '3b3b3b')};;
+  }
 `;
 
 export const PLbutton = styled.div`

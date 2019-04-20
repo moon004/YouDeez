@@ -227,6 +227,10 @@ class MyLibrary extends Component {
     );
   }
 
+  renderHorThumb = () => (
+    <div style={{ display: 'none' }} />
+  )
+
   // Called when PL input !== 0
   PLAddhandler = (bool) => {
     const { PLAddSongArr } = this.state;
@@ -393,6 +397,7 @@ class MyLibrary extends Component {
         </PLbuttonDiv>
         <StyledScrollbarLib
           renderThumbVertical={this.renderThumb}
+          renderThumbHorizontal={this.renderHorThumb}
           autoHide
           style={{ height: 300 }}
           thumbMinSize={30}
