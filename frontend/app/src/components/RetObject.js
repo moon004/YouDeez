@@ -76,7 +76,6 @@ const durationStyle = {
   width: '3em',
   display: 'flex',
   justifyContent: 'flex-end',
-  fontSize: '0.7em',
   fontWeight: '100',
   marginTop: '0.5em',
 };

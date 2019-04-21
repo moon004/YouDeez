@@ -33,20 +33,9 @@ const blink = keyframes`
 `;
 
 export const SearchIcon = styled(Search)`
-  width: 1.2em;
-  height: 1.2em;
-  position: absolute;
-  right: 0.5em;
-  top: 0.55em;
   /* opacity: ${props => (props.popList ? '0' : '1')}; */
   animation: ${blink} 0.25s ${props => (props.blink ? 'infinite' : 'linear')};
   `;
-
-export const Div = styled.div`
-  width: 100%;
-  position: relative;
-  margin-bottom: 2.3em;
-`;
 
 export const List = styled.li`
   list-style-type: none;

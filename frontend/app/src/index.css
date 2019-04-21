@@ -39,10 +39,6 @@ a {
   text-decoration: none;
 }
 
-body {
-  background-color: #141414;
-}
-
 input[type=range] {
   -webkit-appearance: none;
   width: 100%; 

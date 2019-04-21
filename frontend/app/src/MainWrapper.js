@@ -16,11 +16,12 @@ import {
 import './index.css';
 import './styling/mediaplayer.scss';
 import './styling/maindiv.scss';
+import './styling/sidebar.scss';
 import Search from './components/Search';
 import DivTap from './components/DivTap';
-import MyLibrary from './components/MyLibrary';
-import Media from './components/Media';
-import Div, { GithubIcon } from './styling/MainWrapper.style';
+import MainSideBar from './components/Sidebar';
+// import MyLibrary from './components/MyLibrary';
+// import Media from './components/Media';
 
 
 export class MainWrapper extends Component {
@@ -64,43 +65,48 @@ export class MainWrapper extends Component {
 
   render() {
     const {
-      MediaObject,
+      // MediaObject,
       currentMediaTap,
       apiReqState,
       autoComplete,
-      downloadObject,
+      // downloadObject,
     } = this.props;
     return (
-      <Div>
-        <h1 id="big_title">YouDeez</h1>
-        <h4 id="small_title">Ultimate free music streaming progressive web app</h4>
-        <Search
-          handleSubmit={this.onSubmitSearch}
-          searchState={apiReqState}
-          onGetAutoComp={this.onGetAutoComp}
-          autoComplete={autoComplete}
-        />
-        <DivTap
-          onObjClick={this.onUpdateMediaObj}
-          searchState={apiReqState}
-          onObjTap={this.onObjTap}
-          tapState={currentMediaTap}
-        />
-        <Media
-          mediaObj={MediaObject}
-          onDownload={this.clickDownload}
-          downloadObject={downloadObject}
-        />
-        <MyLibrary
-          downloadObject={downloadObject}
-        />
+      <div>
+        <div>
+          <MainSideBar />
+        </div>
+        <div className="MainDiv MainDivTop">
+          <Search
+            className="SearchBar"
+            handleSubmit={this.onSubmitSearch}
+            searchState={apiReqState}
+            onGetAutoComp={this.onGetAutoComp}
+            autoComplete={autoComplete}
+          />
+        </div>
+        <div className="MainDiv">
+          <DivTap
+            onObjClick={this.onUpdateMediaObj}
+            searchState={apiReqState}
+            onObjTap={this.onObjTap}
+            tapState={currentMediaTap}
+          />
+          {/* <Media
+            mediaObj={MediaObject}
+            onDownload={this.clickDownload}
+            downloadObject={downloadObject}
+          />
+          <MyLibrary
+            downloadObject={downloadObject}
+          />
 
-        <a href="https://github.com/moon004/YouDeez" id="footer-a">
-          <GithubIcon />
-          <div id="footer-text">Visit The GitHub Repository</div>
-        </a>
-
-      </Div>
+          <a href="https://github.com/moon004/YouDeez" id="footer-a">
+            <GithubIcon />
+            <div id="footer-text">Visit The GitHub Repository</div>
+          </a> */}
+        </div>
+      </div>
     );
   }
 }

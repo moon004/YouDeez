@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { searchPropTypes, searchDefaultProps } from '../props';
 import {
-  Input, SearchIcon, Div, List,
+  Input, SearchIcon, List,
 } from '../styling/Search.style';
 import {
   SEARCHING,
@@ -159,11 +159,12 @@ class Search extends Component {
       }
     }
     return (
-      <Div position="relative">
+      <div className="searchDiv" position="relative">
         <div style={divStyle}>
           {errorCode}
         </div>
         <SearchIcon
+          className="searchIcon"
           onClick={this.handleSubmitClick(value)}
           value={value}
           type="button"
@@ -184,7 +185,7 @@ class Search extends Component {
         <ul style={ulStyle}>
           {autoList}
         </ul>
-      </Div>
+      </div>
 
     );
   }

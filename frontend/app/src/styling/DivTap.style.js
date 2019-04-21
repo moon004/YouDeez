@@ -16,20 +16,12 @@ export const EqDivider = styled.div`
 `;
 
 export const RetObjStyled = styled.li`
-  list-style-type: none;
-  display: flex;
   font-family: ${props => (props.tapState ? 'Ubuntu' : 'Helvetica')};
-  flex-direction: row;
-  transition: 0.3s;
   margin: ${props => (props.tapState
     ? '0.8em' : '2em 2.5em 2em 2.5em')};
   padding: ${props => (props.tapState
     ? '0.5em 0.5em 0 0.5em' : '0.5em')};
   justify-content: space-between;
-  &:active {
-    background-color: ${props => (props.tapState
-    ? 'rgba(255,255,255,0.3)' : 'rgba(0,0,0,0.2)'
-  )};
 `;
 
 export const DeezDiv = styled.div`
