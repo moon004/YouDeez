@@ -3,13 +3,6 @@ import '../index.css';
 // import ytLogo from '../assets/youtubeLogo.svg';
 // import deezLogo from '../assets/deezer_logo_small.svg';
 
-export const DivT = styled.div`
-  width: 100%;
-  border-radius: 0.3em;
-  margin: 1.5em 0em 0em 0em;
-  position: relative;
-`;
-
 export const EqDivider = styled.div`
   display:flex;
   flex-direction: row;

@@ -1,0 +1,96 @@
+$bgMainCol: #1e1e1e;
+$deezCol: #e0e0e0;
+
+
+body {
+  background-color: #1e1e1e;
+}
+
+.MainDiv {
+  top: 10vh;
+  /* left: ${props => ((props.width) / window.screen.width) * 30}vw ; */
+  width: auto;
+  top: 2em;
+  margin: 0 1em 0 1em;
+  position: relative;
+  -webkit-user-select: none;   
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* @media screen and ( max-width: 768px ) {
+    left: 15vw;
+  }
+  
+  @media screen and ( max-width: 600px ) {
+    left: 10vw;
+  }
+
+  @media screen and ( max-width: 425px ) {
+    left: 1vw;
+    width: auto;
+  } */
+}
+.MainDivTop {
+  width: auto;
+
+}
+
+.searchDiv {
+  width: 100%;
+  position: relative;
+  margin-bottom: 2.3em;
+  margin: 0 auto 0 auto;
+}
+.searchIcon {
+  width: 1.2em;
+  height: 1.2em;
+  position: absolute;
+  right: 0.5em;
+  top: 0.55em;
+}
+
+.MainDivTap {
+  width: 34.5em;
+  border-radius: 0.3em;
+  margin: 1.5em 0em 0em 0em;
+  position: relative;
+}
+
+.divscrollbar {
+  background: $bgMainCol;
+}
+
+.RetObjStyled {
+  border: 0.05em solid #f7f7f7;
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  transition: 0.3s;
+  &:hover{
+    background-color: rgba(255,255,255,0.1)
+  }
+  &:active {
+    background-color: rgba(255,255,255,0.3)
+  }
+}
+
+%deez-shared {
+  font-weight: 300;
+  color: $deezCol;
+}
+
+.deezerAlbumDiv {
+  @extend %deez-shared;
+}
+.deezerDuration {
+  font-size: 0.75em;
+  @extend %deez-shared;
+}
+
+#deezDiv {
+  color: $deezCol;
+}
+.deezerTitle {
+  @extend %deez-shared;
+  width: 16em;
+}

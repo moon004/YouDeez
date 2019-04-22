@@ -17,12 +17,11 @@ import './index.css';
 import './styling/mediaplayer.scss';
 import './styling/maindiv.scss';
 import './styling/sidebar.scss';
-import Search from './components/Search';
-import DivTap from './components/DivTap';
+// import DivTap from './components/DivTap';
 import MainSideBar from './components/Sidebar';
 // import MyLibrary from './components/MyLibrary';
 // import Media from './components/Media';
-
+// import { RenderSearchOrLib } from './components/RetObject';
 
 export class MainWrapper extends Component {
   static propTypes = propTypes
@@ -69,42 +68,19 @@ export class MainWrapper extends Component {
       currentMediaTap,
       apiReqState,
       autoComplete,
-      // downloadObject,
     } = this.props;
     return (
       <div>
         <div>
-          <MainSideBar />
-        </div>
-        <div className="MainDiv MainDivTop">
-          <Search
-            className="SearchBar"
-            handleSubmit={this.onSubmitSearch}
-            searchState={apiReqState}
+          <MainSideBar
+            onMenuTap={this.onObjTap}
+            currentState={currentMediaTap}
+            onObjClick={this.onUpdateMediaObj}
+            apiReqState={apiReqState}
             onGetAutoComp={this.onGetAutoComp}
+            onSubmitSearch={this.onSubmitSearch}
             autoComplete={autoComplete}
           />
-        </div>
-        <div className="MainDiv">
-          <DivTap
-            onObjClick={this.onUpdateMediaObj}
-            searchState={apiReqState}
-            onObjTap={this.onObjTap}
-            tapState={currentMediaTap}
-          />
-          {/* <Media
-            mediaObj={MediaObject}
-            onDownload={this.clickDownload}
-            downloadObject={downloadObject}
-          />
-          <MyLibrary
-            downloadObject={downloadObject}
-          />
-
-          <a href="https://github.com/moon004/YouDeez" id="footer-a">
-            <GithubIcon />
-            <div id="footer-text">Visit The GitHub Repository</div>
-          </a> */}
         </div>
       </div>
     );

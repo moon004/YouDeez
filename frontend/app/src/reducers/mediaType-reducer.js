@@ -22,7 +22,7 @@ const initialDownloadState = {
 
 export function mediaTypeReducer(
 // currentMediaTap = 'Youtube' on start
-  state = 'Youtube', { type, payload },
+  state = 'Search', { type, payload },
 ) {
   switch (type) {
     case UPDATE_CMEDIA:

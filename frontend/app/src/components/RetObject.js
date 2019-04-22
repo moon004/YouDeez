@@ -1,4 +1,6 @@
 import React from 'react';
+import DivTap from './DivTap';
+import MyLibrary from './MyLibrary';
 import { convertString, addDot, timePassed } from '../utils/tools';
 import {
   DivInfo,
@@ -10,6 +12,15 @@ import {
   RetObjStyled,
   DeezDiv,
 } from '../styling/DivTap.style';
+
+const SearchLibHOC = (SearchCmp, LibCmp) => ({ currentState, ...props }) => (
+  currentState
+    ? <SearchCmp {...props} />
+    : <LibCmp {...props} />
+);
+
+
+export const RenderSearchOrLib = SearchLibHOC(DivTap, MyLibrary);
 
 export const RetObjectYou = (props) => {
   const { DataYou } = props;

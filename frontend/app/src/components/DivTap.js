@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
 import { divTapPropTypes, divTapDefaultProps } from '../props';
 import { RetObjectYou, RetObjectDeez } from './RetObject';
-import {
-  DivT,
-} from '../styling/DivTap.style';
 
 class DivTap extends Component {
   static propTypes = divTapPropTypes;
@@ -53,28 +50,38 @@ class DivTap extends Component {
         dataDeez,
       },
     } = this.props;
+    const scrollStyle = {
+      height: 400,
+    };
     return (
-      <DivT>
+      <div className="MainDivTap">
         <Scrollbars
           className="divscrollbar"
           renderThumbVertical={this.renderThumbVert}
           renderThumbHorizontal={this.renderThumbHor}
           autoHide
-          style={{
-            height: 400,
-          }}
+          style={scrollStyle}
           thumbMinSize={50}
         >
           <RetObjectYou
             DataYou={dataYou}
             handleClick={this.handleObjClick}
           />
+        </Scrollbars>
+        <Scrollbars
+          className="divscrollbar"
+          renderThumbVertical={this.renderThumbVert}
+          renderThumbHorizontal={this.renderThumbHor}
+          autoHide
+          style={scrollStyle}
+          thumbMinSize={50}
+        >
           <RetObjectDeez
             DataDeez={dataDeez}
             handleClick={this.handleObjClick}
           />
         </Scrollbars>
-      </DivT>
+      </div>
     );
   }
 }

@@ -1,0 +1,32 @@
+$bgMainCol: #1e1e1e;
+
+#youdeezLogo {
+  margin-top: 2em;
+  width: 14em;
+}
+
+.MainSideBar {
+  width: 14em;
+  height: auto;
+  background: rgb(0, 0, 0);
+  color: white;
+  -webkit-user-select: none;   
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.SBContent {
+  background: $bgMainCol;
+  overflow-y: auto;
+}
+
+.SBMenuMainDiv {
+  vertical-align: middle;
+}
+
+.SBMenuDiv {
+  font-size: 2em;
+  font-weight: 650;
+  margin-left: 0.6em;
+}
