@@ -8,11 +8,6 @@ import {
   SEARCHDONE,
 } from '../constants/constant';
 
-const ulStyle = {
-  margin: '-1em 0 0 0',
-  padding: 0,
-};
-
 const divStyle = {
   color: '#e40303',
   fontSize: '0.8em',
@@ -182,7 +177,7 @@ class Search extends Component {
           onMouseEnter={() => { this.inputRef.current.focus(); }}
           popList={Array.isArray(autoCompData[1]) && autoCompData[1].length}
         />
-        <ul style={ulStyle}>
+        <ul id="searchListItem">
           {autoList}
         </ul>
       </div>

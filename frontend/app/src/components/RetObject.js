@@ -7,22 +7,25 @@ import {
   DivTitle,
   DivStats,
   DivImg,
-  Img,
   DivDuration,
   RetObjStyled,
   DeezDiv,
 } from '../styling/DivTap.style';
 
-const SearchLibHOC = (SearchCmp, LibCmp) => ({ currentState, ...props }) => (
-  currentState
-    ? <SearchCmp {...props} />
-    : <LibCmp {...props} />
-);
+const SearchLibHOC = (SearchCmp, LibCmp) => ({ currentState, ...props }) => {
+  console.log('props in HOC', props);
+  return (
+    currentState
+      ? <SearchCmp {...props} />
+      : <LibCmp {...props} />
+  );
+};
 
 
 export const RenderSearchOrLib = SearchLibHOC(DivTap, MyLibrary);
 
 export const RetObjectYou = (props) => {
+  console.log('Props in retobject', props);
   const { DataYou } = props;
   if (typeof DataYou !== 'undefined') {
     return (
@@ -36,7 +39,7 @@ export const RetObjectYou = (props) => {
         };
         return (
           <RetObjStyled
-            className="RetObjStyled"
+            className="RetObjStyledYou"
             key={item.id}
             onClick={props.handleClick(item.id, 'Youtube', songObject)}
             tapState="Youtube"
@@ -55,16 +58,17 @@ export const RetObjectYou = (props) => {
                 </a>
               </DivStats>
               <DivStats>
-                <div style={{ width: '10em' }}>
+                <div>
                   {`${convertString(item.statistics.viewCount)} views`}
                 </div>
-                <div>
+                <div style={{ margin: '0 auto' }}>
                   {timePassed(`${item.snippet.publishedAt.slice(0, 10)}`)}
                 </div>
               </DivStats>
             </DivInfo>
             <DivImg>
-              <Img
+              <img
+                className="youtubeImg"
                 src={item.snippet.thumbnails.medium.url}
                 alt=""
               />
@@ -112,7 +116,7 @@ export const RetObjectDeez = (props) => {
         };
         return (
           <RetObjStyled
-            className="RetObjStyled"
+            className="RetObjStyledDeez"
             key={item.id}
             onClick={props.handleClick(item.id, 'Deezer', songObject)}
             tapState={props.TapState}

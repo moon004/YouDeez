@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
 import { divTapPropTypes, divTapDefaultProps } from '../props';
 import { RetObjectYou, RetObjectDeez } from './RetObject';
+import Search from './Search';
+import Media from './Media';
 
 class DivTap extends Component {
   static propTypes = divTapPropTypes;
@@ -45,42 +47,63 @@ class DivTap extends Component {
 
   render() {
     const {
-      searchState: {
+      apiReqState: {
         dataYou,
         dataDeez,
       },
+      MediaObject,
+      downloadObject,
+      onDownload,
     } = this.props;
     const scrollStyle = {
       height: 400,
     };
     return (
-      <div className="MainDivTap">
-        <Scrollbars
-          className="divscrollbar"
-          renderThumbVertical={this.renderThumbVert}
-          renderThumbHorizontal={this.renderThumbHor}
-          autoHide
-          style={scrollStyle}
-          thumbMinSize={50}
-        >
-          <RetObjectYou
-            DataYou={dataYou}
-            handleClick={this.handleObjClick}
+      <div>
+        <div className="MainDivTop">
+          <Search
+            className="SearchBar"
+            {...this.props}
           />
-        </Scrollbars>
-        <Scrollbars
-          className="divscrollbar"
-          renderThumbVertical={this.renderThumbVert}
-          renderThumbHorizontal={this.renderThumbHor}
-          autoHide
-          style={scrollStyle}
-          thumbMinSize={50}
-        >
-          <RetObjectDeez
-            DataDeez={dataDeez}
-            handleClick={this.handleObjClick}
-          />
-        </Scrollbars>
+        </div>
+        <div className="MainDivTap">
+          <div className="YoutubeDiv">
+            <Scrollbars
+              className="divscrollbar"
+              renderThumbVertical={this.renderThumbVert}
+              renderThumbHorizontal={this.renderThumbHor}
+              autoHide
+              style={scrollStyle}
+              thumbMinSize={50}
+            >
+              <RetObjectYou
+                DataYou={dataYou}
+                handleClick={this.handleObjClick}
+              />
+            </Scrollbars>
+            <Media
+              className="YouMedia"
+              mediaObj={MediaObject}
+              onDownload={onDownload}
+              downloadObject={downloadObject}
+            />
+          </div>
+          <div className="DeezerDiv">
+            <Scrollbars
+              className="divscrollbar"
+              renderThumbVertical={this.renderThumbVert}
+              renderThumbHorizontal={this.renderThumbHor}
+              autoHide
+              style={scrollStyle}
+              thumbMinSize={50}
+            >
+              <RetObjectDeez
+                DataDeez={dataDeez}
+                handleClick={this.handleObjClick}
+              />
+            </Scrollbars>
+          </div>
+        </div>
       </div>
     );
   }

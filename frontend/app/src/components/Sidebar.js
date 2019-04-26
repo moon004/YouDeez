@@ -3,7 +3,7 @@ import Sidebar from 'react-sidebar';
 import DivMenu from '../styling/Sidebar.style';
 import ydLogo from '../assets/Webapp_newlogo.svg';
 import { RenderSearchOrLib } from './RetObject';
-import Search from './Search';
+
 
 const SBContent = (props) => {
   const { currentState } = props;
@@ -49,13 +49,17 @@ class MainSideBar extends Component {
   render() {
     const {
       currentState,
-      onMenuTap,
-      apiReqState,
-      onObjClick,
-      onGetAutoComp,
-      onSubmitSearch,
-      autoComplete,
+      // onMenuTap,
+      // apiReqState,
+      // onObjClick,
+      // onGetAutoComp,
+      // onSubmitSearch,
+      // autoComplete,
+      // MediaObject,
+      // downloadObject,
+      // onDownload,
     } = this.props;
+    console.log('Props: ', this.props);
     return (
       <Sidebar
         sidebar={<SBContent currentState={currentState} />}
@@ -66,20 +70,8 @@ class MainSideBar extends Component {
         shadow
       >
         <div className="MainDiv">
-          <div className="MainDivTop">
-            <Search
-              className="SearchBar"
-              handleSubmit={onSubmitSearch}
-              searchState={apiReqState}
-              onGetAutoComp={onGetAutoComp}
-              autoComplete={autoComplete}
-            />
-          </div>
           <RenderSearchOrLib
-            currentState={currentState}
-            onObjClick={onObjClick}
-            searchState={apiReqState}
-            onObjTap={onMenuTap}
+            {...this.props}
           />
         </div>
       </Sidebar>

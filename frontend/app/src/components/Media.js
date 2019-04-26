@@ -96,12 +96,7 @@ class Media extends Component {
     } = this.props;
     return (
       <div>
-        <div style={{
-          height: 'auto',
-          width: 'auto',
-          marginTop: '3em',
-        }}
-        >
+        <div className="MediaVidDiv">
           <DeezerOrYoutube
             mediaID={ID}
             mediaType={MediaType}

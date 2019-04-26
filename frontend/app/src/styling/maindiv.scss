@@ -9,9 +9,12 @@ body {
 .MainDiv {
   top: 10vh;
   /* left: ${props => ((props.width) / window.screen.width) * 30}vw ; */
+  max-width: 80%;
+  min-width: 30em;
   width: auto;
+  height: auto;
   top: 2em;
-  margin: 0 1em 0 1em;
+  margin: 0 auto 0 auto;
   position: relative;
   -webkit-user-select: none;   
   -moz-user-select: none;
@@ -36,10 +39,9 @@ body {
 }
 
 .searchDiv {
-  width: 100%;
+  width: auto;
   position: relative;
   margin-bottom: 2.3em;
-  margin: 0 auto 0 auto;
 }
 .searchIcon {
   width: 1.2em;
@@ -48,24 +50,66 @@ body {
   right: 0.5em;
   top: 0.55em;
 }
+#searchListItem {
+  margin: -1em 0 0 0;
+  font-family: Ubuntu;
+  padding: 0;
+  :first-child {
+    border-radius: 0.5em 0.5em 0 0;
+    padding-top: 1.5em;
+  }
+  :last-child {
+    border-radius: 0 0 0.5em 0.5em;
+  }
+}
+#searchListItem > li {
+  list-style-type: none;
+  font-size: 0.9em;
+  background: white;
+  box-sizing : border-box;
+  width: 100%;
+  padding: 0.2em 0 0.2em 0.5em;
+  &:hover {
+    background: #dbdbdb;
+  }
+}
 
+// MainDivTap
 .MainDivTap {
-  width: 34.5em;
+  width: auto;
   border-radius: 0.3em;
-  margin: 1.5em 0em 0em 0em;
+  margin: 1.5em 0.7em 0 0.7em;
   position: relative;
+}
+
+.YoutubeDiv {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .divscrollbar {
   background: $bgMainCol;
 }
 
-.RetObjStyled {
+.YouMedia {
+  position: relative;
+  margin: 1em;
+}
+.youtubeImg {
+  width: 100%;
+  height: 100%;
+}
+
+%retObjShared {
   border: 0.05em solid #f7f7f7;
   list-style-type: none;
   display: flex;
   flex-direction: row;
   transition: 0.3s;
+  justify-content: space-between;
+  font-family: Ubuntu;
   &:hover{
     background-color: rgba(255,255,255,0.1)
   }
@@ -73,11 +117,35 @@ body {
     background-color: rgba(255,255,255,0.3)
   }
 }
+.RetObjStyledYou {
+  @extend %retObjShared;
+  max-width: 25.5em;
+  width: auto;
+  padding: 0.5em;
+}
+.RetObjStyledDeez {
+  @extend %retObjShared;
+  width: 28.5em;
+  margin: 2em 2.5em 2em 2.5em;
+  padding: 0.5em;
+}
 
+.MediaVidDiv {
+  height: 30em;
+  width: 30em;
+}
+
+// Deezer onwards
 %deez-shared {
   font-weight: 300;
   color: $deezCol;
 }
+
+.DeezerDiv {
+  display: flex;
+  flex-direction: row;
+}
+
 
 .deezerAlbumDiv {
   @extend %deez-shared;

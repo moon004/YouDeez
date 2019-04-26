@@ -64,22 +64,29 @@ export class MainWrapper extends Component {
 
   render() {
     const {
-      // MediaObject,
+      MediaObject,
       currentMediaTap,
       apiReqState,
       autoComplete,
+      downloadObject,
     } = this.props;
     return (
       <div>
         <div>
           <MainSideBar
+            // For Search
+            onGetAutoComp={this.onGetAutoComp}
+            onSubmitSearch={this.onSubmitSearch}
+            autoComplete={autoComplete}
+            // For DivTap
             onMenuTap={this.onObjTap}
             currentState={currentMediaTap}
             onObjClick={this.onUpdateMediaObj}
             apiReqState={apiReqState}
-            onGetAutoComp={this.onGetAutoComp}
-            onSubmitSearch={this.onSubmitSearch}
-            autoComplete={autoComplete}
+            // For Media
+            MediaObject={MediaObject}
+            onDownload={this.clickDownload}
+            downloadObject={downloadObject}
           />
         </div>
       </div>

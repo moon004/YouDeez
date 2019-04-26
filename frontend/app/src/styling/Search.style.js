@@ -8,10 +8,11 @@ export const Input = styled.input`
   font-weight: 500;
   font-size: 1em;
   color: rgb(20,20,20);
+  box-sizing : border-box;
   background: white;
   border: ${props => (props.popList ? '0' : '0.1em')} solid gray;
   border-radius: ${props => (props.popList ? '0.6em 0.6em 0 0' : '2em')};
-  width: 98.4%;
+  width: 100%;
   &:focus {
      outline: none;
    }
@@ -38,28 +39,6 @@ export const SearchIcon = styled(Search)`
   `;
 
 export const List = styled.li`
-  list-style-type: none;
-  font-size: 0.9em;
-  background: white;
-  font-family: Ubuntu;
-  width: 100%;
-  padding: 0.2em 0em 0.2em 0.5em;
   background: ${props => (props.cursor ? '#dbdbdb' : 'white')};
 
-  :first-child {
-    border-radius: 0.5em 0.5em 0 0;
-    padding-top: 1.5em;
-  }
-  :last-child {
-    border-radius: 0 0 0.5em 0.5em;
-  }
-  &:hover {
-    background: #dbdbdb;
-  }
-`;
-
-export const Ul = styled.li`
-  width: 100%;
-  padding: 0;
-  margin: 0;
 `;
