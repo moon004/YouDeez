@@ -82,15 +82,6 @@ export const Div = styled.div`
 `;
 
 // ---------- Mediaplayer Style --------------//
-export const DivMediaPlayer = styled.div`
-  width: 100%;
-  height: 6em;
-  position: relative;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-`;
 
 const sizePlay = '5.1em';
 const sizePrevNext = '4em';
@@ -124,16 +115,7 @@ export const PrevIcon = styled(SkipPrevious)`
 `;
 
 export const RepeatIcon = styled(Repeat)`
-  color: white;
-  width: 1.3em;
-  height: 1.3em;
-  position: absolute;
-  top: 1.7em;
-  left: 9.8em;
   opacity: ${props => (props.loopOn ? '1' : '0.6')};
-  &:hover {
-    opacity: 1;
-  }
 `;
 
 export const ShuffleIcon = styled(Shuffle)`
@@ -155,17 +137,9 @@ export const StyledScrollbarLib = styled(Scrollbars)`
   background: none;
 `;
 
-export const DivMediaMiddle = styled.div`
-  flex-direction: column;
-  width: 19em;
-  display:flex;
-  flex-grow: 2;
-`;
-
 export const DivMediaImg = styled.div`
-  display: flex;
-  position: relative;
-
+  /* true if it is deezer */
+  width: ${props => (props.YouOrDeez ? '5.5em' : '5em')};
 `;
 
 export const DivDur = styled.div`
@@ -175,14 +149,4 @@ export const DivDur = styled.div`
   opacity: 0.6;
   font-weight: 100;
   font-size: 1em;
-`;
-
-export const DivTitle = styled.div`
-  height: 1.9em;
-  width: 17.7em;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 `;

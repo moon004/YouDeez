@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { myLibPropTypes, myLibDefaultProps } from '../props';
-import MediaPlayer from './Mediaplayer';
 import {
   convertString,
   addDot,
@@ -40,6 +39,7 @@ const itemList = (parent) => {
     currentPL,
     songObject: { passedID },
   } = parent.state;
+  const { MWparents } = parent.props;
   if (currentPL !== 0) {
     const sList = [];
     PLArrayParent[currentPL].items.forEach((id, index) => {
@@ -56,7 +56,7 @@ const itemList = (parent) => {
             {`${index + 1} .`}
           </div>
           <DivObjTitle
-            onClick={parent.handlePlaySong(item, id, index)}
+            onClick={MWparents.handlePlaySong(item, id, index)}
           >
             <div style={{
               textOverflow: 'ellipsis',
@@ -163,6 +163,8 @@ class MyLibrary extends Component {
       album, artist, bit, dur, img, songTitle,
     } = selectedDB;
     const url = URL.createObjectURL(selectedDB.bit);
+    // PLAddSong is TRUE when on normal state which is click to play song
+    // PLAddSong is FALSE when adding songs to playlist
     if (PLAddSong) {
       this.setState({
         blobUrl: url,
@@ -334,9 +336,7 @@ class MyLibrary extends Component {
 
   render() {
     const {
-      blobUrl, // For Playing the audio
       dbItem, // For Loading the List
-      songObject, // Object for MediaPlayer
       PLArrayParent, // Consists of id {name: '', items:[]}
       currentPL,
       dropClassName,
@@ -364,13 +364,6 @@ class MyLibrary extends Component {
     ));
     return (
       <DivLib>
-        <MediaPlayer
-          url={blobUrl}
-          PassedObj={songObject}
-          CurrentPL={PLArrayParent[currentPL].items}
-          wholeDB={dbItem}
-          playThis={this.handleThisSong}
-        />
         <NewPlaylistInput
           PLAddSonghandler={this.PLAddhandler}
           stateFromParent={this.state}

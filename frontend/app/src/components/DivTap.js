@@ -4,6 +4,8 @@ import { divTapPropTypes, divTapDefaultProps } from '../props';
 import { RetObjectYou, RetObjectDeez } from './RetObject';
 import Search from './Search';
 import Media from './Media';
+import youtubelogo from '../assets/ytlogowhite.svg';
+import deezerlogo from '../assets/deezerlogowhite.svg';
 
 class DivTap extends Component {
   static propTypes = divTapPropTypes;
@@ -51,12 +53,33 @@ class DivTap extends Component {
         dataYou,
         dataDeez,
       },
-      MediaObject,
+      MediaObject: {
+        MediaData: {
+          ID,
+        },
+      },
       downloadObject,
       onDownload,
     } = this.props;
-    const scrollStyle = {
+    const scrollStyleYou = {
       height: 400,
+      width: 420,
+    };
+    const scrollStyleDeez = {
+      height: 400,
+      width: 440,
+    };
+    const MediaObjectYou = {
+      MediaType: 'Youtube',
+      MediaData: {
+        ID,
+      },
+    };
+    const MediaObjectDeez = {
+      MediaType: 'Deezer',
+      MediaData: {
+        ID,
+      },
     };
     return (
       <div>
@@ -67,13 +90,18 @@ class DivTap extends Component {
           />
         </div>
         <div className="MainDivTap">
+          <img
+            id="ytlogowhite"
+            src={youtubelogo}
+            alt=""
+          />
           <div className="YoutubeDiv">
             <Scrollbars
               className="divscrollbar"
               renderThumbVertical={this.renderThumbVert}
               renderThumbHorizontal={this.renderThumbHor}
               autoHide
-              style={scrollStyle}
+              style={scrollStyleYou}
               thumbMinSize={50}
             >
               <RetObjectYou
@@ -83,18 +111,23 @@ class DivTap extends Component {
             </Scrollbars>
             <Media
               className="YouMedia"
-              mediaObj={MediaObject}
+              mediaObj={MediaObjectYou}
               onDownload={onDownload}
               downloadObject={downloadObject}
             />
           </div>
+          <img
+            id="dzlogowhite"
+            src={deezerlogo}
+            alt=""
+          />
           <div className="DeezerDiv">
             <Scrollbars
               className="divscrollbar"
               renderThumbVertical={this.renderThumbVert}
               renderThumbHorizontal={this.renderThumbHor}
               autoHide
-              style={scrollStyle}
+              style={scrollStyleDeez}
               thumbMinSize={50}
             >
               <RetObjectDeez
@@ -102,6 +135,12 @@ class DivTap extends Component {
                 handleClick={this.handleObjClick}
               />
             </Scrollbars>
+            <Media
+              className="DeezMedia"
+              mediaObj={MediaObjectDeez}
+              onDownload={onDownload}
+              downloadObject={downloadObject}
+            />
           </div>
         </div>
       </div>

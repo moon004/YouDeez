@@ -15,7 +15,7 @@ import {
 const SearchLibHOC = (SearchCmp, LibCmp) => ({ currentState, ...props }) => {
   console.log('props in HOC', props);
   return (
-    currentState
+    currentState === 'Search'
       ? <SearchCmp {...props} />
       : <LibCmp {...props} />
   );
@@ -87,21 +87,6 @@ export const RetObjectYou = (props) => {
   );
 };
 
-const durationStyle = {
-  width: '3em',
-  display: 'flex',
-  justifyContent: 'flex-end',
-  fontWeight: '100',
-  marginTop: '0.5em',
-};
-
-const artistAlbumStyle = {
-  display: 'flex',
-  flexDirection: 'row',
-  fontSize: '0.8em',
-  alignItems: 'center',
-};
-
 export const RetObjectDeez = (props) => {
   const { DataDeez } = props;
   if (typeof DataDeez !== 'undefined') {
@@ -136,14 +121,12 @@ export const RetObjectDeez = (props) => {
                   {addDot(item.title, 25)}
                 </div>
                 <div
-                  style={durationStyle}
                   className="deezerDuration"
                 >
                   {convertString(item.duration)}
                 </div>
               </div>
               <div
-                style={artistAlbumStyle}
                 className="deezerAlbumDiv"
               >
                 <img
@@ -157,7 +140,7 @@ export const RetObjectDeez = (props) => {
                 />
                 <div
                   style={{
-                    width: '8em',
+                    width: '7em',
                   }}
                 >
                   <a
@@ -170,7 +153,7 @@ export const RetObjectDeez = (props) => {
                 </div>
                 <div
                   style={{
-                    width: '10.4em',
+                    width: '9em',
                     display: 'flex',
                     justifyContent: 'flex-end',
                   }}

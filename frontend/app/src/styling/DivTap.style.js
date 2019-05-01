@@ -29,7 +29,7 @@ export const DivInfo = styled.div`
 `;
 
 export const DivTitle = styled.div`
-  height: 3.8em;
+  height: 3.6em;
   width: 15em;
   color: #f0f0f0;
 `;

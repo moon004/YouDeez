@@ -1,17 +1,21 @@
-#mediaplayerImg {
-  max-width: 6em;
-  min-height: 4em;
-  height: auto;
-  margin-bottom: auto;
-}
-
 #shuffleIcon {
   color: white;
   position: absolute;
   width: 2em;
   height: 1.4em;
   top: 1.6em;
-  left: 11em;
+  left: 11.3em;
+  &:hover {
+    opacity: 1;
+  }
+}
+#repeatIcon {
+  color: white;
+  width: 1.3em;
+  height: 1.3em;
+  position: absolute;
+  top: 1.7em;
+  left: 9.85em;
   &:hover {
     opacity: 1;
   }
@@ -174,4 +178,62 @@ $bgColor: rgb(43, 43, 43);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+
+$containerHeight: 4.4em;
+$middleWidth: 20em;
+#MediaPlayerMainDiv {
+  width: 41em;
+  display: flex;
+  justify-content: flex-start;
+}
+#DivMediaPlayer{
+  width: 100%;
+  margin-top: 1em;
+  height: $containerHeight;
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+}
+#MediaDivTitle {
+  height: 1.9em;
+  width: $middleWidth;
+  position: fixed;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#DivMediaMiddle {
+  flex-direction: column;
+  max-width: 27em;
+  display:flex;
+  height: $containerHeight;
+}
+#DivDur {
+  position: absolute;
+  left: 29.2em;
+  top: 1.8em;
+  opacity: 0.6;
+  font-weight: 100;
+  font-size: 1em;
+}
+#theSeeker {
+  margin-top: 4.2em;
+  width: 28.7em;
+
+}
+#DivMediaImg {
+  position: relative;
+  height: $containerHeight;
+  margin-left: 1.4em;
+}
+#mediaplayerImg {
+  min-height: 4.1em;
+  max-height: 4em;
+  height: auto;
+  border-radius: 0.4em;
 }

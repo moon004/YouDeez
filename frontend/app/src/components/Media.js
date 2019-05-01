@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { DPlayer, RPlayer } from './Players';
-import DownloadButton from './download';
+// import DownloadButton from './download';
 
-// import YouDeezLogo from '../assets/youdeez_small.svg';
-import YouDeezLogo from '../assets/youdeez.svg';
+import youtubelogo from '../assets/youtubeLogo.svg';
+import deezerlogo from '../assets/deezerlogo.svg';
 import {
   mediaPropTypes,
   mediaDefaultProps,
@@ -12,20 +12,18 @@ import {
   defaultConfig,
 } from '../props';
 
-const LogoComponent = () => (
-
-  <img
-    src={YouDeezLogo}
-    alt=""
-    style={{
-      width: '100%',
-      maxWidth: '100%',
-      maxHeight: '100%',
-    }}
-  />
+const LogoComponent = ({ mediaType }) => (
+  <div id={mediaType === 'Youtube' ? 'mediabgDivYou' : 'mediabgDivDeez'}>
+    <img
+      id={mediaType === 'Youtube' ? 'mediaDivImgYou' : 'mediaDivImgDeez'}
+      src={mediaType === 'Youtube' ? youtubelogo : deezerlogo}
+      alt=""
+    />
+  </div>
 );
 
 const withEither = (NullComponent, YouOrDeez) => ({ ...props }) => {
+  // console.log('props: ', props);
   const { mediaID } = props;
   return (
     mediaID.length > 0
@@ -89,21 +87,43 @@ class Media extends Component {
           ID,
         },
       },
-      downloadObject: {
-        state,
-        songObject,
-      },
+      // downloadObject: {
+      //   state,
+      //   songObject,
+      // },
     } = this.props;
     return (
-      <div>
-        <div className="MediaVidDiv">
-          <DeezerOrYoutube
-            mediaID={ID}
-            mediaType={MediaType}
-          />
-        </div>
-        <div>
-          {DownloadButton(this, songObject, state)}
+      <div className="MediaVidDiv">
+        <DeezerOrYoutube
+          mediaID={ID}
+          mediaType={MediaType}
+        />
+        <div className="DownloadMediaDiv">
+          {/* {DownloadButton(this, songObject, state)} */}
+          {
+            MediaType === 'Youtube'
+              ? (
+                <div />
+              ) : (
+                <div className="DownloadInfo">
+                  <a
+                    id="UTQuestion"
+                    href="https://notabug.org/RemixDevs/DeezloaderRemix/wiki/Login+via+userToken"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    ?
+                  </a>
+                  <div id="UTText">User Token</div>
+                  <input
+                    id="UserToken"
+                  />
+                </div>
+              )
+          }
+          <button type="button" className="DownloadButton">
+            Download
+          </button>
         </div>
       </div>
     );

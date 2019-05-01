@@ -5,16 +5,12 @@ import { convertString, indOfObjDB } from '../utils/tools';
 import HNDLogo from '../assets/hnd.svg';
 
 import {
-  DivMediaPlayer,
-  DivMediaMiddle,
   DivMediaImg,
   RepeatIcon,
   PlayIcon,
   PauseIcon,
   NextIcon,
   PrevIcon,
-  DivDur,
-  DivTitle,
   ShuffleIcon,
 } from '../styling/MyLibrary.style';
 
@@ -123,6 +119,7 @@ export default class MediaPlayer extends Component {
     } = this.props;
     if (passedID !== undefined) {
       const currentIndex = CurrentPL.indexOf(passedID);
+      console.log('Mediaplayer wholeDB, CurrentPL, ans', wholeDB, CurrentPL);
       if (currentIndex < CurrentPL.length - 1) {
         playThis(indOfObjDB(wholeDB, CurrentPL[currentIndex + 1]));// on normal condition
       } else {
@@ -179,8 +176,8 @@ export default class MediaPlayer extends Component {
       playing, loop, played, playedSec, shuffle,
     } = this.state;
     return (
-      <div>
-        <DivMediaPlayer className="DivMediaPlayer">
+      <div id="MediaPlayerMainDiv">
+        <div id="DivMediaPlayer">
           <div style={{ width: '10em' }}>
             <PrevIcon onClick={this.prevSong} type="button" />
             {playing ? (<PauseIcon onClick={this.playPause} type="button" />)
@@ -188,8 +185,9 @@ export default class MediaPlayer extends Component {
             <NextIcon onClick={this.nextSong} type="button" />
           </div>
 
-          <DivMediaMiddle>
+          <div id="DivMediaMiddle">
             <RepeatIcon
+              id="repeatIcon"
               loopOn={loop}
               onClick={this.toggleLoop}
             />
@@ -198,10 +196,10 @@ export default class MediaPlayer extends Component {
               ShuffleOn={shuffle}
               onClick={this.toggleShuffle}
             />
-            <DivTitle id="MediaDivTitle">
+            <div id="MediaDivTitle">
               {passedID === undefined ? (' ') : (passedSongTitle)}
-            </DivTitle>
-            <DivDur>
+            </div>
+            <div id="DivDur">
               {passedID === undefined ? (' ') : (
                 <div style={{ display: 'flex', flexDirection: 'row' }}>
                   <div style={{ width: '2em' }}>
@@ -211,12 +209,11 @@ export default class MediaPlayer extends Component {
                     {` / ${convertString(passsedDur)}`}
                   </div>
                 </div>)}
-            </DivDur>
+            </div>
             <input // Seeker
+              id="theSeeker"
               style={{
                 '--percent': `${played * 100}%`,
-                marginTop: '2em',
-                width: '21em',
               }}
               type="range"
               min={0}
@@ -227,15 +224,23 @@ export default class MediaPlayer extends Component {
               onChange={this.onSeekChange}
               onMouseUp={this.onSeekMouseUp}
             />
-          </DivMediaMiddle>
-          <DivMediaImg>
+          </div>
+          <DivMediaImg
+            id="DivMediaImg"
+            YouOrDeez={
+              /* eslint-disable no-nested-ternary */
+              passedImg === undefined ? false : passedImg.charAt(8) === 'a'
+              /* eslint-disable no-unneeded-ternary */
+                ? true : false
+            }
+          >
             <img
               id="mediaplayerImg"
               src={passedID === undefined ? HNDLogo : passedImg}
               alt=""
             />
           </DivMediaImg>
-        </DivMediaPlayer>
+        </div>
         <ReactPlayer
           ref={this.ref}
           url={url}

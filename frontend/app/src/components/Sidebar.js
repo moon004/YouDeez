@@ -6,8 +6,9 @@ import { RenderSearchOrLib } from './RetObject';
 
 
 const SBContent = (props) => {
-  const { currentState } = props;
+  const { currentState, clicked } = props;
   console.log('currentState: ', currentState);
+
   return (
     <div className="SBMenuMainDiv">
       <img
@@ -19,12 +20,14 @@ const SBContent = (props) => {
       <DivMenu
         className="SBMenuDiv"
         currentState={currentState === 'Search'}
+        onClick={clicked('Search')}
       >
         Search
       </DivMenu>
       <DivMenu
         className="SBMenuDiv"
         currentState={currentState === 'Library'}
+        onClick={clicked('Library')}
       >
         My Library
       </DivMenu>
@@ -42,8 +45,8 @@ class MainSideBar extends Component {
   }
 
   handleTapClick = value => () => {
-    const { onObjTap } = this.props;
-    onObjTap(value);
+    const { onMenuTap } = this.props;
+    onMenuTap(value);
   }
 
   render() {
@@ -59,10 +62,14 @@ class MainSideBar extends Component {
       // downloadObject,
       // onDownload,
     } = this.props;
-    console.log('Props: ', this.props);
     return (
       <Sidebar
-        sidebar={<SBContent currentState={currentState} />}
+        sidebar={(
+          <SBContent
+            currentState={currentState}
+            clicked={this.handleTapClick}
+          />
+        )}
         sidebarClassName="MainSideBar"
         contentClassName="SBContent"
         open
