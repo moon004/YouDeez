@@ -1,21 +1,25 @@
 #shuffleIcon {
   color: white;
   position: absolute;
-  width: 2em;
-  height: 1.4em;
-  top: 1.6em;
-  left: 11.3em;
+  width: 1.6em;
+  height: 1.6em;
+  // top: 1.7em;
+  // left: 12.3em;
+  top: 0.1em;
+  left: 47em;
   &:hover {
     opacity: 1;
   }
 }
 #repeatIcon {
   color: white;
-  width: 1.3em;
-  height: 1.3em;
+  width: 1.5em;
+  height: 1.5em;
   position: absolute;
-  top: 1.7em;
-  left: 9.85em;
+  // top: 1.8em;
+  // left: 10.7em;
+  top: 0.2em;
+  left: 44.7em;
   &:hover {
     opacity: 1;
   }
@@ -182,24 +186,25 @@ $bgColor: rgb(43, 43, 43);
 
 
 $containerHeight: 4.4em;
-$middleWidth: 20em;
+$middleWidth: 38em;
 #MediaPlayerMainDiv {
-  width: 41em;
-  display: flex;
-  justify-content: flex-start;
+  width: 50em;
+  margin-top: -0.5em;
+  
 }
 #DivMediaPlayer{
-  width: 100%;
   margin-top: 1em;
+  min-width: 55em;
+  width: 100%;
   height: $containerHeight;
   position: relative;
-  flex-grow: 1;
+  justify-content: space-around;
   display: flex;
   flex-direction: row;
 }
 #MediaDivTitle {
   height: 1.9em;
-  width: $middleWidth;
+  width: 33.5em;
   position: fixed;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -209,31 +214,33 @@ $middleWidth: 20em;
 }
 #DivMediaMiddle {
   flex-direction: column;
-  max-width: 27em;
+  width: $middleWidth;
   display:flex;
   height: $containerHeight;
 }
 #DivDur {
   position: absolute;
-  left: 29.2em;
-  top: 1.8em;
+  left: 43.8em;
+  top: 2.1em;
   opacity: 0.6;
   font-weight: 100;
   font-size: 1em;
 }
 #theSeeker {
-  margin-top: 4.2em;
-  width: 28.7em;
+  margin-top: 4.3em;
+  width: 45.5em;
 
-}
+} // 1em = 16px
 #DivMediaImg {
-  position: relative;
   height: $containerHeight;
   margin-left: 1.4em;
+  width: 4em;
+  height: 4em;
 }
 #mediaplayerImg {
-  min-height: 4.1em;
-  max-height: 4em;
-  height: auto;
+  width: 4.1em;
+  margin-right: 1em;
+  object-fit: cover;
+  height: 4.1em;
   border-radius: 0.4em;
 }

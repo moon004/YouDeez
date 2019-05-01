@@ -5,7 +5,6 @@ import { convertString, indOfObjDB } from '../utils/tools';
 import HNDLogo from '../assets/hnd.svg';
 
 import {
-  DivMediaImg,
   RepeatIcon,
   PlayIcon,
   PauseIcon,
@@ -202,7 +201,7 @@ export default class MediaPlayer extends Component {
             <div id="DivDur">
               {passedID === undefined ? (' ') : (
                 <div style={{ display: 'flex', flexDirection: 'row' }}>
-                  <div style={{ width: '2em' }}>
+                  <div style={{ width: '2.3em' }}>
                     {`${convertString(playedSec)}`}
                   </div>
                   <div>
@@ -225,21 +224,21 @@ export default class MediaPlayer extends Component {
               onMouseUp={this.onSeekMouseUp}
             />
           </div>
-          <DivMediaImg
+          <div
             id="DivMediaImg"
-            YouOrDeez={
-              /* eslint-disable no-nested-ternary */
-              passedImg === undefined ? false : passedImg.charAt(8) === 'a'
-              /* eslint-disable no-unneeded-ternary */
-                ? true : false
-            }
           >
             <img
               id="mediaplayerImg"
               src={passedID === undefined ? HNDLogo : passedImg}
               alt=""
+              YouOrDeez={
+                /* eslint-disable no-nested-ternary */
+                passedImg === undefined ? false : passedImg.charAt(8) === 'a'
+                /* eslint-disable no-unneeded-ternary */
+                  ? true : false
+              }
             />
-          </DivMediaImg>
+          </div>
         </div>
         <ReactPlayer
           ref={this.ref}

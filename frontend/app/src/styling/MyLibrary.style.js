@@ -137,11 +137,6 @@ export const StyledScrollbarLib = styled(Scrollbars)`
   background: none;
 `;
 
-export const DivMediaImg = styled.div`
-  /* true if it is deezer */
-  width: ${props => (props.YouOrDeez ? '5.5em' : '5em')};
-`;
-
 export const DivDur = styled.div`
   position: absolute;
   left: 23em;
