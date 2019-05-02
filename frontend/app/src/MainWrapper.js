@@ -153,7 +153,6 @@ export class MainWrapper extends Component {
       songObject,
       currentPL,
     } = this.state;
-    console.log('songObject in MW', songObject);
     return (
       <div>
         <div>

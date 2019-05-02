@@ -274,10 +274,9 @@ class MyLibrary extends Component {
   render() {
     const {
       dbItem, // For Loading the List
-      songObject,
     } = this.state;
+    const { PLArrayParent, currentPL } = this.props.MWparents.state;
     let songList = [];
-    console.log('Songobject in mylibrary', songObject);
     if (typeof dbItem[0] !== 'undefined') {
       songList = itemList(this);
     }
@@ -288,6 +287,7 @@ class MyLibrary extends Component {
           PLAddSonghandler={this.PLAddhandler}
           stateFromParent={this.props.MWparents.state}
           addPlaylisthandler={this.addPlaylisthandler}
+          currentPLName={PLArrayParent[currentPL].name}
         />
         <br />
         {songList[0] === undefined ? (

@@ -4,6 +4,10 @@ import ydLogo from '../assets/Webapp_newlogo.svg';
 import {
   PLbutton,
 } from '../styling/MyLibrary.style';
+import {
+  callUpdateDB,
+  callDeletePL,
+} from '../utils/indexdb';
 
 class SidebarContent extends Component {
   componentDidUpdate() {
@@ -23,6 +27,11 @@ class SidebarContent extends Component {
         tmpCurrentPL: value,
       });
     }
+  };
+
+  handlePLDelete = ind => () => {
+    callDeletePL(ind, this.props.MWparents);
+    callUpdateDB(this.props.MWparents);
   };
 
   render() {
@@ -60,6 +69,7 @@ class SidebarContent extends Component {
         {item.name}
         <div
           className="droppableClass"
+          onClick={this.handlePLDelete(index)}
         />
       </PLbutton>
     ));

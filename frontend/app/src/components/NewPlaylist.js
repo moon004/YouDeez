@@ -47,6 +47,8 @@ export default class NewPlaylist extends Component {
 
   render() {
     const { value, error } = this.state;
+    const { currentPLName } = this.props;
+    console.log('currentPLName', currentPLName);
     return (
       <div>
         <div className="addPLDiv">
@@ -68,6 +70,9 @@ export default class NewPlaylist extends Component {
         <h6 className="errorMessage">
           {error}
         </h6>
+        <h1 className="playlistTitle">
+          {currentPLName}
+        </h1>
       </div>
     );
   }
