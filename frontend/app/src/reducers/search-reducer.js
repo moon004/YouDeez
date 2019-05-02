@@ -64,10 +64,8 @@ export function SearchReducer(
     case FETCH_OBJ_START:
       return { ...state, fetchState: SEARCHING };
     case FETCH_SUCCESS_YOU:
-      console.log('datayou payload', payload);
       return { ...state, fetchState: SEARCHDONE, dataYou: payload };
     case FETCH_SUCCESS_DEEZ:
-      console.log('dataDeez payload', payload);
       return { ...state, fetchState: SEARCHDONE, dataDeez: payload };
     case FETCH_ERROR_YOU:
       return { ...state, fetchState: ERROR_STATE, error: payload };

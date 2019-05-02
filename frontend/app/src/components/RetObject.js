@@ -25,7 +25,6 @@ const SearchLibHOC = (SearchCmp, LibCmp) => ({ currentState, ...props }) => {
 export const RenderSearchOrLib = SearchLibHOC(DivTap, MyLibrary);
 
 export const RetObjectYou = (props) => {
-  console.log('Props in retobject', props);
   const { DataYou } = props;
   if (typeof DataYou !== 'undefined') {
     return (

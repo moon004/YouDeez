@@ -24,8 +24,6 @@ import {
   DivObjTitle,
   DivObjArtist,
   DeleteIcon,
-  PLbutton,
-  PLbuttonDiv,
   DivSongDur,
   Div,
 } from '../styling/MyLibrary.style';
@@ -38,7 +36,8 @@ const itemList = (parent) => {
     PLArrayParent,
     currentPL,
     songObject: { passedID },
-  } = parent.state;
+  } = parent.props.MWparents.state;
+  console.log('itemList', PLArrayParent, currentPL);
   const { MWparents } = parent.props;
   if (currentPL !== 0) {
     const sList = [];
@@ -100,7 +99,6 @@ class MyLibrary extends Component {
 
   constructor() {
     super();
-    this.handlePlaySong = this.handlePlaySong.bind(this);
     this.state = {
       blobUrl: '',
       dbItem: [],
@@ -147,76 +145,15 @@ class MyLibrary extends Component {
     return false;
   }
 
-  componentDidUpdate() {
-    const { currentPL, tmpCurrentPL } = this.state;
-    if (currentPL === 0) {
-      this.setState({
-        currentPL: tmpCurrentPL,
-      });
-    }
-  }
-
-  // trigger from clicking song title
-  handlePlaySong = (selectedDB, id, index) => () => {
-    const { PLAddSong, tmpPLArray, PLAddSongArr } = this.state;
-    const {
-      album, artist, bit, dur, img, songTitle,
-    } = selectedDB;
-    const url = URL.createObjectURL(selectedDB.bit);
-    // PLAddSong is TRUE when on normal state which is click to play song
-    // PLAddSong is FALSE when adding songs to playlist
-    if (PLAddSong) {
-      this.setState({
-        blobUrl: url,
-        songObject: {
-          passedID: id,
-          passedAlbum: album,
-          passedArtist: artist,
-          passedBit: bit,
-          passsedDur: dur,
-          passedImg: img,
-          passedSongTitle: songTitle,
-        },
-      });
-    } else {
-      // for turning opacity to 1 on PL creation
-      tmpPLArray.push(id);
-      PLAddSongArr[index] = true;
-      this.setState({
-        tmpPLArray,
-      });
-    }
-  };
-
-  // triggered from nextSong()
-  handleThisSong = (selectedDB) => {
-    const url = URL.createObjectURL(selectedDB.bit);
-    const {
-      album, artist, bit, dur, img, songTitle, id,
-    } = selectedDB;
-    this.setState({
-      blobUrl: url,
-      songObject: {
-        passedID: id,
-        passedAlbum: album,
-        passedArtist: artist,
-        passedBit: bit,
-        passsedDur: dur,
-        passedImg: img,
-        passedSongTitle: songTitle,
-      },
-    });
-  };
-
   handleDeleteSong = (item, PL) => () => {
-    const { PLArrayParent } = this.state;
+    const { PLArrayParent } = this.props.MWparents.state;
     if (PL === 1) {
       callDeleteDB(item.id);
     } else {
       callDeletePLIDdb(indOfArr(PLArrayParent[PL].items,
         item.id), PL);
     }
-    callUpdateDB(this);
+    callUpdateDB(this.props.MWparents);
   }
 
   renderThumb = (props) => {
@@ -235,19 +172,19 @@ class MyLibrary extends Component {
 
   // Called when PL input !== 0
   PLAddhandler = (bool) => {
-    const { PLAddSongArr } = this.state;
-    this.setState({
+    const { PLAddSongArr } = this.props.MWparents.state;
+    this.props.MWparents.setState({
       PLAddSong: bool,
     });
     if (!bool) {
       PLAddSongArr.fill(false);
-      this.setState({
+      this.props.MWparents.setState({
         currentPL: 1,
         PLAddSongArr,
       });
     } else {
       PLAddSongArr.fill(true);
-      this.setState({
+      this.props.MWparents.setState({
         PLAddSongArr,
       });
     }
@@ -258,13 +195,13 @@ class MyLibrary extends Component {
       tmpPLArray,
       PLArrayParent,
       PLAddSongArr,
-    } = this.state;
+    } = this.props.MWparents.state;
     PLArrayParent.push({
       name: addDot(PLname, 17),
       items: tmpPLArray,
     });
     PLAddSongArr.fill(true);
-    this.setState({
+    this.props.MWparents.setState({
       PLArrayParent,
       tmpPLArray: [],
       PLAddSongArr,
@@ -274,9 +211,9 @@ class MyLibrary extends Component {
   }
 
   handlePLChange = value => () => {
-    const { PLAddSong } = this.state;
+    const { PLAddSong } = this.props.MWparents.state;
     if (PLAddSong) {
-      this.setState({
+      this.props.MWparents.setState({
         currentPL: 0,
         tmpCurrentPL: value,
       });
@@ -337,36 +274,21 @@ class MyLibrary extends Component {
   render() {
     const {
       dbItem, // For Loading the List
-      PLArrayParent, // Consists of id {name: '', items:[]}
-      currentPL,
       dropClassName,
-      hidePLBut,
       hoveringTrash,
+      songObject,
     } = this.state;
     let songList = [];
+    console.log('Songobject in mylibrary', songObject);
     if (typeof dbItem[0] !== 'undefined') {
       songList = itemList(this);
     }
-    const playlistName = PLArrayParent.map((item, index) => (
-      <PLbutton
-        type="button"
-        key={item.name}
-        hidePLBut={hidePLBut[index]}
-        className="playlistName"
-        selected={index === currentPL} // is current PL button clicked?
-        onClick={this.handlePLChange(index)}
-        draggable={index !== 1}
-        onDragStart={this.onDragStart(index)}
-        onDragEnd={this.onDragEnd(index)}
-      >
-        {item.name}
-      </PLbutton>
-    ));
+
     return (
       <DivLib>
         <NewPlaylistInput
           PLAddSonghandler={this.PLAddhandler}
-          stateFromParent={this.state}
+          stateFromParent={this.props.MWparents.state}
           addPlaylisthandler={this.addPlaylisthandler}
         />
         <div
@@ -382,12 +304,6 @@ class MyLibrary extends Component {
           {hoveringTrash ? 'Drag and drop your playlist here to remove it' : ''}
         </div>
         <br />
-        <PLbuttonDiv
-          className="playlistDiv"
-          selected={currentPL === 1}
-        >
-          {playlistName}
-        </PLbuttonDiv>
         <StyledScrollbarLib
           renderThumbVertical={this.renderThumb}
           renderThumbHorizontal={this.renderHorThumb}

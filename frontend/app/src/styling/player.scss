@@ -1,0 +1,19 @@
+.playerMainDiv {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4.5em;
+  min-width: 41em;
+  background: rgb(48, 48, 48);
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  // Font
+  font-family: Ubuntu;
+  font-weight: 200;
+  font-size: 1em;
+  color: white;
+  padding-bottom: 1em;
+}
+

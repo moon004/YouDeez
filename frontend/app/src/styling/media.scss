@@ -1,0 +1,85 @@
+.MediaVidDiv {
+  height: 300px;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.DownloadMediaDiv {
+  display: flex;
+  flex-direction: column;
+  margin: 1em 0;
+}
+.DownloadButton {
+  background-color: rgb(211, 211, 211);
+  margin: 0 auto 0 auto;
+  border: black 2px solid;
+  font-size: 1.2em;
+  font-weight: 800;
+  height: 2em;
+  width: 8em;
+  border-radius: 1em;
+  &:hover{
+    background-color: white;
+  }
+  &:active {
+    background-color: rgb(199, 199, 199);
+  }
+}
+.DownloadInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
+#mediabgDivYou {
+  background: rgb(240, 240, 240);
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+#mediabgDivDeez {
+  background: rgb(240, 240, 240);
+  width: 15em;
+  height: 15em;
+  margin: 0 auto;
+  text-align: center;
+}
+#mediaDivImgYou {
+  width: 70%;
+  position: relative;
+  top: 40%;
+}
+#mediaDivImgDeez {
+  width: 70%;
+  position: relative;
+  top: 40%;
+}
+
+#UTText {
+  color: white;
+  font-size: 1.2em;
+  font-family: Ubuntu;
+  margin: 0 0.6em;
+}
+#UTQuestion {
+  background: rgb(207, 207, 207);
+  border-radius: 5em;
+  font-size: 1em;
+  font-weight: 800;
+  height: 1.5em;
+  width: 1.55em;
+  color: black;
+  text-align: center;
+  &:hover {
+    background: white;
+  }
+}
+#UserToken {
+  border-radius: 1em;
+  border: none;
+  font-weight: 600;
+  font-family: Ubuntu;
+  font-size: 0.95em;
+  padding-left: 0.5em;
+}

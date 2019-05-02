@@ -23,7 +23,6 @@ const LogoComponent = ({ mediaType }) => (
 );
 
 const withEither = (NullComponent, YouOrDeez) => ({ ...props }) => {
-  // console.log('props: ', props);
   const { mediaID } = props;
   return (
     mediaID.length > 0

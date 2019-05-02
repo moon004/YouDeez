@@ -1,40 +1,7 @@
 import React, { Component } from 'react';
 import Sidebar from 'react-sidebar';
-import DivMenu from '../styling/Sidebar.style';
-import ydLogo from '../assets/Webapp_newlogo.svg';
 import { RenderSearchOrLib } from './RetObject';
-
-
-const SBContent = (props) => {
-  const { currentState, clicked } = props;
-  console.log('currentState: ', currentState);
-
-  return (
-    <div className="SBMenuMainDiv">
-      <img
-        id="youdeezLogo"
-        alt=""
-        src={ydLogo}
-      />
-      {/* <download progress div /> */}
-      <DivMenu
-        className="SBMenuDiv"
-        currentState={currentState === 'Search'}
-        onClick={clicked('Search')}
-      >
-        Search
-      </DivMenu>
-      <DivMenu
-        className="SBMenuDiv"
-        currentState={currentState === 'Library'}
-        onClick={clicked('Library')}
-      >
-        My Library
-      </DivMenu>
-    </div>
-
-  );
-};
+import SidebarContent from './SidebarContent';
 
 class MainSideBar extends Component {
   constructor(props) {
@@ -65,9 +32,10 @@ class MainSideBar extends Component {
     return (
       <Sidebar
         sidebar={(
-          <SBContent
+          <SidebarContent
             currentState={currentState}
             clicked={this.handleTapClick}
+            {...this.props}
           />
         )}
         sidebarClassName="MainSideBar"

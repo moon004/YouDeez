@@ -53,43 +53,44 @@ export class MainWrapper extends Component {
       currentPL: 1,
       PLAddSong: true,
       tmpPLArray: [],
+      tmpCurrentPL: 1,
       PLAddSongArr: [true],
       hidePLBut: [],
     };
     callInitDB(this);
   }
 
-    // trigger from clicking song title
-    handlePlaySong = (selectedDB, id, index) => () => {
-      const { PLAddSong, tmpPLArray, PLAddSongArr } = this.state;
-      const {
-        album, artist, bit, dur, img, songTitle,
-      } = selectedDB;
-      const url = URL.createObjectURL(selectedDB.bit);
-      // PLAddSong is TRUE when on normal state which is click to play song
-      // PLAddSong is FALSE when adding songs to playlist
-      if (PLAddSong) {
-        this.setState({
-          blobUrl: url,
-          songObject: {
-            passedID: id,
-            passedAlbum: album,
-            passedArtist: artist,
-            passedBit: bit,
-            passsedDur: dur,
-            passedImg: img,
-            passedSongTitle: songTitle,
-          },
-        });
-      } else {
-        // for turning opacity to 1 on PL creation
-        tmpPLArray.push(id);
-        PLAddSongArr[index] = true;
-        this.setState({
-          tmpPLArray,
-        });
-      }
-    };
+  // trigger from clicking song title
+  handlePlaySong = (selectedDB, id, index) => () => {
+    const { PLAddSong, tmpPLArray, PLAddSongArr } = this.state;
+    const {
+      album, artist, bit, dur, img, songTitle,
+    } = selectedDB;
+    const url = URL.createObjectURL(selectedDB.bit);
+    // PLAddSong is TRUE when on normal state which is click to play song
+    // PLAddSong is FALSE when adding songs to playlist
+    if (PLAddSong) {
+      this.setState({
+        blobUrl: url,
+        songObject: {
+          passedID: id,
+          passedAlbum: album,
+          passedArtist: artist,
+          passedBit: bit,
+          passsedDur: dur,
+          passedImg: img,
+          passedSongTitle: songTitle,
+        },
+      });
+    } else {
+      // for turning opacity to 1 on PL creation
+      tmpPLArray.push(id);
+      PLAddSongArr[index] = true;
+      this.setState({
+        tmpPLArray,
+      });
+    }
+  };
 
   onUpdateMediaObj = (value) => {
     const { onUpdateMediaObj } = this.props;
@@ -152,7 +153,7 @@ export class MainWrapper extends Component {
       songObject,
       currentPL,
     } = this.state;
-    console.log('dbItem', dbItem);
+    console.log('songObject in MW', songObject);
     return (
       <div>
         <div>
