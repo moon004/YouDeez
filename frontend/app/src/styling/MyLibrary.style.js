@@ -13,7 +13,6 @@ export const DivLib = styled.div`
   width: 100%;
   background: none;
   height: 20em;
-  margin-bottom: 21em;
   position: relative;
   color: white;
 `;
@@ -30,31 +29,19 @@ export const DivObj = styled.div`
 `;
 
 export const PLbutton = styled.div`
-  border: ${props => (props.selected ? '2.5px outset white' : '1px outset #a5a5a5')};
+  background: ${props => (props.selected ? '#474747' : 'none')};
+  color: ${props => (props.selected ? 'white' : '#bebebe')};
   opacity: ${props => (props.hidePLBut ? 0 : 1)};
   &:hover {
-    border: ${props => (props.selected
-    ? '2.5px outset white' : '2px outset white')};
-  }
-`;
-
-export const PLbuttonDiv = styled.div`
-  & .playlistName:nth-child(2) {
-      border: ${props => (props.selected
-    ? '3px outset white' : '1px outset #a5a5a5')};
     background: ${props => (props.selected
-    ? 'rgb(35, 35, 35)' : 'rgb(22, 22, 22)')};
-    &:hover {
-    border: ${props => (props.selected
-    ? '3px outset white' : '2px outset white')};
+    ? '#474747' : '#303030')};
   }
-    }
 `;
 
 export const DivObjTitle = styled.div`
   display: flex;
   flex-direction: column;
-  width: 25em;
+  width: 100%;
 `;
 
 export const DivObjArtist = styled.div`

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import DivMenu from '../styling/Sidebar.style';
 import ydLogo from '../assets/Webapp_newlogo.svg';
 import {
-  PLbuttonDiv,
   PLbutton,
 } from '../styling/MyLibrary.style';
 
@@ -59,6 +58,9 @@ class SidebarContent extends Component {
         draggable={index !== 1}
       >
         {item.name}
+        <div
+          className="droppableClass"
+        />
       </PLbutton>
     ));
     console.log('state in SidebarContent', this.state);
@@ -84,12 +86,12 @@ class SidebarContent extends Component {
         >
           My Library
         </DivMenu>
-        <PLbuttonDiv
+        <div
           className="playlistDiv"
           selected={currentPL === 1}
         >
           {playlistName}
-        </PLbuttonDiv>
+        </div>
       </div>
     );
   }

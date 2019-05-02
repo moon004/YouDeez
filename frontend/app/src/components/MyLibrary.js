@@ -20,7 +20,7 @@ import '../index.css';
 import {
   DivLib,
   DivObj,
-  StyledScrollbarLib,
+  // StyledScrollbarLib,
   DivObjTitle,
   DivObjArtist,
   DeleteIcon,
@@ -197,7 +197,7 @@ class MyLibrary extends Component {
       PLAddSongArr,
     } = this.props.MWparents.state;
     PLArrayParent.push({
-      name: addDot(PLname, 17),
+      name: addDot(PLname, 12),
       items: tmpPLArray,
     });
     PLAddSongArr.fill(true);
@@ -274,8 +274,6 @@ class MyLibrary extends Component {
   render() {
     const {
       dbItem, // For Loading the List
-      dropClassName,
-      hoveringTrash,
       songObject,
     } = this.state;
     let songList = [];
@@ -291,39 +289,19 @@ class MyLibrary extends Component {
           stateFromParent={this.props.MWparents.state}
           addPlaylisthandler={this.addPlaylisthandler}
         />
-        <div
-          className={`${dropClassName}`}
-          onDragEnter={this.onDragEnter}
-          onDragLeave={this.onDragLeave}
-          onDragOver={this.onDragOver}
-          onDrop={this.onDrop}
-          onMouseEnter={this.handleHover}
-          onMouseLeave={this.handleHover}
-        />
-        <div className="trashInfo">
-          {hoveringTrash ? 'Drag and drop your playlist here to remove it' : ''}
-        </div>
         <br />
-        <StyledScrollbarLib
-          renderThumbVertical={this.renderThumb}
-          renderThumbHorizontal={this.renderHorThumb}
-          autoHide
-          style={{ height: 300 }}
-          thumbMinSize={30}
-        >
-          {songList[0] === undefined ? (
-            <div style={{ margin: '8em' }}>
-              <div>
-                {'Begin Searching and Download songs . . .'}
-              </div>
+        {songList[0] === undefined ? (
+          <div style={{ margin: '8em' }}>
+            <div>
+              {'Begin Searching and Download songs . . .'}
             </div>
-          )
-            : (
-              <div className="wholeSongList">
-                {songList}
-              </div>
-            )}
-        </StyledScrollbarLib>
+          </div>
+        )
+          : (
+            <div className="wholeSongList">
+              {songList}
+            </div>
+          )}
       </DivLib>
     );
   }

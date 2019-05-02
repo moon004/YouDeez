@@ -49,20 +49,22 @@ export default class NewPlaylist extends Component {
     const { value, error } = this.state;
     return (
       <div>
-        <button
-          type="button"
-          className="buttonPlayList"
-          onClick={this.addPlaylist}
-        >
-          {'Add Playlist'}
-        </button>
-        <input
-          type="text"
-          placeholder="Enter playlist name"
-          className="playListInput"
-          onChange={this.handlePLInput()}
-          value={value}
-        />
+        <div className="addPLDiv">
+          <button
+            type="button"
+            className="buttonPlayList"
+            onClick={this.addPlaylist}
+          >
+            {'Add Playlist'}
+          </button>
+          <input
+            type="text"
+            placeholder="Enter playlist name"
+            className="playListInput"
+            onChange={this.handlePLInput()}
+            value={value}
+          />
+        </div>
         <h6 className="errorMessage">
           {error}
         </h6>

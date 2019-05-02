@@ -1,16 +1,14 @@
-$bgColor: rgb(43, 43, 43);
 %basic-shared {
-  border-radius: 1em;
   color: white;
   padding: 0.4em 0.6em;
-  margin: 1em 0.5em;
-  border: 1px solid white;
-  background: $bgColor;
+  margin: 0;
+  border: none;
+  background: none;
   font-family: Ubuntu;
   transition: 0.3s;
   &:hover {
+    background: rgb(36, 36, 36);
     transition: 0.3s;
-    border: 2px outset white;
   }
   &:focus {
     outline: none;
@@ -18,7 +16,15 @@ $bgColor: rgb(43, 43, 43);
 }
 .buttonPlayList {
   @extend %basic-shared;
-  font-size: 1.1em;
+  font-size: 1.5em;
+  border: white solid 1px;
+}
+
+.addPLDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background: black;
 }
 
 .playListNumber {
@@ -28,50 +34,58 @@ $bgColor: rgb(43, 43, 43);
 
 .playListInput {
   @extend %basic-shared;
-  &:focus {
-    border: 2px outset white;
-  }
+  width: 80%;
+  font-size: 1.5em;
 }
 
 .playlistDiv {
-  margin-bottom: 1.2em;
-  margin-right: 3em;
+  margin: 0;
 }
 // Main PL button
 .playlistDiv .playlistName:nth-child(2) {
-  font-size: 1.2em;
-  padding: 0.5em;
-  background: rgb(22, 22, 22);
+  font-size: 1.3em;
+  padding: 0.5em 0.5em 0.2em 1.5em;
+  border: none;
   transition: 0.2s;
-  margin: 0 1em;
   &:hover {
-    border: 2px outset white;
+    background: rgb(54, 54, 54);
     transition: 0.2s;
   }
 }
+.playlistDiv .playlistName:nth-child(2) .droppableClass {
+  display: none;
+}
+// .playlistDiv .playlistName:nth-child(2) {
+//   display: none;
+// }
 // Void PL button of the first child
 .playlistName:first-child {
   display: none;
 }
 // Normal PL button
 .playlistName {
-  @extend %basic-shared;
-  padding: 0.2em 0.4em;
+  // @extend %basic-shared;
   font-size: 1em;
-  display: inline-block;
+  font-family: Ubuntu;
+  color: #bebebe;
+  display: flex;
+  padding: 0.5em 0.4em 0.2em 2.5em;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 // divObj is for the Library Song Playlist
 .divObj {
-  width: 100%;
+  width: 80%;
   position: relative;
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
   font-size: 1.1em;
   border-radius: 3px;
   padding: 0.3em 0 0.3em 0;
   transition: 0.3s;
-  justify-content: space-between;
+  justify-content: flex-start;
   &:hover {
     background: #3b3b3b;
     opacity: 1;
@@ -79,6 +93,10 @@ $bgColor: rgb(43, 43, 43);
   &:active {
     background: #515151;
   }
+}
+
+.wholeSongList {
+  margin-bottom: 10em;
 }
 
 .divObj {
@@ -99,28 +117,30 @@ $bgColor: rgb(43, 43, 43);
 }
 
 .errorMessage {
-  font-size: 0.9em;
+  font-size: 1em;
   color: rgb(243, 10, 10);
   display: inline-block;
-  margin: 0;
+  margin: 0.7em;
   font-weight: 300;
 }
 
 %trashcss {
-  height: 2.2em;
-  width: 2em;
-  position: absolute;
-  right: 0em;
-  bottom: 5.2em;
+  height: 1.5em;
+  width: 1em;
+  position: relative;
   opacity: 0.75;
 }
 %trashbefcss {
   font-family: 'Font Awesome\ 5 Free';
   color: white;
-  font-size: 2em;
+  font-size: 1em;
 }
-.droppableClass { 
+.droppableClass {
   @extend %trashcss;
+  opacity: 0.6;
+  &:hover {
+    opacity: 1;
+  }
 }
 
 .droppableClass:before {
@@ -128,29 +148,18 @@ $bgColor: rgb(43, 43, 43);
   content: '\f2ed'; // Rubbish Icon
 }
 
-.droppableClassHov {
-  @extend %trashcss;
-  opacity: 0.9;
-}
-
-.droppableClassHov:before {
-  @extend %trashbefcss;
-  content: '\f2ed'; // Rubbish Icon
-  color: red;
-}
-
-.trashInfo {
-  width: 8em;
-  position: absolute;
-  right: 0.5em;
-  bottom: 8.5em;
-  font-weight: 100;
-  opacity: 0.6;
-  text-align: right;
-  font-size: 0.9em;
-  transition: 0.2s;
-  display: inline-block;
-}
+// .trashInfo {
+//   width: 8em;
+//   position: absolute;
+//   right: 0.5em;
+//   bottom: 8.5em;
+//   font-weight: 100;
+//   opacity: 0.6;
+//   text-align: right;
+//   font-size: 0.9em;
+//   transition: 0.2s;
+//   display: inline-block;
+// }
 
 .songIndex {
   width: 2.5em;
