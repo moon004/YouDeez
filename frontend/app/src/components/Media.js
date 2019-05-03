@@ -67,14 +67,11 @@ class Media extends Component {
       },
     } = nextprops;
     if (MediaType === 'Youtube' && RegexpYou(ID)) {
-      console.log('Update Youtube');
       return true;
     }
     if (MediaType === 'Deezer' && RegexpDeez(ID)) {
-      console.log('Update Deezer');
       return true;
     }
-    console.log('No Update', MediaType, RegexpYou(ID));
     return false;
   }
 
