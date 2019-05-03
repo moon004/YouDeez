@@ -4,6 +4,8 @@ $deezCol: #e0e0e0;
 
 body {
   background-color: #1e1e1e;
+  overflow-y: scroll; /* has to be scroll, not auto */
+  -webkit-overflow-scrolling: touch;
 }
 
 .MainDiv {
@@ -14,7 +16,7 @@ body {
   width: auto;
   height: auto;
   top: 2em;
-  margin: 0 auto 5em auto;
+  margin: 0 auto 10em auto;
   position: relative;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -47,7 +49,7 @@ body {
   width: 1.2em;
   height: 1.2em;
   position: absolute;
-  right: 0.5em;
+  right: 1em;
   top: 0.55em;
 }
 #searchListItem {
@@ -65,7 +67,6 @@ body {
 #searchListItem > li {
   list-style-type: none;
   font-size: 0.9em;
-  background: white;
   box-sizing : border-box;
   width: 100%;
   padding: 0.2em 0 0.2em 0.5em;
@@ -93,13 +94,19 @@ body {
 #dzlogowhite {
   @extend %sharedlogo;
 }
-
+#hqlogo {
+  width: 1.7em;
+  height: auto;
+  margin-left: 0.7em;
+  margin-bottom: 0.7em;
+}
 
 .YoutubeDiv {
   position: relative;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  margin-bottom: 2em;
 }
 
 .divscrollbar {
@@ -132,17 +139,33 @@ body {
     background-color: rgba(255,255,255,0.3)
   }
 }
+.RetObjStyledYou:first-child {
+  @extend %retObjShared;
+  max-width: 25.5em;
+  width: auto;
+  padding: 0.5em;
+  margin: 0 0 1em 0;
+}
 .RetObjStyledYou {
   @extend %retObjShared;
   max-width: 25.5em;
   width: auto;
   padding: 0.5em;
+  margin: 1em 0;
+}
+.RetObjStyledDeez:first-child {
+  @extend %retObjShared;
+  width: 26em;
+  margin: 0;
+  padding: 0.5em;
+  margin: 0 0 1em 0;
 }
 .RetObjStyledDeez {
   @extend %retObjShared;
   width: 26em;
   margin: 0;
   padding: 0.5em;
+  margin: 1em 0;
 }
 
 // Deezer onwards
@@ -156,6 +179,8 @@ body {
   flex-direction: row;
   justify-content: flex-start;
 }
+
+
 
 .deezerAlbumDiv {
   @extend %deez-shared;

@@ -144,8 +144,10 @@ input[type=range]::-webkit-slider-runnable-track {
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
-  align-items: center;
-  justify-content: center;
+  position: absolute;
+  bottom: 6em;
+  right: 7em;
+  height: 2em;
 }
 #footer-a:hover {
   opacity: 0.8;

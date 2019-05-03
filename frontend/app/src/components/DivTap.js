@@ -6,6 +6,7 @@ import Search from './Search';
 import Media from './Media';
 import youtubelogo from '../assets/ytlogowhite.svg';
 import deezerlogo from '../assets/deezerlogowhite.svg';
+import hq from '../assets/hqwhite.svg';
 
 class DivTap extends Component {
   static propTypes = divTapPropTypes;
@@ -21,7 +22,7 @@ class DivTap extends Component {
 
   renderThumbVert = (props) => {
     const thumbStyle = {
-      backgroundColor: 'black',
+      backgroundColor: 'rgba(140, 140, 140)',
     };
     return (
       <div {...props} style={{ ...thumbStyle }} className="vertical-thumb" />
@@ -62,11 +63,11 @@ class DivTap extends Component {
       onDownload,
     } = this.props;
     const scrollStyleYou = {
-      height: 400,
+      height: 380,
       width: 420,
     };
     const scrollStyleDeez = {
-      height: 400,
+      height: 350,
       width: 440,
     };
     const MediaObjectYou = {
@@ -119,6 +120,11 @@ class DivTap extends Component {
           <img
             id="dzlogowhite"
             src={deezerlogo}
+            alt=""
+          />
+          <img
+            id="hqlogo"
+            src={hq}
             alt=""
           />
           <div className="DeezerDiv">

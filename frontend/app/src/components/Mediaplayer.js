@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactPlayer from 'react-player';
 import '../index.css';
 import { convertString, indOfObjDB } from '../utils/tools';
-import HNDLogo from '../assets/hnd.svg';
+import HNDLogo from '../assets/hndnewblack.svg';
 
 import {
   RepeatIcon,

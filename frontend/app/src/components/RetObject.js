@@ -12,14 +12,11 @@ import {
   DeezDiv,
 } from '../styling/DivTap.style';
 
-const SearchLibHOC = (SearchCmp, LibCmp) => ({ currentState, ...props }) => {
-  console.log('props in HOC', props);
-  return (
-    currentState === 'Search'
-      ? <SearchCmp {...props} />
-      : <LibCmp {...props} />
-  );
-};
+const SearchLibHOC = (SearchCmp, LibCmp) => ({ currentState, ...props }) => (
+  currentState === 'Search'
+    ? <SearchCmp {...props} />
+    : <LibCmp {...props} />
+);
 
 
 export const RenderSearchOrLib = SearchLibHOC(DivTap, MyLibrary);

@@ -4,6 +4,7 @@ import ydLogo from '../assets/Webapp_newlogo.svg';
 import {
   PLbutton,
 } from '../styling/MyLibrary.style';
+import { GithubIcon } from '../styling/MainWrapper.style';
 import {
   callUpdateDB,
   callDeletePL,
@@ -73,7 +74,6 @@ class SidebarContent extends Component {
         />
       </PLbutton>
     ));
-    console.log('state in SidebarContent', this.state);
     return (
       <div className="SBMenuMainDiv">
         <img
@@ -102,6 +102,14 @@ class SidebarContent extends Component {
         >
           {playlistName}
         </div>
+        <a
+          href="https://github.com/moon004/YouDeez"
+          target="_blank"
+          rel="noopener noreferrer"
+          id="footer-a"
+        >
+          <GithubIcon />
+        </a>
       </div>
     );
   }

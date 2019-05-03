@@ -37,7 +37,6 @@ const itemList = (parent) => {
     currentPL,
     songObject: { passedID },
   } = parent.props.MWparents.state;
-  console.log('itemList', PLArrayParent, currentPL);
   const { MWparents } = parent.props;
   if (currentPL !== 0) {
     const sList = [];

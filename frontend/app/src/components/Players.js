@@ -75,7 +75,7 @@ export class RPlayer extends Component {
           url={`https://www.youtube.com/watch?v=${mediaID}`}
           playing
           width="auto"
-          height="19em"
+          height="17em"
           onProgress={this.onProgress}
         />
       </div>

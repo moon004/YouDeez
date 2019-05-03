@@ -93,3 +93,13 @@ export const indOfArr = (array, id) => {
   const index = array.findIndex(elem => (elem === id));
   return index;
 };
+
+export const RegexpYou = (value) => {
+  const bool = /[\w-]{11}/.test(value);
+  return bool;
+};
+
+export const RegexpDeez = (value) => {
+  const bool = /^\d+$/.test(value);
+  return bool;
+};

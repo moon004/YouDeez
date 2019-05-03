@@ -23,3 +23,12 @@ export const DivDownload = styled.div`
   display: flex;
   flex-direction: row;
 `;
+
+// Reminder: always put state change element here!
+export const DLButtonYou = styled.button`
+
+`;
+
+export const DLButtonDeez = styled.button`
+
+`;

@@ -47,31 +47,31 @@ class Search extends Component {
 
   // click on autocomeplete list
   handleClick = value => () => {
-    const { onGetAutoComp, handleSubmit } = this.props;
+    const { onGetAutoComp, onSubmitSearch } = this.props;
     this.setState({}, () => {
       onGetAutoComp(value);
       this.state.value = value;
     });
-    handleSubmit(value);
+    onSubmitSearch(value);
     this.setState({ searchDone: true });
   }
 
   // Click on Search Icon
   handleSubmitClick = value => () => {
-    const { handleSubmit } = this.props;
-    handleSubmit(value);
+    const { onSubmitSearch } = this.props;
+    onSubmitSearch(value);
     this.setState({ searchDone: true });
   }
 
   // Enter pressed
   handleKeyPress = (event) => {
-    const { handleSubmit } = this.props;
+    const { onSubmitSearch } = this.props;
     const { value } = this.state;
     if (event.key === 'Enter' && value.length > 0) {
       this.setState({
         searchDone: true,
       }, () => {
-        handleSubmit(value);
+        onSubmitSearch(value);
       });
     }
   }
@@ -86,6 +86,7 @@ class Search extends Component {
       },
 
     } = this.props;
+    console.log('handlekeyDown', event.key);
     if (event.key === 'Enter') {
       this.handleKeyPress(event);
     }
@@ -115,7 +116,7 @@ class Search extends Component {
 
   render() {
     const {
-      searchState: {
+      apiReqState: {
         fetchState,
       },
       autoComplete: {
@@ -153,6 +154,7 @@ class Search extends Component {
         errorCode = '';
       }
     }
+    console.log('Search: fetchstate: ', fetchState);
     return (
       <div className="searchDiv" position="relative">
         <div style={divStyle}>

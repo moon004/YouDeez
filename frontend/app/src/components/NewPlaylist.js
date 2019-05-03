@@ -14,7 +14,6 @@ export default class NewPlaylist extends Component {
   }
 
   handlePLInput = () => (event) => {
-    console.log(event.target.value);
     const { PLAddSonghandler } = this.props;
     this.setState({
       value: event.target.value,
@@ -48,7 +47,6 @@ export default class NewPlaylist extends Component {
   render() {
     const { value, error } = this.state;
     const { currentPLName } = this.props;
-    console.log('currentPLName', currentPLName);
     return (
       <div>
         <div className="addPLDiv">

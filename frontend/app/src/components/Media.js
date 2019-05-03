@@ -11,6 +11,14 @@ import {
   PlayerdefaultProps,
   defaultConfig,
 } from '../props';
+import {
+  DLButtonYou,
+  DLButtonDeez,
+} from '../styling/Media.style';
+import {
+  RegexpYou,
+  RegexpDeez,
+} from '../utils/tools';
 
 const LogoComponent = ({ mediaType }) => (
   <div id={mediaType === 'Youtube' ? 'mediabgDivYou' : 'mediabgDivDeez'}>
@@ -22,28 +30,22 @@ const LogoComponent = ({ mediaType }) => (
   </div>
 );
 
-const withEither = (NullComponent, YouOrDeez) => ({ ...props }) => {
-  const { mediaID } = props;
-  return (
-    mediaID.length > 0
-      ? <YouOrDeez {...props} />
-      : <NullComponent {...props} />
-  );
-};
-
-const withLogic = (YouPlayer, DeezPlayer) => ({ ...props }) => {
-  const { mediaType } = props;
+const withEither = (NullComponent, YouPlayer, DeezPlayer) => ({ ...props }) => {
+  const { mediaID, mediaType } = props;
   const config = defaultConfig;
-  return (
-    mediaType === 'Youtube'
-      ? <YouPlayer {...props} />
-      : <DeezPlayer config={config.deez} {...props} />
-  );
+  switch (true) {
+    case (RegexpDeez(mediaID)) && mediaType === 'Deezer': // true if Deezer ID
+      return <DeezPlayer config={config.deez} {...props} />;
+    case (RegexpYou(mediaID) && mediaType === 'Youtube'): // true if Youtube ID
+      return <YouPlayer {...props} />;
+    default: // Resort to null element on start.
+      return <NullComponent {...props} />;
+    // default:
+    //   console.log('somehow it still fall to default case, what the fuck?!');
+  }
 };
 
-const YouOrDeez = withLogic(RPlayer, DPlayer);
-
-const DeezerOrYoutube = withEither(LogoComponent, YouOrDeez);
+const DeezerOrYoutubeOrNull = withEither(LogoComponent, RPlayer, DPlayer);
 
 class Media extends Component {
   static propTypes = mediaPropTypes;
@@ -53,6 +55,27 @@ class Media extends Component {
   constructor() {
     super();
     this.handleClickDownload = this.handleClickDownload.bind(this);
+  }
+
+  shouldComponentUpdate(nextprops) {
+    const {
+      mediaObj: {
+        MediaType,
+        MediaData: {
+          ID,
+        },
+      },
+    } = nextprops;
+    if (MediaType === 'Youtube' && RegexpYou(ID)) {
+      console.log('Update Youtube');
+      return true;
+    }
+    if (MediaType === 'Deezer' && RegexpDeez(ID)) {
+      console.log('Update Deezer');
+      return true;
+    }
+    console.log('No Update', MediaType, RegexpYou(ID));
+    return false;
   }
 
   handleClickDownload = () => {
@@ -86,14 +109,11 @@ class Media extends Component {
           ID,
         },
       },
-      // downloadObject: {
-      //   state,
-      //   songObject,
-      // },
     } = this.props;
+
     return (
       <div className="MediaVidDiv">
-        <DeezerOrYoutube
+        <DeezerOrYoutubeOrNull
           mediaID={ID}
           mediaType={MediaType}
         />
@@ -102,27 +122,38 @@ class Media extends Component {
           {
             MediaType === 'Youtube'
               ? (
-                <div />
+                <DLButtonYou
+                  type="button"
+                  className="DownloadButton"
+                  // active={}
+                >
+                  Download
+                </DLButtonYou>
               ) : (
-                <div className="DownloadInfo">
-                  <a
-                    id="UTQuestion"
-                    href="https://notabug.org/RemixDevs/DeezloaderRemix/wiki/Login+via+userToken"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                <div>
+                  <div className="DownloadInfo">
+                    <a
+                      id="UTQuestion"
+                      href="https://notabug.org/RemixDevs/DeezloaderRemix/wiki/Login+via+userToken"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      ?
+                    </a>
+                    <div id="UTText">User Token</div>
+                    <input
+                      id="UserToken"
+                    />
+                  </div>
+                  <DLButtonDeez
+                    type="button"
+                    className="DownloadButton"
                   >
-                    ?
-                  </a>
-                  <div id="UTText">User Token</div>
-                  <input
-                    id="UserToken"
-                  />
+                    Download
+                  </DLButtonDeez>
                 </div>
               )
           }
-          <button type="button" className="DownloadButton">
-            Download
-          </button>
         </div>
       </div>
     );
