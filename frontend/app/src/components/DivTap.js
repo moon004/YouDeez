@@ -57,6 +57,7 @@ class DivTap extends Component {
       MediaObject: {
         MediaData: {
           ID,
+          songObject,
         },
       },
       downloadObject,
@@ -74,12 +75,14 @@ class DivTap extends Component {
       MediaType: 'Youtube',
       MediaData: {
         ID,
+        songObject,
       },
     };
     const MediaObjectDeez = {
       MediaType: 'Deezer',
       MediaData: {
         ID,
+        songObject,
       },
     };
     return (

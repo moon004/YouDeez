@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { addToDB } from '../utils/indexdb';
+import { addToDB, callUpdateDB } from '../utils/indexdb';
 import {
   UPDATE_MEDIA,
   UPDATE_CMEDIA,
@@ -46,7 +46,7 @@ export function updateMediaObjAct(MediaObj) {
   };
 }
 
-export function updateDownloadAct(downloadObject) {
+export function updateDownloadAct(downloadObject, MainWrapper) {
   return (dispatch) => {
     dispatch({
       type: UPDATE_DOWNLOAD,
@@ -59,18 +59,24 @@ export function updateDownloadAct(downloadObject) {
       },
     });
     axios.request({
-      responseType: 'blob',
-      url: `${dynamicDNS}/api/download?q=${downloadObject.Id}`,
+      responseType: 'blob', //   just send user token to both youtube or deezer download
+      url: `${dynamicDNS}/api/download?q=${downloadObject.Id}&ut=${downloadObject.UserToken}`,
       method: 'get',
       headers: {
-        'Content-Type': 'audio/mp4',
+        'content-length': '123',
+        'content-type': 'audio/mp4',
         Accept: 'audio/mp4',
+      },
+      onDownloadProgress(progressEvent) {
+        console.log('progressEvent: ', progressEvent);
       },
     }).then((response) => {
       const {
         songName, songImg, songDur, songArtist, songAlbum,
       } = downloadObject.songObj;
+      console.log('response: ', response);
       addToDB(songName, songImg, songDur, songArtist, songAlbum, response.data);
+      callUpdateDB(MainWrapper);
       dispatch({
         type: UPDATE_DOWNLOAD_FINISH,
         payload: {

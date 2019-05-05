@@ -9,10 +9,8 @@ import {
 import {
   callUpdateDB,
   callDeleteDB,
-  callInitDB,
   callDeletePLIDdb,
   addToDBPL,
-  callDeletePL,
 } from '../utils/indexdb';
 import NewPlaylistInput from './NewPlaylist';
 import '../index.css';
@@ -96,49 +94,18 @@ class MyLibrary extends Component {
 
   static defaultProps = myLibDefaultProps
 
-  constructor() {
-    super();
-    this.state = {
-      blobUrl: '',
-      dbItem: [],
-      songObject: {},
-      PLAddSong: true, // For switching to add song
-      PLAddSongArr: [true], // for setting boolean array
-      // Always start with main PL, 0=Void=As a reset for fade in to work
-      currentPL: 1,
-      tmpCurrentPL: 1,
-      tmpPLArray: [],
-      PLArrayParent: [{
-        name: 'Void',
-        items: [],
-      }, {
-        name: 'Main',
-        items: [],
-      }],
-      dropClassName: 'droppableClass',
-      hidePLBut: [],
-      hoveringTrash: false,
-    };
-    callInitDB(this);
-  }
-
-  shouldComponentUpdate(nextprops, nextstate) {
-    const { downloadObject, PLAddSong } = this.props;
-    if (nextprops.downloadObject.state !== downloadObject.state) {
-      callUpdateDB(this);
+  shouldComponentUpdate(nextprops) {
+    const { PLAddSong } = this.props;
+    const { dbItem, currentPL } = this.props;
+    if (nextprops.dbItem !== dbItem) {
+      console.log('updated library, dbItem');
       return true;
     }
-    const { dbItem, blobUrl, currentPL } = this.state;
-    if (nextstate.dbItem !== dbItem) {
+    if (nextprops.PLAddSong !== PLAddSong) {
       return true;
     }
-    if (nextstate.blobUrl !== blobUrl) {
-      return true;
-    }
-    if (nextstate.PLAddSong !== PLAddSong) {
-      return true;
-    }
-    if (nextstate.currentPL !== currentPL) {
+    if (nextprops.currentPL !== currentPL) {
+      console.log('UPDATED the Library, currentPL');
       return true;
     }
     return false;
@@ -219,62 +186,8 @@ class MyLibrary extends Component {
     }
   };
 
-  onDragStart = index => (e) => {
-    e.dataTransfer.setData('index', index);
-    e.dataTransfer.effectAllowed = 'copyMove';
-    const { hidePLBut } = this.state;
-    hidePLBut[index] = true;
-    this.setState({
-      hidePLBut,
-      dropClassName: 'droppableClass',
-    });
-  }
-
-  onDragEnd = index => (e) => {
-    e.preventDefault();
-    const { hidePLBut } = this.state;
-    hidePLBut[index] = false;
-    this.setState({
-      hidePLBut,
-    });
-  }
-
-  onDragEnter = (e) => {
-    e.preventDefault();
-    this.setState({
-      dropClassName: 'droppableClassHov',
-    });
-  }
-
-  onDragLeave = (e) => {
-    e.preventDefault();
-    this.setState({
-      dropClassName: 'droppableClass',
-    });
-  }
-
-  onDragOver = (e) => {
-    e.preventDefault();
-  }
-
-  onDrop = (e) => {
-    const ind = e.dataTransfer.getData('index');
-    callDeletePL(ind, this);
-    callUpdateDB(this);
-  }
-
-  handleHover = () => {
-    const { hoveringTrash } = this.state;
-    this.setState({
-      hoveringTrash: !hoveringTrash,
-    });
-  }
-
   render() {
-    const {
-      dbItem, // For Loading the List
-    } = this.state;
-    const { PLArrayParent, currentPL } = this.props.MWparents.state;
+    const { PLArrayParent, currentPL, dbItem } = this.props.MWparents.state;
     let songList = [];
     if (typeof dbItem[0] !== 'undefined') {
       songList = itemList(this);

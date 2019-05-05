@@ -26,9 +26,21 @@ export const DivDownload = styled.div`
 
 // Reminder: always put state change element here!
 export const DLButtonYou = styled.button`
-
+  background: ${props => (props.active ? '#bfbfbf' : '#707070')};
+  &:hover {
+    background: ${props => (props.active ? '#dddddd' : '#707070')};
+  }
+  &:active {
+    background: ${props => (props.active ? '#f7f7f7' : '#707070')};
+  }
 `;
 
 export const DLButtonDeez = styled.button`
-
+  background: ${props => (props.active ? '#bfbfbf' : '#707070')};
+  &:hover {
+    background: ${props => (props.active ? '#dddddd' : '#707070')};
+  }
+  &:active {
+    background: ${props => (props.active ? '#f7f7f7' : '#707070')};
+  }
 `;

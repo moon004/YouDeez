@@ -18,6 +18,7 @@ import {
 import {
   RegexpYou,
   RegexpDeez,
+  RegexpUserToken,
 } from '../utils/tools';
 
 const LogoComponent = ({ mediaType }) => (
@@ -55,9 +56,13 @@ class Media extends Component {
   constructor() {
     super();
     this.handleClickDownload = this.handleClickDownload.bind(this);
+    this.state = {
+      UsrToken: '',
+      activate: false,
+    };
   }
 
-  shouldComponentUpdate(nextprops) {
+  shouldComponentUpdate(nextprops, nextstate) {
     const {
       mediaObj: {
         MediaType,
@@ -72,10 +77,14 @@ class Media extends Component {
     if (MediaType === 'Deezer' && RegexpDeez(ID)) {
       return true;
     }
+    if (nextstate.UsrToken !== this.state.UsrToken) {
+      return true;
+    }
     return false;
   }
 
-  handleClickDownload = () => {
+  handleClickDownload = active => () => {
+    console.log('handle click download');
     const {
       onDownload,
       mediaObj: {
@@ -84,17 +93,31 @@ class Media extends Component {
           songObject,
         },
       },
-      downloadObject: {
-        state,
-      },
     } = this.props;
+    const { UsrToken } = this.state;
     const downloadObject = {
       state: 'progress',
       Id: ID,
       songObj: songObject,
+      UserToken: UsrToken,
     };
-    if (songObject !== undefined && state === 'idle') {
+    console.log('handleClickDownload: ', downloadObject);
+    if (songObject !== undefined && active) {
       onDownload(downloadObject);
+    }
+  }
+
+  handleChange = (event) => {
+    this.setState({
+      UsrToken: event.target.value,
+      activate: false,
+    });
+    console.log('Event', event.target.value);
+    if (RegexpUserToken(event.target.value)) {
+      console.log('RegexpUserToken', this.state.activate);
+      this.setState({
+        activate: true,
+      });
     }
   }
 
@@ -107,7 +130,9 @@ class Media extends Component {
         },
       },
     } = this.props;
-
+    const { UsrToken, activate } = this.state;
+    const deezActivate = RegexpDeez(ID) && activate;
+    console.log('deezActivate', deezActivate, RegexpDeez(ID), activate);
     return (
       <div className="MediaVidDiv">
         <DeezerOrYoutubeOrNull
@@ -122,7 +147,8 @@ class Media extends Component {
                 <DLButtonYou
                   type="button"
                   className="DownloadButton"
-                  // active={}
+                  active={RegexpYou(ID)}
+                  onClick={this.handleClickDownload(RegexpYou(ID))}
                 >
                   Download
                 </DLButtonYou>
@@ -140,11 +166,16 @@ class Media extends Component {
                     <div id="UTText">User Token</div>
                     <input
                       id="UserToken"
+                      type="text"
+                      value={UsrToken}
+                      onChange={this.handleChange}
                     />
                   </div>
                   <DLButtonDeez
                     type="button"
                     className="DownloadButton"
+                    active={deezActivate}
+                    onClick={this.handleClickDownload(deezActivate)}
                   >
                     Download
                   </DLButtonDeez>

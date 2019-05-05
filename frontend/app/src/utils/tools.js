@@ -93,13 +93,18 @@ export const indOfArr = (array, id) => {
   const index = array.findIndex(elem => (elem === id));
   return index;
 };
-
+// Regexp for youtube, check if got 11 character of alphanumeric
 export const RegexpYou = (value) => {
   const bool = /[\w-]{11}/.test(value);
   return bool;
 };
-
+// Regexp for Deezer, check contain number only
 export const RegexpDeez = (value) => {
   const bool = /^\d+$/.test(value);
+  return bool;
+};
+// Regexp for checking deezer user token.
+export const RegexpUserToken = (value) => {
+  const bool = /^[a-zA-Z0-9]{192}$/.test(value);
   return bool;
 };

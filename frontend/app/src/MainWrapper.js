@@ -114,7 +114,7 @@ export class MainWrapper extends Component {
 
   clickDownload = (value) => {
     const { onDownloadMedia } = this.props;
-    onDownloadMedia(value);
+    onDownloadMedia(value, this);
   }
 
   // triggered from nextSong()
@@ -170,6 +170,8 @@ export class MainWrapper extends Component {
             MediaObject={MediaObject}
             onDownload={this.clickDownload}
             downloadObject={downloadObject}
+            dbItem={dbItem}
+            currentPL={currentPL}
             MWparents={this}
           />
           <div className="playerMainDiv">
