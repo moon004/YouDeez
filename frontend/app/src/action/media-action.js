@@ -6,6 +6,7 @@ import {
   UPDATE_DOWNLOAD,
   UPDATE_DOWNLOAD_FINISH,
   UPDATE_DOWNLOAD_ERR,
+  DOWNLOAD_PROGRESS_INIT,
   dynamicDNS,
 } from '../constants/constant';
 
@@ -49,28 +50,36 @@ export function updateMediaObjAct(MediaObj) {
 export function updateDownloadAct(downloadObject, MainWrapper) {
   return (dispatch) => {
     dispatch({
-      type: UPDATE_DOWNLOAD,
+      type: DOWNLOAD_PROGRESS_INIT,
       payload: {
-        state: 'progress', // Change state when download button is clicked
-        buffer: null,
-        songObject: {
-          songName: downloadObject.songObj.songName,
-        },
+        state: 'progress',
       },
+    });
+    axios.request({
+      responseType: 'text',
+      url: `${dynamicDNS}/api/download?q=${downloadObject.Id}&ut=getsize`,
+      method: 'get',
+    }).then((response) => {
+      // Get Size request
+      dispatch({
+        type: DOWNLOAD_PROGRESS_INIT,
+        payload: {
+          state: 'progressing',
+          songName: downloadObject.songObj.songName,
+          totalsize: response.data,
+        },
+      });
     });
     axios.request({
       responseType: 'blob', //   just send user token to both youtube or deezer download
       url: `${dynamicDNS}/api/download?q=${downloadObject.Id}&ut=${downloadObject.UserToken}`,
       method: 'get',
       headers: {
-        'content-length': '123',
         'content-type': 'audio/mp4',
         Accept: 'audio/mp4',
       },
-      onDownloadProgress(progressEvent) {
-        console.log('progressEvent: ', progressEvent);
-      },
     }).then((response) => {
+      // Download song request
       const {
         songName, songImg, songDur, songArtist, songAlbum,
       } = downloadObject.songObj;

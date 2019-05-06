@@ -5,6 +5,7 @@ import {
   PLbutton,
 } from '../styling/MyLibrary.style';
 import { GithubIcon } from '../styling/MainWrapper.style';
+import DLProgress from './DLProgress';
 import {
   callUpdateDB,
   callDeletePL,
@@ -46,6 +47,7 @@ class SidebarContent extends Component {
           currentPL,
         },
       },
+      downloadObject,
       // onMenuTap,
       // apiReqState,
       // onObjClick,
@@ -81,7 +83,9 @@ class SidebarContent extends Component {
           alt=""
           src={ydLogo}
         />
-        {/* <download progress div /> */}
+        <DLProgress
+          downloadObject={downloadObject}
+        />
         <DivMenu
           className="SBMenuDiv"
           currentState={currentState === 'Search'}

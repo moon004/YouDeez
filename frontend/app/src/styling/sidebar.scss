@@ -30,3 +30,51 @@ $bgMainCol: #1e1e1e;
   font-weight: 650;
   margin-left: 0.6em;
 }
+
+.DLProgressDiv {
+  height: 8em;
+  margin: 1em 1em 0 1em;
+  font-weight: 800;
+}
+
+.DLProgressListItem {
+  height: 3em;
+  font-size: 0.9em;
+  font-weight: 600;
+  margin-top: 1em;
+  opacity: 0.6;
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  overflow-y: touch;
+}
+
+.DLProgressName {
+  width: 8.5em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.downloadingAnimate:after {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  -webkit-animation: ellipsis steps(4,end) 900ms infinite;      
+  animation: ellipsis steps(4,end) 900ms infinite;
+  content: "\2026"; /* ascii code for the ellipsis character */
+  width: 0px;
+}
+
+@keyframes ellipsis {
+  to {
+    width: 20px;    
+  }
+}
+
+@-webkit-keyframes ellipsis {
+  to {
+    width: 20px;    
+  }
+}

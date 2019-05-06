@@ -84,7 +84,6 @@ class Media extends Component {
   }
 
   handleClickDownload = active => () => {
-    console.log('handle click download');
     const {
       onDownload,
       mediaObj: {
@@ -101,7 +100,6 @@ class Media extends Component {
       songObj: songObject,
       UserToken: UsrToken,
     };
-    console.log('handleClickDownload: ', downloadObject);
     if (songObject !== undefined && active) {
       onDownload(downloadObject);
     }
@@ -129,10 +127,13 @@ class Media extends Component {
           ID,
         },
       },
+      downloadObject: {
+        state,
+      },
     } = this.props;
     const { UsrToken, activate } = this.state;
-    const deezActivate = RegexpDeez(ID) && activate;
-    console.log('deezActivate', deezActivate, RegexpDeez(ID), activate);
+    const deezActivate = RegexpDeez(ID) && activate && state === 'idle';
+    const youActivate = RegexpYou(ID) && state === 'idle';
     return (
       <div className="MediaVidDiv">
         <DeezerOrYoutubeOrNull
@@ -140,14 +141,13 @@ class Media extends Component {
           mediaType={MediaType}
         />
         <div className="DownloadMediaDiv">
-          {/* {DownloadButton(this, songObject, state)} */}
           {
             MediaType === 'Youtube'
               ? (
                 <DLButtonYou
                   type="button"
                   className="DownloadButton"
-                  active={RegexpYou(ID)}
+                  active={youActivate}
                   onClick={this.handleClickDownload(RegexpYou(ID))}
                 >
                   Download

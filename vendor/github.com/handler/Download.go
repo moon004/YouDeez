@@ -1,13 +1,11 @@
 package handler
 
 import (
-	"bytes"
 	"fmt"
 	"net/http"
 	"net/url"
 	"os/exec"
 	"regexp"
-	"sync"
 
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
@@ -37,37 +35,41 @@ func route(w http.ResponseWriter, r *http.Request) {
 	YouReg := regexp.MustCompile(`[\w-]{11}`)
 	queryValues := r.URL.Query()
 	query := queryValues.Get("q")
+	usrToken := queryValues.Get("ut")
 	q := url.QueryEscape(query)
+	usertoken := url.QueryEscape(usrToken)
 	switch {
 	case DeezReg.MatchString(q):
-		DownloadDeez(w, r)
+		DownloadDeez(w, r, q, usertoken)
 	case YouReg.MatchString(q):
-		DownloadYou(w, r)
+		DownloadYou(w, r, q, usertoken)
 	default:
 		w.Write([]byte("Unknown Media ID"))
 	}
-
+	fmt.Println("Route Download YouDeez end for: ", q)
 }
 
 // DownloadYou handles the youtube audio downloader.
-func DownloadYou(w http.ResponseWriter, r *http.Request) {
+func DownloadYou(w http.ResponseWriter, r *http.Request, q, usertoken string) {
 	fmt.Println("DownLoad You")
-	queryValue := r.URL.Query()
-	query := queryValue.Get("q")
-	q := url.QueryEscape(query)
-	var wg sync.WaitGroup
 
-	wg.Add(1)
-	go YouExe(q, w, r, &wg)
-	wg.Wait()
-	fmt.Fprintf(w, "Done %s", q)
+	YouExe(q, usertoken, w, r)
+
+	fmt.Println("Done %s", q)
 }
 
 // YouExe go routine for youtube-dl execution
-func YouExe(q string, w http.ResponseWriter, r *http.Request, wg *sync.WaitGroup) {
+func YouExe(q, usertoken string, w http.ResponseWriter, r *http.Request) {
 	fmt.Printf("Fetching %s \n", q) // ./youtube-dl for linux
-	cmd := exec.Command("youtube-dl.exe", "-f", "140", "-o", "-", "https://www.youtube.com/watch?v="+q)
-	cmd.Stdout = w // streaming occurs here
+	var cmd *exec.Cmd
+
+	if usertoken == "getsize" {
+		cmd = exec.Command("youtube-dl-getsize.exe", "https://www.youtube.com/watch?v="+q)
+		cmd.Stdout = w
+	} else {
+		cmd = exec.Command("youtube-dl.exe", "-f", "140", "-o", "-", "https://www.youtube.com/watch?v="+q)
+		cmd.Stdout = w // streaming occurs here
+	}
 	err := cmd.Start()
 	if err != nil {
 		render.JSON(w, r, ErrDuringStream(err))
@@ -76,42 +78,29 @@ func YouExe(q string, w http.ResponseWriter, r *http.Request, wg *sync.WaitGroup
 	if err != nil {
 		render.JSON(w, r, ErrDuringWait(err))
 	}
-	wg.Done()
 }
 
 // DownloadDeez handle the deezer audio download
-func DownloadDeez(w http.ResponseWriter, r *http.Request) {
+func DownloadDeez(w http.ResponseWriter, r *http.Request, q, usertoken string) {
 	fmt.Println("DownLoad Deez")
-	queryValues := r.URL.Query()
-	query := queryValues.Get("q")
-	usrToken := queryValues.Get("ut")
-	q := url.QueryEscape(query)
-	usertoken := url.QueryEscape(usrToken)
-	var wg sync.WaitGroup
 
-	wg.Add(2) // can be anything other than 'getsize' since doesnt matter when getting size
-	go DeezExe(q, "getsize", w, r, &wg)
-	go DeezExe(q, usertoken, w, r, &wg)
-	wg.Wait()
-	fmt.Fprintf(w, "Done")
+	DeezExe(q, usertoken, w, r)
+
+	fmt.Println("Done %s", q)
 }
 
 // DeezExe go routine for Deezer decrypt execution
-func DeezExe(q, usertoken string, w http.ResponseWriter, r *http.Request, wg *sync.WaitGroup) {
+func DeezExe(q, usertoken string, w http.ResponseWriter, r *http.Request) {
 	var cmd *exec.Cmd
 
-	if len(usertoken) < 192 {
-		buf := new(bytes.Buffer)
+	if usertoken == "getsize" {
 		cmd = exec.Command(
 			// REMEMBER ./deezer-downloader for linux
 			"deezer-downloader.exe",
 			"--id", q,
 			"--getsize",
 			"--usertoken", usertoken)
-
-		cmd.Stdout = buf
-		w.Header().Set("Content-Length", buf.String())
-		fmt.Println("Buffer Length: ", buf.String())
+		cmd.Stdout = w
 	} else {
 		cmd = exec.Command(
 			// REMEMBER ./deezer-downloader for linux
@@ -128,5 +117,5 @@ func DeezExe(q, usertoken string, w http.ResponseWriter, r *http.Request, wg *sy
 	if err != nil {
 		render.JSON(w, r, ErrDuringWait(err))
 	}
-	wg.Done()
+	fmt.Println("End of DeezExe")
 }
