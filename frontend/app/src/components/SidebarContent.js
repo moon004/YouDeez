@@ -112,6 +112,9 @@ class SidebarContent extends Component {
           rel="noopener noreferrer"
           id="footer-a"
         >
+          <div id="reportbug">
+            I would be very glad if you could suggest a feature or report a bug!
+          </div>
           <GithubIcon />
         </a>
       </div>

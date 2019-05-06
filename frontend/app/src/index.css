@@ -24,7 +24,7 @@ body {
 }
 
 a:link {
-  color: #eaeaea;
+  color: #e7e7e7;
 }
 
 a:hover {
@@ -139,18 +139,32 @@ input[type=range]::-webkit-slider-runnable-track {
   padding: 0 0 0 1em;
 }
 
+#reportbug {
+  position: relative;
+  font-size: 0.8em;
+  opacity: 0.6;
+  margin-bottom: 0.5em;
+}
+#reportbug:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
 #footer-a {
   display: flex;
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   position: absolute;
+  flex-direction: column;
+  text-align: center;
+  right: 1em;
   bottom: 6em;
-  right: 7em;
-  height: 2em;
+  height: 4em;
+  width: 12em;
 }
 #footer-a:hover {
-  opacity: 0.8;
+  color: white;
+  opacity: 1;
   border-bottom: none;
 }
 

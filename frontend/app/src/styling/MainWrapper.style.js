@@ -3,7 +3,11 @@ import { Github } from 'styled-icons/fa-brands/Github';
 
 /* es-lint-disable import/prefer-default-export */
 export const GithubIcon = styled(Github)`
-  color: #f7f7f7;
+  color: #7f7f7f;
   width: 1.5em;
-  height: auto;
+  height: 2em;
+  margin: 0 auto;
+  &:hover {
+    color: white;
+  }
 `;
