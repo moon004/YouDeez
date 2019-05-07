@@ -15,7 +15,9 @@ jobs:
     steps:
       - checkout
       - run: cp -r vendor/* $GOPATH/src/
-      - run: go test ./...
+      - run: echo 
+      - run: go test ../app/src/Handler_test.go
+      
     
 workflows:
   version: 2

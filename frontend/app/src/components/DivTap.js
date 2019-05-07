@@ -65,7 +65,7 @@ class DivTap extends Component {
     } = this.props;
     const scrollStyleYou = {
       height: 380,
-      width: 420,
+      width: 440,
     };
     const scrollStyleDeez = {
       height: 350,

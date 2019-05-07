@@ -78,7 +78,7 @@ export const RetObjectYou = (props) => {
   }
   return (
     <div id="divtapEmpty">
-      {'Start searching! available items will display here.'}
+      {'Start searching! Available items will display here.'}
     </div>
   );
 };
@@ -172,7 +172,7 @@ export const RetObjectDeez = (props) => {
   }
   return (
     <div id="divtapEmpty">
-      {'Start searching! available items will display here.'}
+      {'Start searching! Available items will display here.'}
     </div>
   );
 };
