@@ -15,7 +15,7 @@ jobs:
     steps:
       - checkout
       - run: cp -r vendor/* $GOPATH/src/
-      - run: ls -a
+      - run: ls -R app
       - run: go test ../app/src/Handler_test.go
       
     
