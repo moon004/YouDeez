@@ -14,7 +14,6 @@ import (
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
 	"github.com/go-chi/render"
-	"github.com/joho/godotenv"
 )
 
 type YResources struct{}
@@ -139,10 +138,10 @@ func YPayload(url string, w http.ResponseWriter, r *http.Request) *YRespond {
 // LoadEnv just loads Devkey from env
 func LoadEnv(str string) (value string) {
 	// Comment out the godotenv for CI to work
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
+	// err := godotenv.Load()
+	// if err != nil {
+	// 	log.Fatal("Error loading .env file")
+	// }
 	value = os.Getenv(str)
 	return
 }

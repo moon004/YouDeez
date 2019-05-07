@@ -15,7 +15,6 @@ jobs:
     steps:
       - checkout
       - run: cp -r vendor/* $GOPATH/src/
-      - run: echo $amazonDNS
       - run: go test ./app/src/Handler_test.go
       
     
