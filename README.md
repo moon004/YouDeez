@@ -28,7 +28,12 @@ git clone https://github.com/moon004/YouDeez.git
 Before anything else, make sure you have .env file at github.com/YouDeez/ , and it is filled with your youtube [Developer keys](https://developers.google.com/youtube/v3/getting-started) and [register your deezer account](https://www.deezer.com/register) details (inspect the code inside the handler/ files to get the key-value pair in the file Yresources or DResources or u can change it), and in order for production build to work, u must create another .env file at fontend/app, that store the dns value (REACT_APP_*value).
 
 ### Backend (server) Setup
-The backend depends on two CLIs to operate, [go-youtube-dl.exe](https://github.com/ytdl-org/youtube-dl/), [go-decrypt-dl.exe](https://github.com/moon004/Go-deezer-downloader), They are located in this repository as well you need to configure the file Download.go so that the media streams out to ```os.Stdout```. Put the built file into [github.com/app/src/](https://github.com/moon004/YouDeez/tree/master/app/src), and build the main file, and execute the file to spin up the backend. Take note, there is youtube-dl-getsize, it is highly suggested that you use pyinstaller to build it and put it at [github.com/app/src/](https://github.com/moon004/YouDeez/tree/master/app/src).
+The backend depends on two CLIs to operate, [go-youtube-dl.exe](https://github.com/ytdl-org/youtube-dl/), [go-decrypt-dl.exe](https://github.com/moon004/Go-deezer-downloader), They are located in this repository as well you need to configure the file Download.go so that the media streams out to ```os.Stdout```. Put the built file into [github.com/app/src/](https://github.com/moon004/YouDeez/tree/master/app/src), and build the main file, and execute the file to spin up the backend. Take note, there is youtube-dl-getsize, it is highly suggested that you use pyinstaller to build it and put it at [github.com/app/src/](https://github.com/moon004/YouDeez/tree/master/app/src). youtube-dl-getsize will give you the size of the audio file of a youtube link.
+
+Example
+```
+youtube-dl-getsize https://www.youtube.com/watch?v=lGaneyDfyls
+```
 
 >Note: Always inspect the code, to get the idea of how it works
 
