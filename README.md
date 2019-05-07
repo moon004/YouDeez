@@ -18,7 +18,7 @@ YouDeez (Youtube + Deezer) allows you to download music/songs from both Youtube 
 Now you dont have to use Youtube converter to get the audio file anymore! Youdeez will serve the best audio quality of the video, this PWA is mobile supported, just visit [youdeez.tk](http://hopesndreams.s3-website.ap-northeast-1.amazonaws.com/) and the content will be cached locally. It is suggested that you ([add YouDeez to homescreen](https://www.howtogeek.com/196087/how-to-add-websites-to-the-home-screen-on-any-smartphone-or-tablet/))
 
 ***
-## Build (For devs)
+## Build (For developer)
 Before you proceed, make sure u have ([npm installed](https://www.npmjs.com/get-npm)), also make sure u have [Go](https://golang.org/dl/) installed
 
 Clone it to your local repo.
