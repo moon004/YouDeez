@@ -41,7 +41,7 @@ func TestGetDeezer(t *testing.T) {
 		{name: "test with space",
 			value:  "api/deez?q=goose house",
 			status: 200,
-			output: "Oto No Naru Houe (Goose house Live House Tour 2017 Tokyo)",
+			output: "Sing",
 		}, //		unknown ID
 		{name: "Empty Response", value: "api/deez?q=f439904f3f213", err: "{}\n"}, //Empty cuz no result
 	}
@@ -87,7 +87,7 @@ func TestGetYResource(t *testing.T) {
 		{name: "test /youtube",
 			value:  "api/youtube?mr=15&q=hopes and dreams",
 			status: 200,
-			output: "Undertale OST - Hopes And Dreams (Intro) & Save The World Extended"},
+			output: "Undertale Ost: 087 - Hopes and Dreams"},
 		{name: "Empty Response", value: "api/youtube?mr=15&q=f439904f3f213", err: "{}\n"}, //Empty cuz no result
 	}
 	for _, tc := range tt {
