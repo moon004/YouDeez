@@ -214,3 +214,11 @@ button:focus {
 input:focus {
   outline: none;
 }
+
+// For the 'Start searching! available item will display here.' div
+#divtapEmpty {
+  color: white;
+  opacity: 0.8;
+  font-size: 1.2em;
+  font-weight: 600;
+}

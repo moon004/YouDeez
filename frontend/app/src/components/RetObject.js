@@ -77,8 +77,8 @@ export const RetObjectYou = (props) => {
       }));
   }
   return (
-    <div>
-      {'No such thing on youtube server'}
+    <div id="divtapEmpty">
+      {'Start searching! available items will display here.'}
     </div>
   );
 };
@@ -171,8 +171,8 @@ export const RetObjectDeez = (props) => {
     );
   }
   return (
-    <div>
-      {'No such thing on deezer server'}
+    <div id="divtapEmpty">
+      {'Start searching! available items will display here.'}
     </div>
   );
 };

@@ -69,6 +69,8 @@ export function updateDownloadAct(downloadObject, MainWrapper) {
           totalsize: response.data,
         },
       });
+    }).catch((err) => {
+      dispatch({ type: UPDATE_DOWNLOAD_ERR, payload: err });
     });
     axios.request({
       responseType: 'blob', //   just send user token to both youtube or deezer download

@@ -45,7 +45,7 @@ class DLProgress extends Component {
     });
     return (
       <div className="DLProgressDiv">
-        {state === 'progressing' ? (
+        {state === 'progressing' || state === 'progress' ? (
           <div
             className="downloadingAnimate"
           >
