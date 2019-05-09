@@ -85,7 +85,6 @@ export function updateDownloadAct(downloadObject, MainWrapper) {
       const {
         songName, songImg, songDur, songArtist, songAlbum,
       } = downloadObject.songObj;
-      console.log('response: ', response);
       addToDB(songName, songImg, songDur, songArtist, songAlbum, response.data);
       callUpdateDB(MainWrapper);
       dispatch({

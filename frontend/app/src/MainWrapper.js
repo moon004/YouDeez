@@ -152,6 +152,8 @@ export class MainWrapper extends Component {
       dbItem,
       songObject,
       currentPL,
+      PLAddSong,
+      PLAddSongArr,
     } = this.state;
     return (
       <div>
@@ -170,7 +172,10 @@ export class MainWrapper extends Component {
             MediaObject={MediaObject}
             onDownload={this.clickDownload}
             downloadObject={downloadObject}
+            PLAddSongArr={PLAddSongArr}
+            PLAddSong={PLAddSong}
             dbItem={dbItem}
+            blobUrl={blobUrl}
             currentPL={currentPL}
             MWparents={this}
           />

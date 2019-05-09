@@ -94,22 +94,33 @@ class MyLibrary extends Component {
 
   static defaultProps = myLibDefaultProps
 
-  shouldComponentUpdate(nextprops) {
-    const { PLAddSong } = this.props;
-    const { dbItem, currentPL } = this.props;
-    if (nextprops.dbItem !== dbItem) {
-      console.log('updated library, dbItem');
-      return true;
-    }
-    if (nextprops.PLAddSong !== PLAddSong) {
-      return true;
-    }
-    if (nextprops.currentPL !== currentPL) {
-      console.log('UPDATED the Library, currentPL');
-      return true;
-    }
-    return false;
-  }
+  // shouldComponentUpdate(nextprops) {
+  //   const {
+  //     PLAddSong,
+  //     dbItem,
+  //     currentPL,
+  //     blobUrl,
+  //   } = this.props;
+  //   const { PLAddSongArr } = this.props.MWparents.state;
+  //   console.log('PLAddSongArr: ', PLAddSongArr);
+  //   if (nextprops.dbItem !== dbItem) {
+  //     return true;
+  //   }
+  //   if (nextprops.PLAddSong !== PLAddSong) {
+  //     return true;
+  //   }
+  //   if (nextprops.currentPL !== currentPL) {
+  //     return true;
+  //   }
+  //   if (nextprops.blobUrl !== blobUrl) {
+  //     return true;
+  //   }
+  //   if (nextprops.PLAddSongArr !== PLAddSongArr) {
+  //     console.log('PLAddSongArr updated!');
+  //     return true;
+  //   }
+  //   return false;
+  // }
 
   handleDeleteSong = (item, PL) => () => {
     const { PLArrayParent } = this.props.MWparents.state;

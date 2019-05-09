@@ -86,7 +86,6 @@ class Search extends Component {
       },
 
     } = this.props;
-    console.log('handlekeyDown', event.key);
     if (event.key === 'Enter') {
       this.handleKeyPress(event);
     }
@@ -154,7 +153,6 @@ class Search extends Component {
         errorCode = '';
       }
     }
-    console.log('Search: fetchstate: ', fetchState);
     return (
       <div className="searchDiv" position="relative">
         <div style={divStyle}>

@@ -110,9 +110,7 @@ class Media extends Component {
       UsrToken: event.target.value,
       activate: false,
     });
-    console.log('Event', event.target.value);
     if (RegexpUserToken(event.target.value)) {
-      console.log('RegexpUserToken', this.state.activate);
       this.setState({
         activate: true,
       });

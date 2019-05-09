@@ -29,20 +29,17 @@ class DLProgress extends Component {
       name: songName,
       total: totalsize,
     };
-    console.log('DLProgress', state);
-    const ListProgress = QArray.map((item) => {
-      console.log(item);
-      return (
-        <div className="DLProgressListItem">
-          <div className="DLProgressName">
-            {item.name}
-          </div>
-          <div>
-            {`${(Number(item.total) / (1024 * 1024)).toFixed(1)} Mb`}
-          </div>
+    const ListProgress = QArray.map(item => (
+      <div className="DLProgressListItem">
+        <div className="DLProgressName">
+          {item.name}
         </div>
-      );
-    });
+        <div>
+          {`${(Number(item.total) / (1024 * 1024)).toFixed(1)} Mb`}
+        </div>
+      </div>
+    ));
+
     return (
       <div className="DLProgressDiv">
         {state === 'progressing' || state === 'progress' ? (
