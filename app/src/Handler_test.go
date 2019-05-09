@@ -41,7 +41,7 @@ func TestGetDeezer(t *testing.T) {
 		{name: "test with space",
 			value:  "api/deez?q=goose house",
 			status: 200,
-			output: "Sing",
+			output: "Goose",
 		}, //		unknown ID
 		{name: "Empty Response", value: "api/deez?q=f439904f3f213", err: "{}\n"}, //Empty cuz no result
 	}
