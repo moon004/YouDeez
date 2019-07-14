@@ -28,7 +28,7 @@ func DownloadRoute() chi.Router {
 
 func route(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Download YouDeez")
-	w.Header().Set("Access-Control-Allow-Origin", "http://localhost:3000")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Headers", "access-control-allow-origin")
 	w.Header().Set("Access-Control-Expose-Headers", "Content-Length")
 	DeezReg := regexp.MustCompile(`^\d+$`)
@@ -64,10 +64,10 @@ func YouExe(q, usertoken string, w http.ResponseWriter, r *http.Request) {
 	var cmd *exec.Cmd
 
 	if usertoken == "getsize" {
-		cmd = exec.Command("youtube-dl-getsize.exe", "https://www.youtube.com/watch?v="+q)
+		cmd = exec.Command("./youtube-dl-getsize", "https://www.youtube.com/watch?v="+q)
 		cmd.Stdout = w
 	} else {
-		cmd = exec.Command("youtube-dl.exe", "-f", "140", "-o", "-", "https://www.youtube.com/watch?v="+q)
+		cmd = exec.Command("./youtube-dl", "-f", "140", "-o", "-", "https://www.youtube.com/watch?v="+q)
 		cmd.Stdout = w // streaming occurs here
 	}
 	err := cmd.Start()
@@ -96,7 +96,7 @@ func DeezExe(q, usertoken string, w http.ResponseWriter, r *http.Request) {
 	if usertoken == "getsize" {
 		cmd = exec.Command(
 			// REMEMBER ./deezer-downloader for linux
-			"deezer-downloader.exe",
+			"./deezer-downloader",
 			"--id", q,
 			"--getsize",
 			"--usertoken", usertoken)
@@ -104,7 +104,7 @@ func DeezExe(q, usertoken string, w http.ResponseWriter, r *http.Request) {
 	} else {
 		cmd = exec.Command(
 			// REMEMBER ./deezer-downloader for linux
-			"deezer-downloader.exe",
+			"./deezer-downloader",
 			"--id", q,
 			"--usertoken", usertoken)
 		cmd.Stdout = w
