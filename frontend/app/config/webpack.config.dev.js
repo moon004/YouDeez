@@ -199,7 +199,6 @@ module.exports = {
                 'import/no-mutable-exports': 'off',
                 'react/no-unused-state': 'off',
                 'react/no-did-update-set-state': 'off',
-                'import/prefer-default-export': 'off',
               },
               parserOptions: {
                 ecmaFeatures: {

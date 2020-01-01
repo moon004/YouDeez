@@ -55,14 +55,6 @@ export class RPlayer extends Component {
     const { played } = this.state;
     return (
       <div>
-        <ReactPlayer
-          ref={this.ref}
-          url={`https://www.youtube.com/watch?v=${mediaID}`}
-          playing
-          width="auto"
-          height="17em"
-          onProgress={this.onProgress}
-        />
         <input // Seeker
           style={{
             '--percent': `${played * 100}%`,
@@ -77,6 +69,14 @@ export class RPlayer extends Component {
           onMouseDown={this.onSeekMouseDown}
           onChange={this.onSeekChange}
           onMouseUp={this.onSeekMouseUp}
+        />
+        <ReactPlayer
+          ref={this.ref}
+          url={`https://www.youtube.com/watch?v=${mediaID}`}
+          playing
+          width="auto"
+          height="19em"
+          onProgress={this.onProgress}
         />
       </div>
     );

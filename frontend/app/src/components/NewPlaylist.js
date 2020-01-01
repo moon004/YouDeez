@@ -14,6 +14,7 @@ export default class NewPlaylist extends Component {
   }
 
   handlePLInput = () => (event) => {
+    console.log(event.target.value);
     const { PLAddSonghandler } = this.props;
     this.setState({
       value: event.target.value,
@@ -46,31 +47,25 @@ export default class NewPlaylist extends Component {
 
   render() {
     const { value, error } = this.state;
-    const { currentPLName } = this.props;
     return (
       <div>
-        <div className="addPLDiv">
-          <button
-            type="button"
-            className="buttonPlayList"
-            onClick={this.addPlaylist}
-          >
-            {'Add Playlist'}
-          </button>
-          <input
-            type="text"
-            placeholder="Enter playlist name"
-            className="playListInput"
-            onChange={this.handlePLInput()}
-            value={value}
-          />
-        </div>
+        <button
+          type="button"
+          className="buttonPlayList"
+          onClick={this.addPlaylist}
+        >
+          {'Add Playlist'}
+        </button>
+        <input
+          type="text"
+          placeholder="Enter playlist name"
+          className="playListInput"
+          onChange={this.handlePLInput()}
+          value={value}
+        />
         <h6 className="errorMessage">
           {error}
         </h6>
-        <h1 className="playlistTitle">
-          {currentPLName}
-        </h1>
       </div>
     );
   }

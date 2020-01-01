@@ -1,25 +1,15 @@
 import React from 'react';
-import DivTap from './DivTap';
-import MyLibrary from './MyLibrary';
 import { convertString, addDot, timePassed } from '../utils/tools';
 import {
   DivInfo,
   DivTitle,
   DivStats,
   DivImg,
+  Img,
   DivDuration,
   RetObjStyled,
   DeezDiv,
 } from '../styling/DivTap.style';
-
-const SearchLibHOC = (SearchCmp, LibCmp) => ({ currentState, ...props }) => (
-  currentState === 'Search'
-    ? <SearchCmp {...props} />
-    : <LibCmp {...props} />
-);
-
-
-export const RenderSearchOrLib = SearchLibHOC(DivTap, MyLibrary);
 
 export const RetObjectYou = (props) => {
   const { DataYou } = props;
@@ -35,10 +25,9 @@ export const RetObjectYou = (props) => {
         };
         return (
           <RetObjStyled
-            className="RetObjStyledYou"
             key={item.id}
             onClick={props.handleClick(item.id, 'Youtube', songObject)}
-            tapState="Youtube"
+            tapState={props.TapState}
           >
             <DivInfo>
               <DivTitle>
@@ -54,17 +43,16 @@ export const RetObjectYou = (props) => {
                 </a>
               </DivStats>
               <DivStats>
-                <div>
-                  {`${convertString(item.statistics.viewCount)} views`}
+                <div style={{ width: '10em' }}>
+                  {convertString(item.statistics.viewCount)}
                 </div>
-                <div style={{ margin: '0 auto' }}>
+                <div>
                   {timePassed(`${item.snippet.publishedAt.slice(0, 10)}`)}
                 </div>
               </DivStats>
             </DivInfo>
             <DivImg>
-              <img
-                className="youtubeImg"
+              <Img
                 src={item.snippet.thumbnails.medium.url}
                 alt=""
               />
@@ -76,11 +64,23 @@ export const RetObjectYou = (props) => {
         );
       }));
   }
-  return (
-    <div id="divtapEmpty">
-      {'Start searching! Available items will display here.'}
-    </div>
-  );
+};
+
+const durationStyle = {
+  width: '3em',
+  display: 'flex',
+  justifyContent: 'flex-end',
+  color: '#5d5d5d',
+  fontSize: '0.7em',
+  fontWeight: '100',
+  marginTop: '0.5em',
+};
+
+const artistAlbumStyle = {
+  display: 'flex',
+  flexDirection: 'row',
+  fontSize: '0.8em',
+  alignItems: 'center',
 };
 
 export const RetObjectDeez = (props) => {
@@ -97,7 +97,6 @@ export const RetObjectDeez = (props) => {
         };
         return (
           <RetObjStyled
-            className="RetObjStyledDeez"
             key={item.id}
             onClick={props.handleClick(item.id, 'Deezer', songObject)}
             tapState={props.TapState}
@@ -112,18 +111,20 @@ export const RetObjectDeez = (props) => {
                 }}
               >
                 <div
-                  className="deezerTitle"
+                  style={{
+                    width: '16em',
+                  }}
                 >
                   {addDot(item.title, 25)}
                 </div>
                 <div
-                  className="deezerDuration"
+                  style={durationStyle}
                 >
                   {convertString(item.duration)}
                 </div>
               </div>
               <div
-                className="deezerAlbumDiv"
+                style={artistAlbumStyle}
               >
                 <img
                   src={item.artist.picture_small}
@@ -136,10 +137,13 @@ export const RetObjectDeez = (props) => {
                 />
                 <div
                   style={{
-                    width: '7em',
+                    width: '8em',
                   }}
                 >
                   <a
+                    style={{
+                      color: '#282828',
+                    }}
                     href={item.artist.link}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -149,12 +153,15 @@ export const RetObjectDeez = (props) => {
                 </div>
                 <div
                   style={{
-                    width: '9em',
+                    width: '10.4em',
                     display: 'flex',
                     justifyContent: 'flex-end',
                   }}
                 >
                   <a
+                    style={{
+                      color: '#282828',
+                    }}
                     href={`https://www.deezer.com/en/album/${item.album.id}`}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -171,8 +178,10 @@ export const RetObjectDeez = (props) => {
     );
   }
   return (
-    <div id="divtapEmpty">
-      {'Start searching! Available items will display here.'}
+    <div>
+      {'No such thing on deezer server'}
     </div>
   );
 };
+
+export const EmptyComponent = () => <div />;

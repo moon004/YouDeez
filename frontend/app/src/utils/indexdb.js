@@ -102,7 +102,6 @@ export const callInitDB = (caller) => {
     const PLStore = tx.objectStore(DB_STORE_PL).getAll();
     PLStore.then((elem) => {
       if (elem[0] === undefined) {
-        // Void array is there for the fade effect when changing playlist
         const initArr = [{
           name: 'Void',
           items: [],
@@ -148,20 +147,6 @@ export const callInitDB = (caller) => {
     return tx.complete;
   });
 };
-
-// export const callInitDBMW = (caller) => {
-//   const indb = getDB();
-//   indb.then((db) => {
-//     const tx = db.transaction(DB_STORE_NAME, 'readwrite');
-//     const obj = tx.objectStore(DB_STORE_NAME).getAll();
-//     obj.then((object) => {
-//       caller.setState({
-//         dbItem: object,
-//       });
-//     });
-//     return tx.complete;
-//   });
-// };
 
 export const callUpdateDB = (caller) => {
   const indb = getDB();

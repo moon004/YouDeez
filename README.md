@@ -7,7 +7,7 @@
 </div>
 
 # YouDeez, the ultimate music streaming PWA
- 
+
 > YouDeez is an offline-first PWA that enables you to enjoy premium music for free without ads.
 
 Visit the PWA on [youdeez.tk](http://hopesndreams.s3-website.ap-northeast-1.amazonaws.com/).
@@ -18,7 +18,7 @@ YouDeez (Youtube + Deezer) allows you to download music/songs from both Youtube 
 Now you dont have to use Youtube converter to get the audio file anymore! Youdeez will serve the best audio quality of the video, this PWA is mobile supported, just visit [youdeez.tk](http://hopesndreams.s3-website.ap-northeast-1.amazonaws.com/) and the content will be cached locally. It is suggested that you ([add YouDeez to homescreen](https://www.howtogeek.com/196087/how-to-add-websites-to-the-home-screen-on-any-smartphone-or-tablet/))
 
 ***
-## Build (For developer)
+## Build (For devs)
 Before you proceed, make sure u have ([npm installed](https://www.npmjs.com/get-npm)), also make sure u have [Go](https://golang.org/dl/) installed
 
 Clone it to your local repo.
@@ -28,12 +28,7 @@ git clone https://github.com/moon004/YouDeez.git
 Before anything else, make sure you have .env file at github.com/YouDeez/ , and it is filled with your youtube [Developer keys](https://developers.google.com/youtube/v3/getting-started) and [register your deezer account](https://www.deezer.com/register) details (inspect the code inside the handler/ files to get the key-value pair in the file Yresources or DResources or u can change it), and in order for production build to work, u must create another .env file at fontend/app, that store the dns value (REACT_APP_*value).
 
 ### Backend (server) Setup
-The backend depends on two CLIs to operate, [go-youtube-dl.exe](https://github.com/ytdl-org/youtube-dl/), [go-decrypt-dl.exe](https://github.com/moon004/Go-deezer-downloader), They are located in this repository as well you need to configure the file Download.go so that the media streams out to ```os.Stdout```. Put the built file into [github.com/app/src/](https://github.com/moon004/YouDeez/tree/master/app/src), and build the main file, and execute the file to spin up the backend. Take note, there is youtube-dl-getsize, it is highly suggested that you use pyinstaller to build it and put it at [github.com/app/src/](https://github.com/moon004/YouDeez/tree/master/app/src). youtube-dl-getsize will give you the size of the audio file of a youtube link.
-
-Example
-```
-youtube-dl-getsize https://www.youtube.com/watch?v=lGaneyDfyls
-```
+The backend depends on two CLIs to operate, [go-youtube-dl.exe](https://github.com/moon004/youtube-dl), [go-decrypt-dl.exe](https://github.com/moon004/Go-deezer-downloader), They are located in this repository as well you need to configure the file Download.go so that the media streams out to ```os.Stdout```, make sure u build the file with the correct name (Ex: **go build -o *go-youtube-dl.exe***). Put the built file into github.com/app/src/, and build the main file, and execute the .exe file to spin up the backend.
 
 >Note: Always inspect the code, to get the idea of how it works
 
@@ -74,5 +69,3 @@ All the Downloaded audio will be cached into [Indexed db](https://developer.mozi
 ## Contribute to YouDeez
 
 Any issues are welcome, if you are sending pull request, make sure to include test files :blush:, this project obeys the ([Airbnb coding style](https://github.com/airbnb/javascript)), well not entirely, standard style is accepted. Please do not hesitate to drop me a mail at herodotus94@gmail.com.
-
-### I apologize in advance because the not yet been refactor by me, as I'm quite busy with my other work. Thank you for your time. I'm all for making the world a better place...

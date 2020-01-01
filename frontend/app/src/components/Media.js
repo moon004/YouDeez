@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { DPlayer, RPlayer } from './Players';
-// import DownloadButton from './download';
+import DownloadButton from './download';
 
-import youtubelogo from '../assets/youtubeLogo.svg';
-import deezerlogo from '../assets/deezerlogo.svg';
+// import YouDeezLogo from '../assets/youdeez_small.svg';
+import YouDeezLogo from '../assets/youdeez.svg';
 import {
   mediaPropTypes,
   mediaDefaultProps,
@@ -11,42 +11,42 @@ import {
   PlayerdefaultProps,
   defaultConfig,
 } from '../props';
-import {
-  DLButtonYou,
-  DLButtonDeez,
-} from '../styling/Media.style';
-import {
-  RegexpYou,
-  RegexpDeez,
-  RegexpUserToken,
-} from '../utils/tools';
 
-const LogoComponent = ({ mediaType }) => (
-  <div id={mediaType === 'Youtube' ? 'mediabgDivYou' : 'mediabgDivDeez'}>
-    <img
-      id={mediaType === 'Youtube' ? 'mediaDivImgYou' : 'mediaDivImgDeez'}
-      src={mediaType === 'Youtube' ? youtubelogo : deezerlogo}
-      alt=""
-    />
-  </div>
+const LogoComponent = () => (
+
+  <img
+    src={YouDeezLogo}
+    alt=""
+    style={{
+      width: '100%',
+      maxWidth: '100%',
+      maxHeight: '100%',
+    }}
+  />
 );
 
-const withEither = (NullComponent, YouPlayer, DeezPlayer) => ({ ...props }) => {
-  const { mediaID, mediaType } = props;
-  const config = defaultConfig;
-  switch (true) {
-    case (RegexpDeez(mediaID)) && mediaType === 'Deezer': // true if Deezer ID
-      return <DeezPlayer config={config.deez} {...props} />;
-    case (RegexpYou(mediaID) && mediaType === 'Youtube'): // true if Youtube ID
-      return <YouPlayer {...props} />;
-    default: // Resort to null element on start.
-      return <NullComponent {...props} />;
-    // default:
-    //   console.log('somehow it still fall to default case, what the fuck?!');
-  }
+const withEither = (NullComponent, YouOrDeez) => ({ ...props }) => {
+  const { mediaID } = props;
+  return (
+    mediaID.length > 0
+      ? <YouOrDeez {...props} />
+      : <NullComponent {...props} />
+  );
 };
 
-const DeezerOrYoutubeOrNull = withEither(LogoComponent, RPlayer, DPlayer);
+const withLogic = (YouPlayer, DeezPlayer) => ({ ...props }) => {
+  const { mediaType } = props;
+  const config = defaultConfig;
+  return (
+    mediaType === 'Youtube'
+      ? <YouPlayer {...props} />
+      : <DeezPlayer config={config.deez} {...props} />
+  );
+};
+
+const YouOrDeez = withLogic(RPlayer, DPlayer);
+
+const DeezerOrYoutube = withEither(LogoComponent, YouOrDeez);
 
 class Media extends Component {
   static propTypes = mediaPropTypes;
@@ -56,34 +56,9 @@ class Media extends Component {
   constructor() {
     super();
     this.handleClickDownload = this.handleClickDownload.bind(this);
-    this.state = {
-      UsrToken: '',
-      activate: false,
-    };
   }
 
-  shouldComponentUpdate(nextprops, nextstate) {
-    const {
-      mediaObj: {
-        MediaType,
-        MediaData: {
-          ID,
-        },
-      },
-    } = nextprops;
-    if (MediaType === 'Youtube' && RegexpYou(ID)) {
-      return true;
-    }
-    if (MediaType === 'Deezer' && RegexpDeez(ID)) {
-      return true;
-    }
-    if (nextstate.UsrToken !== this.state.UsrToken) {
-      return true;
-    }
-    return false;
-  }
-
-  handleClickDownload = active => () => {
+  handleClickDownload = () => {
     const {
       onDownload,
       mediaObj: {
@@ -92,28 +67,17 @@ class Media extends Component {
           songObject,
         },
       },
+      downloadObject: {
+        state,
+      },
     } = this.props;
-    const { UsrToken } = this.state;
     const downloadObject = {
       state: 'progress',
       Id: ID,
       songObj: songObject,
-      UserToken: UsrToken,
     };
-    if (songObject !== undefined && active) {
+    if (songObject !== undefined && state === 'idle') {
       onDownload(downloadObject);
-    }
-  }
-
-  handleChange = (event) => {
-    this.setState({
-      UsrToken: event.target.value,
-      activate: false,
-    });
-    if (RegexpUserToken(event.target.value)) {
-      this.setState({
-        activate: true,
-      });
     }
   }
 
@@ -127,59 +91,24 @@ class Media extends Component {
       },
       downloadObject: {
         state,
+        songObject,
       },
     } = this.props;
-    const { UsrToken, activate } = this.state;
-    const deezActivate = RegexpDeez(ID) && activate && state === 'idle';
-    const youActivate = RegexpYou(ID) && state === 'idle';
     return (
-      <div className="MediaVidDiv">
-        <DeezerOrYoutubeOrNull
-          mediaID={ID}
-          mediaType={MediaType}
-        />
-        <div className="DownloadMediaDiv">
-          {
-            MediaType === 'Youtube'
-              ? (
-                <DLButtonYou
-                  type="button"
-                  className="DownloadButton"
-                  active={youActivate}
-                  onClick={this.handleClickDownload(RegexpYou(ID))}
-                >
-                  Download
-                </DLButtonYou>
-              ) : (
-                <div>
-                  <div className="DownloadInfo">
-                    <a
-                      id="UTQuestion"
-                      href="https://notabug.org/RemixDevs/DeezloaderRemix/wiki/Login+via+userToken"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      ?
-                    </a>
-                    <div id="UTText">User Token</div>
-                    <input
-                      id="UserToken"
-                      type="text"
-                      value={UsrToken}
-                      onChange={this.handleChange}
-                    />
-                  </div>
-                  <DLButtonDeez
-                    type="button"
-                    className="DownloadButton"
-                    active={deezActivate}
-                    onClick={this.handleClickDownload(deezActivate)}
-                  >
-                    Download
-                  </DLButtonDeez>
-                </div>
-              )
-          }
+      <div>
+        <div style={{
+          height: 'auto',
+          width: 'auto',
+          marginTop: '3em',
+        }}
+        >
+          <DeezerOrYoutube
+            mediaID={ID}
+            mediaType={MediaType}
+          />
+        </div>
+        <div>
+          {DownloadButton(this, songObject, state)}
         </div>
       </div>
     );

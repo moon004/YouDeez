@@ -2,14 +2,19 @@ import React, { Component } from 'react';
 import ReactPlayer from 'react-player';
 import '../index.css';
 import { convertString, indOfObjDB } from '../utils/tools';
-import HNDLogo from '../assets/hndnewblack.svg';
+import HNDLogo from '../assets/hnd.svg';
 
 import {
+  DivMediaPlayer,
+  DivMediaMiddle,
+  DivMediaImg,
   RepeatIcon,
   PlayIcon,
   PauseIcon,
   NextIcon,
   PrevIcon,
+  DivDur,
+  DivTitle,
   ShuffleIcon,
 } from '../styling/MyLibrary.style';
 
@@ -174,8 +179,8 @@ export default class MediaPlayer extends Component {
       playing, loop, played, playedSec, shuffle,
     } = this.state;
     return (
-      <div id="MediaPlayerMainDiv">
-        <div id="DivMediaPlayer">
+      <div>
+        <DivMediaPlayer className="DivMediaPlayer">
           <div style={{ width: '10em' }}>
             <PrevIcon onClick={this.prevSong} type="button" />
             {playing ? (<PauseIcon onClick={this.playPause} type="button" />)
@@ -183,9 +188,8 @@ export default class MediaPlayer extends Component {
             <NextIcon onClick={this.nextSong} type="button" />
           </div>
 
-          <div id="DivMediaMiddle">
+          <DivMediaMiddle>
             <RepeatIcon
-              id="repeatIcon"
               loopOn={loop}
               onClick={this.toggleLoop}
             />
@@ -194,24 +198,25 @@ export default class MediaPlayer extends Component {
               ShuffleOn={shuffle}
               onClick={this.toggleShuffle}
             />
-            <div id="MediaDivTitle">
+            <DivTitle id="MediaDivTitle">
               {passedID === undefined ? (' ') : (passedSongTitle)}
-            </div>
-            <div id="DivDur">
+            </DivTitle>
+            <DivDur>
               {passedID === undefined ? (' ') : (
                 <div style={{ display: 'flex', flexDirection: 'row' }}>
-                  <div style={{ width: '2.3em' }}>
+                  <div style={{ width: '2em' }}>
                     {`${convertString(playedSec)}`}
                   </div>
                   <div>
                     {` / ${convertString(passsedDur)}`}
                   </div>
                 </div>)}
-            </div>
+            </DivDur>
             <input // Seeker
-              id="theSeeker"
               style={{
                 '--percent': `${played * 100}%`,
+                marginTop: '2em',
+                width: '21em',
               }}
               type="range"
               min={0}
@@ -222,23 +227,15 @@ export default class MediaPlayer extends Component {
               onChange={this.onSeekChange}
               onMouseUp={this.onSeekMouseUp}
             />
-          </div>
-          <div
-            id="DivMediaImg"
-          >
+          </DivMediaMiddle>
+          <DivMediaImg>
             <img
               id="mediaplayerImg"
               src={passedID === undefined ? HNDLogo : passedImg}
               alt=""
-              YouOrDeez={
-                /* eslint-disable no-nested-ternary */
-                passedImg === undefined ? false : passedImg.charAt(8) === 'a'
-                /* eslint-disable no-unneeded-ternary */
-                  ? true : false
-              }
             />
-          </div>
-        </div>
+          </DivMediaImg>
+        </DivMediaPlayer>
         <ReactPlayer
           ref={this.ref}
           url={url}

@@ -14,18 +14,13 @@ import {
 
 // import ResultObj from './Object';
 import './index.css';
-import './styling/media.scss';
 import './styling/mediaplayer.scss';
-import './styling/maindiv.scss';
-import './styling/sidebar.scss';
-import './styling/player.scss';
-// import DivTap from './components/DivTap';
-import MainSideBar from './components/Sidebar';
-import MediaPlayer from './components/Mediaplayer';
-import { callInitDB } from './utils/indexdb';
-// import MyLibrary from './components/MyLibrary';
-// import Media from './components/Media';
-// import { RenderSearchOrLib } from './components/RetObject';
+import Search from './components/Search';
+import DivTap from './components/DivTap';
+import MyLibrary from './components/MyLibrary';
+import Media from './components/Media';
+import Div, { GithubIcon } from './styling/MainWrapper.style';
+
 
 export class MainWrapper extends Component {
   static propTypes = propTypes
@@ -39,58 +34,7 @@ export class MainWrapper extends Component {
     this.onSubmitSearch = this.onSubmitSearch.bind(this);
     this.onGetAutoComp = this.onGetAutoComp.bind(this);
     this.clickDownload = this.clickDownload.bind(this);
-    this.state = {
-      blobUrl: '',
-      PLArrayParent: [{
-        name: 'Void',
-        items: [],
-      }, {
-        name: 'Main',
-        items: [],
-      }],
-      dbItem: [],
-      songObject: {},
-      currentPL: 1,
-      PLAddSong: true,
-      tmpPLArray: [],
-      tmpCurrentPL: 1,
-      PLAddSongArr: [true],
-      hidePLBut: [],
-    };
-    callInitDB(this);
   }
-
-  // trigger from clicking song title
-  handlePlaySong = (selectedDB, id, index) => () => {
-    const { PLAddSong, tmpPLArray, PLAddSongArr } = this.state;
-    const {
-      album, artist, bit, dur, img, songTitle,
-    } = selectedDB;
-    const url = URL.createObjectURL(selectedDB.bit);
-    // PLAddSong is TRUE when on normal state which is click to play song
-    // PLAddSong is FALSE when adding songs to playlist
-    if (PLAddSong) {
-      this.setState({
-        blobUrl: url,
-        songObject: {
-          passedID: id,
-          passedAlbum: album,
-          passedArtist: artist,
-          passedBit: bit,
-          passsedDur: dur,
-          passedImg: img,
-          passedSongTitle: songTitle,
-        },
-      });
-    } else {
-      // for turning opacity to 1 on PL creation
-      tmpPLArray.push(id);
-      PLAddSongArr[index] = true;
-      this.setState({
-        tmpPLArray,
-      });
-    }
-  };
 
   onUpdateMediaObj = (value) => {
     const { onUpdateMediaObj } = this.props;
@@ -114,29 +58,8 @@ export class MainWrapper extends Component {
 
   clickDownload = (value) => {
     const { onDownloadMedia } = this.props;
-    onDownloadMedia(value, this);
+    onDownloadMedia(value);
   }
-
-  // triggered from nextSong()
-  handleThisSong = (selectedDB) => {
-    const url = URL.createObjectURL(selectedDB.bit);
-    const {
-      album, artist, bit, dur, img, songTitle, id,
-    } = selectedDB;
-
-    this.setState({
-      blobUrl: url,
-      songObject: {
-        passedID: id,
-        passedAlbum: album,
-        passedArtist: artist,
-        passedBit: bit,
-        passsedDur: dur,
-        passedImg: img,
-        passedSongTitle: songTitle,
-      },
-    });
-  };
 
   render() {
     const {
@@ -146,50 +69,37 @@ export class MainWrapper extends Component {
       autoComplete,
       downloadObject,
     } = this.props;
-    const {
-      blobUrl, // For Playing the audio
-      PLArrayParent,
-      dbItem,
-      songObject,
-      currentPL,
-      PLAddSong,
-      PLAddSongArr,
-    } = this.state;
     return (
-      <div>
-        <div>
-          <MainSideBar
-            // For Search
-            onGetAutoComp={this.onGetAutoComp}
-            onSubmitSearch={this.onSubmitSearch}
-            autoComplete={autoComplete}
-            // For DivTap
-            onMenuTap={this.onObjTap}
-            currentState={currentMediaTap}
-            onObjClick={this.onUpdateMediaObj}
-            apiReqState={apiReqState}
-            // For Media
-            MediaObject={MediaObject}
-            onDownload={this.clickDownload}
-            downloadObject={downloadObject}
-            PLAddSongArr={PLAddSongArr}
-            PLAddSong={PLAddSong}
-            dbItem={dbItem}
-            blobUrl={blobUrl}
-            currentPL={currentPL}
-            MWparents={this}
-          />
-          <div className="playerMainDiv">
-            <MediaPlayer
-              url={blobUrl}
-              PassedObj={songObject}
-              CurrentPL={PLArrayParent[currentPL].items}
-              wholeDB={dbItem}
-              playThis={this.handleThisSong}
-            />
-          </div>
-        </div>
-      </div>
+      <Div>
+        <h1 id="big_title">YouDeez</h1>
+        <h4 id="small_title">Ultimate free music streaming progressive web app</h4>
+        <Search
+          handleSubmit={this.onSubmitSearch}
+          searchState={apiReqState}
+          onGetAutoComp={this.onGetAutoComp}
+          autoComplete={autoComplete}
+        />
+        <DivTap
+          onObjClick={this.onUpdateMediaObj}
+          searchState={apiReqState}
+          onObjTap={this.onObjTap}
+          tapState={currentMediaTap}
+        />
+        <Media
+          mediaObj={MediaObject}
+          onDownload={this.clickDownload}
+          downloadObject={downloadObject}
+        />
+        <MyLibrary
+          downloadObject={downloadObject}
+        />
+
+        <a href="https://github.com/moon004/YouDeez" id="footer-a">
+          <GithubIcon />
+          <div id="footer-text">Visit The GitHub Repository</div>
+        </a>
+
+      </Div>
     );
   }
 }

@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import { searchPropTypes, searchDefaultProps } from '../props';
 import {
-  Input, SearchIcon, List,
+  Input, SearchIcon, Div, List,
 } from '../styling/Search.style';
 import {
   SEARCHING,
   SEARCHDONE,
 } from '../constants/constant';
+
+const ulStyle = {
+  margin: '-1em 0 0 0',
+  padding: 0,
+};
 
 const divStyle = {
   color: '#e40303',
@@ -47,31 +52,31 @@ class Search extends Component {
 
   // click on autocomeplete list
   handleClick = value => () => {
-    const { onGetAutoComp, onSubmitSearch } = this.props;
+    const { onGetAutoComp, handleSubmit } = this.props;
     this.setState({}, () => {
       onGetAutoComp(value);
       this.state.value = value;
     });
-    onSubmitSearch(value);
+    handleSubmit(value);
     this.setState({ searchDone: true });
   }
 
   // Click on Search Icon
   handleSubmitClick = value => () => {
-    const { onSubmitSearch } = this.props;
-    onSubmitSearch(value);
+    const { handleSubmit } = this.props;
+    handleSubmit(value);
     this.setState({ searchDone: true });
   }
 
   // Enter pressed
   handleKeyPress = (event) => {
-    const { onSubmitSearch } = this.props;
+    const { handleSubmit } = this.props;
     const { value } = this.state;
     if (event.key === 'Enter' && value.length > 0) {
       this.setState({
         searchDone: true,
       }, () => {
-        onSubmitSearch(value);
+        handleSubmit(value);
       });
     }
   }
@@ -115,7 +120,7 @@ class Search extends Component {
 
   render() {
     const {
-      apiReqState: {
+      searchState: {
         fetchState,
       },
       autoComplete: {
@@ -154,12 +159,11 @@ class Search extends Component {
       }
     }
     return (
-      <div className="searchDiv" position="relative">
+      <Div position="relative">
         <div style={divStyle}>
           {errorCode}
         </div>
         <SearchIcon
-          className="searchIcon"
           onClick={this.handleSubmitClick(value)}
           value={value}
           type="button"
@@ -177,10 +181,10 @@ class Search extends Component {
           onMouseEnter={() => { this.inputRef.current.focus(); }}
           popList={Array.isArray(autoCompData[1]) && autoCompData[1].length}
         />
-        <ul id="searchListItem">
+        <ul style={ulStyle}>
           {autoList}
         </ul>
-      </div>
+      </Div>
 
     );
   }

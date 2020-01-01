@@ -1,12 +1,11 @@
 import axios from 'axios';
-import { addToDB, callUpdateDB } from '../utils/indexdb';
+import { addToDB } from '../utils/indexdb';
 import {
   UPDATE_MEDIA,
   UPDATE_CMEDIA,
   UPDATE_DOWNLOAD,
   UPDATE_DOWNLOAD_FINISH,
   UPDATE_DOWNLOAD_ERR,
-  DOWNLOAD_PROGRESS_INIT,
   dynamicDNS,
 } from '../constants/constant';
 
@@ -47,46 +46,31 @@ export function updateMediaObjAct(MediaObj) {
   };
 }
 
-export function updateDownloadAct(downloadObject, MainWrapper) {
+export function updateDownloadAct(downloadObject) {
   return (dispatch) => {
     dispatch({
-      type: DOWNLOAD_PROGRESS_INIT,
+      type: UPDATE_DOWNLOAD,
       payload: {
-        state: 'progress',
+        state: 'progress', // Change state when download button is clicked
+        buffer: null,
+        songObject: {
+          songName: downloadObject.songObj.songName,
+        },
       },
     });
     axios.request({
-      responseType: 'text',
-      url: `${dynamicDNS}/api/download?q=${downloadObject.Id}&ut=getsize`,
-      method: 'get',
-    }).then((response) => {
-      // Get Size request
-      dispatch({
-        type: DOWNLOAD_PROGRESS_INIT,
-        payload: {
-          state: 'progressing',
-          songName: downloadObject.songObj.songName,
-          totalsize: response.data,
-        },
-      });
-    }).catch((err) => {
-      dispatch({ type: UPDATE_DOWNLOAD_ERR, payload: err });
-    });
-    axios.request({
-      responseType: 'blob', //   just send user token to both youtube or deezer download
-      url: `${dynamicDNS}/api/download?q=${downloadObject.Id}&ut=${downloadObject.UserToken}`,
+      responseType: 'blob',
+      url: `${dynamicDNS}/api/download?q=${downloadObject.Id}`,
       method: 'get',
       headers: {
-        'content-type': 'audio/mp4',
+        'Content-Type': 'audio/mp4',
         Accept: 'audio/mp4',
       },
     }).then((response) => {
-      // Download song request
       const {
         songName, songImg, songDur, songArtist, songAlbum,
       } = downloadObject.songObj;
       addToDB(songName, songImg, songDur, songArtist, songAlbum, response.data);
-      callUpdateDB(MainWrapper);
       dispatch({
         type: UPDATE_DOWNLOAD_FINISH,
         payload: {

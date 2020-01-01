@@ -6,13 +6,16 @@ import { Repeat } from 'styled-icons/feather/Repeat';
 import { Shuffle } from 'styled-icons/feather/Shuffle';
 import { Pause } from 'styled-icons/material/Pause';
 import { TrashAlt } from 'styled-icons/fa-solid/TrashAlt';
-import { Scrollbars } from 'react-custom-scrollbars';
+
+
 import '../index.css';
+import { StyledScrollbar } from './DivTap.style';
 
 export const DivLib = styled.div`
   width: 100%;
   background: none;
   height: 20em;
+  margin-bottom: 21em;
   position: relative;
   color: white;
 `;
@@ -29,19 +32,31 @@ export const DivObj = styled.div`
 `;
 
 export const PLbutton = styled.div`
-  background: ${props => (props.selected ? '#474747' : 'none')};
-  color: ${props => (props.selected ? 'white' : '#bebebe')};
+  border: ${props => (props.selected ? '2.5px outset white' : '1px outset #a5a5a5')};
   opacity: ${props => (props.hidePLBut ? 0 : 1)};
   &:hover {
-    background: ${props => (props.selected
-    ? '#474747' : '#303030')};
+    border: ${props => (props.selected
+    ? '2.5px outset white' : '2px outset white')};
   }
+`;
+
+export const PLbuttonDiv = styled.div`
+  & .playlistName:nth-child(2) {
+      border: ${props => (props.selected
+    ? '3px outset white' : '1px outset #a5a5a5')};
+    background: ${props => (props.selected
+    ? 'rgb(35, 35, 35)' : 'rgb(22, 22, 22)')};
+    &:hover {
+    border: ${props => (props.selected
+    ? '3px outset white' : '2px outset white')};
+  }
+    }
 `;
 
 export const DivObjTitle = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 25em;
 `;
 
 export const DivObjArtist = styled.div`
@@ -69,6 +84,15 @@ export const Div = styled.div`
 `;
 
 // ---------- Mediaplayer Style --------------//
+export const DivMediaPlayer = styled.div`
+  width: 100%;
+  height: 6em;
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
 
 const sizePlay = '5.1em';
 const sizePrevNext = '4em';
@@ -102,7 +126,16 @@ export const PrevIcon = styled(SkipPrevious)`
 `;
 
 export const RepeatIcon = styled(Repeat)`
+  color: white;
+  width: 1.3em;
+  height: 1.3em;
+  position: absolute;
+  top: 1.7em;
+  left: 9.8em;
   opacity: ${props => (props.loopOn ? '1' : '0.6')};
+  &:hover {
+    opacity: 1;
+  }
 `;
 
 export const ShuffleIcon = styled(Shuffle)`
@@ -120,8 +153,21 @@ export const DeleteIcon = styled(TrashAlt)`
   }
 `;
 
-export const StyledScrollbarLib = styled(Scrollbars)`
+export const StyledScrollbarLib = styled(StyledScrollbar)`
   background: none;
+`;
+
+export const DivMediaMiddle = styled.div`
+  flex-direction: column;
+  width: 19em;
+  display:flex;
+  flex-grow: 2;
+`;
+
+export const DivMediaImg = styled.div`
+  display: flex;
+  position: relative;
+
 `;
 
 export const DivDur = styled.div`
@@ -131,4 +177,14 @@ export const DivDur = styled.div`
   opacity: 0.6;
   font-weight: 100;
   font-size: 1em;
+`;
+
+export const DivTitle = styled.div`
+  height: 1.9em;
+  width: 17.7em;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;

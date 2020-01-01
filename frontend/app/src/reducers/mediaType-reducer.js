@@ -4,8 +4,6 @@ import {
   UPDATE_DOWNLOAD,
   UPDATE_DOWNLOAD_FINISH,
   UPDATE_DOWNLOAD_ERR,
-  DOWNLOAD_PROGRESS,
-  DOWNLOAD_PROGRESS_INIT,
 } from '../constants/constant';
 
 const initialMediaObject = {
@@ -16,7 +14,7 @@ const initialMediaObject = {
 };
 
 const initialDownloadState = {
-  state: 'idle',
+  state: '',
   songObject: {
     songName: '',
   },
@@ -24,7 +22,7 @@ const initialDownloadState = {
 
 export function mediaTypeReducer(
 // currentMediaTap = 'Youtube' on start
-  state = 'Search', { type, payload },
+  state = 'Youtube', { type, payload },
 ) {
   switch (type) {
     case UPDATE_CMEDIA:
@@ -53,10 +51,6 @@ export function mediaDownloadReducer(
     case UPDATE_DOWNLOAD:
       return payload;
     case UPDATE_DOWNLOAD_FINISH:
-      return payload;
-    case DOWNLOAD_PROGRESS:
-      return payload;
-    case DOWNLOAD_PROGRESS_INIT:
       return payload;
     case UPDATE_DOWNLOAD_ERR:
       return payload;

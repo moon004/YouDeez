@@ -24,7 +24,7 @@ body {
 }
 
 a:link {
-  color: #e7e7e7;
+  color: #eaeaea;
 }
 
 a:hover {
@@ -37,6 +37,10 @@ a:visited {
 
 a {
   text-decoration: none;
+}
+
+body {
+  background-color: #141414;
 }
 
 input[type=range] {
@@ -139,32 +143,16 @@ input[type=range]::-webkit-slider-runnable-track {
   padding: 0 0 0 1em;
 }
 
-#reportbug {
-  position: relative;
-  font-size: 0.8em;
-  opacity: 0.6;
-  margin-bottom: 0.5em;
-}
-#reportbug:hover {
-  opacity: 0.8;
-  cursor: pointer;
-}
 #footer-a {
   display: flex;
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
-  position: absolute;
-  flex-direction: column;
-  text-align: center;
-  right: 1em;
-  bottom: 6em;
-  height: 4em;
-  width: 12em;
+  align-items: center;
+  justify-content: center;
 }
 #footer-a:hover {
-  color: white;
-  opacity: 1;
+  opacity: 0.8;
   border-bottom: none;
 }
 

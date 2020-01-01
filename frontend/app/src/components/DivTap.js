@@ -1,12 +1,29 @@
 import React, { Component } from 'react';
-import { Scrollbars } from 'react-custom-scrollbars';
 import { divTapPropTypes, divTapDefaultProps } from '../props';
-import { RetObjectYou, RetObjectDeez } from './RetObject';
-import Search from './Search';
-import Media from './Media';
-import youtubelogo from '../assets/ytlogowhite.svg';
-import deezerlogo from '../assets/deezerlogowhite.svg';
-import hq from '../assets/hqwhite.svg';
+import { RetObjectYou, RetObjectDeez, EmptyComponent } from './RetObject';
+import {
+  DivT,
+  ButYou,
+  ButDeez,
+  StyledScrollbar,
+  EqDivider,
+} from '../styling/DivTap.style';
+
+const withYouOrDeez = (YouComponent, DeezComponent) => ({ TapState, ...props }) => (
+  TapState
+    ? <YouComponent TapState={TapState} {...props} />
+    : <DeezComponent TapState={TapState} {...props} />
+);
+
+const withRenderOrEmpty = (YDComponent, EmpComponent) => ({ ...props }) => (
+  props.DataYou !== undefined
+    ? <YDComponent {...props} />
+    : <EmpComponent {...props} />
+);
+
+const RenderYouOrDeez = withYouOrDeez(RetObjectYou, RetObjectDeez);
+
+const RenderOrEmpty = withRenderOrEmpty(RenderYouOrDeez, EmptyComponent);
 
 class DivTap extends Component {
   static propTypes = divTapPropTypes;
@@ -22,7 +39,7 @@ class DivTap extends Component {
 
   renderThumbVert = (props) => {
     const thumbStyle = {
-      backgroundColor: 'rgba(140, 140, 140)',
+      backgroundColor: 'black',
     };
     return (
       <div {...props} style={{ ...thumbStyle }} className="vertical-thumb" />
@@ -50,109 +67,50 @@ class DivTap extends Component {
 
   render() {
     const {
-      apiReqState: {
+      searchState: {
         dataYou,
         dataDeez,
       },
-      MediaObject: {
-        MediaData: {
-          ID,
-          songObject,
-        },
-      },
-      downloadObject,
-      onDownload,
+      tapState,
     } = this.props;
-    const scrollStyleYou = {
-      height: 380,
-      width: 440,
-    };
-    const scrollStyleDeez = {
-      height: 350,
-      width: 440,
-    };
-    const MediaObjectYou = {
-      MediaType: 'Youtube',
-      MediaData: {
-        ID,
-        songObject,
-      },
-    };
-    const MediaObjectDeez = {
-      MediaType: 'Deezer',
-      MediaData: {
-        ID,
-        songObject,
-      },
-    };
+    const divheight = dataYou === undefined ? 0 : 400;
     return (
-      <div>
-        <div className="MainDivTop">
-          <Search
-            className="SearchBar"
-            {...this.props}
+      <DivT currentap={tapState}>
+        <EqDivider>
+          <ButYou
+            type="button"
+            onClick={this.handleTapClick('Youtube')}
+            currentap={tapState}
+          >
+            {''}
+          </ButYou>
+          <ButDeez
+            type="button"
+            onClick={this.handleTapClick('Deezer')}
+            currentap={tapState}
+          >
+            {''}
+          </ButDeez>
+        </EqDivider>
+        <StyledScrollbar
+          className="divscrollbar"
+          renderThumbVertical={this.renderThumbVert}
+          renderThumbHorizontal={this.renderThumbHor}
+          autoHide
+          style={{
+            height: divheight,
+          }}
+          thumbMinSize={50}
+          currentap={tapState}
+        >
+          <RenderOrEmpty
+            TapState={tapState === 'Youtube'}
+            DataYou={dataYou}
+            DataDeez={dataDeez}
+            handleClick={this.handleObjClick}
           />
-        </div>
-        <div className="MainDivTap">
-          <img
-            id="ytlogowhite"
-            src={youtubelogo}
-            alt=""
-          />
-          <div className="YoutubeDiv">
-            <Scrollbars
-              className="divscrollbar"
-              renderThumbVertical={this.renderThumbVert}
-              renderThumbHorizontal={this.renderThumbHor}
-              autoHide
-              style={scrollStyleYou}
-              thumbMinSize={50}
-            >
-              <RetObjectYou
-                DataYou={dataYou}
-                handleClick={this.handleObjClick}
-              />
-            </Scrollbars>
-            <Media
-              className="YouMedia"
-              mediaObj={MediaObjectYou}
-              onDownload={onDownload}
-              downloadObject={downloadObject}
-            />
-          </div>
-          <img
-            id="dzlogowhite"
-            src={deezerlogo}
-            alt=""
-          />
-          <img
-            id="hqlogo"
-            src={hq}
-            alt=""
-          />
-          <div className="DeezerDiv">
-            <Scrollbars
-              className="divscrollbar"
-              renderThumbVertical={this.renderThumbVert}
-              renderThumbHorizontal={this.renderThumbHor}
-              autoHide
-              style={scrollStyleDeez}
-              thumbMinSize={50}
-            >
-              <RetObjectDeez
-                DataDeez={dataDeez}
-                handleClick={this.handleObjClick}
-              />
-            </Scrollbars>
-            <Media
-              className="DeezMedia"
-              mediaObj={MediaObjectDeez}
-              onDownload={onDownload}
-              downloadObject={downloadObject}
-            />
-          </div>
-        </div>
-      </div>
+        </StyledScrollbar>
+      </DivT>
     );
   }
 }
