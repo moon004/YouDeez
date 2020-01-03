@@ -8,6 +8,7 @@ import {
   StyledScrollbar,
   EqDivider,
 } from '../styling/DivTap.style';
+import { DEEZER, YOUTUBE } from '../constants/constant';
 
 const withYouOrDeez = (YouComponent, DeezComponent) => ({ TapState, ...props }) => (
   TapState
@@ -44,16 +45,16 @@ class DivTap extends Component {
     return (
       <div {...props} style={{ ...thumbStyle }} className="vertical-thumb" />
     );
-  }
+  };
 
   renderThumbHor = () => (
     <div style={{ display: 'none' }} />
-  )
+  );
 
   handleTapClick = value => () => {
     const { onObjTap } = this.props;
     onObjTap(value);
-  }
+  };
 
   handleObjClick = (id, mediaType, songObj) => () => {
     const { onObjClick } = this.props;
@@ -63,7 +64,19 @@ class DivTap extends Component {
       songObject: songObj,
     };
     onObjClick(mediaObj);
-  }
+  };
+
+  getDivHeight = (dataYou, dataDeez, tapState) => {
+    if (dataYou === undefined && tapState === YOUTUBE) {
+      return 0;
+    }
+
+    if (dataDeez === undefined && tapState === DEEZER) {
+      return 0;
+    }
+
+    return 400;
+  };
 
   render() {
     const {
@@ -73,20 +86,20 @@ class DivTap extends Component {
       },
       tapState,
     } = this.props;
-    const divheight = dataYou === undefined ? 0 : 400;
+    const divheight = this.getDivHeight(dataYou, dataDeez, tapState);
     return (
       <DivT currentap={tapState}>
         <EqDivider>
           <ButYou
             type="button"
-            onClick={this.handleTapClick('Youtube')}
+            onClick={this.handleTapClick(YOUTUBE)}
             currentap={tapState}
           >
             {''}
           </ButYou>
           <ButDeez
             type="button"
-            onClick={this.handleTapClick('Deezer')}
+            onClick={this.handleTapClick(DEEZER)}
             currentap={tapState}
           >
             {''}

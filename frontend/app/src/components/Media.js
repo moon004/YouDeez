@@ -79,7 +79,7 @@ class Media extends Component {
     if (songObject !== undefined && state === 'idle') {
       onDownload(downloadObject);
     }
-  }
+  };
 
   render() {
     const {
@@ -102,12 +102,14 @@ class Media extends Component {
           marginTop: '3em',
         }}
         >
+          {/* The Media Player for Youtube or Deezer */}
           <DeezerOrYoutube
             mediaID={ID}
             mediaType={MediaType}
           />
         </div>
         <div>
+          {/* The Download button */}
           {DownloadButton(this, songObject, state)}
         </div>
       </div>

@@ -36,19 +36,19 @@ export class RPlayer extends Component {
 
   onSeekChange = (e) => {
     this.setState({ played: parseFloat(e.target.value) });
-  }
+  };
 
   onSeekMouseUp = (e) => {
     this.player.seekTo(parseFloat(e.target.value));
-  }
+  };
 
   onProgress = (e) => {
     this.setState({ played: e.played });
-  }
+  };
 
   ref = (player) => {
     this.player = player;
-  }
+  };
 
   render() {
     const { mediaID } = this.props;

@@ -67,6 +67,7 @@ export function updateDownloadAct(downloadObject) {
         Accept: 'audio/mp4',
       },
     }).then((response) => {
+      console.log('response', response);
       const {
         songName, songImg, songDur, songArtist, songAlbum,
       } = downloadObject.songObj;
@@ -81,6 +82,7 @@ export function updateDownloadAct(downloadObject) {
       });
     })
       .catch((err) => {
+        console.log('Error! ', err);
         dispatch({ type: UPDATE_DOWNLOAD_ERR, payload: err });
       });
   };

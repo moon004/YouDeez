@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactPlayer from 'react-player';
 import '../index.css';
 import { convertString, indOfObjDB } from '../utils/tools';
-import HNDLogo from '../assets/hnd.svg';
+import HNDLogo from '../assets/hndnewblack.svg';
 
 import {
   DivMediaPlayer,
@@ -42,16 +42,16 @@ export default class MediaPlayer extends Component {
 
   onSeekMouseDown = () => {
     this.setState({ seeking: true });
-  }
+  };
 
   onSeekChange = (e) => {
     this.setState({ played: parseFloat(e.target.value) });
-  }
+  };
 
   onSeekMouseUp = (e) => {
     this.setState({ seeking: false });
     this.player.seekTo(parseFloat(e.target.value));
-  }
+  };
 
   onProgress = (state) => {
     // We only want to update time slider if we are not currently seeking
@@ -61,7 +61,7 @@ export default class MediaPlayer extends Component {
         playedSec: state.playedSeconds,
       });
     }
-  }
+  };
 
   onEnded = () => {
     // if loop true, then It wont come to onEnded
@@ -73,7 +73,7 @@ export default class MediaPlayer extends Component {
     } else {
       this.nextSong();
     }
-  }
+  };
 
   shuffleSong = () => {
     // passedID is the Index of the song
@@ -85,30 +85,30 @@ export default class MediaPlayer extends Component {
     } = this.props;
     const random = Math.floor(Math.random() * CurrentPL.length);
     playThis(indOfObjDB(wholeDB, CurrentPL[random]), random);
-  }
+  };
 
   onPause = () => {
     this.setState({ playing: false });
-  }
+  };
 
   onReady = () => {
     this.setState({ playing: true });
-  }
+  };
 
   toggleLoop = () => {
     const { loop } = this.state;
     this.setState({ loop: !loop });
-  }
+  };
 
   toggleShuffle = () => {
     const { shuffle } = this.state;
     this.setState({ shuffle: !shuffle });
-  }
+  };
 
   playPause = () => {
     const { playing } = this.state;
     this.setState({ playing: !playing });
-  }
+  };
 
   nextSong = () => {
     // passedID is the Index of the song
@@ -129,7 +129,7 @@ export default class MediaPlayer extends Component {
         playThis(indOfObjDB(wholeDB, CurrentPL[0])); // if on last song, return back to 0
       }
     }
-  }
+  };
 
   prevSong = () => {
     const {
@@ -149,7 +149,7 @@ export default class MediaPlayer extends Component {
         playThis(indOfObjDB(wholeDB, CurrentPL[currentIndex - 1]));
       }
     }
-  }
+  };
 
   handleKeyDown = (e) => {
     if (e.key === 'MediaTrackNext') {
@@ -159,11 +159,11 @@ export default class MediaPlayer extends Component {
     } else if (e.key === 'MediaPlayPause') {
       this.playPause();
     }
-  }
+  };
 
   ref = (player) => {
     this.player = player;
-  }
+  };
 
   render() {
     const {

@@ -29,6 +29,8 @@ export const DB_STORE_NAME = 'audiostore';
 export const DB_STORE_PL = 'PlaylistStore';
 export const DB_NAME = 'mylib';
 export const GET_DB = 'GET_DB';
+export const YOUTUBE = 'Youtube';
+export const DEEZER = 'Deezer';
 export var dynamicDNS = 'http://localhost:8888';
 
 if (process.env.NODE_ENV !== 'development') {

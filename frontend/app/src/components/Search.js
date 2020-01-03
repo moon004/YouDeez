@@ -48,7 +48,7 @@ class Search extends Component {
     if (event.target.value.length > 0) {
       onGetAutoComp(event.target.value);
     }
-  }
+  };
 
   // click on autocomeplete list
   handleClick = value => () => {
@@ -59,14 +59,14 @@ class Search extends Component {
     });
     handleSubmit(value);
     this.setState({ searchDone: true });
-  }
+  };
 
   // Click on Search Icon
   handleSubmitClick = value => () => {
     const { handleSubmit } = this.props;
     handleSubmit(value);
     this.setState({ searchDone: true });
-  }
+  };
 
   // Enter pressed
   handleKeyPress = (event) => {
@@ -79,7 +79,7 @@ class Search extends Component {
         handleSubmit(value);
       });
     }
-  }
+  };
 
   // On ArrowKey Pressed
   handleKeyDown = (event) => {
@@ -116,7 +116,7 @@ class Search extends Component {
         onGetAutoComp('');
       }
     }
-  }
+  };
 
   render() {
     const {
@@ -178,7 +178,6 @@ class Search extends Component {
           placeholder={fetchState}
           value={value}
           ref={this.inputRef}
-          onMouseEnter={() => { this.inputRef.current.focus(); }}
           popList={Array.isArray(autoCompData[1]) && autoCompData[1].length}
         />
         <ul style={ulStyle}>

@@ -63,9 +63,8 @@ func (Yres *YResources) GetYtube(w http.ResponseWriter, r *http.Request) {
 	wg.Add(1)
 	RetObjects := GoGrab(ConStatsURL, &wg) // concurrent grab
 	RetObject := <-RetObjects
-
 	wg.Wait()
-
+	fmt.Println("RetObjects", RetObject, "DevKey", DevKey)
 	render.JSON(w, r, RetObject)
 
 }

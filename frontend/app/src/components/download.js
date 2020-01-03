@@ -6,7 +6,7 @@ import '../index.css';
 const DownloadButton = (classMedia, songObject, state) => (
 
   <div>
-    {songObject.songName.length > 0
+    {songObject !== undefined
       ? (
         <DivDownload>
           <div>

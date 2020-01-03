@@ -94,9 +94,9 @@ const itemList = (parent) => {
 
 class MyLibrary extends Component {
   // IMPORTANT!! PL === Playlist
-  static propTypes = myLibPropTypes
+  static propTypes = myLibPropTypes;
 
-  static defaultProps = myLibDefaultProps
+  static defaultProps = myLibDefaultProps;
 
   constructor() {
     super();
@@ -215,7 +215,7 @@ class MyLibrary extends Component {
         item.id), PL);
     }
     callUpdateDB(this);
-  }
+  };
 
   renderThumb = (props) => {
     const thumbStyle = {
@@ -225,11 +225,11 @@ class MyLibrary extends Component {
     return (
       <div {...props} style={{ ...thumbStyle }} className="vertical-thumb" />
     );
-  }
+  };
 
   renderHorThumb = () => (
     <div style={{ display: 'none' }} />
-  )
+  );
 
   // Called when PL input !== 0
   PLAddhandler = (bool) => {
@@ -249,7 +249,7 @@ class MyLibrary extends Component {
         PLAddSongArr,
       });
     }
-  }
+  };
 
   addPlaylisthandler = (PLname) => {
     const {
@@ -269,7 +269,7 @@ class MyLibrary extends Component {
       PLAddSong: true,
     });
     addToDBPL(PLArrayParent);
-  }
+  };
 
   handlePLChange = value => () => {
     const { PLAddSong } = this.state;
@@ -290,7 +290,7 @@ class MyLibrary extends Component {
       hidePLBut,
       dropClassName: 'droppableClass',
     });
-  }
+  };
 
   onDragEnd = index => (e) => {
     e.preventDefault();
@@ -299,38 +299,38 @@ class MyLibrary extends Component {
     this.setState({
       hidePLBut,
     });
-  }
+  };
 
   onDragEnter = (e) => {
     e.preventDefault();
     this.setState({
       dropClassName: 'droppableClassHov',
     });
-  }
+  };
 
   onDragLeave = (e) => {
     e.preventDefault();
     this.setState({
       dropClassName: 'droppableClass',
     });
-  }
+  };
 
   onDragOver = (e) => {
     e.preventDefault();
-  }
+  };
 
   onDrop = (e) => {
     const ind = e.dataTransfer.getData('index');
     callDeletePL(ind, this);
     callUpdateDB(this);
-  }
+  };
 
   handleHover = () => {
     const { hoveringTrash } = this.state;
     this.setState({
       hoveringTrash: !hoveringTrash,
     });
-  }
+  };
 
   render() {
     const {

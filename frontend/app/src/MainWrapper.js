@@ -1,17 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { propTypes, defaultProps } from './props';
-import {
-  updateMediaObjAct,
-  updateCurrentMediaAct,
-  updateDownloadAct,
-}
-  from './action/media-action';
-import {
-  fetchObjStartAct,
-  getAutoCompAct,
-} from './action/search-action';
-
+import { defaultProps, propTypes } from './props';
+import { updateCurrentMediaAct, updateDownloadAct, updateMediaObjAct } from './action/media-action';
+import { fetchObjStartAct, getAutoCompAct } from './action/search-action';
 // import ResultObj from './Object';
 import './index.css';
 import './styling/mediaplayer.scss';
@@ -23,9 +14,9 @@ import Div, { GithubIcon } from './styling/MainWrapper.style';
 
 
 export class MainWrapper extends Component {
-  static propTypes = propTypes
+  static propTypes = propTypes;
 
-  static defaultProps = defaultProps
+  static defaultProps = defaultProps;
 
   constructor() {
     super();
@@ -39,27 +30,27 @@ export class MainWrapper extends Component {
   onUpdateMediaObj = (value) => {
     const { onUpdateMediaObj } = this.props;
     onUpdateMediaObj(value);
-  }
+  };
 
   onSubmitSearch = (value) => {
     const { onSubmitSearch } = this.props;
     onSubmitSearch(value);
-  }
+  };
 
   onGetAutoComp = (value) => {
     const { onGetAutoComp } = this.props;
     onGetAutoComp(value);
-  }
+  };
 
   onObjTap = (value) => {
     const { onUpdateCurrentMedia } = this.props;
     onUpdateCurrentMedia(value);
-  }
+  };
 
   clickDownload = (value) => {
     const { onDownloadMedia } = this.props;
     onDownloadMedia(value);
-  }
+  };
 
   render() {
     const {

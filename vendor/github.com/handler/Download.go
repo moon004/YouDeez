@@ -53,19 +53,16 @@ func DownloadYou(w http.ResponseWriter, r *http.Request) {
 	queryValue := r.URL.Query()
 	query := queryValue.Get("q")
 	q := url.QueryEscape(query)
-	var wg sync.WaitGroup
-
-	wg.Add(1)
-	go YouExe(q, w, r)
-	wg.Wait()
+	YouExe(q, w, r)
 	fmt.Fprintf(w, "Done %s", q)
 }
 
 // YouExe go routine for youtube-dl execution
 func YouExe(q string, w http.ResponseWriter, r *http.Request) {
 	fmt.Printf("Fetching %s \n", q)
-	cmd := exec.Command("./go-youtube-dl.exe", "--audio-only", "https://www.youtube.com/watch?v="+q)
+	cmd := exec.Command("./youtube-dl", "-f", "140", "-o", "-", "https://www.youtube.com/watch?v="+q)
 	cmd.Stdout = w // streaming occurs here
+	//cmd.Stdout = os.Stdout
 	err := cmd.Start()
 	if err != nil {
 		render.JSON(w, r, ErrDuringStream(err))
@@ -82,23 +79,19 @@ func DownloadDeez(w http.ResponseWriter, r *http.Request) {
 	queryValues := r.URL.Query()
 	query := queryValues.Get("q")
 	q := url.QueryEscape(query)
-	username := LoadEnv("username")
-	password := LoadEnv("password")
 	var wg sync.WaitGroup
 
 	wg.Add(1)
-	go DeezExe(q, username, password, w, r)
+	go DeezExe(q, w, r)
 	wg.Wait()
 	fmt.Fprintf(w, "Done")
 }
 
 // DeezExe go routine for Deezer decrypt execution
-func DeezExe(q, username, password string, w http.ResponseWriter, r *http.Request) {
+func DeezExe(q string, w http.ResponseWriter, r *http.Request) {
 	cmd := exec.Command(
-		"./go-decrypt-deezer.exe",
-		"--id", q,
-		"--username", username,
-		"--password", password)
+		"./deezer-dl",
+		"--id", q)
 	cmd.Stdout = w
 	err := cmd.Start()
 	if err != nil {

@@ -21,7 +21,7 @@ export default class NewPlaylist extends Component {
       error: [''],
     });
     PLAddSonghandler(event.target.value.length === 0);
-  }
+  };
 
   addPlaylist = () => {
     const { addPlaylisthandler, stateFromParent } = this.props;
@@ -43,7 +43,7 @@ export default class NewPlaylist extends Component {
         error: ['You must enter a name !'],
       });
     }
-  }
+  };
 
   render() {
     const { value, error } = this.state;
