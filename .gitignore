@@ -4,3 +4,5 @@ node_modules
 scripts
 build
 .vscode
+app/src/youtube-dl
+app/src/deezer-dl
