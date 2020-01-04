@@ -223,6 +223,9 @@ export default class MediaPlayer extends Component {
               max={1}
               step="any"
               value={played}
+              onTouchStart={this.onSeekMouseDown}
+              onTouchEnd={this.onSeekMouseUp}
+              onTouchMove={this.onSeekChange}
               onMouseDown={this.onSeekMouseDown}
               onChange={this.onSeekChange}
               onMouseUp={this.onSeekMouseUp}

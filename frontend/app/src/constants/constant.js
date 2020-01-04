@@ -15,7 +15,6 @@ export const FETCH_ERROR = 'FETCH_ERROR';
 export const FETCH_ERROR_YOU = 'FETCH_ERROR_YOU';
 export const FETCH_ERROR_DEEZ = 'FETCH_ERROR_DEEZ';
 export const FETCH_DEFAULT = 'FETCH_DEFAULT';
-export const API_KEY1 = 'AIzaSyB8R4Bqkx25_-c58L7v1QaLReVw1FWea28';
 export const GOOGLE_SUGGEST = 'https://suggestqueries.google.com/complete/search?client=firefox&ds=yt';
 export const ACOMPLETE_ERR = 'AUTOCOMPLETE_ERR';
 export const ACOMPLETE_SUC = 'AUTOCOMPLETE_SUCCESS';
