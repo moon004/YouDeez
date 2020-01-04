@@ -98,15 +98,13 @@ func DeezExe(q, usertoken string, w http.ResponseWriter, r *http.Request) {
 			// REMEMBER ./deezer-downloader for linux
 			"./deezer-downloader",
 			"--id", q,
-			"--getsize",
-			"--usertoken", usertoken)
+			"--getsize")
 		cmd.Stdout = w
 	} else {
 		cmd = exec.Command(
 			// REMEMBER ./deezer-downloader for linux
 			"./deezer-downloader",
-			"--id", q,
-			"--usertoken", usertoken)
+			"--id", q)
 		cmd.Stdout = w
 	}
 	err := cmd.Start()
