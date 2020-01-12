@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import ReactPlayer from 'react-player';
 import '../index.css';
 import { convertString, indOfObjDB } from '../utils/tools';
 import HNDLogo from '../assets/hndnewblack.svg';
+
 
 import {
   RepeatIcon,
@@ -12,6 +14,7 @@ import {
   PrevIcon,
   ShuffleIcon,
 } from '../styling/MyLibrary.style';
+import Search from './Search';
 
 export default class MediaPlayer extends Component {
   constructor() {
@@ -28,11 +31,11 @@ export default class MediaPlayer extends Component {
   // Add 'Global' listener for keyPress
 
   componentDidMount() {
-    document.addEventListener('keydown', this.handleKeyDown, false);
+    document.addEventListener('keydown', this.handleKeyPress, false);
   }
 
   componentWillUnmount() {
-    document.removeEventListener('keydown', this.handleKeyDown, false);
+    document.removeEventListener('keydown', this.handleKeyPress, false);
   }
 
   onSeekMouseDown = () => {
@@ -105,6 +108,26 @@ export default class MediaPlayer extends Component {
     this.setState({ playing: !playing });
   }
 
+  // Space pressed
+  handleKeyPress = (event) => {
+    // eslint-disable-next-line react/no-find-dom-node
+    if (document.activeElement === ReactDOM.findDOMNode(Search.inputRef)) {
+      console.log('is focused');
+    }
+    if (event.key === ' ') {
+      event.stopPropagation();
+      event.preventDefault();
+      console.log('space pressed');
+      this.playPause();
+    } else if (event.key === 'n') {
+      this.shuffleSong();
+    } else if (event.key === 'l') {
+      this.toggleLoop();
+    } else if (event.key === 's') {
+      this.toggleShuffle();
+    }
+  }
+
   nextSong = () => {
     // passedID is the Index of the song
     // passedID is NOT the Primary key
@@ -174,7 +197,7 @@ export default class MediaPlayer extends Component {
       playing, loop, played, playedSec, shuffle,
     } = this.state;
     return (
-      <div id="MediaPlayerMainDiv">
+      <div id="MediaPlayerMainDiv" onKeyDown={this.handleKeyPress}>
         <div id="DivMediaPlayer">
           <div style={{ width: '10em' }}>
             <PrevIcon onClick={this.prevSong} type="button" />
@@ -246,7 +269,6 @@ export default class MediaPlayer extends Component {
           loop={loop}
           height="0em"
           width="0em"
-          onKeyDown={this.handleKeyDown}
           onPause={this.onPause}
           onEnded={this.onEnded}
           onError={() => console.log('error loading audio')}

@@ -18,7 +18,6 @@ import {
 import {
   RegexpYou,
   RegexpDeez,
-  RegexpUserToken,
 } from '../utils/tools';
 
 const LogoComponent = ({ mediaType }) => (
@@ -57,12 +56,11 @@ class Media extends Component {
     super();
     this.handleClickDownload = this.handleClickDownload.bind(this);
     this.state = {
-      UsrToken: '',
       activate: false,
     };
   }
 
-  shouldComponentUpdate(nextprops, nextstate) {
+  shouldComponentUpdate(nextprops) {
     const {
       mediaObj: {
         MediaType,
@@ -77,13 +75,10 @@ class Media extends Component {
     if (MediaType === 'Deezer' && RegexpDeez(ID)) {
       return true;
     }
-    if (nextstate.UsrToken !== this.state.UsrToken) {
-      return true;
-    }
     return false;
   }
 
-  handleClickDownload = active => () => {
+  handleClickDownload = () => () => {
     const {
       onDownload,
       mediaObj: {
@@ -93,29 +88,15 @@ class Media extends Component {
         },
       },
     } = this.props;
-    const { UsrToken } = this.state;
     const downloadObject = {
       state: 'progress',
       Id: ID,
       songObj: songObject,
-      UserToken: UsrToken,
     };
-    if (songObject !== undefined && active) {
+    if (songObject !== undefined) {
       onDownload(downloadObject);
     }
-  }
-
-  handleChange = (event) => {
-    this.setState({
-      UsrToken: event.target.value,
-      activate: false,
-    });
-    if (RegexpUserToken(event.target.value)) {
-      this.setState({
-        activate: true,
-      });
-    }
-  }
+  };
 
   render() {
     const {
@@ -129,8 +110,7 @@ class Media extends Component {
         state,
       },
     } = this.props;
-    const { UsrToken, activate } = this.state;
-    const deezActivate = RegexpDeez(ID) && activate && state === 'idle';
+    const deezActivate = RegexpDeez(ID) && state === 'idle';
     const youActivate = RegexpYou(ID) && state === 'idle';
     return (
       <div className="MediaVidDiv">
@@ -152,23 +132,6 @@ class Media extends Component {
                 </DLButtonYou>
               ) : (
                 <div>
-                  <div className="DownloadInfo">
-                    <a
-                      id="UTQuestion"
-                      href="https://notabug.org/RemixDevs/DeezloaderRemix/wiki/Login+via+userToken"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      ?
-                    </a>
-                    <div id="UTText">User Token</div>
-                    <input
-                      id="UserToken"
-                      type="text"
-                      value={UsrToken}
-                      onChange={this.handleChange}
-                    />
-                  </div>
                   <DLButtonDeez
                     type="button"
                     className="DownloadButton"

@@ -74,7 +74,7 @@ export function updateDownloadAct(downloadObject, MainWrapper) {
     });
     axios.request({
       responseType: 'blob', //   just send user token to both youtube or deezer download
-      url: `${dynamicDNS}/api/download?q=${downloadObject.Id}&ut=${downloadObject.UserToken}`,
+      url: `${dynamicDNS}/api/download?q=${downloadObject.Id}&ut=download`,
       method: 'get',
       headers: {
         'content-type': 'audio/mp4',

@@ -28,6 +28,7 @@ class Search extends Component {
       value: '',
       searchDone: true,
       autoList: null,
+      focused: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.inputRef = React.createRef();
@@ -43,6 +44,14 @@ class Search extends Component {
     if (event.target.value.length > 0) {
       onGetAutoComp(event.target.value);
     }
+  }
+
+  onBlur = () => {
+    this.setState({ focused: true });
+  }
+
+  onFocus = () => {
+    this.setState({ focused: true });
   }
 
   // click on autocomeplete list
@@ -174,7 +183,6 @@ class Search extends Component {
           placeholder={fetchState}
           value={value}
           ref={this.inputRef}
-          onMouseEnter={() => { this.inputRef.current.focus(); }}
           popList={Array.isArray(autoCompData[1]) && autoCompData[1].length}
         />
         <ul id="searchListItem">
