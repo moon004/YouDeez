@@ -6,6 +6,8 @@ import {
 import {
   SEARCHING,
   SEARCHDONE,
+  BLURRED,
+  FOCUSED,
 } from '../constants/constant';
 
 const divStyle = {
@@ -34,7 +36,6 @@ class Search extends Component {
     this.inputRef = React.createRef();
   }
 
-
   handleChange = () => (event) => {
     const { onGetAutoComp } = this.props;
     this.setState({
@@ -47,14 +48,18 @@ class Search extends Component {
   }
 
   onBlur = () => {
-    this.setState({ focused: true });
+    console.log('blurred');
+    const { onInputFocus } = this.props;
+    onInputFocus(BLURRED);
   }
 
   onFocus = () => {
-    this.setState({ focused: true });
+    console.log('focused');
+    const { onInputFocus } = this.props;
+    onInputFocus(FOCUSED);
   }
 
-  // click on autocomeplete list
+  // click on autocomplete list
   handleClick = value => () => {
     const { onGetAutoComp, onSubmitSearch } = this.props;
     this.setState({}, () => {
@@ -117,6 +122,7 @@ class Search extends Component {
           cursor: -1,
         });
       } else if (event.key === 'Escape') {
+        // Send empty text to receive empty array
         onGetAutoComp('');
       }
     }
@@ -178,6 +184,8 @@ class Search extends Component {
           autoFocus
           id="searchInput"
           type="text"
+          onFocus={this.onFocus}
+          onBlur={this.onBlur}
           onChange={this.handleChange(value)}
           onKeyDown={this.handleKeyDown}
           placeholder={fetchState}

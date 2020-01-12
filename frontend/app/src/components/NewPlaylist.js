@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BLURRED, FOCUSED } from '../constants/constant';
 
 
 export default class NewPlaylist extends Component {
@@ -11,6 +12,18 @@ export default class NewPlaylist extends Component {
       error: [],
     };
     this.handlePLInput = this.handlePLInput.bind(this);
+  }
+
+  onBlur = () => {
+    console.log('blurred');
+    const { onInputFocus } = this.props;
+    onInputFocus(BLURRED);
+  }
+
+  onFocus = () => {
+    console.log('focused');
+    const { onInputFocus } = this.props;
+    onInputFocus(FOCUSED);
   }
 
   handlePLInput = () => (event) => {
@@ -59,6 +72,8 @@ export default class NewPlaylist extends Component {
           </button>
           <input
             type="text"
+            onFocus={this.onFocus}
+            onBlur={this.onBlur}
             placeholder="Enter playlist name"
             className="playListInput"
             onChange={this.handlePLInput()}

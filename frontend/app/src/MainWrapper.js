@@ -1,17 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { propTypes, defaultProps } from './props';
+import { defaultProps, propTypes } from './props';
 import {
-  updateMediaObjAct,
-  updateCurrentMediaAct,
-  updateDownloadAct,
-}
-  from './action/media-action';
-import {
-  fetchObjStartAct,
-  getAutoCompAct,
-} from './action/search-action';
-
+  updateCurrentMediaAct, updateDownloadAct, updateInputFocus, updateMediaObjAct,
+} from './action/media-action';
+import { fetchObjStartAct, getAutoCompAct } from './action/search-action';
 // import ResultObj from './Object';
 import './index.css';
 import './styling/media.scss';
@@ -27,6 +20,16 @@ import { callInitDB } from './utils/indexdb';
 // import Media from './components/Media';
 // import { RenderSearchOrLib } from './components/RetObject';
 
+/*
+  React-Redux guide, On this.FunctionCalled, will trigger
+  a dispatch of action in in one of mapActionsToProps.
+  For Example, onGetAutoComp, will first call this.onGetAutoComp
+  to trigger onGetAutoComp to dispatch an action,
+  which has a type and payload. An action will cause reducer of that type to get called.
+  After that, it comes to index.js, and then update the store and mapStateToProps will
+  gets called and update all the states, and hence this.props will cause a render on
+  the MainWrapper.js
+*/
 export class MainWrapper extends Component {
   static propTypes = propTypes
 
@@ -39,6 +42,7 @@ export class MainWrapper extends Component {
     this.onSubmitSearch = this.onSubmitSearch.bind(this);
     this.onGetAutoComp = this.onGetAutoComp.bind(this);
     this.clickDownload = this.clickDownload.bind(this);
+    this.onInputFocus = this.onInputFocus.bind(this);
     this.state = {
       blobUrl: '',
       PLArrayParent: [{
@@ -91,6 +95,12 @@ export class MainWrapper extends Component {
       });
     }
   };
+
+  // for updating input focus, main for shortcut to work well...
+  onInputFocus = (value) => {
+    const { onInputFocus } = this.props;
+    onInputFocus(value);
+  }
 
   onUpdateMediaObj = (value) => {
     const { onUpdateMediaObj } = this.props;
@@ -145,6 +155,7 @@ export class MainWrapper extends Component {
       apiReqState,
       autoComplete,
       downloadObject,
+      inputFocus,
     } = this.props;
     const {
       blobUrl, // For Playing the audio
@@ -160,6 +171,7 @@ export class MainWrapper extends Component {
         <div>
           <MainSideBar
             // For Search
+            onInputFocus={this.onInputFocus}
             onGetAutoComp={this.onGetAutoComp}
             onSubmitSearch={this.onSubmitSearch}
             autoComplete={autoComplete}
@@ -183,6 +195,7 @@ export class MainWrapper extends Component {
             <MediaPlayer
               url={blobUrl}
               PassedObj={songObject}
+              inputFocus={inputFocus}
               CurrentPL={PLArrayParent[currentPL].items}
               wholeDB={dbItem}
               playThis={this.handleThisSong}
@@ -200,10 +213,12 @@ const mapStateToProps = state => ({
   apiReqState: state.apiReqState,
   autoComplete: state.autoComplete,
   downloadObject: state.downloadObject,
+  inputFocus: state.inputFocus,
 });
 
 const mapActionsToProps = {
   onUpdateMediaObj: updateMediaObjAct,
+  onInputFocus: updateInputFocus,
   onUpdateCurrentMedia: updateCurrentMediaAct,
   onDownloadMedia: updateDownloadAct,
   onSubmitSearch: fetchObjStartAct,

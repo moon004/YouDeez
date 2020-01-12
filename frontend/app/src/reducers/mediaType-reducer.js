@@ -5,7 +5,7 @@ import {
   UPDATE_DOWNLOAD_FINISH,
   UPDATE_DOWNLOAD_ERR,
   DOWNLOAD_PROGRESS,
-  DOWNLOAD_PROGRESS_INIT,
+  DOWNLOAD_PROGRESS_INIT, ON_FOCUS,
 } from '../constants/constant';
 
 const initialMediaObject = {
@@ -59,6 +59,15 @@ export function mediaDownloadReducer(
     case DOWNLOAD_PROGRESS_INIT:
       return payload;
     case UPDATE_DOWNLOAD_ERR:
+      return payload;
+    default:
+      return state;
+  }
+}
+
+export function inputFocus(state = false, { type, payload }) {
+  switch (type) {
+    case ON_FOCUS:
       return payload;
     default:
       return state;

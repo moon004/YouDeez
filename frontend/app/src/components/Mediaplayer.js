@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import ReactPlayer from 'react-player';
 import '../index.css';
 import { convertString, indOfObjDB } from '../utils/tools';
@@ -14,7 +13,7 @@ import {
   PrevIcon,
   ShuffleIcon,
 } from '../styling/MyLibrary.style';
-import Search from './Search';
+import { FOCUSED } from '../constants/constant';
 
 export default class MediaPlayer extends Component {
   constructor() {
@@ -111,8 +110,11 @@ export default class MediaPlayer extends Component {
   // Space pressed
   handleKeyPress = (event) => {
     // eslint-disable-next-line react/no-find-dom-node
-    if (document.activeElement === ReactDOM.findDOMNode(Search.inputRef)) {
-      console.log('is focused');
+    const { inputFocus } = this.props;
+    // if focused, then disable hotkeys.
+    if (inputFocus === FOCUSED) {
+      console.log('inputFocus is ', inputFocus);
+      return;
     }
     if (event.key === ' ') {
       event.stopPropagation();

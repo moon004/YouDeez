@@ -17,6 +17,7 @@ import {
   mediaTypeReducer,
   mediaObjectReducer,
   mediaDownloadReducer,
+  inputFocus,
 } from './reducers/mediaType-reducer';
 import { SearchReducer, SACReducer } from './reducers/search-reducer';
 // initiailize IndexedDb, check if it's supported.
@@ -35,6 +36,7 @@ const allReducers = combineReducers({
   downloadObject: mediaDownloadReducer,
   apiReqState: SearchReducer,
   autoComplete: SACReducer, // SAC is Search Auto Complete
+  inputFocus,
 });
 
 const store = createStore(allReducers, applyMiddleware(thunk));

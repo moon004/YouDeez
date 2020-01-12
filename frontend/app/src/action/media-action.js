@@ -7,7 +7,7 @@ import {
   UPDATE_DOWNLOAD_FINISH,
   UPDATE_DOWNLOAD_ERR,
   DOWNLOAD_PROGRESS_INIT,
-  dynamicDNS,
+  dynamicDNS, ON_FOCUS,
 } from '../constants/constant';
 
 
@@ -17,6 +17,13 @@ export function updateCurrentMediaAct(currentMediaType) {
     payload: {
       mediaType: currentMediaType,
     },
+  };
+}
+
+export function updateInputFocus(inputFocusState) {
+  return {
+    type: ON_FOCUS,
+    payload: inputFocusState,
   };
 }
 

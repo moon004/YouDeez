@@ -207,6 +207,7 @@ class MyLibrary extends Component {
     return (
       <DivLib>
         <NewPlaylistInput
+          {...this.props}
           PLAddSonghandler={this.PLAddhandler}
           stateFromParent={this.props.MWparents.state}
           addPlaylisthandler={this.addPlaylisthandler}
