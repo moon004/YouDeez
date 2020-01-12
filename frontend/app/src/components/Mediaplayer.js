@@ -113,13 +113,11 @@ export default class MediaPlayer extends Component {
     const { inputFocus } = this.props;
     // if focused, then disable hotkeys.
     if (inputFocus === FOCUSED) {
-      console.log('inputFocus is ', inputFocus);
       return;
     }
     if (event.key === ' ') {
       event.stopPropagation();
       event.preventDefault();
-      console.log('space pressed');
       this.playPause();
     } else if (event.key === 'n') {
       this.shuffleSong();
