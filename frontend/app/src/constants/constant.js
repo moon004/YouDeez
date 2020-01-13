@@ -40,3 +40,6 @@ export var dynamicDNS = 'http://localhost:8888';
 if (process.env.NODE_ENV !== 'development') {
   dynamicDNS = process.env.REACT_APP_amazonDNS;
 }
+
+export const ARROW_RIGHT = 'ArrowRight';
+export const ARROW_LEFT = 'ArrowLeft';

@@ -13,7 +13,7 @@ import {
   PrevIcon,
   ShuffleIcon,
 } from '../styling/MyLibrary.style';
-import { FOCUSED } from '../constants/constant';
+import { ARROW_LEFT, ARROW_RIGHT, FOCUSED } from '../constants/constant';
 
 export default class MediaPlayer extends Component {
   constructor() {
@@ -125,6 +125,16 @@ export default class MediaPlayer extends Component {
       this.toggleLoop();
     } else if (event.key === 's') {
       this.toggleShuffle();
+    } else if (event.key === ARROW_RIGHT || event.key === ARROW_LEFT) {
+      event.preventDefault();
+      const { playing, played } = this.state;
+      if (playing && event.key === ARROW_RIGHT) {
+        this.player.seekTo(parseFloat(played + 0.02));
+      }
+      if (playing && event.key === ARROW_LEFT) {
+        this.player.seekTo(parseFloat(played - 0.02));
+      }
+      this.setState({ seeking: false });
     }
   }
 
@@ -190,7 +200,7 @@ export default class MediaPlayer extends Component {
         passedID,
         passedSongTitle,
         passedImg,
-        passsedDur,
+        passedDur,
       },
     } = this.props;
     const {
@@ -227,7 +237,7 @@ export default class MediaPlayer extends Component {
                     {`${convertString(playedSec)}`}
                   </div>
                   <div>
-                    {` / ${convertString(passsedDur)}`}
+                    {` / ${convertString(passedDur)}`}
                   </div>
                 </div>)}
             </div>
@@ -269,6 +279,7 @@ export default class MediaPlayer extends Component {
           loop={loop}
           height="0em"
           width="0em"
+          progressInterval={100}
           onPause={this.onPause}
           onEnded={this.onEnded}
           onError={() => console.log('error loading audio')}
