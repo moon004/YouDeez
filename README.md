@@ -10,12 +10,13 @@
  
 > YouDeez is an offline-first PWA that enables you to enjoy premium music for free without ads.
 
-Visit the PWA on http://hopesndreams.s3-website.ap-northeast-1.amazonaws.com/
+Visit the PWA on https://youdeez.s3.us-east-2.amazonaws.com/index.html.
+Visit the mobile version on http://youdeezmobile.s3.us-east-2.amazonaws.com/index.html
 
 ## Overview
 YouDeez (Youtube + Deezer) allows you to download music/songs from both Youtube and Deezer (320kbps) library and cache it locally, and enjoy it even without internet connection.
 
-Now you dont have to use Youtube converter to get the audio file anymore! Youdeez will serve the best audio quality of the video, this PWA is mobile supported, just visit [youdeez.tk](http://hopesndreams.s3-website.ap-northeast-1.amazonaws.com/) and the content will be cached locally. It is suggested that you ([add YouDeez to homescreen](https://www.howtogeek.com/196087/how-to-add-websites-to-the-home-screen-on-any-smartphone-or-tablet/))
+Now you dont have to use Youtube converter to get the audio file anymore! Youdeez will serve the best audio quality of the video, this PWA is mobile supported, just visit https://youdeez.s3.us-east-2.amazonaws.com/index.html and the content will be cached locally. It is suggested that you ([add YouDeez to homescreen](https://www.howtogeek.com/196087/how-to-add-websites-to-the-home-screen-on-any-smartphone-or-tablet/))
 
 ***
 ## Build (For developer)

@@ -58,6 +58,8 @@ const itemList = (parent) => {
               textOverflow: 'ellipsis',
               overflow: 'hidden',
               whiteSpace: 'nowrap',
+              minWidth: '0',
+              maxWidth: '97%',
             }}
             >
               {songTitle}

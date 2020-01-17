@@ -41,6 +41,7 @@ export const PLbutton = styled.div`
 export const DivObjTitle = styled.div`
   display: flex;
   flex-direction: column;
+  min-width:0;
   width: 100%;
 `;
 
