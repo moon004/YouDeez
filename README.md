@@ -10,7 +10,7 @@
  
 > YouDeez is an offline-first PWA that enables you to enjoy premium music for free without ads.
 
-Visit the PWA on [youdeez.tk](http://hopesndreams.s3-website.ap-northeast-1.amazonaws.com/).
+Visit the PWA on http://hopesndreams.s3-website.ap-northeast-1.amazonaws.com/
 
 ## Overview
 YouDeez (Youtube + Deezer) allows you to download music/songs from both Youtube and Deezer (320kbps) library and cache it locally, and enjoy it even without internet connection.
@@ -47,20 +47,6 @@ When it's done, run **npm start** to start the development mode.
 
 >View the code on Mainwrapper.js to get started on the codebase.
 
-### Docker
-Or You could build the docker image and run the container with the following:
-At frontend/app, where the Dockerfile is located.
-```sh
-docker build -t image-name -f Dockerfile .
-docker run --rm -p 5050:5050 image-name
-```
-
-and it will be serve on **localhost:5050**
-
-normal npm method is suggested over Docker...
-
-That's it,  happy tinkering!
-
 ***
 ## More About YouDeez
 The Restful backend was written in Golang with ([Go-chi](https://github.com/go-chi/chi)) router package. The frontend is powered by Javascript with React library, and redux library is used as state management.
@@ -74,5 +60,3 @@ All the Downloaded audio will be cached into [Indexed db](https://developer.mozi
 ## Contribute to YouDeez
 
 Any issues are welcome, if you are sending pull request, make sure to include test files :blush:, this project obeys the ([Airbnb coding style](https://github.com/airbnb/javascript)), well not entirely, standard style is accepted. Please do not hesitate to drop me a mail at herodotus94@gmail.com.
-
-### I apologize in advance because the not yet been refactor by me, as I'm quite busy with my other work. Thank you for your time. I'm all for making the world a better place...
