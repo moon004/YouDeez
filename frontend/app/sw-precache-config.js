@@ -3,7 +3,7 @@ module.exports = {
     'build/static/css/**.css',
     'build/static/js/**.js',
   ],
-  swFilePath: './build/service-worker.js',
+  swFilePath: './build/service-worker-custom.js',
   stripPrefix: 'build/',
   importScripts: (['./service-worker-custom.js']),
   handleFetch: false,

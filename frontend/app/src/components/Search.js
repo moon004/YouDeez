@@ -48,13 +48,11 @@ class Search extends Component {
   }
 
   onBlur = () => {
-    console.log('blurred');
     const { onInputFocus } = this.props;
     onInputFocus(BLURRED);
   }
 
   onFocus = () => {
-    console.log('focused');
     const { onInputFocus } = this.props;
     onInputFocus(FOCUSED);
   }

@@ -8,6 +8,7 @@
 // To learn more about the benefits of this model, read https://goo.gl/KwvDNy.
 // This link also includes instructions on opting out of this behavior.
 
+// eslint-disable-next-line no-unused-vars
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost'
     // [::1] is the IPv6 localhost address.
@@ -52,6 +53,7 @@ function registerValidSW(swUrl, config) {
     });
 }
 
+// eslint-disable-next-line no-unused-vars
 function checkValidServiceWorker(swUrl, config) {
   // Check if the service worker can be found. If it can't reload the page.
   fetch(swUrl)
@@ -93,17 +95,17 @@ export function register(config) {
 
     window.addEventListener('load', () => {
       const swUrl = `${process.env.PUBLIC_URL}/service-worker-custom.js`;
-
-      if (isLocalhost) {
-        // This is running on localhost. Let's check if a service worker still exists or not.
-        checkValidServiceWorker(swUrl, config);
-
-        // Add some additional logging to localhost, pointing developers to the
-        // service worker/PWA documentation.
-      } else {
-        // Is not local host. Just register service worker
-        registerValidSW(swUrl, config);
-      }
+      registerValidSW(swUrl, config);
+      // if (isLocalhost) {
+      //   // This is running on localhost. Let's check if a service worker still exists or not.
+      //   checkValidServiceWorker(swUrl, config);
+      //
+      //   // Add some additional logging to localhost, pointing developers to the
+      //   // service worker/PWA documentation.
+      // } else {
+      //   // Is not local host. Just register service worker
+      //   registerValidSW(swUrl, config);
+      // }
     });
   }
 }

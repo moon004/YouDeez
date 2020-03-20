@@ -31,7 +31,9 @@ self.addEventListener('fetch', (e) => {
         const resClone = res.clone();
         caches.open(cacheName)
           .then((cache) => {
-            cache.put(e.request, resClone);
+            if ((e.request.url.indexOf('http') === 0) || (e.request.url.indexOf('https') === 0)) {
+              cache.put(e.request, resClone);
+            }
           });
         return res;
       }).catch(() => caches.match(e.request).then(res => res)),
