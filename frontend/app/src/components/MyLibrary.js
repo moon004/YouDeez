@@ -257,10 +257,20 @@ class MyLibrary extends Component {
       PLArrayParent,
       PLAddSongArr,
     } = this.state;
-    PLArrayParent.push({
-      name: addDot(PLname, 17),
-      items: tmpPLArray,
+    let isNewPL = true;
+    const plName = addDot(PLname, 12);
+    PLArrayParent.forEach((playList) => {
+      if (playList.name === plName) {
+        playList.items.push(...tmpPLArray);
+        isNewPL = false;
+      }
     });
+    if (isNewPL) {
+      PLArrayParent.push({
+        name: plName,
+        items: tmpPLArray,
+      });
+    }
     PLAddSongArr.fill(true);
     this.setState({
       PLArrayParent,
@@ -399,7 +409,7 @@ class MyLibrary extends Component {
           renderThumbVertical={this.renderThumb}
           renderThumbHorizontal={this.renderHorThumb}
           autoHide
-          style={{ height: 300 }}
+          style={{ height: 800 }}
           thumbMinSize={30}
         >
           {songList[0] === undefined ? (
