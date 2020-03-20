@@ -169,22 +169,38 @@ class MyLibrary extends Component {
     }
   }
 
+  /*
+  0:
+    name: "sad"
+    items: [2]
+    __proto__: Object
+   */
   addPlaylisthandler = (PLname) => {
     const {
       tmpPLArray,
       PLArrayParent,
       PLAddSongArr,
     } = this.props.MWparents.state;
-    PLArrayParent.push({
-      name: addDot(PLname, 12),
-      items: tmpPLArray,
+    let isNewPL = true;
+    const plName = addDot(PLname, 12);
+    PLArrayParent.forEach((playList) => {
+      if (playList.name === plName) {
+        playList.items.push(...tmpPLArray);
+        isNewPL = false;
+      }
     });
+    if (isNewPL) {
+      PLArrayParent.push({
+        name: plName,
+        items: tmpPLArray,
+      });
+    }
     PLAddSongArr.fill(true);
     this.props.MWparents.setState({
       PLArrayParent,
       tmpPLArray: [],
       PLAddSongArr,
-      PLAddSong: true,
+      PLAddSong: true, // true meaning on adding song mode
     });
     addToDBPL(PLArrayParent);
   }
