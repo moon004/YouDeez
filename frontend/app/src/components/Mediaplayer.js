@@ -125,6 +125,10 @@ export default class MediaPlayer extends Component {
       this.toggleLoop();
     } else if (event.key === 's') {
       this.toggleShuffle();
+    } else if (event.key === ',') {
+      this.prevSong();
+    } else if (event.key === '.') {
+      this.nextSong();
     } else if (event.key === ARROW_RIGHT || event.key === ARROW_LEFT) {
       event.preventDefault();
       const { playing, played } = this.state;
