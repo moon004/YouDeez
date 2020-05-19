@@ -58,7 +58,7 @@ func (Yres *YResources) GetYtube(w http.ResponseWriter, r *http.Request) {
 	for _, item := range payload.Items {
 		youtubeId = append(youtubeId, item.ID.VideoId)
 	}
-	IDList := url.QueryEscape(strings.Join(youtubeId, ", "))
+	IDList := url.QueryEscape(strings.Join(youtubeId, ","))
 	urlStr := "https://www.googleapis.com/youtube/v3/videos?part=contentDetails,statistics,snippet&id=%s&key=%v"
 	ConStatsURL := fmt.Sprintf(urlStr, IDList, DevKey)
 	wg.Add(1)
@@ -141,7 +141,7 @@ func LoadEnv(str string) (value string) {
 	// Comment out the godotenv for CI to work
 	err := godotenv.Load()
 	if err != nil {
-		log.Fatal("Error loading .env file")
+		log.Fatal(err)
 	}
 	value = os.Getenv(str)
 	return
