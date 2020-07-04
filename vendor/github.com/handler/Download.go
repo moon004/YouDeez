@@ -94,12 +94,7 @@ func DeezExe(q, usertoken string, w http.ResponseWriter, r *http.Request) {
 	var cmd *exec.Cmd
 
 	if usertoken == "getsize" {
-		cmd = exec.Command(
-			// REMEMBER ./deezer-downloader for linux
-			"./deezer-dl",
-			"--id", q,
-			"--getsize")
-		cmd.Stdout = w
+		w.Write([]byte(1))
 	} else {
 		cmd = exec.Command(
 			// REMEMBER ./deezer-downloader for linux
